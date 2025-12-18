@@ -1,7 +1,48 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\visual-studio-programs\\-Smart-Logistics-Fleet-Management-System\\SLFM\\",
-  "Documents": [],
+  "WorkspaceRootPath": "D:\\visual-studio-programs\\SLFM\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\events\\vehiclestatuschangedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\events\\vehiclestatuschangedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\rules\\vehiclemustbeavailablerule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\rules\\vehiclemustbeavailablerule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\maintenancerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\maintenancerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\iaudiatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\iaudiatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\isoftdeletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\isoftdeletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\baseentity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\domainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\domainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +50,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -18,6 +59,131 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VehicleStatusChangedEvent.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
+              "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
+              "RelativeToolTip": "Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T23:07:52.331Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VehicleMustBeAvailableRule.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
+              "RelativeDocumentMoniker": "Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
+              "RelativeToolTip": "Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T23:06:15.787Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Driver.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Driver.cs",
+              "RelativeDocumentMoniker": "Domain\\Fleet\\Driver.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Driver.cs",
+              "RelativeToolTip": "Domain\\Fleet\\Driver.cs",
+              "ViewState": "AgIAABUAAACAHTMzMzMDwCAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:58:24.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MaintenanceRecord.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\MaintenanceRecord.cs",
+              "RelativeDocumentMoniker": "Domain\\Fleet\\MaintenanceRecord.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\MaintenanceRecord.cs",
+              "RelativeToolTip": "Domain\\Fleet\\MaintenanceRecord.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAA5wBIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:52:36.81Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Vehicle.cs",
+              "RelativeDocumentMoniker": "Domain\\Fleet\\Vehicle.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Vehicle.cs",
+              "RelativeToolTip": "Domain\\Fleet\\Vehicle.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAAqwCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:35:00.19Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ISoftDeletable.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\ISoftDeletable.cs",
+              "RelativeDocumentMoniker": "Domain\\Common\\ISoftDeletable.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\ISoftDeletable.cs",
+              "RelativeToolTip": "Domain\\Common\\ISoftDeletable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:29:25.452Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IAudiatable.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\IAudiatable.cs",
+              "RelativeDocumentMoniker": "Domain\\Common\\IAudiatable.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\IAudiatable.cs",
+              "RelativeToolTip": "Domain\\Common\\IAudiatable.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:26:14.869Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AggregateRoot.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\AggregateRoot.cs",
+              "RelativeDocumentMoniker": "Domain\\Common\\AggregateRoot.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\AggregateRoot.cs",
+              "RelativeToolTip": "Domain\\Common\\AggregateRoot.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAIBXPRAAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:12:34.02Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DomainEvent.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\DomainEvent.cs",
+              "RelativeDocumentMoniker": "Domain\\Common\\DomainEvent.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\DomainEvent.cs",
+              "RelativeToolTip": "Domain\\Common\\DomainEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:11:46.39Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseEntity.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\BaseEntity.cs",
+              "RelativeDocumentMoniker": "Domain\\Common\\BaseEntity.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\BaseEntity.cs",
+              "RelativeToolTip": "Domain\\Common\\BaseEntity.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-18T22:11:00.818Z"
             }
           ]
         }

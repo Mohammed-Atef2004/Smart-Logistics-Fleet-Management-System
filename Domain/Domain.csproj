@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Fleet\" />
     <Folder Include="Billing\" />
     <Folder Include="Enums\" />
     <Folder Include="Interfaces\Services\" />
