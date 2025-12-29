@@ -2,6 +2,7 @@
 using Domain.Enums;
 using Domain.Shipment.Events;
 using Domain.Shipment.Rules;
+using Domain.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

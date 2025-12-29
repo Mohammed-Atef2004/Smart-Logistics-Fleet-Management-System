@@ -3,6 +3,98 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\SLFM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\valueobjects\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\email.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\valueobjects\\phonenumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\phonenumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\valueobjects\\geocoordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\geocoordinate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\money.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\valueobjects\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\valueobjects\\route.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\valueobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\valueobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\enums\\roletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\roletype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\enums\\notificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\notificationtype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\enums\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\paymentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\enums\\shipmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\shipmentstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\enums\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\enums\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\events\\shipmentdeliveredevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\events\\shipmentdeliveredevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\events\\shipmentstatusupdatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\events\\shipmentstatusupdatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\events\\shipmentcreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\events\\shipmentcreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\events\\vehiclestatuschangedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\events\\vehiclestatuschangedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\rules\\shipmentcannotbedeliveredtwicerule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\rules\\shipmentcannotbedeliveredtwicerule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\ibusinessrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\ibusinessrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\trackingupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\trackingupdate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\shipmentcreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\shipmentcreatedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\shipment\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\package.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -35,16 +127,8 @@
       "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\events\\vehiclestatuschangedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\events\\vehiclestatuschangedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\fleet\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\fleet\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\common\\domainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -94,7 +178,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -106,7 +190,280 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Email.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Email.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\Email.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Email.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\Email.cs",
+              "ViewState": "AgIAABYAAADgzMzMzMwywBsAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:40:47.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "PhoneNumber.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\PhoneNumber.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\PhoneNumber.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\PhoneNumber.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\PhoneNumber.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAwvQsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:39:42.551Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GeoCoordinate.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\GeoCoordinate.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\GeoCoordinate.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\GeoCoordinate.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\GeoCoordinate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:38:59.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Money.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Money.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\Money.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Money.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\Money.cs",
+              "ViewState": "AgIAAAsAAAAwNDMzMzMpwAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:38:12.888Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Address.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Address.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\Address.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Address.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\Address.cs",
+              "ViewState": "AgIAAAoAAABAZmZmZmYkwAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:37:06.34Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ValueObject.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\ValueObject.cs",
+              "RelativeDocumentMoniker": "Domain\\Common\\ValueObject.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\ValueObject.cs",
+              "RelativeToolTip": "Domain\\Common\\ValueObject.cs",
+              "ViewState": "AgIAAAwAAACAmZmZmZk6wBUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:35:31.539Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RoleType.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\RoleType.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\RoleType.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\RoleType.cs",
+              "RelativeToolTip": "Domain\\Enums\\RoleType.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAgwAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:31:09.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "NotificationType.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\NotificationType.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\NotificationType.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\NotificationType.cs",
+              "RelativeToolTip": "Domain\\Enums\\NotificationType.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:30:42.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "PaymentStatus.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\PaymentStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\PaymentStatus.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\PaymentStatus.cs",
+              "RelativeToolTip": "Domain\\Enums\\PaymentStatus.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwAsAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:30:11.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ShipmentStatus.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\ShipmentStatus.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\ShipmentStatus.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\ShipmentStatus.cs",
+              "RelativeToolTip": "Domain\\Enums\\ShipmentStatus.cs",
+              "ViewState": "AgIAAAQAAABAZmZmZmYswA0AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:29:37.759Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\Class1.cs",
+              "RelativeDocumentMoniker": "Domain\\Enums\\Class1.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\Class1.cs",
+              "RelativeToolTip": "Domain\\Enums\\Class1.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAQwAsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:29:04.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ShipmentDeliveredEvent.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Events\\ShipmentDeliveredEvent.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\Events\\ShipmentDeliveredEvent.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Events\\ShipmentDeliveredEvent.cs",
+              "RelativeToolTip": "Domain\\Shipment\\Events\\ShipmentDeliveredEvent.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:27:06.229Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "ShipmentStatusUpdatedEvent.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Events\\ShipmentStatusUpdatedEvent.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\Events\\ShipmentStatusUpdatedEvent.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Events\\ShipmentStatusUpdatedEvent.cs",
+              "RelativeToolTip": "Domain\\Shipment\\Events\\ShipmentStatusUpdatedEvent.cs",
+              "ViewState": "AgIAAAgAAAAg/f////8PwA4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:26:21.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ShipmentCreatedEvent.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Events\\ShipmentCreatedEvent.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\Events\\ShipmentCreatedEvent.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Events\\ShipmentCreatedEvent.cs",
+              "RelativeToolTip": "Domain\\Shipment\\Events\\ShipmentCreatedEvent.cs",
+              "ViewState": "AgIAAAMAAAAgMjMzMzMbwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:23:39.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "ShipmentCannotBeDeliveredTwiceRule.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Rules\\ShipmentCannotBeDeliveredTwiceRule.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\Rules\\ShipmentCannotBeDeliveredTwiceRule.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Rules\\ShipmentCannotBeDeliveredTwiceRule.cs",
+              "RelativeToolTip": "Domain\\Shipment\\Rules\\ShipmentCannotBeDeliveredTwiceRule.cs",
+              "ViewState": "AgIAAAwAAACgmZmZmZklwBQAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:19:16.156Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "IBusinessRule.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\IBusinessRule.cs",
+              "RelativeDocumentMoniker": "Domain\\Common\\IBusinessRule.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\IBusinessRule.cs",
+              "RelativeToolTip": "Domain\\Common\\IBusinessRule.cs",
+              "ViewState": "AgIAAAMAAABAMjMzMzMbwAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T21:11:13.845Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "TrackingUpdate.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\TrackingUpdate.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\TrackingUpdate.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\TrackingUpdate.cs",
+              "RelativeToolTip": "Domain\\Shipment\\TrackingUpdate.cs",
+              "ViewState": "AgIAAAgAAAAgZmZmZmYkwAwAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T20:55:06.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Route.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Route.cs",
+              "RelativeDocumentMoniker": "Domain\\ValueObjects\\Route.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\ValueObjects\\Route.cs",
+              "RelativeToolTip": "Domain\\ValueObjects\\Route.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T20:54:10.755Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ShipmentCreatedEvent.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\ShipmentCreatedEvent.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\ShipmentCreatedEvent.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\ShipmentCreatedEvent.cs",
+              "RelativeToolTip": "Domain\\Shipment\\ShipmentCreatedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T20:52:39.917Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "Package.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Package.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\Package.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Package.cs",
+              "RelativeToolTip": "Domain\\Shipment\\Package.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAswA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T20:52:05.437Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Shipment.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Shipment.cs",
+              "RelativeDocumentMoniker": "Domain\\Shipment\\Shipment.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Shipment\\Shipment.cs",
+              "RelativeToolTip": "Domain\\Shipment\\Shipment.cs",
+              "ViewState": "AgIAABQAAACAPDMzMzMfwBAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-23T20:51:27.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
@@ -114,25 +471,24 @@
               "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
               "ViewState": "AgIAAAUAAAAAZmZmZmYwwAkAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T23:14:18.492Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T23:14:18.492Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 23,
               "Title": "IUserRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IUserRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IUserRepository.cs",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IUserRepository.cs",
               "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IUserRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABIAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-19T23:12:45.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 25,
               "Title": "CreateUserHandler.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Users\\Commands\\CreateUserHandler.cs",
               "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\CreateUserHandler.cs",
@@ -140,12 +496,11 @@
               "RelativeToolTip": "Application\\Features\\Users\\Commands\\CreateUserHandler.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAALAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T22:55:11.166Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T22:55:11.166Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 26,
               "Title": "CreateUserCommand.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Users\\Commands\\CreateUserCommand.cs",
               "RelativeDocumentMoniker": "Application\\Features\\Users\\Commands\\CreateUserCommand.cs",
@@ -153,12 +508,11 @@
               "RelativeToolTip": "Application\\Features\\Users\\Commands\\CreateUserCommand.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T22:49:19.33Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T22:49:19.33Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 36,
               "Title": "UserMustHaveUniqueEmailRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Users\\Rules\\UserMustHaveUniqueEmailRule.cs",
               "RelativeDocumentMoniker": "Domain\\Users\\Rules\\UserMustHaveUniqueEmailRule.cs",
@@ -166,12 +520,11 @@
               "RelativeToolTip": "Domain\\Users\\Rules\\UserMustHaveUniqueEmailRule.cs",
               "ViewState": "AgIAAAUAAADw//////8twBIAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T22:22:33.936Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T22:22:33.936Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 35,
               "Title": "UserPasswordChangedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Users\\Events\\UserPasswordChangedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Users\\Events\\UserPasswordChangedEvent.cs",
@@ -179,12 +532,11 @@
               "RelativeToolTip": "Domain\\Users\\Events\\UserPasswordChangedEvent.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAwA4AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T22:20:49.244Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T22:20:49.244Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 34,
               "Title": "UserRoleAssignedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Users\\Events\\UserRoleAssignedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Users\\Events\\UserRoleAssignedEvent.cs",
@@ -192,12 +544,11 @@
               "RelativeToolTip": "Domain\\Users\\Events\\UserRoleAssignedEvent.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAwAsAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T22:19:17.806Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T22:19:17.806Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 33,
               "Title": "Role.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Users\\Role.cs",
               "RelativeDocumentMoniker": "Domain\\Users\\Role.cs",
@@ -205,12 +556,11 @@
               "RelativeToolTip": "Domain\\Users\\Role.cs",
               "ViewState": "AgIAAA4AAAAA5jIzMzPzvxAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T22:04:38.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T22:04:38.569Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 37,
               "Title": "PasswordStrengthRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Users\\Rules\\PasswordStrengthRule.cs",
               "RelativeDocumentMoniker": "Domain\\Users\\Rules\\PasswordStrengthRule.cs",
@@ -218,12 +568,11 @@
               "RelativeToolTip": "Domain\\Users\\Rules\\PasswordStrengthRule.cs",
               "ViewState": "AgIAAAQAAACg//////8hwBAAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:41:55.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:41:55.456Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 28,
               "Title": "UserCreatedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Users\\Events\\UserCreatedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Users\\Events\\UserCreatedEvent.cs",
@@ -231,12 +580,11 @@
               "RelativeToolTip": "Domain\\Users\\Events\\UserCreatedEvent.cs",
               "ViewState": "AgIAAAoAAAAAEDMzMzPjvw8AAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:40:53.85Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:40:53.85Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 27,
               "Title": "ApplicationUser.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Users\\ApplicationUser.cs",
               "RelativeDocumentMoniker": "Domain\\Users\\ApplicationUser.cs",
@@ -244,25 +592,24 @@
               "RelativeToolTip": "Domain\\Users\\ApplicationUser.cs",
               "ViewState": "AgIAABgAAAAwmJmZmRkzwCIAAABMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-19T21:38:10.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-19T21:38:10.581Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "VehicleStatusChangedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
               "RelativeToolTip": "Domain\\Fleet\\Events\\VehicleStatusChangedEvent.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-18T23:07:52.331Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 38,
               "Title": "VehicleMustBeAvailableRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
@@ -270,12 +617,11 @@
               "RelativeToolTip": "Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T23:06:15.787Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T23:06:15.787Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 31,
               "Title": "Driver.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Driver.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Driver.cs",
@@ -283,12 +629,11 @@
               "RelativeToolTip": "Domain\\Fleet\\Driver.cs",
               "ViewState": "AgIAAAQAAADgMjMzMzMrwAsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T22:58:24.569Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T22:58:24.569Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 29,
               "Title": "MaintenanceRecord.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\MaintenanceRecord.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\MaintenanceRecord.cs",
@@ -296,12 +641,11 @@
               "RelativeToolTip": "Domain\\Fleet\\MaintenanceRecord.cs",
               "ViewState": "AgIAAAoAAAAAAAAAAAAgwBMAAABsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T22:52:36.81Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T22:52:36.81Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 30,
               "Title": "Vehicle.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Vehicle.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Vehicle.cs",
@@ -309,12 +653,11 @@
               "RelativeToolTip": "Domain\\Fleet\\Vehicle.cs",
               "ViewState": "AgIAAB4AAABwzMzMzIwrwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T22:35:00.19Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T22:35:00.19Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 40,
               "Title": "ISoftDeletable.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\ISoftDeletable.cs",
               "RelativeDocumentMoniker": "Domain\\Common\\ISoftDeletable.cs",
@@ -322,12 +665,11 @@
               "RelativeToolTip": "Domain\\Common\\ISoftDeletable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T22:29:25.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T22:29:25.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 39,
               "Title": "IAudiatable.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\IAudiatable.cs",
               "RelativeDocumentMoniker": "Domain\\Common\\IAudiatable.cs",
@@ -335,25 +677,24 @@
               "RelativeToolTip": "Domain\\Common\\IAudiatable.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T22:26:14.869Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T22:26:14.869Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "AggregateRoot.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\AggregateRoot.cs",
               "RelativeDocumentMoniker": "Domain\\Common\\AggregateRoot.cs",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\AggregateRoot.cs",
               "RelativeToolTip": "Domain\\Common\\AggregateRoot.cs",
-              "ViewState": "AgIAAAkAAADAl5mZmZklwAwAAABbAAAAAAAAAA==",
+              "ViewState": "AgIAAA0AAAAgzczMzMwmwBgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-12-18T22:12:34.02Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 32,
               "Title": "DomainEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\DomainEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Common\\DomainEvent.cs",
@@ -361,12 +702,11 @@
               "RelativeToolTip": "Domain\\Common\\DomainEvent.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T22:11:46.39Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T22:11:46.39Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 41,
               "Title": "BaseEntity.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Common\\BaseEntity.cs",
               "RelativeDocumentMoniker": "Domain\\Common\\BaseEntity.cs",
@@ -374,8 +714,7 @@
               "RelativeToolTip": "Domain\\Common\\BaseEntity.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-12-18T22:11:00.818Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-18T22:11:00.818Z"
             }
           ]
         }
