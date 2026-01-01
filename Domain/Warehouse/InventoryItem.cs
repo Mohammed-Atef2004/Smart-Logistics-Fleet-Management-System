@@ -1,50 +1,53 @@
 ﻿using Domain.Common;
+using Domain.Exceptions;
 using Domain.ValueObjects;
 using Domain.Warehouse.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.Warehouse.Rules;
 
-namespace Domain.Warehouse
+public class InventoryItem : AggregateRoot
 {
-    public class InventoryItem : AggregateRoot
+    public string Name { get; private set; }
+    public int Quantity { get; private set; }
+    public StorageLocation Location { get; private set; }
+
+    private InventoryItem() { }
+
+    public InventoryItem(string name, int quantity, StorageLocation location)
     {
-        public string Name { get; private set; }
-        public int Quantity { get; private set; }
-        public StorageLocation Location { get; private set; }
+        CheckRule(new InventoryNameRequiredRule(name));
+        CheckRule(new InventoryQuantityCannotBeNegativeRule(quantity));
+        CheckRule(new StorageLocationRequiredRule(location));
 
-        private InventoryItem() { } // EF
+        Name = name;
+        Quantity = quantity;
+        Location = location;
+    }
 
-        public InventoryItem(string name, int quantity, StorageLocation location)
-        {
-            Name = name;
-            Quantity = quantity;
-            Location = location;
-        }
+    public void Move(StorageLocation newLocation)
+    {
+        CheckRule(new StorageLocationRequiredRule(newLocation));
+        CheckRule(new DifferentLocationRule(Location, newLocation));
 
-        public void Move(StorageLocation newLocation)
-        {
-            var oldLocation = Location;
-            Location = newLocation;
+        var oldLocation = Location;
+        Location = newLocation;
 
-            AddDomainEvent(
-                new InventoryMovedEvent(Id, oldLocation, newLocation)
-            );
-        }
+        AddDomainEvent(
+            new InventoryMovedEvent(Id, oldLocation, newLocation)
+        );
+    }
 
-        public void IncreaseQuantity(int amount)
-        {
-            Quantity += amount;
-        }
+    public void IncreaseQuantity(int amount)
+    {
+        CheckRule(new PositiveAmountRule(amount));
 
-        public void DecreaseQuantity(int amount)
-        {
-            if (Quantity - amount < 0)
-                throw new DomainException("Insufficient inventory.");
+        Quantity += amount;
+    }
 
-            Quantity -= amount;
-        }
+    public void DecreaseQuantity(int amount)
+    {
+        CheckRule(new PositiveAmountRule(amount));
+        CheckRule(new SufficientInventoryRule(Quantity, amount));
+
+        Quantity -= amount;
     }
 }

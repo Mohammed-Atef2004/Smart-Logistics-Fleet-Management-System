@@ -1,22 +1,14 @@
 ﻿using Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.Shipment.Events
+namespace Domain.Shipment
 {
-
-    // Change from 'record' to 'class' to allow inheritance from DomainEvent (which is a class, not a record)
-    public class ShipmentCreatedEvent : DomainEvent
+    internal class ShipmentCreatedEvent : DomainEvent
     {
         public Guid ShipmentId { get; }
 
-        public ShipmentCreatedEvent(Guid shipmentId)
+        public ShipmentCreatedEvent(Guid id)
         {
-            ShipmentId = shipmentId;
+            this.ShipmentId = id;
         }
     }
-
 }

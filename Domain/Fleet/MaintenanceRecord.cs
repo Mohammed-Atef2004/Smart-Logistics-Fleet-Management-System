@@ -16,6 +16,7 @@ namespace Domain.Fleet
         // Relationship
         public Guid VehicleId { get; private set; }
         public Vehicle Vehicle { get; private set; }
+        private MaintenanceRecord() { } // For EF
 
         public MaintenanceRecord(DateTime maintenanceDate, string description, decimal cost, Vehicle vehicle)
         {

@@ -13,7 +13,7 @@ namespace Domain.ValueObjects
             Amount = amount;
             Currency = currency;
         }
-
+        private Money() { } // For EF
         protected override IEnumerable<object> GetEqualityComponents()
         {
             yield return Amount;

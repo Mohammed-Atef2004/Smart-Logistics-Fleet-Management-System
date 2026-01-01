@@ -60,11 +60,11 @@
             },
             "MediatR": {
               "target": "Package",
-              "version": "[14.0.0, )"
+              "version": "[11.0.0, )"
             },
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[11.1.0, )"
+              "version": "[8.0.22, )"
             },
             "Microsoft.TestPlatform.ObjectModel": {
               "target": "Package",
@@ -137,17 +137,13 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MediatR": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[14.0.0, )"
+              "version": "[8.0.22, )"
             },
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[11.1.0, )"
-            },
-            "Microsoft.AspNet.Identity.EntityFramework": {
-              "target": "Package",
-              "version": "[2.2.4, )"
+              "version": "[8.0.22, )"
             },
             "Microsoft.Extensions.Identity.Stores": {
               "target": "Package",
@@ -227,17 +223,15 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
-            "MediatR": {
-              "target": "Package",
-              "version": "[14.0.0, )"
-            },
-            "MediatR.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[11.1.0, )"
-            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[8.0.7, )"
+              "version": "[8.0.22, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.22, )"
             }
           },
           "imports": [

@@ -1,7 +1,6 @@
 ﻿using Domain.Common;
 using Domain.Fleet;
 using Domain.Users.Events;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

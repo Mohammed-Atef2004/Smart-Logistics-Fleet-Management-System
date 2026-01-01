@@ -1,4 +1,5 @@
 ﻿using Domain.Billing;
+using Domain.Common;
 using Domain.Fleet;
 using Domain.Notifications;
 using Domain.Shipment;
@@ -22,6 +23,8 @@ namespace Infrastructure.Persistence.Data
         // Fleet
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Driver> Drivers { get; set; }
+
+        public DbSet<Route> Routes { get; set; }
         public DbSet<MaintenanceRecord> MaintenanceRecords { get; set; }
 
         // Shipment
@@ -47,10 +50,15 @@ namespace Infrastructure.Persistence.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Apply configurations
+            
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
             base.OnModelCreating(modelBuilder);
-        }
+            // Ignore abstract base classes
+            modelBuilder.Ignore<DomainEvent>();
+
+            base.OnModelCreating(modelBuilder);
+        
+    }
     }
 }

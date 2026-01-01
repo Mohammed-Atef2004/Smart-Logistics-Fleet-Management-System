@@ -1,26 +1,31 @@
-﻿using Domain.Warehouse;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Persistence.Configurations
 {
-    public class InventoryItemConfiguration:IEntityTypeConfiguration<InventoryItem>
+    public class InventoryItemConfiguration : IEntityTypeConfiguration<InventoryItem>
     {
         public void Configure(EntityTypeBuilder<InventoryItem> builder)
         {
-            builder.HasKey(ii => ii.Id);
-            builder.Property(ii => ii.Name)
-                .IsRequired()
-                .HasMaxLength(150);
-            builder.Property(ii => ii.Quantity)
-                .IsRequired();
-            builder.Property(ii => ii.Location)
-                .HasMaxLength(100);
+            builder.HasKey(i => i.Id);
+
+            // Configure StorageLocation Value Object
+            builder.OwnsOne(i => i.Location, location =>
+            {
+                
+
+                location.Property(l => l.Aisle)
+                    .HasColumnName("Aisle")
+                    .HasMaxLength(50);
+
+                location.Property(l => l.Shelf)
+                    .HasColumnName("Shelf")
+                    .HasMaxLength(50);
+
+                location.Property(l => l.Bin)
+                    .HasColumnName("Bin")
+                    .HasMaxLength(50);
+            });
         }
     }
 }

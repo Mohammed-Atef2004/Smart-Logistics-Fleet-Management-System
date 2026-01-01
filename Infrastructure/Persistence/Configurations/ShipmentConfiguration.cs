@@ -17,15 +17,7 @@ namespace Infrastructure.Persistence.Configurations
             builder.Property(s => s.TrackingNumber)
                 .IsRequired()
                 .HasMaxLength(100);
-            builder.OwnsOne(s => s.Route, route =>
-            {
-                route.Property(r => r.From)
-                    .IsRequired()
-                    .HasMaxLength(200);
-                route.Property(r => r.To)
-                    .IsRequired()
-                    .HasMaxLength(200);
-            });
+         
             builder.HasMany(s => s.Packages)
                 .WithOne()
                 .HasForeignKey("ShipmentId")

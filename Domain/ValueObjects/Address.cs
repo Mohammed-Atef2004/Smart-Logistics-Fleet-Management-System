@@ -5,16 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace Domain.ValueObjects
 {
     public class Address : ValueObject
     {
-        public string Street { get; }
-        public string City { get; }
-        public string State { get; }
-        public string PostalCode { get; }
-        public string Country { get; }
+        public string Street { get; private set; }        // ✅ ضفت private set
+        public string City { get; private set; }          // ✅ ضفت private set
+        public string State { get; private set; }         // ✅ ضفت private set
+        public string PostalCode { get; private set; }    // ✅ ضفت private set
+        public string Country { get; private set; }       // ✅ ضفت private set
+
+        private Address() { } // For EF Core
 
         public Address(string street, string city, string state, string postalCode, string country)
         {
@@ -35,5 +36,3 @@ namespace Domain.ValueObjects
         }
     }
 }
-
-

@@ -1,10 +1,7 @@
-﻿using Domain.Common;
+﻿using Domain.Billing.Events;
+using Domain.Billing.Rules;
+using Domain.Common;
 using Domain.ValueObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Billing
 {
@@ -18,6 +15,9 @@ namespace Domain.Billing
 
         public Invoice(Guid shipmentId, Money totalAmount)
         {
+            CheckRule(new ShipmentIdRequiredRule(shipmentId));
+            CheckRule(new InvoiceTotalAmountRequiredRule(totalAmount));
+
             ShipmentId = shipmentId;
             TotalAmount = totalAmount;
             IsPaid = false;
@@ -25,8 +25,7 @@ namespace Domain.Billing
 
         public void MarkAsPaid()
         {
-            if (IsPaid)
-                throw new DomainException("Invoice already paid.");
+            CheckRule(new InvoiceMustNotBePaidTwiceRule(IsPaid));
 
             IsPaid = true;
             AddDomainEvent(new InvoicePaidEvent(Id));
