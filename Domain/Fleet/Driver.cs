@@ -1,62 +1,100 @@
 ﻿using Domain.Common;
+using Domain.Exceptions;
+using Domain.Fleet.Events;
+using Domain.Fleet.Rules;
 using Domain.Users;
-using System;
 
 namespace Domain.Fleet
 {
     public class Driver : BaseEntity, IAudiatable, ISoftDeletable
     {
-        public string Name { get; private set; }
+        // 1. Identity Link
+        public Guid UserId { get; private set; } // Link to ApplicationUser (Identity Module)
+
+        // 2. Properties
+        public string FullName { get; private set; }
         public string LicenseNumber { get; private set; }
+        public bool IsActive { get; private set; }
+        public Guid? ApplicationUserId { get; private set; } // Optional link to ApplicationUser
+        public virtual ApplicationUser? ApplicationUser { get; private set; }
 
-        // ✅ صححت الـ typo والـ type
-        public Guid ApplicationUserId { get; private set; }
-        public ApplicationUser ApplicationUser { get; private set; }
+        // 3. Navigation Property (The relationship with Vehicle)
+        // This allows us to know which vehicle the driver is currently assigned to
+        public Guid? CurrentVehicleId { get; private set; }
+        public virtual Vehicle? CurrentVehicle { get; private set; }
 
-        // Relationship
-        public Vehicle? Vehicle { get; private set; }
-
-        internal void AssignVehicle(Vehicle vehicle)
-        {
-            Vehicle = vehicle;
-        }
-
-        internal void RemoveVehicle()
-        {
-            Vehicle = null;
-        }
-
-        // Auditable
+        // 4. Auditing & Soft Delete
         public DateTime CreatedAt { get; private set; }
-        public string? CreatedBy { get; private set; }
         public DateTime? UpdatedAt { get; private set; }
+        public string? CreatedBy { get; private set; }
         public string? UpdatedBy { get; private set; }
+        public bool IsDeleted { get; private set; }
 
-        public void SetCreated(string user)
+        // 5. Domain Events Storage
+        private readonly List<DomainEvent> _domainEvents = new();
+        public virtual IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
+        private Driver() { } // Required for EF Core
+
+        public Driver(Guid userId, string fullName, string licenseNumber)
         {
-            CreatedAt = DateTime.UtcNow;
-            CreatedBy = user;
+            // Business Rules Validation
+            CheckRule(new DriverNameMustBeValidRule(fullName));
+            CheckRule(new LicenseNumberMustBeValidRule(licenseNumber));
+
+            UserId = userId;
+            FullName = fullName;
+            LicenseNumber = licenseNumber;
+            IsActive = true;
+
+            // Trigger Event: To notify that a new driver has joined
+            AddDomainEvent(new DriverCreatedEvent(this.Id, userId, fullName));
         }
 
-        public void SetUpdated(string user)
+        // --- Business Logic Methods ---
+
+        public void AssignToVehicle(Guid vehicleId)
         {
-            UpdatedAt = DateTime.UtcNow;
-            UpdatedBy = user;
+            // Rule: Driver must be active to be assigned to a vehicle
+            if (!IsActive)
+                throw new BusinessRuleViolationException(new DriverMustBeActiveRule(IsActive));
+
+            CurrentVehicleId = vehicleId;
+
+            // Trigger Event: Useful for the Trip module
+            AddDomainEvent(new DriverAssignedToVehicleEvent(Id, vehicleId));
         }
 
-        // Soft Delete
-        public bool IsDeleted { get; private set; } = false;
+        public void UnassignFromVehicle()
+        {
+            CurrentVehicleId = null;
+        }
+
+        public void Deactivate()
+        {
+            IsActive = false;
+            AddDomainEvent(new DriverStatusChangedEvent(Id, false));
+        }
+
+        public void Activate()
+        {
+            IsActive = true;
+            AddDomainEvent(new DriverStatusChangedEvent(Id, true));
+        }
+
+        // --- Helper Methods ---
+        protected static void CheckRule(IBusinessRule rule)
+        {
+            if (rule.IsBroken()) throw new BusinessRuleViolationException(rule);
+        }
+
+        protected void AddDomainEvent(DomainEvent domainEvent) => _domainEvents.Add(domainEvent);
+        public void ClearDomainEvents() => _domainEvents.Clear();
+
+        // --- Auditing & Soft Delete Implementation ---
+        public void SetCreated(string user) { CreatedAt = DateTime.UtcNow; CreatedBy = user; }
+        public void SetUpdated(string user) { UpdatedAt = DateTime.UtcNow; UpdatedBy = user; }
         public void Delete() => IsDeleted = true;
         public void Restore() => IsDeleted = false;
-
-        // Constructor
-        private Driver() { } // ✅ للـ EF Core
-
-        public Driver(string name, string licenseNumber, Guid applicationUserId)
-        {
-            Name = name;
-            LicenseNumber = licenseNumber;
-            ApplicationUserId = applicationUserId;
-        }
     }
 }

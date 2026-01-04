@@ -9,6 +9,7 @@ namespace Domain.Interfaces.Repositories.Fleet
 {
     public interface IVehicleRepository:IGenericRepository<Vehicle>
     {
-        Task Update(Vehicle vehicle);
+       
+        void Update(Vehicle vehicle);
     }
 }

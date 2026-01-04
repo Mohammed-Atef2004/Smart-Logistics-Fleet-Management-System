@@ -82,7 +82,8 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("ApplicationUserId")
+                    b.Property<Guid?>("ApplicationUserId")
+                        .IsRequired()
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedAt")
@@ -90,6 +91,17 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("CurrentVehicleId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
@@ -99,18 +111,13 @@ namespace Infrastructure.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("VehicleId")
+                    b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
@@ -118,14 +125,11 @@ namespace Infrastructure.Migrations
                     b.HasIndex("ApplicationUserId")
                         .IsUnique();
 
-                    b.HasIndex("LicenseNumber")
-                        .IsUnique();
-
-                    b.HasIndex("VehicleId")
+                    b.HasIndex("CurrentVehicleId")
                         .IsUnique()
-                        .HasFilter("[VehicleId] IS NOT NULL");
+                        .HasFilter("[CurrentVehicleId] IS NOT NULL");
 
-                    b.ToTable("Drivers");
+                    b.ToTable("Drivers", "Fleet");
                 });
 
             modelBuilder.Entity("Domain.Fleet.MaintenanceRecord", b =>
@@ -145,6 +149,12 @@ namespace Infrastructure.Migrations
                     b.Property<DateTime>("MaintenanceDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("MileageAtMaintenance")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Type")
+                        .HasColumnType("int");
+
                     b.Property<Guid>("VehicleId")
                         .HasColumnType("uniqueidentifier");
 
@@ -152,7 +162,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("MaintenanceRecords");
+                    b.ToTable("MaintenanceRecords", "Fleet");
                 });
 
             modelBuilder.Entity("Domain.Fleet.Vehicle", b =>
@@ -167,8 +177,14 @@ namespace Infrastructure.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("CurrentMileage")
+                        .HasColumnType("int");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
+
+                    b.Property<int>("LastMaintenanceMileage")
+                        .HasColumnType("int");
 
                     b.Property<string>("LicensePlate")
                         .IsRequired()
@@ -190,7 +206,10 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Vehicles");
+                    b.HasIndex("LicensePlate")
+                        .IsUnique();
+
+                    b.ToTable("Vehicles", "Fleet");
                 });
 
             modelBuilder.Entity("Domain.Notifications.Alert", b =>
@@ -536,20 +555,20 @@ namespace Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Fleet.Vehicle", "Vehicle")
+                    b.HasOne("Domain.Fleet.Vehicle", "CurrentVehicle")
                         .WithOne()
-                        .HasForeignKey("Domain.Fleet.Driver", "VehicleId")
+                        .HasForeignKey("Domain.Fleet.Driver", "CurrentVehicleId")
                         .OnDelete(DeleteBehavior.SetNull);
 
                     b.Navigation("ApplicationUser");
 
-                    b.Navigation("Vehicle");
+                    b.Navigation("CurrentVehicle");
                 });
 
             modelBuilder.Entity("Domain.Fleet.MaintenanceRecord", b =>
                 {
                     b.HasOne("Domain.Fleet.Vehicle", "Vehicle")
-                        .WithMany()
+                        .WithMany("MaintenanceRecords")
                         .HasForeignKey("VehicleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -722,6 +741,11 @@ namespace Infrastructure.Migrations
 
                     b.Navigation("Location")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Fleet.Vehicle", b =>
+                {
+                    b.Navigation("MaintenanceRecords");
                 });
 
             modelBuilder.Entity("Domain.Shipment.Shipment", b =>

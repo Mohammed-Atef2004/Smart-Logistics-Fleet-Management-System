@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Domain.Common;
+using Domain.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,13 +8,17 @@ using System.Threading.Tasks;
 
 namespace Domain.Fleet.Rules
 {
-    public static class VehicleMustBeAvailableRule
+    public class VehicleMustBeAvailableRule : IBusinessRule
     {
-        //public static void Check(Vehicle vehicle)
-        //{
-        //    if (vehicle.Status == VehicleStatus.Broken)
-        //        throw new BusinessRuleViolationException("Vehicle must be available for this operation.");
-        //}
+        private readonly VehicleStatus _status;
+        public VehicleMustBeAvailableRule(VehicleStatus status)
+        {
+            _status = status;
+        }
+        public string Message => "The Vehicle Must be Available";
+
+        bool IBusinessRule.IsBroken()=> _status != VehicleStatus.Available;
+
     }
 
 }

@@ -1,60 +1,115 @@
 ﻿using Domain.Common;
 using Domain.Enums;
-using System;
+using Domain.Exceptions;
+using Domain.Fleet.Events;
+using Domain.Fleet.Rules;
 
 namespace Domain.Fleet
 {
     public class Vehicle : BaseEntity, IAudiatable, ISoftDeletable
     {
+        // --- Properties ---
         public string LicensePlate { get; private set; }
         public string Model { get; private set; }
-        public VehicleStatus Status { get; private set; } = VehicleStatus.Available;
+        public VehicleStatus Status { get; private set; }
+        public int CurrentMileage { get; private set; }
+        public int LastMaintenanceMileage { get; private set; }
 
-        // Auditing
+        // --- Navigation Properties ---
+        // Backing field to encapsulate the collection
+        private readonly List<MaintenanceRecord> _maintenanceRecords = new();
+        public virtual IReadOnlyCollection<MaintenanceRecord> MaintenanceRecords => _maintenanceRecords.AsReadOnly();
+
+        // --- Auditing & Soft Delete ---
         public DateTime CreatedAt { get; private set; }
         public DateTime? UpdatedAt { get; private set; }
         public string? CreatedBy { get; private set; }
         public string? UpdatedBy { get; private set; }
-
-        // Soft delete
         public bool IsDeleted { get; private set; }
 
-        private Vehicle() { } // For EF
+        // --- Domain Events Storage ---
+        private readonly List<DomainEvent> _domainEvents = new();
+        public virtual IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-        public Vehicle(string licensePlate, string model)
+        // --- Constructors ---
+        private Vehicle() { } // Required for EF Core
+
+        public Vehicle(string licensePlate, string model, int currentMileage)
         {
             LicensePlate = licensePlate;
             Model = model;
+            CurrentMileage = currentMileage;
+            LastMaintenanceMileage = currentMileage;
             Status = VehicleStatus.Available;
+
+            // Trigger event for new vehicle creation
+            AddDomainEvent(new VehicleCreatedEvent(this.Id, licensePlate));
         }
 
-        // Auditing methods
-        public void SetCreated(string user)
+        // --- Helper for Business Rules ---
+        protected static void CheckRule(IBusinessRule rule)
         {
-            CreatedAt = DateTime.UtcNow;
-            CreatedBy = user;
+            if (rule.IsBroken())
+            {
+                throw new BusinessRuleViolationException(rule);
+            }
         }
 
-        public void SetUpdated(string user)
+        // --- Business Logic Methods ---
+
+        public void UpdateMileage(int newMileage)
         {
-            UpdatedAt = DateTime.UtcNow;
-            UpdatedBy = user;
+            // Rule: Mileage cannot decrease
+            CheckRule(new MileageCannotDecreaseRule(CurrentMileage, newMileage));
+
+            CurrentMileage = newMileage;
+
+            // Rule: Check if maintenance is required (10,000 km interval)
+            if (CurrentMileage - LastMaintenanceMileage >= 10000)
+            {
+                AddDomainEvent(new MaintenanceRequiredEvent(Id, CurrentMileage));
+            }
         }
 
-        // Soft delete methods
+        public void AssignToTrip()
+        {
+            // Rule: Cannot trip if maintenance is due
+            CheckRule(new MaintenanceIntervalRule(CurrentMileage, LastMaintenanceMileage));
+
+            // Rule: Vehicle must be available
+            CheckRule(new VehicleMustBeAvailableRule(Status));
+
+            Status = VehicleStatus.OnTrip;
+            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
+        }
+
+        public void AddMaintenanceRecord(MaintenanceType type, string description, decimal cost)
+        {
+            // Logic to create and link the record
+            var record = new MaintenanceRecord(this.Id, type, description, cost, this.CurrentMileage);
+            _maintenanceRecords.Add(record);
+
+            // Update vehicle state
+            LastMaintenanceMileage = CurrentMileage;
+            Status = VehicleStatus.InMaintenance;
+
+            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
+        }
+
+        public void CompleteMaintenance()
+        {
+            Status = VehicleStatus.Available;
+            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
+        }
+
+        // --- Domain Events Management ---
+        protected void AddDomainEvent(DomainEvent domainEvent) => _domainEvents.Add(domainEvent);
+        public void ClearDomainEvents() => _domainEvents.Clear();
+
+        // --- Auditing & Soft Delete Implementation ---
+        public void SetCreated(string user) { CreatedAt = DateTime.UtcNow; CreatedBy = user; }
+        public void SetUpdated(string user) { UpdatedAt = DateTime.UtcNow; UpdatedBy = user; }
         public void Delete() => IsDeleted = true;
         public void Restore() => IsDeleted = false;
-
-        // Status management
-        public void ChangeStatus(VehicleStatus newStatus)
-        {
-            Status = newStatus;
-            AddDomainEvent(new VehicleStatusChangedEvent(Id, newStatus));
-        }
-
-        private void AddDomainEvent(object domainEvent)
-        {
-            // سيتم تخزين الأحداث هنا ليتم نشرها لاحقًا في Application Layer
-        }
     }
 }

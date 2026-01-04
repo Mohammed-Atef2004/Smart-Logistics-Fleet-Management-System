@@ -9,8 +9,8 @@ namespace Domain.Enums
     public enum VehicleStatus
     {
         Available = 1,
-        InService = 2,
-        UnderMaintenance = 3,
+        OnTrip = 2,
+        InMaintenance = 3,
         OutOfService = 4
     }
 
