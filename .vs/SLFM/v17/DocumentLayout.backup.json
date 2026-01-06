@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\SLFM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\migrations\\20260104235616_addednewfeatures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\migrations\\20260104235616_addednewfeatures.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\persistence\\configurations\\maintenancerecordconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\configurations\\maintenancerecordconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -119,6 +123,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20260104235616_addednewfeatures.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Migrations\\20260104235616_addednewfeatures.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Migrations\\20260104235616_addednewfeatures.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Migrations\\20260104235616_addednewfeatures.cs",
+              "RelativeToolTip": "Infrastructure\\Migrations\\20260104235616_addednewfeatures.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAcwAgAAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-04T23:56:17.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MaintenanceRecordConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Configurations\\MaintenanceRecordConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\MaintenanceRecordConfiguration.cs",
@@ -131,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DriversConfigurations.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Configurations\\DriversConfigurations.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\DriversConfigurations.cs",
@@ -144,7 +161,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "VehicleConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Configurations\\VehicleConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Configurations\\VehicleConfiguration.cs",
@@ -157,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "IDriverRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
@@ -170,7 +187,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "IVehicleRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
@@ -183,7 +200,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "DriverAssignedToVehicleEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\DriverAssignedToVehicleEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\DriverAssignedToVehicleEvent.cs",
@@ -196,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "DriverMustBeActiveRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\DriverMustBeActiveRule.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Rules\\DriverMustBeActiveRule.cs",
@@ -209,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "LicenseNumberMustBeValidRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\LicenseNumberMustBeValidRule.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\LicenseNumberMustBeValidRule.cs",
@@ -222,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "MaintenancePerformedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\MaintenancePerformedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\MaintenancePerformedEvent.cs",
@@ -235,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "MaintenanceCostRecordedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\MaintenanceCostRecordedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\MaintenanceCostRecordedEvent.cs",
@@ -248,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "DriverCreatedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\DriverCreatedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\DriverCreatedEvent.cs",
@@ -261,7 +278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "DriverStatusChangedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\DriverStatusChangedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\DriverStatusChangedEvent.cs",
@@ -274,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "VehicleCreatedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\VehicleCreatedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\VehicleCreatedEvent.cs",
@@ -287,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "MaintenanceRequiredEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Events\\MaintenanceRequiredEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Events\\MaintenanceRequiredEvent.cs",
@@ -300,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "DriverNameMustBeValidRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\DriverNameMustBeValidRule.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Rules\\DriverNameMustBeValidRule.cs",
@@ -313,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Driver.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Driver.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Driver.cs",
@@ -326,7 +343,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "MaintenanceRecord.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\MaintenanceRecord.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\MaintenanceRecord.cs",
@@ -339,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "VehicleMustBeAvailableRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Rules\\VehicleMustBeAvailableRule.cs",
@@ -352,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "MileageCannotDecreaseRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\MileageCannotDecreaseRule.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Rules\\MileageCannotDecreaseRule.cs",
@@ -365,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "MaintenanceIntervalRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Rules\\MaintenanceIntervalRule.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Rules\\MaintenanceIntervalRule.cs",
@@ -378,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "BusinessRuleViolationException.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Exceptions\\BusinessRuleViolationException.cs",
               "RelativeDocumentMoniker": "Domain\\Exceptions\\BusinessRuleViolationException.cs",
@@ -391,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "MaintentanceType.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\MaintentanceType.cs",
               "RelativeDocumentMoniker": "Domain\\Enums\\MaintentanceType.cs",
@@ -404,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Vehicle.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Fleet\\Vehicle.cs",
               "RelativeDocumentMoniker": "Domain\\Fleet\\Vehicle.cs",
@@ -417,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "VehicleStatus.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Enums\\VehicleStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Enums\\VehicleStatus.cs",

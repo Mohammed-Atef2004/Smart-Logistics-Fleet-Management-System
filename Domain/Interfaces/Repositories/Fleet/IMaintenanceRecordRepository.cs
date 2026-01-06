@@ -9,6 +9,6 @@ namespace Domain.Interfaces.Repositories.Fleet
 {
     public interface IMaintenanceRecordRepository:IGenericRepository<MaintenanceRecord>
     {
-        Task Update(MaintenanceRecord maintenanceRecord);
+        void Update(MaintenanceRecord maintenanceRecord);
     }
 }

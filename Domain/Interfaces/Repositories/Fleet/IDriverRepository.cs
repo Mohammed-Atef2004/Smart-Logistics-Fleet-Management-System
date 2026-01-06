@@ -9,6 +9,6 @@ namespace Domain.Interfaces.Repositories
 {
     public interface IDriverRepository:IGenericRepository<Driver>
     {
-        Task Update(Driver driver);
+        void Update(Driver driver);
     }
 }
