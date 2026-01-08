@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\SLFM\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -113,7 +125,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -125,7 +137,46 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CreateVehilceCommandHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "ViewState": "AgIAAAwAAACA/////38XwBgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T01:48:40.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateVehilceCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T01:47:27.343Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "20260107014020_InitialCreate.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
+              "RelativeToolTip": "Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T01:40:20.271Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\Program.cs",
               "RelativeDocumentMoniker": "API\\Program.cs",
@@ -138,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\appsettings.json",
               "RelativeDocumentMoniker": "API\\appsettings.json",
@@ -151,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "API",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\API.csproj",
               "RelativeDocumentMoniker": "API\\API.csproj",
@@ -164,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -175,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "Infrastructure",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj",
               "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
@@ -188,12 +239,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "Infrastructure\\DependencyInjection.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\DependencyInjection.cs*",
-              "RelativeToolTip": "Infrastructure\\DependencyInjection.cs*",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\DependencyInjection.cs",
+              "RelativeToolTip": "Infrastructure\\DependencyInjection.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAcwBkAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-01-07T01:06:42.979Z",
@@ -201,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "OutboxMessage.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
@@ -214,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "MessageBus.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\MessageBus.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Messaging\\MessageBus.cs",
@@ -227,7 +278,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "IMessageBus.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\IMessageBus.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Messaging\\IMessageBus.cs",
@@ -240,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "EntitySaveChangesInterceptor.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
@@ -253,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "PasswordHasher.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\PasswordHasher.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\PasswordHasher.cs",
@@ -266,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "DateTimeProvider.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\DateTimeProvider.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\DateTimeProvider.cs",
@@ -279,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "CurrentUserService.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\CurrentUserService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\CurrentUserService.cs",
@@ -292,7 +343,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "ICurrentUserService.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\ICurrentUserService.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\ICurrentUserService.cs",
@@ -305,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "IDateTimeProvider.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
@@ -318,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "IPasswordHasher.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IPasswordHasher.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\IPasswordHasher.cs",
@@ -331,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UnitOfWork.cs",
@@ -344,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
@@ -357,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "IMaintenanceRecordRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
@@ -370,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "MaintananceRecordRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
@@ -383,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "IDriverRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
@@ -396,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "DriverRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
@@ -409,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 26,
               "Title": "IVehicleRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
@@ -422,7 +473,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "VehicleRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
@@ -435,7 +486,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 28,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
@@ -448,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 27,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\GenericRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\GenericRepository.cs",

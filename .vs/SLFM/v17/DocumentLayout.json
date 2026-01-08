@@ -3,8 +3,16 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\SLFM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0D338108-BF3C-43AE-81BA-E74E2D91965E}|SLFM.Tests\\SLFM.Tests.csproj|d:\\visual-studio-programs\\slfm\\slfm.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0D338108-BF3C-43AE-81BA-E74E2D91965E}|SLFM.Tests\\SLFM.Tests.csproj|solutionrelative:slfm.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -108,6 +116,10 @@
     {
       "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\persistence\\migrations\\20260107014020_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\migrations\\20260107014020_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -130,6 +142,44 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\SLFM.Tests\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "SLFM.Tests\\UnitTest1.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\SLFM.Tests\\UnitTest1.cs",
+              "RelativeToolTip": "SLFM.Tests\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-08T01:38:22.106Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CreateVehilceCommandHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
+              "ViewState": "AgIAAAwAAACA/////38XwBgAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T01:48:40.107Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CreateVehilceCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-07T01:47:27.343Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
               "Title": "20260107014020_InitialCreate.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
@@ -137,12 +187,11 @@
               "RelativeToolTip": "Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:40:20.271Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:40:20.271Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\Program.cs",
               "RelativeDocumentMoniker": "API\\Program.cs",
@@ -150,12 +199,11 @@
               "RelativeToolTip": "API\\Program.cs",
               "ViewState": "AgIAAAoAAABAZ2ZmZmYSwBIAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:31:01.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:31:01.023Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\appsettings.json",
               "RelativeDocumentMoniker": "API\\appsettings.json",
@@ -163,49 +211,45 @@
               "RelativeToolTip": "API\\appsettings.json",
               "ViewState": "AgIAAAAAAABAmZmZmZkdwAgAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-07T01:29:40.599Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:29:40.599Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "API",
+              "DocumentIndex": 6,
+              "Title": "API.csproj",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\API.csproj",
               "RelativeDocumentMoniker": "API\\API.csproj",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\API\\API.csproj",
               "RelativeToolTip": "API\\API.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-07T01:27:04.546Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:27:04.546Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAFgHAAAAAAAAAAAswGAHAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-01-07T01:25:43.851Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:25:43.851Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Infrastructure",
+              "DocumentIndex": 9,
+              "Title": "Infrastructure.csproj",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj",
               "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj",
               "RelativeToolTip": "Infrastructure\\Infrastructure.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAawB4AAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-07T01:22:31.583Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:22:31.583Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "Infrastructure\\DependencyInjection.cs",
@@ -213,12 +257,11 @@
               "RelativeToolTip": "Infrastructure\\DependencyInjection.cs",
               "ViewState": "AgIAABQAAAAAAAAAAAAcwBkAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:06:42.979Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:06:42.979Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 11,
               "Title": "OutboxMessage.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
@@ -226,12 +269,11 @@
               "RelativeToolTip": "Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
               "ViewState": "AgIAAAsAAABgZ2ZmZmYSwA8AAAArAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:03:34.285Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:03:34.285Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 12,
               "Title": "MessageBus.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\MessageBus.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Messaging\\MessageBus.cs",
@@ -239,12 +281,11 @@
               "RelativeToolTip": "Infrastructure\\Messaging\\MessageBus.cs",
               "ViewState": "AgIAAAAAAACgZmZmZmYGwAkAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:01:28.57Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:01:28.57Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "IMessageBus.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\IMessageBus.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Messaging\\IMessageBus.cs",
@@ -252,12 +293,11 @@
               "RelativeToolTip": "Infrastructure\\Messaging\\IMessageBus.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:00:45.512Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T01:00:45.512Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "EntitySaveChangesInterceptor.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
@@ -265,12 +305,11 @@
               "RelativeToolTip": "Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
               "ViewState": "AgIAACEAAAAAmpmZmZknwCkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:54:09.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T00:54:09.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "PasswordHasher.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\PasswordHasher.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\PasswordHasher.cs",
@@ -278,12 +317,11 @@
               "RelativeToolTip": "Infrastructure\\Services\\PasswordHasher.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:52:50.334Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T00:52:50.334Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "DateTimeProvider.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\DateTimeProvider.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\DateTimeProvider.cs",
@@ -291,12 +329,11 @@
               "RelativeToolTip": "Infrastructure\\Services\\DateTimeProvider.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:52:21.098Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T00:52:21.098Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 10,
               "Title": "CurrentUserService.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\CurrentUserService.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Services\\CurrentUserService.cs",
@@ -304,12 +341,11 @@
               "RelativeToolTip": "Infrastructure\\Services\\CurrentUserService.cs",
               "ViewState": "AgIAAAUAAAAAAAAAAADgvwsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:51:12.804Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T00:51:12.804Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "ICurrentUserService.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\ICurrentUserService.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\ICurrentUserService.cs",
@@ -317,12 +353,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Services\\ICurrentUserService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:50:25.559Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T00:50:25.559Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 18,
               "Title": "IDateTimeProvider.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
@@ -330,12 +365,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:47:09.445Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T00:47:09.445Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 19,
               "Title": "IPasswordHasher.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IPasswordHasher.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\IPasswordHasher.cs",
@@ -343,12 +377,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Services\\IPasswordHasher.cs",
               "ViewState": "AgIAAAQAAABAMDMzMzMLwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:46:49.103Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-07T00:46:49.103Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UnitOfWork.cs",
@@ -356,12 +389,11 @@
               "RelativeToolTip": "Infrastructure\\Repositories\\UnitOfWork.cs",
               "ViewState": "AgIAABwAAAAAAAAAAAAAwCMAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:20:50.541Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T01:20:50.541Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "IUnitOfWork.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
@@ -369,12 +401,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
               "ViewState": "AgIAAAAAAADg//////9QwAwAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:20:01.198Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T01:20:01.198Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "IMaintenanceRecordRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
@@ -382,12 +413,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAArwAwAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:16:32.204Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T01:16:32.204Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "MaintananceRecordRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
@@ -395,12 +425,11 @@
               "RelativeToolTip": "Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAswBEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:15:14.183Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T01:15:14.183Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "IDriverRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
@@ -408,12 +437,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
               "ViewState": "AgIAAAMAAACAAAAAAAAIwAkAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:14:11.045Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T01:14:11.045Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "DriverRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
@@ -421,12 +449,11 @@
               "RelativeToolTip": "Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:12:47.097Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T01:12:47.097Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "IVehicleRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
@@ -434,12 +461,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAwwAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:07:44.688Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T01:07:44.688Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "VehicleRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
@@ -447,12 +473,11 @@
               "RelativeToolTip": "Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
               "ViewState": "AgIAAAYAAAAAx8zMzEwQwBgAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T00:58:21.543Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T00:58:21.543Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
@@ -460,12 +485,11 @@
               "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
               "ViewState": "AgIAAAIAAABgmZmZmZkwwAoAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T00:57:30.625Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T00:57:30.625Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "GenericRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\GenericRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\GenericRepository.cs",
@@ -473,8 +497,7 @@
               "RelativeToolTip": "Infrastructure\\Repositories\\GenericRepository.cs",
               "ViewState": "AgIAADcAAAAAvczMzMwcwEAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T00:56:56.437Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-06T00:56:56.437Z"
             }
           ]
         }
