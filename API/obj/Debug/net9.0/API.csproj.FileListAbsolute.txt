@@ -10,6 +10,8 @@ D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\API.pdb
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\AWSSDK.Core.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Azure.Core.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Azure.Identity.dll
+D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\FluentValidation.dll
+D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\FluentValidation.DependencyInjectionExtensions.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Humanizer.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\MassTransit.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\MassTransit.Abstractions.dll
@@ -65,7 +67,12 @@ D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Microsoft.TestPlatform.CoreU
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Microsoft.TestPlatform.PlatformAbstractions.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Microsoft.VisualStudio.TestPlatform.ObjectModel.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Microsoft.Win32.SystemEvents.dll
+D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Mono.Cecil.Mdb.dll
+D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Mono.Cecil.Pdb.dll
+D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Mono.Cecil.Rocks.dll
+D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Mono.Cecil.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Mono.TextTemplating.dll
+D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\NetArchTest.Rules.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\RabbitMQ.Client.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\visual-studio-programs\SLFM\API\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll

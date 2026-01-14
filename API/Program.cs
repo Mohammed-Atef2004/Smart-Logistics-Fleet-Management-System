@@ -1,6 +1,8 @@
-using Infrastructure;
+﻿using Infrastructure;
 using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
+using API.Middleware;
+using Application; // تأكد إن الـ Namespace ده موجود عشان AddApplication تشتغل
 
 namespace API
 {
@@ -10,19 +12,22 @@ namespace API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-            builder.Services.AddControllers();
+            // --- 1. تسجيل الخدمات (Dependency Injection) ---
 
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddInfrastructure(builder.Configuration);
-            builder.Services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            // نداء طبقات المشروع (مرة واحدة فقط لكل طبقة)
+            builder.Services.AddApplication(); // هيسجل الـ Handlers والـ Validators
+            builder.Services.AddInfrastructure(builder.Configuration); // هيسجل الداتابيز والـ MassTransit
 
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
+            // --- 2. ترتيب الـ Pipeline (الميدل وير) ---
+
+            // الميدل وير بتاعنا لازم يكون أول واحد
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
+
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -31,6 +36,7 @@ namespace API
 
             app.UseHttpsRedirection();
             app.UseAuthorization();
+
             app.MapControllers();
 
             app.Run();

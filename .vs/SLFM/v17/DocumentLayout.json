@@ -3,123 +3,72 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\SLFM\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0D338108-BF3C-43AE-81BA-E74E2D91965E}|SLFM.Tests\\SLFM.Tests.csproj|d:\\visual-studio-programs\\slfm\\slfm.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0D338108-BF3C-43AE-81BA-E74E2D91965E}|SLFM.Tests\\SLFM.Tests.csproj|solutionrelative:slfm.tests\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\slfm\\api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\common\\behaviors\\validatoinbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\common\\behaviors\\validatoinbehaviour.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\slfm\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehicle\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehicle\\createvehilcecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehicle\\createvehiclecommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehicle\\createvehiclecommandvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\createvehicle\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\createvehicle\\createvehilcecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\slfm\\api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\repositories\\fleet\\driverrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\fleet\\driverrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\services\\currentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\currentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\slfm\\api\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\persistence\\models\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\models\\outboxmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\slfm\\api\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\middleware\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\messaging\\messagebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\messaging\\messagebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\queries\\getvehicledetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\queries\\getvehicledetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\messaging\\imessagebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\messaging\\imessagebus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\queries\\getvehicledetailsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\queries\\getvehicledetailsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\persistence\\interseptor\\entitysavechangesinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\interseptor\\entitysavechangesinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\updatevehicle\\updatevehiclemileagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\updatevehicle\\updatevehiclemileagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\services\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\passwordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\dtos\\vehicledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\dtos\\vehicledto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\services\\datetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\datetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\services\\icurrentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\services\\icurrentuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\services\\idatetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\services\\idatetimeprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\services\\ipasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\services\\ipasswordhasher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\unitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\repositories\\fleet\\maintanancerecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\fleet\\maintanancerecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\iunitofwork.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\repositories\\fleet\\imaintenancerecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\fleet\\imaintenancerecordrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\repositories\\fleet\\idriverrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\fleet\\idriverrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\repositories\\fleet\\vehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\fleet\\vehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\repositories\\fleet\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\fleet\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\genericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\slfm\\domain\\interfaces\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\interfaces\\repositories\\igenericrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\slfm\\infrastructure\\persistence\\migrations\\20260107014020_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\persistence\\migrations\\20260107014020_initialcreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\slfm\\application\\features\\vehicle\\commands\\updatevehicle\\updatevehiclemileagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\updatevehicle\\updatevehiclemileagecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -129,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Bookmark",
@@ -137,103 +86,50 @@
             },
             {
               "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "UnitTest1.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\SLFM.Tests\\UnitTest1.cs",
-              "RelativeDocumentMoniker": "SLFM.Tests\\UnitTest1.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\SLFM.Tests\\UnitTest1.cs",
-              "RelativeToolTip": "SLFM.Tests\\UnitTest1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-08T01:38:22.106Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CreateVehilceCommandHandler.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
-              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommandHandler.cs",
-              "ViewState": "AgIAAAwAAACA/////38XwBgAAAA2AAAAAAAAAA==",
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "Application\\DependencyInjection.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\DependencyInjection.cs",
+              "RelativeToolTip": "Application\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAABVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:48:40.107Z",
+              "WhenOpened": "2026-01-14T01:31:40.963Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CreateVehilceCommand.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
-              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehilceCommand.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:47:27.343Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "20260107014020_InitialCreate.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
-              "RelativeToolTip": "Infrastructure\\Persistence\\Migrations\\20260107014020_InitialCreate.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:40:20.271Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\Program.cs",
-              "RelativeDocumentMoniker": "API\\Program.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\API\\Program.cs",
-              "RelativeToolTip": "API\\Program.cs",
-              "ViewState": "AgIAAAoAAABAZ2ZmZmYSwBIAAABCAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:31:01.023Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\appsettings.json",
-              "RelativeDocumentMoniker": "API\\appsettings.json",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\API\\appsettings.json",
-              "RelativeToolTip": "API\\appsettings.json",
-              "ViewState": "AgIAAAAAAABAmZmZmZkdwAgAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2026-01-07T01:29:40.599Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 8,
               "Title": "API.csproj",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\API.csproj",
               "RelativeDocumentMoniker": "API\\API.csproj",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\API\\API.csproj",
               "RelativeToolTip": "API\\API.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAALzMzMzMLwCEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-07T01:27:04.546Z"
+              "WhenOpened": "2026-01-14T01:13:15.231Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Microsoft.Common.CurrentVersion.targets",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
-              "ViewState": "AgIAAFgHAAAAAAAAAAAswGAHAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2026-01-07T01:25:43.851Z"
+              "DocumentIndex": 2,
+              "Title": "Application.csproj",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Application.csproj",
+              "RelativeDocumentMoniker": "Application\\Application.csproj",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Application.csproj",
+              "RelativeToolTip": "Application\\Application.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAIwAgAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-01-14T01:13:01.567Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -243,261 +139,168 @@
               "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj",
               "RelativeToolTip": "Infrastructure\\Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAawB4AAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2026-01-07T01:22:31.583Z"
+              "WhenOpened": "2026-01-14T01:12:43.124Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
+              "Title": "VehicleController.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\Controllers\\VehicleController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\VehicleController.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\API\\Controllers\\VehicleController.cs",
+              "RelativeToolTip": "API\\Controllers\\VehicleController.cs",
+              "ViewState": "AgIAAA8AAACgzMzMzOwwwBEAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T00:59:25.178Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\Program.cs",
+              "RelativeDocumentMoniker": "API\\Program.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\API\\Program.cs",
+              "RelativeToolTip": "API\\Program.cs",
+              "ViewState": "AgIAABwAAADAl5mZmZkmwBQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T00:57:26.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\API\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "API\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\API\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "API\\Middleware\\ExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T00:56:51.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "DependencyInjection.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\DependencyInjection.cs",
               "RelativeDocumentMoniker": "Infrastructure\\DependencyInjection.cs",
               "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\DependencyInjection.cs",
               "RelativeToolTip": "Infrastructure\\DependencyInjection.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAcwBkAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAADcAAACAZmZmZmYuwEAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:06:42.979Z"
+              "WhenOpened": "2026-01-14T00:40:46.326Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "OutboxMessage.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
-              "RelativeToolTip": "Infrastructure\\Persistence\\Models\\OutboxMessage.cs",
-              "ViewState": "AgIAAAsAAABgZ2ZmZmYSwA8AAAArAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "ValidatoinBehaviour.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Common\\Behaviors\\ValidatoinBehaviour.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Behaviors\\ValidatoinBehaviour.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Common\\Behaviors\\ValidatoinBehaviour.cs",
+              "RelativeToolTip": "Application\\Common\\Behaviors\\ValidatoinBehaviour.cs",
+              "ViewState": "AgIAABwAAAAAAAAAAAAiwCQAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:03:34.285Z"
+              "WhenOpened": "2026-01-14T00:39:50.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CreateVehicleCommandValidator.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehicleCommandValidator.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehicleCommandValidator.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehicleCommandValidator.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehicleCommandValidator.cs",
+              "ViewState": "AgIAAAAAAAB5AAAAAAAiwAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-14T00:30:59.462Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "MessageBus.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\MessageBus.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Messaging\\MessageBus.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\MessageBus.cs",
-              "RelativeToolTip": "Infrastructure\\Messaging\\MessageBus.cs",
-              "ViewState": "AgIAAAAAAACgZmZmZmYGwAkAAAA7AAAAAAAAAA==",
+              "Title": "GetVehicleDetailsHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsHandler.cs",
+              "ViewState": "AgIAABMAAACAX2ZmZmYWwBoAAAAzAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:01:28.57Z"
+              "WhenOpened": "2026-01-14T00:24:00.293Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "IMessageBus.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\IMessageBus.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Messaging\\IMessageBus.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Messaging\\IMessageBus.cs",
-              "RelativeToolTip": "Infrastructure\\Messaging\\IMessageBus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Title": "GetVehicleDetailsQuery.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsQuery.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Queries\\GetVehicleDetailsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T01:00:45.512Z"
+              "WhenOpened": "2026-01-14T00:23:15.332Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "EntitySaveChangesInterceptor.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
-              "RelativeToolTip": "Infrastructure\\Persistence\\Interseptor\\EntitySaveChangesInterceptor.cs",
-              "ViewState": "AgIAACEAAAAAmpmZmZknwCkAAAANAAAAAAAAAA==",
+              "Title": "UpdateVehicleMileageHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageHandler.cs",
+              "ViewState": "AgIAAAgAAACAMzMzMzMbwBEAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:54:09.603Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "PasswordHasher.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\PasswordHasher.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Services\\PasswordHasher.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\PasswordHasher.cs",
-              "RelativeToolTip": "Infrastructure\\Services\\PasswordHasher.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:52:50.334Z"
+              "WhenOpened": "2026-01-14T00:17:59.852Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "DateTimeProvider.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\DateTimeProvider.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Services\\DateTimeProvider.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\DateTimeProvider.cs",
-              "RelativeToolTip": "Infrastructure\\Services\\DateTimeProvider.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAyAAAAAAAAAA==",
+              "Title": "UpdateVehicleMileageCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\UpdateVehicle\\UpdateVehicleMileageCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:52:21.098Z"
+              "WhenOpened": "2026-01-14T00:15:04.071Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "CurrentUserService.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\CurrentUserService.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Services\\CurrentUserService.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Services\\CurrentUserService.cs",
-              "RelativeToolTip": "Infrastructure\\Services\\CurrentUserService.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAADgvwsAAAAJAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "CreateVehilceCommandHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommandHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommandHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommandHandler.cs",
+              "ViewState": "AgIAABYAAABAmpmZmVkvwAkAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:51:12.804Z"
+              "WhenOpened": "2026-01-14T00:11:25.69Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "ICurrentUserService.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\ICurrentUserService.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\ICurrentUserService.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\ICurrentUserService.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Services\\ICurrentUserService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "CreateVehilceCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\CreateVehicle\\CreateVehilceCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:50:25.559Z"
+              "WhenOpened": "2026-01-14T00:11:03.09Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IDateTimeProvider.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Services\\IDateTimeProvider.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAAAAgAAAAmAAAAAAAAAA==",
+              "DocumentIndex": 15,
+              "Title": "VehicleDto.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\DTOs\\VehicleDto.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\DTOs\\VehicleDto.cs",
+              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Application\\Features\\Vehicle\\DTOs\\VehicleDto.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\DTOs\\VehicleDto.cs",
+              "ViewState": "AgIAAAYAAACAMDMzMzMLwA8AAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:47:09.445Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "IPasswordHasher.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IPasswordHasher.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Services\\IPasswordHasher.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Services\\IPasswordHasher.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Services\\IPasswordHasher.cs",
-              "ViewState": "AgIAAAQAAABAMDMzMzMLwA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-07T00:46:49.103Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UnitOfWork.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\UnitOfWork.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\UnitOfWork.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\UnitOfWork.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\UnitOfWork.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAAwCMAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:20:50.541Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "IUnitOfWork.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IUnitOfWork.cs",
-              "ViewState": "AgIAAAAAAADg//////9QwAwAAABDAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:20:01.198Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "IMaintenanceRecordRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\Fleet\\IMaintenanceRecordRepository.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAArwAwAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:16:32.204Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "MaintananceRecordRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\Fleet\\MaintananceRecordRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAswBEAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:15:14.183Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "IDriverRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\Fleet\\IDriverRepository.cs",
-              "ViewState": "AgIAAAMAAACAAAAAAAAIwAkAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:14:11.045Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "DriverRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\Fleet\\DriverRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAQAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:12:47.097Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "IVehicleRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\Fleet\\IVehicleRepository.cs",
-              "ViewState": "AgIAAAEAAAAAAAAAAAAwwAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T01:07:44.688Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "VehicleRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\Fleet\\VehicleRepository.cs",
-              "ViewState": "AgIAAAYAAAAAx8zMzEwQwBgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T00:58:21.543Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "IGenericRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
-              "RelativeToolTip": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
-              "ViewState": "AgIAAAIAAABgmZmZmZkwwAoAAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T00:57:30.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "GenericRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\GenericRepository.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Repositories\\GenericRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Repositories\\GenericRepository.cs",
-              "RelativeToolTip": "Infrastructure\\Repositories\\GenericRepository.cs",
-              "ViewState": "AgIAADcAAAAAvczMzMwcwEAAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-06T00:56:56.437Z"
+              "WhenOpened": "2026-01-14T00:09:42.498Z"
             }
           ]
         }

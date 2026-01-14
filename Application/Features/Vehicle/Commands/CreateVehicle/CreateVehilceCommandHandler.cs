@@ -1,8 +1,7 @@
-﻿using Domain.Interfaces;
-using Domain.Fleet; 
+﻿using Application.Features.Vehicle.Commands.CreateVehicle;
+using Domain.Fleet;
+using Domain.Interfaces;
 using MediatR;
-
-namespace Application.Features.Vehicles.Commands.CreateVehicle;
 
 public class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleCommand, Guid>
 {
@@ -15,14 +14,9 @@ public class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleCommand,
 
     public async Task<Guid> Handle(CreateVehicleCommand request, CancellationToken cancellationToken)
     {
-        
-        var vehicle = new Vehicle(
-            request.LicensePlate,
-            request.Model,
-            request.Year 
-        );
+        var vehicle = new Vehicle(request.LicensePlate, request.Model, request.CurrentMileage);
 
-         await _unitOfWork.Vehicles.AddAsync(vehicle);
+        _unitOfWork.Vehicles.AddAsync(vehicle);
         await _unitOfWork.CompleteAsync(cancellationToken);
 
         return vehicle.Id;

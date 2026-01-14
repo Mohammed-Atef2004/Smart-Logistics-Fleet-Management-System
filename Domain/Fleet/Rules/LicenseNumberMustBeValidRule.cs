@@ -1,6 +1,6 @@
 ﻿using Domain.Common;
 
-namespace Domain.Fleet
+namespace Domain.Fleet.Rules
 {
     internal class LicenseNumberMustBeValidRule : IBusinessRule
     {

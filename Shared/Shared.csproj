@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.22" />
+    <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
   </ItemGroup>
 
 </Project>

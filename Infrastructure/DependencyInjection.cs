@@ -7,12 +7,9 @@ using Infrastructure.Persistence.Interceptors;
 using Infrastructure.Persistence.Repositories;
 using Infrastructure.Services;
 using MassTransit;
-using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore; // مهم جداً
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-
 
 namespace Infrastructure
 {
@@ -22,15 +19,13 @@ namespace Infrastructure
         {
             // 1. تسجيل الـ Interceptors
             services.AddScoped<EntitySaveChangesInterceptor>();
-            services.AddMediatR(cfg => {
-                cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
-            });
 
-            // 2. تسجيل الـ DbContext مع الـ Interceptor
+            // 2. تسجيل الـ DbContext (حل مشكلة UseSqlServer)
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
                 var interceptor = sp.GetRequiredService<EntitySaveChangesInterceptor>();
 
+                // استخدمنا الاسم الكامل لمنع التعارض مع MassTransit
                 options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
                        .AddInterceptors(interceptor);
             });
@@ -39,12 +34,12 @@ namespace Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             // 4. تسجيل الـ Infrastructure Services
-            services.AddHttpContextAccessor(); // مهم جداً عشان الـ CurrentUserService يشتغل
+            services.AddHttpContextAccessor();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
             services.AddScoped<IPasswordHasher, PasswordHasher>();
             services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
 
-            // 5. تسجيل الـ Messaging (RabbitMQ & MassTransit)
+            // 5. تسجيل الـ Messaging (MassTransit)
             services.AddMassTransit(x =>
             {
                 x.AddEntityFrameworkOutbox<ApplicationDbContext>(o =>
@@ -55,10 +50,10 @@ namespace Infrastructure
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.Host(configuration["RabbitMQ:Host"], "/", h =>
+                    cfg.Host(configuration["RabbitMQ:Host"] ?? "localhost", "/", h =>
                     {
-                        h.Username(configuration["RabbitMQ:Username"]);
-                        h.Password(configuration["RabbitMQ:Password"]);
+                        h.Username(configuration["RabbitMQ:Username"] ?? "guest");
+                        h.Password(configuration["RabbitMQ:Password"] ?? "guest");
                     });
                 });
             });
@@ -67,5 +62,7 @@ namespace Infrastructure
 
             return services;
         }
+
+        // ميثود AddApplication لازم تتمسح من هنا وتتحط في كلاس لوحده في مشروع الـ Application
     }
 }
