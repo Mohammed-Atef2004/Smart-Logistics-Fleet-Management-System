@@ -96,5 +96,28 @@ namespace Domain.Fleet
         public void SetUpdated(string user) { UpdatedAt = DateTime.UtcNow; UpdatedBy = user; }
         public void Delete() => IsDeleted = true;
         public void Restore() => IsDeleted = false;
+        public void Update(string fullName, string licenseNumber)
+        {
+            CheckRule(new DriverNameMustBeValidRule(fullName));
+            CheckRule(new LicenseNumberMustBeValidRule(licenseNumber));
+            FullName = fullName;
+            LicenseNumber = licenseNumber;
+            AddDomainEvent(new DriverDetailsUpdatedEvent(Id, fullName, licenseNumber));
+        }
+        public void LinkToApplicationUser(Guid applicationUserId)
+        {
+            ApplicationUserId = applicationUserId;
+            AddDomainEvent(new DriverLinkedToUserEvent(Id, applicationUserId));
+        }
+        public void Create( string fullName, string licenseNumber)
+        {
+            CheckRule(new DriverNameMustBeValidRule(fullName));
+            CheckRule(new LicenseNumberMustBeValidRule(licenseNumber));
+            UserId = new Guid();
+            FullName = fullName;
+            LicenseNumber = licenseNumber;
+            IsActive = true;
+            AddDomainEvent(new DriverCreatedEvent(this.Id,UserId, fullName));
+        }
     }
 }

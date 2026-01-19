@@ -1,5 +1,57 @@
 [
   {
+    "ContainingType": "API.Controllers.DriverController",
+    "Method": "Create",
+    "RelativePath": "api/Driver/Create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "driverDto",
+        "Type": "Application.Features.Driver.Dtos.DriverDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.DriverController",
+    "Method": "GetById",
+    "RelativePath": "api/Driver/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Features.Driver.Dtos.DriverDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "API.Controllers.VehiclesController",
     "Method": "Get",
     "RelativePath": "api/Vehicles/{id}",
