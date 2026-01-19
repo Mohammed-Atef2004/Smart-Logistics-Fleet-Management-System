@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Vehicle.Queries
+namespace Application.Features.Vehicle.Queries.GetVehicleDetails
 {
     public class GetVehicleDetailsHandler : IRequestHandler<GetVehicleDetailsQuery, VehicleDto>
     {
@@ -21,12 +21,10 @@ namespace Application.Features.Vehicle.Queries
 
             return new VehicleDto
             {
-                Id = vehicle.Id,
                 LicensePlate = vehicle.LicensePlate,
                 Model = vehicle.Model,
-                Status = vehicle.Status.ToString(),
                 CurrentMileage = vehicle.CurrentMileage,
-                IsMaintenanceDue = (vehicle.CurrentMileage - vehicle.LastMaintenanceMileage >= 10000)
+                IsMaintenanceDue = vehicle.CurrentMileage - vehicle.LastMaintenanceMileage >= 10000
             };
         }
     }

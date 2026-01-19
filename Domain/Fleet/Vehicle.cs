@@ -111,5 +111,21 @@ namespace Domain.Fleet
         public void SetUpdated(string user) { UpdatedAt = DateTime.UtcNow; UpdatedBy = user; }
         public void Delete() => IsDeleted = true;
         public void Restore() => IsDeleted = false;
+        public void Create(string licensePlate, string model, int currentMileage)
+        {
+            LicensePlate = licensePlate;
+            Model = model;
+            CurrentMileage = currentMileage;
+            LastMaintenanceMileage = currentMileage;
+            Status = VehicleStatus.Available;
+            AddDomainEvent(new VehicleCreatedEvent(this.Id, licensePlate));
+        }
+        public void Update(string licensePlate, string model, int currentMileage)
+        {
+            LicensePlate = licensePlate;
+            Model = model;
+            CurrentMileage = currentMileage;
+            AddDomainEvent(new VehicleUpdatedEvent(this.Id, licensePlate));
+        }
     }
 }

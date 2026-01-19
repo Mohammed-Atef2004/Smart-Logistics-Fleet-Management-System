@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Application.Features.Vehicles.DTOs;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Vehicle.Commands.UpdateVehicle
 {
-    public record UpdateVehicleMileageCommand(Guid VehicleId, int NewMileage) : IRequest<Unit>;
+    public record UpdateVehicleCommand(Guid VehicleId,UpdateVechicleDto UpdateVechicleDto) : IRequest<Unit>;
 }

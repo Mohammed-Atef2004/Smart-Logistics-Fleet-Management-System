@@ -12,15 +12,13 @@ namespace API
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // --- 1. تسجيل الخدمات (Dependency Injection) ---
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            // نداء طبقات المشروع (مرة واحدة فقط لكل طبقة)
-            builder.Services.AddApplication(); // هيسجل الـ Handlers والـ Validators
-            builder.Services.AddInfrastructure(builder.Configuration); // هيسجل الداتابيز والـ MassTransit
-
+            builder.Services.AddApplication(); 
+            builder.Services.AddInfrastructure(builder.Configuration); 
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             var app = builder.Build();
 
             // --- 2. ترتيب الـ Pipeline (الميدل وير) ---

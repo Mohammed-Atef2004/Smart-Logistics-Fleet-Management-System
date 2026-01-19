@@ -23,5 +23,11 @@ namespace Infrastructure.Repositories.Fleet
                 .Include(v => v.MaintenanceRecords)
                 .FirstOrDefaultAsync(v => v.Id == id);
         }
+        public async Task<List<Vehicle>> GetAllVehiclesWithMaintenanceAsync()
+        {
+                 return await _context.Vehicles
+                .Include(v => v.MaintenanceRecords)
+                .ToListAsync();
+        }
     }
 }

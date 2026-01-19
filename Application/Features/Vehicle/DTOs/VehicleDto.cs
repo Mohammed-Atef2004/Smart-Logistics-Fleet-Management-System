@@ -8,7 +8,6 @@ namespace Application.Features.Vehicles.DTOs;
 
 public record VehicleDto
 {
-    public Guid Id { get; init; }
     public string LicensePlate { get; init; } = default!;
     public string Model { get; init; } = default!;
     public string Status { get; init; } = default!;

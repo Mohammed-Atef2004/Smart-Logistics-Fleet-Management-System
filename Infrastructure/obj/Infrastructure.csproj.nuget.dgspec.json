@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj": {}
+    "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "D:\\visual-studio-programs\\SLFM\\Application\\Application.csproj": {
+    "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\visual-studio-programs\\SLFM\\Application\\Application.csproj",
+        "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "D:\\visual-studio-programs\\SLFM\\Application\\Application.csproj",
+        "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Application.csproj",
         "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "D:\\visual-studio-programs\\SLFM\\Application\\obj\\",
+        "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\visual-studio-programs\\SLFM\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\visual-studio-programs\\SLFM\\Domain\\Domain.csproj"
+              "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj"
               }
             }
           }
@@ -57,6 +57,10 @@
             "AWSSDK.Core": {
               "target": "Package",
               "version": "[4.0.3.6, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
             },
             "FluentValidation": {
               "target": "Package",
@@ -103,14 +107,14 @@
         }
       }
     },
-    "D:\\visual-studio-programs\\SLFM\\Domain\\Domain.csproj": {
+    "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\visual-studio-programs\\SLFM\\Domain\\Domain.csproj",
+        "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "D:\\visual-studio-programs\\SLFM\\Domain\\Domain.csproj",
+        "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "D:\\visual-studio-programs\\SLFM\\Domain\\obj\\",
+        "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -149,6 +153,10 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.22, )"
@@ -186,14 +194,14 @@
         }
       }
     },
-    "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj": {
+    "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\Infrastructure.csproj",
+        "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj",
         "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
-        "outputPath": "D:\\visual-studio-programs\\SLFM\\Infrastructure\\obj\\",
+        "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -214,11 +222,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "D:\\visual-studio-programs\\SLFM\\Application\\Application.csproj": {
-                "projectPath": "D:\\visual-studio-programs\\SLFM\\Application\\Application.csproj"
+              "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Application.csproj": {
+                "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Application.csproj"
               },
-              "D:\\visual-studio-programs\\SLFM\\Domain\\Domain.csproj": {
-                "projectPath": "D:\\visual-studio-programs\\SLFM\\Domain\\Domain.csproj"
+              "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj": {
+                "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj"
               }
             }
           }
@@ -239,6 +247,10 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.1, )"
+            },
             "FluentValidation.DependencyInjectionExtensions": {
               "target": "Package",
               "version": "[12.1.1, )"

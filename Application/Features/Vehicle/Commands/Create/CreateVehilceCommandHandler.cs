@@ -16,7 +16,7 @@ public class CreateVehicleCommandHandler : IRequestHandler<CreateVehicleCommand,
     {
         var vehicle = new Vehicle(request.LicensePlate, request.Model, request.CurrentMileage);
 
-        _unitOfWork.Vehicles.AddAsync(vehicle);
+        await _unitOfWork.Vehicles.AddAsync(vehicle);
         await _unitOfWork.CompleteAsync(cancellationToken);
 
         return vehicle.Id;

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Vehicle.Queries
+namespace Application.Features.Vehicle.Queries.GetVehicleDetails
 {
     public record GetVehicleDetailsQuery(Guid Id) : IRequest<VehicleDto>;
 }

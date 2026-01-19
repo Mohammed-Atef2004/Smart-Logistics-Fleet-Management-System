@@ -63,6 +63,5 @@ namespace Infrastructure
             return services;
         }
 
-        // ميثود AddApplication لازم تتمسح من هنا وتتحط في كلاس لوحده في مشروع الـ Application
     }
 }
