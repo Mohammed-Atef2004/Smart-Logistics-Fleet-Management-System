@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Application.Features.Driver.Dtos;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,8 +12,7 @@ namespace Application.Features.Driver.Mappings
     {
         public DriverProfile()
         {
-            CreateMap<Domain.Fleet.Driver, Dtos.DriverDto>().ReverseMap();
-            CreateMap<Domain.Fleet.Driver, Dtos.UpdateDriverDto>().ReverseMap();
+            CreateMap<Domain.Fleet.Driver, DriverDto>().ReverseMap();
         }
     }
 }

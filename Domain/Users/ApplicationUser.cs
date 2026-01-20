@@ -19,8 +19,7 @@ namespace Domain.Users
         private readonly List<DomainEvent> _domainEvents = new();
         public IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-        public Driver? DriverProfile { get; private set; }
-
+       
         public ApplicationUser(string fullName, string email)
         {
             FullName = fullName;

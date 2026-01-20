@@ -10,6 +10,5 @@ namespace Application.Features.Driver.Dtos
     {
         public string FullName { get; set; }
         public string LicenseNumber { get; set; }
-        public Guid? CurrentVehicleId { get; set; }
     }
 }

@@ -22,13 +22,16 @@ namespace Application.Features.Driver.Queries.GetById
         }
         public async Task<DriverDto> Handle(GetDriverDetailsQuery request, CancellationToken cancellationToken)
         {
-           var result=_unitOfWork.Drivers.GetByIdAsync(request.Id);
-            if (result == null)
+            var driverEntity = await _unitOfWork.Drivers.GetByIdAsync(request.Id);
+
+            if (driverEntity == null)
             {
                 throw new KeyNotFoundException($"Driver with Id {request.Id} not found.");
             }
-            var driver = _mapper.Map<DriverDto>(result);
-            return await Task.FromResult(driver);
+
+            var driverDto = _mapper.Map<DriverDto>(driverEntity);
+
+            return driverDto;
         }
     }
 }

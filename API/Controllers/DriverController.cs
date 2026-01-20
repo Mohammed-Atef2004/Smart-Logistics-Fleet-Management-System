@@ -1,5 +1,7 @@
 ﻿using Application.Features.Driver.Commands.Create;
+using Application.Features.Driver.Commands.Update;
 using Application.Features.Driver.Dtos;
+using Application.Features.Driver.Queries.GetAll;
 using Application.Features.Driver.Queries.GetById;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -28,5 +30,17 @@ namespace API.Controllers
         {
             return await _mediator.Send(new GetDriverDetailsQuery(id));
         }
+        [HttpGet("GetAll")]
+        public async Task<List<DriverDto>> GetAll()
+        {
+            return await _mediator.Send(new GetAllDriversQuery());
+        }
+        [HttpPost("Update")]
+        public async Task<Unit> Update(Guid guid,DriverDto driverDto)
+        {
+            await _mediator.Send(new UpdateDriversCommand(guid,driverDto));
+            return Unit.Value;
+        }
+        
     }
 }

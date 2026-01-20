@@ -8,18 +8,16 @@ namespace Domain.Fleet
 {
     public class Driver : BaseEntity, IAudiatable, ISoftDeletable
     {
-        // 1. Identity Link
-        public Guid UserId { get; private set; } // Link to ApplicationUser (Identity Module)
-
+        // 1. Identity Link (Foreign Key)
+        // هذا الحقل هو الربط الأساسي مع جدول المستخدمين
+        public Guid Id { get; private set; }
+       
         // 2. Properties
         public string FullName { get; private set; }
         public string LicenseNumber { get; private set; }
         public bool IsActive { get; private set; }
-        public Guid? ApplicationUserId { get; private set; } // Optional link to ApplicationUser
-        public virtual ApplicationUser? ApplicationUser { get; private set; }
 
         // 3. Navigation Property (The relationship with Vehicle)
-        // This allows us to know which vehicle the driver is currently assigned to
         public Guid? CurrentVehicleId { get; private set; }
         public virtual Vehicle? CurrentVehicle { get; private set; }
 
@@ -34,34 +32,44 @@ namespace Domain.Fleet
         private readonly List<DomainEvent> _domainEvents = new();
         public virtual IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-        private Driver() { } // Required for EF Core
+        // Required for EF Core
+        private Driver() { }
 
-        public Driver(Guid userId, string fullName, string licenseNumber)
+        // 6. Primary Constructor
+        public Driver(string fullName, string licenseNumber)
         {
             // Business Rules Validation
             CheckRule(new DriverNameMustBeValidRule(fullName));
             CheckRule(new LicenseNumberMustBeValidRule(licenseNumber));
 
-            UserId = userId;
+            Id= Guid.NewGuid();
             FullName = fullName;
             LicenseNumber = licenseNumber;
             IsActive = true;
 
-            // Trigger Event: To notify that a new driver has joined
-            AddDomainEvent(new DriverCreatedEvent(this.Id, userId, fullName));
+            // Trigger Event: مررنا الـ userId للحدث أيضاً
+            AddDomainEvent(new DriverCreatedEvent(Id, fullName,licenseNumber));
         }
 
         // --- Business Logic Methods ---
 
+        public void Update(string fullName, string licenseNumber)
+        {
+            CheckRule(new DriverNameMustBeValidRule(fullName));
+            CheckRule(new LicenseNumberMustBeValidRule(licenseNumber));
+
+            FullName = fullName;
+            LicenseNumber = licenseNumber;
+
+            AddDomainEvent(new DriverDetailsUpdatedEvent(Id, fullName, licenseNumber));
+        }
+
         public void AssignToVehicle(Guid vehicleId)
         {
-            // Rule: Driver must be active to be assigned to a vehicle
             if (!IsActive)
                 throw new BusinessRuleViolationException(new DriverMustBeActiveRule(IsActive));
 
             CurrentVehicleId = vehicleId;
-
-            // Trigger Event: Useful for the Trip module
             AddDomainEvent(new DriverAssignedToVehicleEvent(Id, vehicleId));
         }
 
@@ -96,28 +104,6 @@ namespace Domain.Fleet
         public void SetUpdated(string user) { UpdatedAt = DateTime.UtcNow; UpdatedBy = user; }
         public void Delete() => IsDeleted = true;
         public void Restore() => IsDeleted = false;
-        public void Update(string fullName, string licenseNumber)
-        {
-            CheckRule(new DriverNameMustBeValidRule(fullName));
-            CheckRule(new LicenseNumberMustBeValidRule(licenseNumber));
-            FullName = fullName;
-            LicenseNumber = licenseNumber;
-            AddDomainEvent(new DriverDetailsUpdatedEvent(Id, fullName, licenseNumber));
-        }
-        public void LinkToApplicationUser(Guid applicationUserId)
-        {
-            ApplicationUserId = applicationUserId;
-            AddDomainEvent(new DriverLinkedToUserEvent(Id, applicationUserId));
-        }
-        public void Create( string fullName, string licenseNumber)
-        {
-            CheckRule(new DriverNameMustBeValidRule(fullName));
-            CheckRule(new LicenseNumberMustBeValidRule(licenseNumber));
-            UserId = new Guid();
-            FullName = fullName;
-            LicenseNumber = licenseNumber;
-            IsActive = true;
-            AddDomainEvent(new DriverCreatedEvent(this.Id,UserId, fullName));
-        }
+
     }
 }

@@ -27,6 +27,26 @@
   },
   {
     "ContainingType": "API.Controllers.DriverController",
+    "Method": "GetAll",
+    "RelativePath": "api/Driver/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Driver.Dtos.DriverDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.DriverController",
     "Method": "GetById",
     "RelativePath": "api/Driver/GetById",
     "HttpMethod": "GET",
@@ -42,6 +62,37 @@
     "ReturnTypes": [
       {
         "Type": "Application.Features.Driver.Dtos.DriverDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.DriverController",
+    "Method": "Update",
+    "RelativePath": "api/Driver/Update",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "guid",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "driverDto",
+        "Type": "Application.Features.Driver.Dtos.DriverDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "MediatR.Unit",
         "MediaTypes": [
           "text/plain",
           "application/json",

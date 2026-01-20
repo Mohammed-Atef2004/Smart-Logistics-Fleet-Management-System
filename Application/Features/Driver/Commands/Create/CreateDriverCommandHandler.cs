@@ -25,8 +25,7 @@ namespace Application.Features.Driver.Commands.Create
         }
         public async Task<Guid> Handle(CreateDriverCommand request, CancellationToken cancellationToken)
         {
-            var driverEntity = _mapper.Map<Domain.Fleet.Driver>(request.driverDto);
-
+            var driverEntity=new Domain.Fleet.Driver(fullName:request.driverDto.FullName,licenseNumber:request.driverDto.LicenseNumber);
             await _unitOfWork.Drivers.AddAsync(driverEntity);
 
             await _unitOfWork.CompleteAsync(cancellationToken);

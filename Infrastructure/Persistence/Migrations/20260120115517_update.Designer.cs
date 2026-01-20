@@ -4,16 +4,19 @@ using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260120115517_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,6 +85,9 @@ namespace Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ApplicationUserId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
@@ -118,11 +124,14 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique();
+
                     b.HasIndex("CurrentVehicleId")
                         .IsUnique()
                         .HasFilter("[CurrentVehicleId] IS NOT NULL");
 
-                    b.ToTable("Drivers");
+                    b.ToTable("Drivers", "Fleet");
                 });
 
             modelBuilder.Entity("Domain.Fleet.MaintenanceRecord", b =>
@@ -542,10 +551,18 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Fleet.Driver", b =>
                 {
+                    b.HasOne("Domain.Users.ApplicationUser", "ApplicationUser")
+                        .WithOne("DriverProfile")
+                        .HasForeignKey("Domain.Fleet.Driver", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Fleet.Vehicle", "CurrentVehicle")
                         .WithOne()
                         .HasForeignKey("Domain.Fleet.Driver", "CurrentVehicleId")
                         .OnDelete(DeleteBehavior.SetNull);
+
+                    b.Navigation("ApplicationUser");
 
                     b.Navigation("CurrentVehicle");
                 });
@@ -742,6 +759,8 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Users.ApplicationUser", b =>
                 {
+                    b.Navigation("DriverProfile");
+
                     b.Navigation("UserRoles");
                 });
 #pragma warning restore 612, 618
