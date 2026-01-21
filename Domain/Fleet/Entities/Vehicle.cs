@@ -86,7 +86,7 @@ namespace Domain.Fleet.Entities
         public void AddMaintenanceRecord(MaintenanceType type, string description, decimal cost)
         {
             // Logic to create and link the record
-            var record = new MaintenanceRecord(Id, type, description, cost, CurrentMileage);
+            var record = new MaintenanceRecord(this.Id,type, description, cost, CurrentMileage);
             _maintenanceRecords.Add(record);
 
             // Update vehicle state

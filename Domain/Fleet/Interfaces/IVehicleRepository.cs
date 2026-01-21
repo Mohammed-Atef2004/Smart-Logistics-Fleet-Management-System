@@ -10,7 +10,7 @@ namespace Domain.Fleet.Interfaces
 {
     public interface IVehicleRepository:IGenericRepository<Vehicle>
     {
-        Task<Vehicle?> GetVehicleWithMaintenanceAsync(Guid id);
+        Task<Vehicle?> GetAllMaintenanceRecordsForVehicle(Guid id);
         Task<List<Vehicle>> GetAllVehiclesWithMaintenanceAsync();
         void Update(Vehicle vehicle);
     }

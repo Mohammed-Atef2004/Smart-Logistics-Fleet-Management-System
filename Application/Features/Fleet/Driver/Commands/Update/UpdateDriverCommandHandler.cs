@@ -29,7 +29,7 @@ namespace Application.Features.Fleet.Driver.Commands.Update
             }
             driver.Update(request.driverDto.FullName, request.driverDto.LicenseNumber);
             _unitOfWork.Drivers.Update(driver);
-            _unitOfWork.CompleteAsync();
+            await _unitOfWork.CompleteAsync();
             return Unit.Value;
         }
     }

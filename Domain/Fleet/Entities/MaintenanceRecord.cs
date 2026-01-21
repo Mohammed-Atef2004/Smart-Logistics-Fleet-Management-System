@@ -21,7 +21,7 @@ namespace Domain.Fleet.Entities
 
         private MaintenanceRecord() { }
 
-        internal MaintenanceRecord(Guid vehicleId, MaintenanceType type, string description, decimal cost, int mileage)
+        internal MaintenanceRecord(Guid vehicleId,MaintenanceType type, string description, decimal cost, int mileage)
         {
             VehicleId = vehicleId;
             Type = type;
@@ -41,14 +41,13 @@ namespace Domain.Fleet.Entities
             return new MaintenanceRecord(vehicleId, type, description, cost, mileage);
         }
 
-        public void Update(MaintenanceType type, string description, decimal cost, int mileage, DateTime maintenanceDate)
+        public void Update(MaintenanceType type, string description, decimal cost, int mileage)
         {
             Type = type;
             Description = description;
             Cost = cost;
             MileageAtMaintenance = mileage;
-            MaintenanceDate = maintenanceDate;
-
+            MaintenanceDate = DateTime.UtcNow;
              AddDomainEvent(new MaintenanceUpdatedEvent(Id, cost));
         }
 

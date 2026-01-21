@@ -17,7 +17,7 @@ namespace Infrastructure.Repositories.Fleet
             _context.Vehicles.Update(vehicle);
         }
 
-        public async Task<Vehicle?> GetVehicleWithMaintenanceAsync(Guid id)
+        public async Task<Vehicle?> GetAllMaintenanceRecordsForVehicle(Guid id)
         {
             return await _context.Vehicles
                 .Include(v => v.MaintenanceRecords)

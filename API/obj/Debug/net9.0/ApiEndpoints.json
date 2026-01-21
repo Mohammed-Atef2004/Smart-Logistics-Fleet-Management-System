@@ -103,6 +103,115 @@
     ]
   },
   {
+    "ContainingType": "API.Controllers.Fleet.MaintenanceRecordController",
+    "Method": "CreateMaintenanceRecord",
+    "RelativePath": "api/MaintenanceRecord/create",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "maintenanceRecordDto",
+        "Type": "Application.Features.Fleet.MaintenanceRecord.DTOs.MaintenanceRecordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Guid",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.Fleet.MaintenanceRecordController",
+    "Method": "DeleteMaintenanceRecord",
+    "RelativePath": "api/MaintenanceRecord/Delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.Fleet.MaintenanceRecordController",
+    "Method": "GetAllMaintenanceRecords",
+    "RelativePath": "api/MaintenanceRecord/GatAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Fleet.MaintenanceRecord.DTOs.MaintenanceRecordDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.Fleet.MaintenanceRecordController",
+    "Method": "GetMaintenanceRecordById",
+    "RelativePath": "api/MaintenanceRecord/GetById",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Application.Features.Fleet.MaintenanceRecord.DTOs.MaintenanceRecordDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.Fleet.MaintenanceRecordController",
+    "Method": "UpdateMaintenanceRecord",
+    "RelativePath": "api/MaintenanceRecord/Update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "updateMaintenanceRecordDto",
+        "Type": "Application.Features.Fleet.MaintenanceRecord.DTOs.UpdateMaintenanceRecordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.VehiclesController",
     "Method": "Get",
     "RelativePath": "api/Vehicles/{id}",
@@ -130,6 +239,27 @@
   },
   {
     "ContainingType": "API.Controllers.VehiclesController",
+    "Method": "AddMaintenance",
+    "RelativePath": "api/Vehicles/AddMaintenance/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Application.Features.Fleet.MaintenanceRecord.DTOs.MaintenanceRecordDto",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.VehiclesController",
     "Method": "GetAll",
     "RelativePath": "api/Vehicles/All",
     "HttpMethod": "GET",
@@ -147,6 +277,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "API.Controllers.VehiclesController",
+    "Method": "CompleteMaintenance",
+    "RelativePath": "api/Vehicles/complete-maintenance/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "API.Controllers.VehiclesController",
@@ -192,6 +338,32 @@
   },
   {
     "ContainingType": "API.Controllers.VehiclesController",
+    "Method": "GetAllMaintenanceRecordsForVehicle",
+    "RelativePath": "api/Vehicles/MaintenanceRecordsPerVehicle/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Fleet.MaintenanceRecord.DTOs.MaintenanceRecordDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "API.Controllers.VehiclesController",
     "Method": "Update",
     "RelativePath": "api/Vehicles/update/{id}",
     "HttpMethod": "POST",
@@ -206,6 +378,27 @@
       {
         "Name": "updateVechicleDto",
         "Type": "Application.Features.Fleet.Vehicle.DTOs.UpdateVechicleDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.VehiclesController",
+    "Method": "UpdateMileage",
+    "RelativePath": "api/Vehicles/UpdateMileage/{id}",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "mileage",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],

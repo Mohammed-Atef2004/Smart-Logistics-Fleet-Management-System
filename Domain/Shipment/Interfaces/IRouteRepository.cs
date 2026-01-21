@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Fleet.Interfaces
+namespace Domain.Shipment.Interfaces
 {
     public interface IRouteRepository:IGenericRepository<Route>
     {
