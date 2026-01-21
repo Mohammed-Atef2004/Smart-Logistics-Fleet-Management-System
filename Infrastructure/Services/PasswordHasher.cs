@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Services; 
+﻿using Domain.Users.Interfaces.Services;
 using System.Security.Cryptography;
 
 namespace Infrastructure.Services

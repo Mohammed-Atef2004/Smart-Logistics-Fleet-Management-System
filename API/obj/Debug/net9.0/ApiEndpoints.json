@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "driverDto",
-        "Type": "Application.Features.Driver.Dtos.DriverDto",
+        "Type": "Application.Features.Fleet.Driver.Dtos.DriverDto",
         "IsRequired": true
       }
     ],
@@ -35,7 +35,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Driver.Dtos.DriverDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Fleet.Driver.Dtos.DriverDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -61,7 +61,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Features.Driver.Dtos.DriverDto",
+        "Type": "Application.Features.Fleet.Driver.Dtos.DriverDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -86,7 +86,7 @@
       },
       {
         "Name": "driverDto",
-        "Type": "Application.Features.Driver.Dtos.DriverDto",
+        "Type": "Application.Features.Fleet.Driver.Dtos.DriverDto",
         "IsRequired": true
       }
     ],
@@ -118,7 +118,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "Application.Features.Vehicles.DTOs.VehicleDto",
+        "Type": "Application.Features.Fleet.Vehicle.DTOs.VehicleDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -138,7 +138,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Vehicles.DTOs.VehicleDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[Application.Features.Fleet.Vehicle.DTOs.VehicleDto, Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -158,7 +158,7 @@
     "Parameters": [
       {
         "Name": "command",
-        "Type": "Application.Features.Vehicle.Commands.CreateVehicle.CreateVehicleCommand",
+        "Type": "Application.Features.Fleet.Vehicle.Commands.Create.CreateVehicleCommand",
         "IsRequired": true
       }
     ],
@@ -205,7 +205,7 @@
       },
       {
         "Name": "updateVechicleDto",
-        "Type": "Application.Features.Vehicles.DTOs.UpdateVechicleDto",
+        "Type": "Application.Features.Fleet.Vehicle.DTOs.UpdateVechicleDto",
         "IsRequired": true
       }
     ],

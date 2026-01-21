@@ -1,5 +1,5 @@
 ﻿using Domain.Common;
-using Domain.Interfaces.Services;
+using Domain.Users.Interfaces.Services;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

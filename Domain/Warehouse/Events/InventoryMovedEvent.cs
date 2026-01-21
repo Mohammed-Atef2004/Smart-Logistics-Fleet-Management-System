@@ -1,5 +1,5 @@
 ﻿using Domain.Common;
-using Domain.ValueObjects;
+using Domain.Warehouse.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

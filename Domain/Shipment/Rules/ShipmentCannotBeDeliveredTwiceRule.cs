@@ -1,5 +1,5 @@
 ﻿using Domain.Common;
-using Domain.Enums;
+using Domain.Shipment.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

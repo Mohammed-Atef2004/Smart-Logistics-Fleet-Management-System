@@ -1,0 +1,37 @@
+﻿using Application.Features.Fleet.Driver.Dtos;
+using AutoMapper;
+using Domain.Fleet;
+using Domain.Interfaces.Repositories;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+
+namespace Application.Features.Fleet.Driver.Commands.Create
+{
+
+    public class CreateDriverCommandHandler : IRequestHandler<CreateDriverCommand, Guid>
+    {
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+
+        public CreateDriverCommandHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        {
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
+        }
+        public async Task<Guid> Handle(CreateDriverCommand request, CancellationToken cancellationToken)
+        {
+            var driverEntity=new Domain.Fleet.Entities.Driver(fullName:request.driverDto.FullName,licenseNumber:request.driverDto.LicenseNumber);
+            await _unitOfWork.Drivers.AddAsync(driverEntity);
+
+            await _unitOfWork.CompleteAsync(cancellationToken);
+
+            return driverEntity.Id;
+        }
+    }
+}
+

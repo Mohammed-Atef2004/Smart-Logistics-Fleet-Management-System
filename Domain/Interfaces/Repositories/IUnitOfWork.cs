@@ -1,7 +1,6 @@
-﻿using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Repositories.Fleet;
+﻿using Domain.Fleet.Interfaces;
 
-namespace Domain.Interfaces
+namespace Domain.Interfaces.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {

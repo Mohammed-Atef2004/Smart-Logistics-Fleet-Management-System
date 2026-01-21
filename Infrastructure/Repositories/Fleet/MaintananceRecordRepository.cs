@@ -1,8 +1,8 @@
-﻿using Domain.Fleet;
+﻿using Domain.Fleet.Entities;
+using Domain.Fleet.Interfaces;
 using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Repositories.Fleet;
 using Infrastructure.Persistence.Data;
-using Infrastructure.Persistence.Repositories;
+using Infrastructure.Repositories.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;

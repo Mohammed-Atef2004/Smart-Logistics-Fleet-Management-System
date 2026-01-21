@@ -1,8 +1,7 @@
-﻿using Domain.Fleet;
-using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Repositories.Fleet;
+﻿using Domain.Fleet.Entities;
+using Domain.Fleet.Interfaces;
 using Infrastructure.Persistence.Data;
-using Infrastructure.Persistence.Repositories;
+using Infrastructure.Repositories.Shared;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories

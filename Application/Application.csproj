@@ -7,14 +7,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Common\Abstractions\**" />
+    <Compile Remove="Common\Models\**" />
+    <EmbeddedResource Remove="Common\Abstractions\**" />
+    <EmbeddedResource Remove="Common\Models\**" />
+    <None Remove="Common\Abstractions\**" />
+    <None Remove="Common\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Common\Abstractions\" />
-    <Folder Include="Common\Interfaces\" />
-    <Folder Include="Common\Models\" />
     <Folder Include="Common\Exceptions\" />
+    <Folder Include="Common\Interfaces\" />
+    <Folder Include="Features\Fleet\MaintenanceRecord\" />
     <Folder Include="Features\Users\DTOs\" />
     <Folder Include="Features\Users\Mappings\" />
     <Folder Include="Features\Users\Queries\" />

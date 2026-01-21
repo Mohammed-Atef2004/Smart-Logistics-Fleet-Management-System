@@ -1,5 +1,5 @@
 ﻿using Domain.Common;
-using Domain.Enums;
+using Domain.Fleet.Enums;
 
 public class VehicleStatusChangedEvent : DomainEvent
 {

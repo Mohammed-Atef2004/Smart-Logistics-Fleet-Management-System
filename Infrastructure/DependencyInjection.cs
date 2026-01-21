@@ -1,10 +1,10 @@
-﻿using Domain.Interfaces;
-using Domain.Interfaces.Messaging;
-using Domain.Interfaces.Services;
-using Infrastructure.Messaging;
+﻿using Domain.Billing.Interfaces.Services;
+using Domain.Interfaces.Repositories;
+using Domain.Users.Interfaces.Services;
+using Infrastructure.Messaging.OutBox;
 using Infrastructure.Persistence.Data;
 using Infrastructure.Persistence.Interceptors;
-using Infrastructure.Persistence.Repositories;
+using Infrastructure.Repositories.Shared;
 using Infrastructure.Services;
 using MassTransit;
 using Microsoft.EntityFrameworkCore; // مهم جداً

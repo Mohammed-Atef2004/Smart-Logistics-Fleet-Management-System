@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Services;
+﻿using Domain.Users.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 

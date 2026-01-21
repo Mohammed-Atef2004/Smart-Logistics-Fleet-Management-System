@@ -1,10 +1,9 @@
-﻿using Domain.Billing;
+﻿using Domain.Billing.Entities;
 using Domain.Common;
-using Domain.Fleet;
-using Domain.Notifications;
-using Domain.Shipment;
-using Domain.Users;
-using Domain.ValueObjects;
+using Domain.Fleet.Entities;
+using Domain.Notifications.Entities;
+using Domain.Shipment.Entities;
+using Domain.Users.Entities;
 using Domain.Warehouse;
 using Microsoft.EntityFrameworkCore;
 using System;
