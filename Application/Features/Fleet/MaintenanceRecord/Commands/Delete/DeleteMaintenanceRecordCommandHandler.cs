@@ -31,7 +31,7 @@ namespace Application.Features.Fleet.MaintenanceRecord.Commands.Delete
                 throw new Exception($"Maintenance record with ID {request.Id} not found");
             }
 
-            await _unitOfWork.MaintenanceRecords.DeleteAsync(record);
+             _unitOfWork.MaintenanceRecords.Delete(record);
             await _unitOfWork.CompleteAsync(cancellationToken);
 
             return Unit.Value;

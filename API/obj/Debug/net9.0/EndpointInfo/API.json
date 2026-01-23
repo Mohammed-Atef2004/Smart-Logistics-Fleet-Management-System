@@ -5,7 +5,7 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/Driver/Create": {
+    "/api/drivers": {
       "post": {
         "tags": [
           "Driver"
@@ -54,9 +54,45 @@
             }
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DriverDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DriverDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DriverDto"
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     },
-    "/api/Driver/GetById": {
+    "/api/drivers/{id}": {
       "get": {
         "tags": [
           "Driver"
@@ -64,7 +100,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -93,39 +130,58 @@
             }
           }
         }
-      }
-    },
-    "/api/Driver/GetAll": {
-      "get": {
+      },
+      "put": {
         "tags": [
           "Driver"
         ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DriverDto"
-                  }
+                  "$ref": "#/components/schemas/Unit"
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DriverDto"
-                  }
+                  "$ref": "#/components/schemas/Unit"
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/DriverDto"
-                  }
+                  "$ref": "#/components/schemas/Unit"
                 }
               }
             }
@@ -133,15 +189,16 @@
         }
       }
     },
-    "/api/Driver/Update": {
+    "/api/drivers/{driverId}/assignments": {
       "post": {
         "tags": [
           "Driver"
         ],
         "parameters": [
           {
-            "name": "guid",
-            "in": "query",
+            "name": "driverId",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -152,17 +209,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/DriverDto"
+                "type": "string",
+                "format": "uuid"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/DriverDto"
+                "type": "string",
+                "format": "uuid"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/DriverDto"
+                "type": "string",
+                "format": "uuid"
               }
             }
           }
@@ -191,7 +251,87 @@
         }
       }
     },
-    "/api/MaintenanceRecord/create": {
+    "/api/drivers/{id}/activate": {
+      "patch": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/drivers/{id}/deactivate": {
+      "patch": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Unit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/maintenance-records": {
       "post": {
         "tags": [
           "MaintenanceRecord"
@@ -240,12 +380,35 @@
             }
           }
         }
-      }
-    },
-    "/api/MaintenanceRecord/GatAll": {
+      },
       "get": {
         "tags": [
           "MaintenanceRecord"
+        ],
+        "parameters": [
+          {
+            "name": "VehicleId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "Type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/MaintenanceType"
+            }
+          },
+          {
+            "name": "Date",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -280,7 +443,7 @@
         }
       }
     },
-    "/api/MaintenanceRecord/GetById": {
+    "/api/maintenance-records/{id}": {
       "get": {
         "tags": [
           "MaintenanceRecord"
@@ -288,7 +451,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -317,9 +481,7 @@
             }
           }
         }
-      }
-    },
-    "/api/MaintenanceRecord/Update": {
+      },
       "put": {
         "tags": [
           "MaintenanceRecord"
@@ -327,7 +489,8 @@
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -358,9 +521,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/MaintenanceRecord/Delete": {
+      },
       "delete": {
         "tags": [
           "MaintenanceRecord"
@@ -368,64 +529,117 @@
         "parameters": [
           {
             "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/vehicles": {
+      "post": {
+        "tags": [
+          "Vehicles"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateVehicleCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Vehicles"
+        ],
+        "parameters": [
+          {
+            "name": "Status",
             "in": "query",
             "schema": {
-              "type": "string",
-              "format": "uuid"
+              "$ref": "#/components/schemas/VehicleStatus"
+            }
+          },
+          {
+            "name": "Model",
+            "in": "query",
+            "schema": {
+              "type": "string"
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Vehicles/Create": {
-      "post": {
-        "tags": [
-          "Vehicles"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateVehicleCommand"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateVehicleCommand"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateVehicleCommand"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK",
             "content": {
               "text/plain": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VehicleDto"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VehicleDto"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "type": "string",
-                  "format": "uuid"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/VehicleDto"
+                  }
                 }
               }
             }
@@ -433,7 +647,7 @@
         }
       }
     },
-    "/api/Vehicles/{id}": {
+    "/api/vehicles/{id}": {
       "get": {
         "tags": [
           "Vehicles"
@@ -471,10 +685,8 @@
             }
           }
         }
-      }
-    },
-    "/api/Vehicles/update/{id}": {
-      "post": {
+      },
+      "put": {
         "tags": [
           "Vehicles"
         ],
@@ -513,48 +725,8 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Vehicles/All": {
-      "get": {
-        "tags": [
-          "Vehicles"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/VehicleDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/VehicleDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/VehicleDto"
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Vehicles/Delete/{id}": {
-      "post": {
+      },
+      "delete": {
         "tags": [
           "Vehicles"
         ],
@@ -576,7 +748,7 @@
         }
       }
     },
-    "/api/Vehicles/MaintenanceRecordsPerVehicle/{id}": {
+    "/api/vehicles/{id}/maintenance-records": {
       "get": {
         "tags": [
           "Vehicles"
@@ -625,7 +797,7 @@
         }
       }
     },
-    "/api/Vehicles/AddMaintenance/{id}": {
+    "/api/vehicles/{id}/maintenance": {
       "post": {
         "tags": [
           "Vehicles"
@@ -666,7 +838,7 @@
         }
       }
     },
-    "/api/Vehicles/complete-maintenance/{id}": {
+    "/api/vehicles/{id}/complete-maintenance": {
       "post": {
         "tags": [
           "Vehicles"
@@ -689,8 +861,8 @@
         }
       }
     },
-    "/api/Vehicles/UpdateMileage/{id}": {
-      "post": {
+    "/api/vehicles/{id}/mileage": {
+      "patch": {
         "tags": [
           "Vehicles"
         ],
@@ -733,6 +905,73 @@
           }
         }
       }
+    },
+    "/api/vehicles/summary": {
+      "get": {
+        "tags": [
+          "Vehicles"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/FleetSummaryDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FleetSummaryDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FleetSummaryDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/vehicles/alerts": {
+      "get": {
+        "tags": [
+          "Vehicles"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaintenanceAlertDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaintenanceAlertDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MaintenanceAlertDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   },
   "components": {
@@ -769,6 +1008,58 @@
         },
         "additionalProperties": false
       },
+      "FleetSummaryDto": {
+        "type": "object",
+        "properties": {
+          "totalVehicles": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vehiclesInMaintenance": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "vehiclesOnTrip": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalDrivers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "availableDrivers": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MaintenanceAlertDto": {
+        "type": "object",
+        "properties": {
+          "vehicleId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "licensePlate": {
+            "type": "string",
+            "nullable": true
+          },
+          "currentMileage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "lastMaintenanceMileage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "overdueByKm": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "MaintenanceRecordDto": {
         "type": "object",
         "properties": {
@@ -791,6 +1082,10 @@
           "mileageAtMaintenance": {
             "type": "integer",
             "format": "int32"
+          },
+          "maintenanceDate": {
+            "type": "string",
+            "format": "date-time"
           }
         },
         "additionalProperties": false
@@ -867,6 +1162,17 @@
           }
         },
         "additionalProperties": false
+      },
+      "VehicleStatus": {
+        "enum": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "type": "integer",
+        "format": "int32"
       }
     }
   },

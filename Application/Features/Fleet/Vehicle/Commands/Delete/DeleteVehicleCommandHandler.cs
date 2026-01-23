@@ -20,7 +20,7 @@ namespace Application.Features.Fleet.Vehicle.Commands.Delete
         {
             var vehicle = await _unitOfWork.Vehicles.GetByIdAsync(requestId.Id);
             if (vehicle == null) throw new Exception("Vehicle not found");
-            _unitOfWork.Vehicles.DeleteAsync(vehicle);
+            _unitOfWork.Vehicles.Delete(vehicle);
             await _unitOfWork.CompleteAsync(cancellationToken);
             return Unit.Value;
         }

@@ -15,8 +15,11 @@ namespace Domain.Fleet.Entities
         public int CurrentMileage { get; private set; }
         public int LastMaintenanceMileage { get; private set; }
 
+        // --- Driver Relationship (The Missing Link) ---
+        public Guid? CurrentDriverId { get; private set; }
+        public virtual Driver? CurrentDriver { get; private set; }
+
         // --- Navigation Properties ---
-        // Backing field to encapsulate the collection
         private readonly List<MaintenanceRecord> _maintenanceRecords = new();
         public virtual IReadOnlyCollection<MaintenanceRecord> MaintenanceRecords => _maintenanceRecords.AsReadOnly();
 
@@ -42,29 +45,46 @@ namespace Domain.Fleet.Entities
             LastMaintenanceMileage = currentMileage;
             Status = VehicleStatus.Available;
 
-            // Trigger event for new vehicle creation
             AddDomainEvent(new VehicleCreatedEvent(Id, licensePlate));
         }
 
         // --- Helper for Business Rules ---
         protected static void CheckRule(IBusinessRule rule)
         {
-            if (rule.IsBroken())
-            {
-                throw new BusinessRuleViolationException(rule);
-            }
+            if (rule.IsBroken()) throw new BusinessRuleViolationException(rule);
         }
 
         // --- Business Logic Methods ---
 
+        // 1. الربط مع السائق
+        public void AssignDriver(Guid driverId)
+        {
+            // لا يمكن تعيين سائق إذا كانت السيارة في الصيانة
+            if (Status == VehicleStatus.InMaintenance)
+                throw new Exception("Cannot assign driver to a vehicle in maintenance.");
+
+            // إذا كانت السيارة مع سائق آخر بالفعل
+            if (CurrentDriverId.HasValue && CurrentDriverId != driverId)
+                throw new Exception("Vehicle is already assigned to another driver.");
+
+            CurrentDriverId = driverId;
+            Status = VehicleStatus.Active; // تغيير الحالة لنشطة
+
+            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
+        }
+
+        public void ReleaseDriver()
+        {
+            CurrentDriverId = null;
+            Status = VehicleStatus.Available;
+            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
+        }
+
         public void UpdateMileage(int newMileage)
         {
-            // Rule: Mileage cannot decrease
             CheckRule(new MileageCannotDecreaseRule(CurrentMileage, newMileage));
-
             CurrentMileage = newMileage;
 
-            // Rule: Check if maintenance is required (10,000 km interval)
             if (CurrentMileage - LastMaintenanceMileage >= 10000)
             {
                 AddDomainEvent(new MaintenanceRequiredEvent(Id, CurrentMileage));
@@ -73,10 +93,7 @@ namespace Domain.Fleet.Entities
 
         public void AssignToTrip()
         {
-            // Rule: Cannot trip if maintenance is due
             CheckRule(new MaintenanceIntervalRule(CurrentMileage, LastMaintenanceMileage));
-
-            // Rule: Vehicle must be available
             CheckRule(new VehicleMustBeAvailableRule(Status));
 
             Status = VehicleStatus.OnTrip;
@@ -85,13 +102,13 @@ namespace Domain.Fleet.Entities
 
         public void AddMaintenanceRecord(MaintenanceType type, string description, decimal cost)
         {
-            // Logic to create and link the record
-            var record = new MaintenanceRecord(this.Id,type, description, cost, CurrentMileage);
+            var record = new MaintenanceRecord(this.Id, type, description, cost, CurrentMileage);
             _maintenanceRecords.Add(record);
 
-            // Update vehicle state
             LastMaintenanceMileage = CurrentMileage;
             Status = VehicleStatus.InMaintenance;
+
+            ReleaseDriver();
 
             AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
         }
@@ -111,15 +128,7 @@ namespace Domain.Fleet.Entities
         public void SetUpdated(string user) { UpdatedAt = DateTime.UtcNow; UpdatedBy = user; }
         public void Delete() => IsDeleted = true;
         public void Restore() => IsDeleted = false;
-        public void Create(string licensePlate, string model, int currentMileage)
-        {
-            LicensePlate = licensePlate;
-            Model = model;
-            CurrentMileage = currentMileage;
-            LastMaintenanceMileage = currentMileage;
-            Status = VehicleStatus.Available;
-            AddDomainEvent(new VehicleCreatedEvent(Id, licensePlate));
-        }
+
         public void Update(string licensePlate, string model, int currentMileage)
         {
             LicensePlate = licensePlate;

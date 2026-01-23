@@ -25,6 +25,10 @@ public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
         builder.HasMany(v => v.MaintenanceRecords)
                .WithOne(m => m.Vehicle)
                .HasForeignKey(m => m.VehicleId);
+        builder.HasOne(v => v.CurrentDriver)
+                .WithMany()
+                .HasForeignKey(v => v.CurrentDriverId)
+                .OnDelete(DeleteBehavior.SetNull);
 
         builder.HasQueryFilter(v => !v.IsDeleted); // Soft Delete filter
     }

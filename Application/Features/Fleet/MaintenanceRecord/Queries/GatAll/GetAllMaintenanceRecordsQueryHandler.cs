@@ -1,7 +1,10 @@
 ﻿using Application.Features.Fleet.MaintenanceRecord.DTOs;
+using Application.Features.Fleet.MaintenanceRecord.Queries.GetAll;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Domain.Interfaces.Repositories;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +24,22 @@ namespace Application.Features.Fleet.MaintenanceRecord.Queries.GatAll
         }
         public async Task<List<MaintenanceRecordDto>> Handle(GetAllMaintenanceRecordsQuery request, CancellationToken cancellationToken)
         {
-            var maintenanceRecords = await _unitOfWork.MaintenanceRecords.GetAllAsync();
-            return _mapper.Map<List<MaintenanceRecordDto>>(maintenanceRecords);
+            var query = _unitOfWork.MaintenanceRecords.EntityQuery;
+
+            if (request.VehicleId.HasValue)
+            {
+                query = query.Where(x => x.VehicleId == request.VehicleId.Value);
+            }
+
+            if (request.Type.HasValue)
+            {
+                query = query.Where(x => x.Type == request.Type.Value);
+            }
+
+            return await query
+                .OrderByDescending(x => x.MaintenanceDate) 
+                .ProjectTo<MaintenanceRecordDto>(_mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken);
         }
     }
 }

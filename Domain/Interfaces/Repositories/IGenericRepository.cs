@@ -5,19 +5,21 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces.Repositories
+using System.Linq.Expressions;
+
+namespace Domain.Interfaces.Repositories;
+
+public interface IGenericRepository<T> where T : class
 {
-    public interface IGenericRepository<T> where T : class
-    {
-        Task<T?> GetByIdAsync(Guid id);
-        Task<IEnumerable<T>> GetAllAsync();
-        Task AddAsync(T entity);
-      
-        Task DeleteAsync(T entity);
+    // The key to deferred execution
+    IQueryable<T> EntityQuery { get; }
 
-        Task<int> CountAsync();
+    // Basic Persistence
+    Task<T?> GetByIdAsync(Guid id);
+    Task AddAsync(T entity);
+    void Update(T entity);
+    void Delete(T entity);
 
-        Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> criteria, string[]? includes = null);
-
-    }
+    // Helpers for simple cases
+    Task<int> CountAsync(Expression<Func<T, bool>>? predicate = null);
 }

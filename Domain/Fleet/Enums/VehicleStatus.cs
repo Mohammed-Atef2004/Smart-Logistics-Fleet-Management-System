@@ -11,7 +11,8 @@ namespace Domain.Fleet.Enums
         Available = 1,
         OnTrip = 2,
         InMaintenance = 3,
-        OutOfService = 4
+        OutOfService = 4,
+        Active = 5
     }
 
 }

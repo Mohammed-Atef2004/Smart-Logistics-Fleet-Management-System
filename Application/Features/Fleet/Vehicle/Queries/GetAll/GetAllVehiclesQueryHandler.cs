@@ -1,7 +1,9 @@
 ﻿using Application.Features.Fleet.Vehicle.DTOs;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Domain.Interfaces.Repositories;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +24,21 @@ namespace Application.Features.Fleet.Vehicle.Queries.GetAll
         }
         public async Task<List<VehicleDto>> Handle(GetAllVehiclesQuery request, CancellationToken cancellationToken)
         {
-            var vehicles=_unitOfWork.Vehicles.GetAllVehiclesWithMaintenanceAsync();
-            if (vehicles == null || vehicles.Result.Count == 0)
+            var query = _unitOfWork.Vehicles.EntityQuery;
+
+            if (request.Status.HasValue)
             {
-                throw new Exception("No vehicles found");
+                query = query.Where(v => v.Status == request.Status.Value);
             }
-            return _mapper.Map<List<VehicleDto>>(vehicles.Result);
 
+            if (!string.IsNullOrWhiteSpace(request.Model))
+            {
+                query = query.Where(v => v.Model.Contains(request.Model));
+            }
 
+            return await query
+                .ProjectTo<VehicleDto>(_mapper.ConfigurationProvider)
+                .ToListAsync(cancellationToken);
         }
     }
 }

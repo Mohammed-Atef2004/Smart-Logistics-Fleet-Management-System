@@ -1,14 +1,12 @@
-﻿using Amazon.Runtime.Internal;
-using Application.Features.Fleet.MaintenanceRecord.DTOs;
+﻿using Application.Features.Fleet.MaintenanceRecord.DTOs;
+using Domain.Fleet.Enums;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Features.Fleet.MaintenanceRecord.Queries.GatAll
-{
-    public record GetAllMaintenanceRecordsQuery:IRequest<List<MaintenanceRecordDto>>;
+namespace Application.Features.Fleet.MaintenanceRecord.Queries.GetAll;
 
-}
+public record GetAllMaintenanceRecordsQuery(
+    Guid? VehicleId = null,         
+    MaintenanceType? Type = null,      
+    DateTime? Date = null         
+            
+) : IRequest<List<MaintenanceRecordDto>>;

@@ -9,5 +9,8 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Fleet.Driver.Queries.GetAll
 {
-    public record GetAllDriversQuery:IRequest<List<DriverDto>>;
+    public record GetAllDriversQuery(
+          bool? IsActive = null,
+          string? SearchTerm = null
+      ) : IRequest<List<DriverDto>>;
 }

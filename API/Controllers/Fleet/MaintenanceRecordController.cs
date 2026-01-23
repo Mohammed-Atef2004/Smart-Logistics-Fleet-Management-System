@@ -3,35 +3,40 @@ using Application.Features.Fleet.MaintenanceRecord.Commands.Delete;
 using Application.Features.Fleet.MaintenanceRecord.Commands.Update;
 using Application.Features.Fleet.MaintenanceRecord.DTOs;
 using Application.Features.Fleet.MaintenanceRecord.Queries.GatAll;
+using Application.Features.Fleet.MaintenanceRecord.Queries.GetAll;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers.Fleet
 {
-    [Route("api/[controller]")]
+    [Route("api/maintenance-records")]
     [ApiController]
     public class MaintenanceRecordController : ControllerBase
     {
         private readonly IMediator _mediator;
+
         public MaintenanceRecordController(IMediator mediator)
         {
             _mediator = mediator;
         }
-        [HttpPost("create")]
+
+        [HttpPost]
         public async Task<ActionResult<Guid>> CreateMaintenanceRecord([FromBody] MaintenanceRecordDto maintenanceRecordDto)
         {
             var result = await _mediator.Send(new CreateMaintenanceRecordCommand(maintenanceRecordDto));
             return Ok(result);
         }
-        [HttpGet("GatAll")]
-        public async Task<ActionResult<List<MaintenanceRecordDto>>> GetAllMaintenanceRecords()
+
+        [HttpGet]
+        public async Task<ActionResult<List<MaintenanceRecordDto>>> GetAllMaintenanceRecords([FromQuery] GetAllMaintenanceRecordsQuery query)
         {
-            var result = await _mediator.Send(new GetAllMaintenanceRecordsQuery());
+            var result = await _mediator.Send(query);
             return Ok(result);
         }
-        [HttpGet("GetById")]
-        public async Task<ActionResult<MaintenanceRecordDto>> GetMaintenanceRecordById([FromQuery] Guid id)
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<MaintenanceRecordDto>> GetMaintenanceRecordById(Guid id)
         {
             var result = await _mediator.Send(new GetAllMaintenanceRecordsQuery());
             if (result == null)
@@ -40,14 +45,16 @@ namespace API.Controllers.Fleet
             }
             return Ok(result);
         }
-        [HttpPut("Update")]
-        public async Task<ActionResult> UpdateMaintenanceRecord([FromQuery] Guid id, [FromBody] UpdateMaintenanceRecordDto updateMaintenanceRecordDto)
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateMaintenanceRecord(Guid id, [FromBody] UpdateMaintenanceRecordDto updateMaintenanceRecordDto)
         {
             await _mediator.Send(new UpdateMaintenanceRecordCommand(id, updateMaintenanceRecordDto));
             return NoContent();
         }
-        [HttpDelete("Delete")]
-        public async Task<ActionResult> DeleteMaintenanceRecord([FromQuery] Guid id)
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteMaintenanceRecord(Guid id)
         {
             await _mediator.Send(new DeleteMaintenanceRecordCommand(id));
             return NoContent();

@@ -1,7 +1,9 @@
 ﻿using Application.Features.Fleet.MaintenanceRecord.DTOs;
 using AutoMapper;
+using AutoMapper.QueryableExtensions;
 using Domain.Interfaces.Repositories;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,18 +26,10 @@ namespace Application.Features.Fleet.Vehicle.Queries.GetAllMaintenanceRecordForV
 
         public async Task<List<MaintenanceRecordDto>> Handle(GetAllMaintenanceRecordForVehicleQuery request, CancellationToken cancellationToken)
         {
-            var vehicles = await _unitOfWork.Vehicles.GetAllMaintenanceRecordsForVehicle(request.Id);
-            if (vehicles == null)
-            {
-                throw new Exception("No Records Found for this Vehicle found");
-            }
-            if (vehicles.MaintenanceRecords.Count == 0)
-            {
-                throw new Exception("No Records Found for this Vehicle found");
-            }
-           
-            var result=_mapper.Map<List<MaintenanceRecordDto>>(vehicles.MaintenanceRecords);
-            return result;
+            return await _unitOfWork.MaintenanceRecords.EntityQuery
+                .ProjectTo<MaintenanceRecordDto>(_mapper.ConfigurationProvider).ToListAsync(cancellationToken);
+
+
         }
     }
 }
