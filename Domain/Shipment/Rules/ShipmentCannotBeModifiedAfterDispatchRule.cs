@@ -8,18 +8,18 @@ using System.Threading.Tasks;
 
 namespace Domain.Shipment.Rules
 {
-    public class ShipmentCannotBeDeliveredTwiceRule : IBusinessRule
+    public class ShipmentCannotBeModifiedAfterDispatchRule : IBusinessRule
     {
         private readonly ShipmentStatus _status;
 
-        public ShipmentCannotBeDeliveredTwiceRule(ShipmentStatus status)
+        public ShipmentCannotBeModifiedAfterDispatchRule(ShipmentStatus status)
         {
             _status = status;
         }
 
-        public bool IsBroken() => _status == ShipmentStatus.Delivered;
+        public bool IsBroken() => _status != ShipmentStatus.Created;
 
-        public string Message => "Shipment has already been delivered";
+        public string Message => "Cannot modify shipment after it has been dispatched";
     }
 
 }

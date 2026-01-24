@@ -11,7 +11,7 @@ namespace Domain.Shipment.Events
     {
         public Guid ShipmentId { get; }
 
-        public ShipmentDeliveredEvent(Guid shipmentId)
+        public ShipmentDeliveredEvent(Guid shipmentId, DateTime value)
         {
             ShipmentId = shipmentId;
         }

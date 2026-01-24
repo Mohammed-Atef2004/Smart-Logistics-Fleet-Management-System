@@ -6,15 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Shipment.Enums
 {
-
-    public enum ShipmentStatus
+    public enum PackageType
     {
-        Created,
-        InTransit,
-        OutForDelivery,
-        Delivered,
-        Cancelled,
-        Returned
+        Standard,
+        Fragile,
+        Perishable,
+        Hazardous
     }
-
 }
