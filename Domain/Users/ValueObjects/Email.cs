@@ -1,5 +1,6 @@
 ﻿using Domain.Common;
 using Domain.Common.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Users.ValueObjects
 {
+    [Owned]
     public class Email : ValueObject
     {
         public string Value { get; }
@@ -24,6 +26,7 @@ namespace Domain.Users.ValueObjects
         {
             yield return Value;
         }
+        private Email() { } // For EF
     }
 }
 

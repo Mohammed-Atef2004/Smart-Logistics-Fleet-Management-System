@@ -1,5 +1,7 @@
 ﻿using Domain.Common.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 
+[Owned]
 public class Address : ValueObject
 {
     public string Street { get; private set; }

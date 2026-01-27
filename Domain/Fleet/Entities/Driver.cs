@@ -3,6 +3,7 @@ using Domain.Exceptions;
 using Domain.Fleet.Events;
 using Domain.Fleet.Rules;
 using Domain.Users;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Domain.Fleet.Entities
 {
@@ -18,6 +19,7 @@ namespace Domain.Fleet.Entities
         public bool IsActive { get; private set; }
 
         // 3. Navigation Property (The relationship with Vehicle)
+        [NotMapped]
         public Guid? CurrentVehicleId { get; private set; }
         public virtual Vehicle? CurrentVehicle { get; private set; }
 

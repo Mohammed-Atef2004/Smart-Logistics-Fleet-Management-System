@@ -4,16 +4,19 @@ using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260127213211_updates")]
+    partial class updates
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -71,8 +74,6 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("InvoiceId");
-
                     b.ToTable("Payments");
                 });
 
@@ -90,8 +91,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -101,8 +101,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("LicenseNumber")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
@@ -112,7 +111,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Drivers", "Fleet");
+                    b.ToTable("Drivers");
                 });
 
             modelBuilder.Entity("Domain.Fleet.Entities.MaintenanceRecord", b =>
@@ -126,8 +125,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("MaintenanceDate")
                         .HasColumnType("datetime2");
@@ -145,7 +143,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("VehicleId");
 
-                    b.ToTable("MaintenanceRecords", "Fleet");
+                    b.ToTable("MaintenanceRecords");
                 });
 
             modelBuilder.Entity("Domain.Fleet.Entities.Vehicle", b =>
@@ -174,8 +172,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("LicensePlate")
                         .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
                         .IsRequired()
@@ -196,10 +193,7 @@ namespace Infrastructure.Migrations
                         .IsUnique()
                         .HasFilter("[CurrentDriverId] IS NOT NULL");
 
-                    b.HasIndex("LicensePlate")
-                        .IsUnique();
-
-                    b.ToTable("Vehicles", "Fleet");
+                    b.ToTable("Vehicles");
                 });
 
             modelBuilder.Entity("Domain.Notifications.Entities.Alert", b =>
@@ -230,8 +224,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Message")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
@@ -255,8 +248,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ShipmentId")
                         .HasColumnType("uniqueidentifier");
@@ -297,8 +289,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("TrackingNumber")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -313,12 +304,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ShipmentId")
                         .HasColumnType("uniqueidentifier");
@@ -330,7 +319,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("ShipmentId");
 
-                    b.ToTable("TrackingUpdates", "Shipment");
+                    b.ToTable("TrackingUpdate");
                 });
 
             modelBuilder.Entity("Domain.Users.Entities.ApplicationUser", b =>
@@ -353,8 +342,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("FullName")
                         .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("bit");
@@ -408,8 +396,7 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -425,7 +412,7 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Roles", "Users");
+                    b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("InventoryItem", b =>
@@ -453,16 +440,6 @@ namespace Infrastructure.Migrations
                             b1.Property<Guid>("InsuranceClaimId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<decimal>("Amount")
-                                .HasColumnType("decimal(18,2)")
-                                .HasColumnName("ClaimAmount");
-
-                            b1.Property<string>("Currency")
-                                .IsRequired()
-                                .HasMaxLength(3)
-                                .HasColumnType("nvarchar(3)")
-                                .HasColumnName("ClaimCurrency");
-
                             b1.HasKey("InsuranceClaimId");
 
                             b1.ToTable("InsuranceClaims");
@@ -482,16 +459,6 @@ namespace Infrastructure.Migrations
                             b1.Property<Guid>("InvoiceId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<decimal>("Amount")
-                                .HasColumnType("decimal(18,2)")
-                                .HasColumnName("TotalAmount");
-
-                            b1.Property<string>("Currency")
-                                .IsRequired()
-                                .HasMaxLength(3)
-                                .HasColumnType("nvarchar(3)")
-                                .HasColumnName("TotalCurrency");
-
                             b1.HasKey("InvoiceId");
 
                             b1.ToTable("Invoices");
@@ -510,16 +477,6 @@ namespace Infrastructure.Migrations
                         {
                             b1.Property<Guid>("PaymentId")
                                 .HasColumnType("uniqueidentifier");
-
-                            b1.Property<decimal>("Amount")
-                                .HasColumnType("decimal(18,2)")
-                                .HasColumnName("Amount");
-
-                            b1.Property<string>("Currency")
-                                .IsRequired()
-                                .HasMaxLength(3)
-                                .HasColumnType("nvarchar(3)")
-                                .HasColumnName("Currency");
 
                             b1.HasKey("PaymentId");
 
@@ -548,8 +505,7 @@ namespace Infrastructure.Migrations
                 {
                     b.HasOne("Domain.Fleet.Entities.Driver", "CurrentDriver")
                         .WithOne("CurrentVehicle")
-                        .HasForeignKey("Domain.Fleet.Entities.Vehicle", "CurrentDriverId")
-                        .OnDelete(DeleteBehavior.SetNull);
+                        .HasForeignKey("Domain.Fleet.Entities.Vehicle", "CurrentDriverId");
 
                     b.Navigation("CurrentDriver");
                 });
@@ -559,7 +515,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Shipment.Entities.Shipment", null)
                         .WithMany("Packages")
                         .HasForeignKey("ShipmentId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -571,8 +527,7 @@ namespace Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<decimal>("EstimatedDistance")
-                                .HasColumnType("decimal(18,2)")
-                                .HasColumnName("EstimatedDistance");
+                                .HasColumnType("decimal(18,2)");
 
                             b1.HasKey("ShipmentId");
 
@@ -588,33 +543,23 @@ namespace Infrastructure.Migrations
 
                                     b2.Property<string>("City")
                                         .IsRequired()
-                                        .HasMaxLength(100)
-                                        .HasColumnType("nvarchar(100)")
-                                        .HasColumnName("DestinationCity");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Country")
                                         .IsRequired()
-                                        .HasMaxLength(100)
-                                        .HasColumnType("nvarchar(100)")
-                                        .HasColumnName("DestinationCountry");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("PostalCode")
                                         .IsRequired()
-                                        .HasMaxLength(20)
-                                        .HasColumnType("nvarchar(20)")
-                                        .HasColumnName("DestinationPostalCode");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("State")
                                         .IsRequired()
-                                        .HasMaxLength(100)
-                                        .HasColumnType("nvarchar(100)")
-                                        .HasColumnName("DestinationState");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Street")
                                         .IsRequired()
-                                        .HasMaxLength(200)
-                                        .HasColumnType("nvarchar(200)")
-                                        .HasColumnName("DestinationStreet");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.HasKey("RouteShipmentId");
 
@@ -631,33 +576,23 @@ namespace Infrastructure.Migrations
 
                                     b2.Property<string>("City")
                                         .IsRequired()
-                                        .HasMaxLength(100)
-                                        .HasColumnType("nvarchar(100)")
-                                        .HasColumnName("OriginCity");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Country")
                                         .IsRequired()
-                                        .HasMaxLength(100)
-                                        .HasColumnType("nvarchar(100)")
-                                        .HasColumnName("OriginCountry");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("PostalCode")
                                         .IsRequired()
-                                        .HasMaxLength(20)
-                                        .HasColumnType("nvarchar(20)")
-                                        .HasColumnName("OriginPostalCode");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("State")
                                         .IsRequired()
-                                        .HasMaxLength(100)
-                                        .HasColumnType("nvarchar(100)")
-                                        .HasColumnName("OriginState");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.Property<string>("Street")
                                         .IsRequired()
-                                        .HasMaxLength(200)
-                                        .HasColumnType("nvarchar(200)")
-                                        .HasColumnName("OriginStreet");
+                                        .HasColumnType("nvarchar(max)");
 
                                     b2.HasKey("RouteShipmentId");
 
@@ -683,7 +618,7 @@ namespace Infrastructure.Migrations
                     b.HasOne("Domain.Shipment.Entities.Shipment", null)
                         .WithMany("TrackingUpdates")
                         .HasForeignKey("ShipmentId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
@@ -696,21 +631,15 @@ namespace Infrastructure.Migrations
 
                             b1.Property<string>("Aisle")
                                 .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Aisle");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("Bin")
                                 .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Bin");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.Property<string>("Shelf")
                                 .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("Shelf");
+                                .HasColumnType("nvarchar(max)");
 
                             b1.HasKey("InventoryItemId");
 

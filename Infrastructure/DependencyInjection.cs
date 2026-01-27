@@ -20,14 +20,21 @@ namespace Infrastructure
             // 1. تسجيل الـ Interceptors
             services.AddScoped<EntitySaveChangesInterceptor>();
 
-            // 2. تسجيل الـ DbContext (حل مشكلة UseSqlServer)
+            // 2. تسجيل الـ DbContext (تعديل لضمان عدم حدوث NullReference)
             services.AddDbContext<ApplicationDbContext>((sp, options) =>
             {
-                var interceptor = sp.GetRequiredService<EntitySaveChangesInterceptor>();
+                // استخدام GetService بدل GetRequiredService عشان ميضربش لو الـ Provider لسه مجهزش
+                var interceptor = sp.GetService<EntitySaveChangesInterceptor>();
 
-                // استخدمنا الاسم الكامل لمنع التعارض مع MassTransit
-                options.UseSqlServer(configuration.GetConnectionString("DefaultConnection"))
-                       .AddInterceptors(interceptor);
+                var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+                options.UseSqlServer(connectionString);
+
+                // لا يضيف الـ Interceptor إلا إذا كان موجوداً فعلاً
+                if (interceptor != null)
+                {
+                    options.AddInterceptors(interceptor);
+                }
             });
 
             // 3. تسجيل الـ Repositories والـ Unit of Work
@@ -50,10 +57,15 @@ namespace Infrastructure
 
                 x.UsingRabbitMq((context, cfg) =>
                 {
-                    cfg.Host(configuration["RabbitMQ:Host"] ?? "localhost", "/", h =>
+                    // تأكد إن الـ Configuration مش Null قبل القراءة
+                    var host = configuration["RabbitMQ:Host"] ?? "localhost";
+                    var user = configuration["RabbitMQ:Username"] ?? "guest";
+                    var pass = configuration["RabbitMQ:Password"] ?? "guest";
+
+                    cfg.Host(host, "/", h =>
                     {
-                        h.Username(configuration["RabbitMQ:Username"] ?? "guest");
-                        h.Password(configuration["RabbitMQ:Password"] ?? "guest");
+                        h.Username(user);
+                        h.Password(pass);
                     });
                 });
             });
@@ -62,6 +74,5 @@ namespace Infrastructure
 
             return services;
         }
-
     }
 }

@@ -1,8 +1,10 @@
 ﻿using Domain.Common;
 using Domain.Common.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Billing.ValueObjects
 {
+    [Owned]
     public class Money : ValueObject
     {
         public decimal Amount { get; }

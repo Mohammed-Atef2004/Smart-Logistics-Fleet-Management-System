@@ -13,7 +13,7 @@ namespace Infrastructure.Persistence.Configurations.Users
                 .IsRequired();
 
             // Ignore Domain Events (هنحفظهم في جدول منفصل)
-            builder.Ignore(u => u.DomainEvents);
+            //builder.Ignore(u => u.DomainEvents);
 
             // Configure relationship with Driver (already configured from Driver side)
         }

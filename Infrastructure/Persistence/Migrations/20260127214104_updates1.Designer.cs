@@ -4,16 +4,19 @@ using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Infrastructure.Migrations
+namespace Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260127214104_updates1")]
+    partial class updates1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -313,12 +316,10 @@ namespace Infrastructure.Migrations
 
                     b.Property<string>("Location")
                         .IsRequired()
-                        .HasMaxLength(250)
-                        .HasColumnType("nvarchar(250)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Notes")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<Guid>("ShipmentId")
                         .HasColumnType("uniqueidentifier");
@@ -330,7 +331,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("ShipmentId");
 
-                    b.ToTable("TrackingUpdates", "Shipment");
+                    b.ToTable("TrackingUpdate");
                 });
 
             modelBuilder.Entity("Domain.Users.Entities.ApplicationUser", b =>

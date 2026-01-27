@@ -1,8 +1,10 @@
 ﻿using Domain.Common.Domain.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Shipment.ValueObjects
 {
 
+    [Owned]
     public class Route : ValueObject
     {
         public Address Origin { get; private set; }

@@ -1,35 +1,39 @@
 ﻿using Domain.Fleet.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
+namespace Infrastructure.Persistence.Configurations.Fleet
 {
-    public void Configure(EntityTypeBuilder<Vehicle> builder)
+    public class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
     {
-        builder.ToTable("Vehicles", "Fleet");
-        builder.HasKey(v => v.Id);
+        public void Configure(EntityTypeBuilder<Vehicle> builder)
+        {
+            builder.ToTable("Vehicles", "Fleet");
 
-        // Map the private field for the collection (Encapsulation)
-        builder.Metadata.FindNavigation(nameof(Vehicle.MaintenanceRecords))
-               .SetPropertyAccessMode(PropertyAccessMode.Field);
+            builder.HasKey(v => v.Id);
 
-        builder.Property(v => v.LicensePlate).HasMaxLength(20).IsRequired();
-        builder.HasIndex(v => v.LicensePlate).IsUnique(); // لمنع تكرار اللوحات
+            builder.Property(v => v.LicensePlate)
+                   .HasMaxLength(20)
+                   .IsRequired();
 
-        // Relationship One-to-Many
-        builder.HasMany(v => v.MaintenanceRecords)
-               .WithOne(m => m.Vehicle)
-               .HasForeignKey(m => m.VehicleId);
-        builder.HasOne(v => v.CurrentDriver)
-                .WithMany()
-                .HasForeignKey(v => v.CurrentDriverId)
-                .OnDelete(DeleteBehavior.SetNull);
+            builder.HasIndex(v => v.LicensePlate)
+                   .IsUnique();
 
-        builder.HasQueryFilter(v => !v.IsDeleted); // Soft Delete filter
+            // Maintenance Records (One-to-Many)
+            builder.HasMany(v => v.MaintenanceRecords)
+                   .WithOne(m => m.Vehicle)
+                   .HasForeignKey(m => m.VehicleId);
+
+            //builder.Metadata.FindNavigation(nameof(Vehicle.MaintenanceRecords)).SetPropertyAccessMode(PropertyAccessMode.Field);
+
+            // ✅ One-to-One (Dependent side + FK هنا)
+            builder.HasOne(v => v.CurrentDriver)
+                   .WithOne(d => d.CurrentVehicle)
+                   .HasForeignKey<Vehicle>(v => v.CurrentDriverId)
+                   .OnDelete(DeleteBehavior.SetNull);
+
+            // Soft Delete
+            builder.HasQueryFilter(v => !v.IsDeleted);
+        }
     }
 }

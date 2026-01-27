@@ -1,17 +1,17 @@
 ﻿using Domain.Common.Domain.Common;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace Domain.Warehouse.ValueObjects
 {
+    [Owned]
     public class StorageLocation : ValueObject
     {
-        public string Aisle { get; }
-        public string Shelf { get; }
-        public string Bin { get; }
+        public string Aisle { get; private set; }
+        public string Shelf { get; private set; }
+        public string Bin { get; private set; }
+
+        // 👈 EF Core ONLY
+        private StorageLocation() { }
 
         public StorageLocation(string aisle, string shelf, string bin)
         {

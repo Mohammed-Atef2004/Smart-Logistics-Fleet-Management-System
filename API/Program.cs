@@ -19,7 +19,8 @@ namespace API
             builder.Services.AddApplication(); 
             builder.Services.AddInfrastructure(builder.Configuration); 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-           
+            
+
             var app = builder.Build();
 
 

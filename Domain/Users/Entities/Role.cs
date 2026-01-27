@@ -10,7 +10,6 @@ namespace Domain.Users.Entities
 {
     public class Role:IdentityRole<Guid>, IAudiatable
     {
-        public string Name { get; set; }
         public string Description { get; set; }
 
        public DateTime CreatedAt { get; set; }
@@ -36,5 +35,6 @@ namespace Domain.Users.Entities
             UpdatedAt= DateTime.UtcNow;
             this.UpdatedBy= UpdatedBy;
         }
+        private Role() : base() { }// For EF Core
     }
 }

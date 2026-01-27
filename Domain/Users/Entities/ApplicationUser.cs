@@ -15,11 +15,11 @@ namespace Domain.Users.Entities
     {
         public string FullName { get; private set; }
 
-        public ICollection<Role> UserRoles { get; private set; } = new List<Role>();
         private readonly List<DomainEvent> _domainEvents = new();
         public IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
 
-       
+        private ApplicationUser() { } // EF Core
+
         public ApplicationUser(string fullName, string email)
         {
             FullName = fullName;
@@ -28,18 +28,18 @@ namespace Domain.Users.Entities
             AddDomainEvent(new UserCreatedEvent(Id));
         }
 
-        public void AssignRole(Role role)
-        {
-            if (role == null) throw new ArgumentNullException(nameof(role));
+        //public void AssignRole(Role role)
+        //{
+        //    if (role == null) throw new ArgumentNullException(nameof(role));
 
-            var userRole = new Role(role.Name, role.Description)
-            {
-                Description = role.Description
-            };
-            UserRoles.Add(userRole);
+        //    var userRole = new Role(role.Name, role.Description)
+        //    {
+        //        Description = role.Description
+        //    };
+        //    UserRoles.Add(userRole);
 
-            AddDomainEvent(new UserRoleAssignedEvent(Id, role.Id));
-        }
+        //    AddDomainEvent(new UserRoleAssignedEvent(Id, role.Id));
+        //}
 
         public void ChangePassword(string newPassword)
         {

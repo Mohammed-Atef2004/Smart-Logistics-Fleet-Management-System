@@ -23,7 +23,6 @@ namespace Infrastructure.Persistence.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Driver> Drivers { get; set; }
 
-        public DbSet<Route> Routes { get; set; }
         public DbSet<MaintenanceRecord> MaintenanceRecords { get; set; }
 
         // Shipment
@@ -47,17 +46,19 @@ namespace Infrastructure.Persistence.Data
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
 
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            base.OnModelCreating(modelBuilder);
+
+            // ✅ تجاهل DomainEvent
+            modelBuilder.Ignore<DomainEvent>();
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplicationDbContext).Assembly);
 
-            base.OnModelCreating(modelBuilder);
-            // Ignore abstract base classes
-            modelBuilder.Ignore<DomainEvent>();
+            // ✅ الطريقة الأضمن: حدد كلاس واحد من اللي فيهم الـ Configurations عشان يقرأ الـ Assembly بتاعه صح
+            // استبدل PaymentConfiguration بأي كلاس Configuration عندك
+            // modelBuilder.ApplyConfigurationsFromAssembly(typeof(Infrastructure.Persistence.Configurations.Billing.PaymentConfiguration).Assembly);
+        }
 
-            base.OnModelCreating(modelBuilder);
-        
-    }
     }
 }
