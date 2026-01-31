@@ -10,6 +10,6 @@ namespace Domain.Shipment.Interfaces
 {
     public interface IPackageRepository:IGenericRepository<Package>
     {
-        Task Update(Package package);
+        void Update(Package package);
     }
 }

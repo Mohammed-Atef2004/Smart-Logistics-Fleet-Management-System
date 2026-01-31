@@ -182,5 +182,14 @@ namespace Domain.Shipment.Entities
         public bool IsFinalized() => Status == ShipmentStatus.Delivered ||
                                       Status == ShipmentStatus.Cancelled ||
                                       Status == ShipmentStatus.Returned;
+
+        public void UpdateBasicInfo(Route newRoute, DateTime? newEstimatedDate)
+        {
+            CheckRule(new ShipmentCannotBeModifiedAfterDispatchRule(Status));
+
+            Route = newRoute;
+            EstimatedDeliveryDate = newEstimatedDate;
+        }
+
     }
 }

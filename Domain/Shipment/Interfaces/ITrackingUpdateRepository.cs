@@ -10,6 +10,6 @@ namespace Domain.Shipment.Interfaces
 {
     public interface ITrackingUpdateRepository:IGenericRepository<TrackingUpdate>
     {
-        Task Update(TrackingUpdate trackingUpdate);
+        void Update(TrackingUpdate trackingUpdate);
     }
 }

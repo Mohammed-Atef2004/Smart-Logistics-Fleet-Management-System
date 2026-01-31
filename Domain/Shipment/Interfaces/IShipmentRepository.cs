@@ -9,6 +9,6 @@ namespace Domain.Shipment.Interfaces
 {
     public interface IShipmentRepository:IGenericRepository<Entities.Shipment>
     {
-        Task Update(Entities.Shipment shipment);
+        void Update(Entities.Shipment shipment);
     }
 }

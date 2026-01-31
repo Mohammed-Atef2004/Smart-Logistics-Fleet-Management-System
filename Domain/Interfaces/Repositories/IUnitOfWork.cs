@@ -1,4 +1,5 @@
 ﻿using Domain.Fleet.Interfaces;
+using Domain.Shipment.Interfaces;
 
 namespace Domain.Interfaces.Repositories
 {
@@ -7,6 +8,9 @@ namespace Domain.Interfaces.Repositories
         IVehicleRepository Vehicles { get; }
         IDriverRepository Drivers { get; }
         IMaintenanceRecordRepository MaintenanceRecords { get; }
+        IShipmentRepository ShipmentRecords { get; }
+        IPackageRepository Packages { get; }
+        ITrackingUpdateRepository TrackingUpdates { get; }
 
 
         // Renamed to CompleteAsync to follow your preferred naming
