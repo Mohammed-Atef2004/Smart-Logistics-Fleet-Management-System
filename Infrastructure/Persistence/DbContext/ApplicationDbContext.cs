@@ -1,9 +1,13 @@
-﻿using Domain.Billing.Entities;
+﻿using Domain.Claims;
 using Domain.Common;
-using Domain.Fleet.Entities;
+using Domain.Driver;
+using Domain.Invoices;
 using Domain.Notifications.Entities;
+using Domain.Payments;
+using Domain.Roles;
 using Domain.Shipment.Entities;
-using Domain.Users.Entities;
+using Domain.Users;
+using Domain.Vehicles;
 using Domain.Warehouse;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,12 +27,9 @@ namespace Infrastructure.Persistence.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Driver> Drivers { get; set; }
 
-        public DbSet<MaintenanceRecord> MaintenanceRecords { get; set; }
 
         // Shipment
         public DbSet<Shipment> Shipments { get; set; }
-        public DbSet<Package> Packages { get; set; }
-        public DbSet<TrackingUpdate> TrackingUpdates { get; set; }
 
         // Warehouse
         public DbSet<InventoryItem> InventoryItems { get; set; }

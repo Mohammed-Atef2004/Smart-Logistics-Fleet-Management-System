@@ -11,8 +11,8 @@ namespace Application.Features.Fleet.MaintenanceRecord.Mappings
     {
         public MaintenanceRecordProfile()
         {
-            CreateMap<Domain.Fleet.Entities.MaintenanceRecord, DTOs.MaintenanceRecordDto>().ReverseMap();
-            CreateMap<Domain.Fleet.Entities.MaintenanceRecord, DTOs.UpdateMaintenanceRecordDto>().ReverseMap();
+            CreateMap<Domain.Vehicles.MaintenanceRecord, DTOs.MaintenanceRecordDto>().ReverseMap();
+            CreateMap<Domain.Vehicles.MaintenanceRecord, DTOs.UpdateMaintenanceRecordDto>().ReverseMap();
         }
     }
 }

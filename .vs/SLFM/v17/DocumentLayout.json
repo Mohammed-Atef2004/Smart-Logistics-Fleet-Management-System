@@ -3,6 +3,26 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\rules\\licensenumbermustbevalidrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\rules\\licensenumbermustbevalidrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\maintenancerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\maintenancerecord.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\driver\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\driver\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\shipment\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\api\\controllers\\shipment\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\controllers\\shipment\\shipmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -13,10 +33,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\shipment\\shipment\\queries\\getdelayed\\getdelayedshipmentsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\shipment\\shipment\\queries\\getdelayed\\getdelayedshipmentsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\shipment\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\shipment\\entities\\shipment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,54 +59,99 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ShipmentController.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\Shipment\\ShipmentController.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\Shipment\\ShipmentController.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\Shipment\\ShipmentController.cs",
-              "RelativeToolTip": "API\\Controllers\\Shipment\\ShipmentController.cs",
-              "ViewState": "AgIAAEsAAACAODMzMzMCwFEAAAAJAAAAAAAAAA==",
+              "Title": "LicenseNumberMustBeValidRule.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Rules\\LicenseNumberMustBeValidRule.cs",
+              "RelativeDocumentMoniker": "Domain\\Vehicles\\Rules\\LicenseNumberMustBeValidRule.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Rules\\LicenseNumberMustBeValidRule.cs",
+              "RelativeToolTip": "Domain\\Vehicles\\Rules\\LicenseNumberMustBeValidRule.cs",
+              "ViewState": "AgIAAAYAAACA/P////8fwA0AAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T21:37:57.893Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "GetDelayedShipmentsHandler.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs*",
-              "RelativeToolTip": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs*",
-              "ViewState": "AgIAABAAAABAmZmZmZk8wBoAAACkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T21:30:39.956Z",
+              "WhenOpened": "2026-02-05T17:03:21.99Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "GetDelayedShipmentsQuery.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs*",
-              "RelativeToolTip": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Vehicle.cs",
+              "RelativeDocumentMoniker": "Domain\\Vehicles\\Vehicle.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Vehicle.cs",
+              "RelativeToolTip": "Domain\\Vehicles\\Vehicle.cs",
+              "ViewState": "AgIAAIAAAAAAAAAAAAA1wIcAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T21:29:31.629Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-03T01:48:12Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MaintenanceRecord.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\MaintenanceRecord.cs",
+              "RelativeDocumentMoniker": "Domain\\Vehicles\\MaintenanceRecord.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\MaintenanceRecord.cs",
+              "RelativeToolTip": "Domain\\Vehicles\\MaintenanceRecord.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAswDkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T01:47:58.536Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "Driver.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Driver\\Driver.cs",
+              "RelativeDocumentMoniker": "Domain\\Driver\\Driver.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Driver\\Driver.cs",
+              "RelativeToolTip": "Domain\\Driver\\Driver.cs",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAwG4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-03T01:47:46.237Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ShipmentController.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\Shipment\\ShipmentController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\Shipment\\ShipmentController.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\Shipment\\ShipmentController.cs",
+              "RelativeToolTip": "API\\Controllers\\Shipment\\ShipmentController.cs",
+              "ViewState": "AgIAAEsAAACAODMzMzMCwFUAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T21:37:57.893Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GetDelayedShipmentsHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsHandler.cs",
+              "ViewState": "AgIAABAAAABAmZmZmZk8wBoAAACkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T21:30:39.956Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GetDelayedShipmentsQuery.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Shipment\\Shipment\\Queries\\GetDelayed\\GetDelayedShipmentsQuery.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-31T21:29:31.629Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Shipment.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipment\\Entities\\Shipment.cs",
               "RelativeDocumentMoniker": "Domain\\Shipment\\Entities\\Shipment.cs",
               "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipment\\Entities\\Shipment.cs",
               "RelativeToolTip": "Domain\\Shipment\\Entities\\Shipment.cs",
-              "ViewState": "AgIAALYAAAAAoJyZmZn5vwAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHcAAACA9ZmZmZklwIoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-31T21:28:05.19Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-31T21:28:05.19Z"
             }
           ]
         }

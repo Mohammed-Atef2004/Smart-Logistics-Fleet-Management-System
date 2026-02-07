@@ -1,5 +1,5 @@
-﻿using Domain.Fleet.Enums;
-using Domain.Interfaces.Repositories;
+﻿using Domain.Interfaces.Repositories;
+using Domain.Vehicles.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;

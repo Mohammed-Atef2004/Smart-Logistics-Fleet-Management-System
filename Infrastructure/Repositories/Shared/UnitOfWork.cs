@@ -1,6 +1,7 @@
-﻿using Domain.Fleet.Interfaces;
+﻿using Domain.Driver;
 using Domain.Interfaces.Repositories;
-using Domain.Shipment.Interfaces;
+using Domain.Shipment;
+using Domain.Vehicles.Events;
 using Infrastructure.Persistence.Data;
 using Infrastructure.Repositories;
 using Infrastructure.Repositories.Fleet;

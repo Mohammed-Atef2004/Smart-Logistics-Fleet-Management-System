@@ -1,8 +1,8 @@
 ﻿using Domain.Common;
 using Domain.Shipment.Enums;
 using Domain.Shipment.Events;
-using Domain.Shipment.ValueObjects;
-using Domain.Shipment.Rules; // Assuming you have business rules engine
+using Domain.Shipment.Rules;
+using Domain.SharedKernel; // Assuming you have business rules engine
 
 namespace Domain.Shipment.Entities
 {

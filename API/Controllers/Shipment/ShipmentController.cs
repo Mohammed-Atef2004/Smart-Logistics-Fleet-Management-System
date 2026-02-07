@@ -83,7 +83,7 @@ namespace API.Controllers.Shipment
             await _mediator.Send(new RecordLocationCommand(id, request.location, request.notes));
             return NoContent();
         }
-
+        
         // ============================================
         // QUERIES (Read Operations)
         // ============================================

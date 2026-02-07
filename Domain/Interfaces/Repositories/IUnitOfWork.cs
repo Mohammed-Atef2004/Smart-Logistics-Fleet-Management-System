@@ -1,5 +1,6 @@
-﻿using Domain.Fleet.Interfaces;
-using Domain.Shipment.Interfaces;
+﻿using Domain.Driver;
+using Domain.Shipment;
+using Domain.Vehicles.Events;
 
 namespace Domain.Interfaces.Repositories
 {

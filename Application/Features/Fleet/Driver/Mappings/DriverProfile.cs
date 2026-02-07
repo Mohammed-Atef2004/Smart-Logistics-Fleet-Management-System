@@ -12,7 +12,7 @@ namespace Application.Features.Fleet.Driver.Mappings
     {
         public DriverProfile()
         {
-            CreateMap<Domain.Fleet.Entities.Driver, DriverDto>().ReverseMap();
+            CreateMap<Domain.Driver.Driver, DriverDto>().ReverseMap();
         }
     }
 }

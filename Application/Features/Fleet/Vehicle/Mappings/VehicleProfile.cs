@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Application.Features.Fleet.Vehicle.Commands.Create;
-using Domain.Fleet.Entities;
 using Application.Features.Fleet.Vehicle.DTOs;
+using Domain.Vehicles;
 
 public class VehicleMappingProfile : Profile
 {

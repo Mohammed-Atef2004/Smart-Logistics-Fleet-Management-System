@@ -1,6 +1,6 @@
 ﻿using Application.Features.Fleet.Vehicle.DTOs;
-using Domain.Fleet.Enums;
 using Domain.Interfaces.Repositories;
+using Domain.Vehicles.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;

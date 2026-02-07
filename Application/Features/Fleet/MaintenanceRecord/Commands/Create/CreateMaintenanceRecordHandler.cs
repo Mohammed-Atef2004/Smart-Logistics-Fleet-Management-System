@@ -20,7 +20,7 @@ namespace Application.Features.Fleet.MaintenanceRecord.Commands.Create
         }
         public async Task<Guid> Handle(CreateMaintenanceRecordCommand request, CancellationToken cancellationToken)
         {
-            var maintenanceRecord = _mapper.Map<Domain.Fleet.Entities.MaintenanceRecord>(request.MaintenanceRecordDto);
+            var maintenanceRecord = _mapper.Map<Domain.Vehicles.MaintenanceRecord>(request.MaintenanceRecordDto);
             await _unitOfWork.MaintenanceRecords.AddAsync(maintenanceRecord);
             await _unitOfWork.CompleteAsync(cancellationToken);
             return maintenanceRecord.Id;

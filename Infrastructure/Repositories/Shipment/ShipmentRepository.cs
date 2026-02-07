@@ -1,4 +1,4 @@
-﻿using Domain.Shipment.Interfaces;
+﻿using Domain.Shipment;
 using Infrastructure.Persistence.Data;
 using Infrastructure.Repositories.Shared;
 using System;

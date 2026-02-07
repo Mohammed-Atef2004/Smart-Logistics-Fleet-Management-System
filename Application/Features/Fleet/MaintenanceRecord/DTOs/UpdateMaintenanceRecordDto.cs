@@ -1,4 +1,4 @@
-﻿using Domain.Fleet.Enums;
+﻿using Domain.Vehicles.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;

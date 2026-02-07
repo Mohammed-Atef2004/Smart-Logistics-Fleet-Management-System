@@ -1,5 +1,5 @@
 ﻿using Application.Features.Fleet.MaintenanceRecord.DTOs;
-using Domain.Fleet.Enums;
+using Domain.Vehicles.Enums;
 using MediatR;
 
 namespace Application.Features.Fleet.MaintenanceRecord.Queries.GetAll;

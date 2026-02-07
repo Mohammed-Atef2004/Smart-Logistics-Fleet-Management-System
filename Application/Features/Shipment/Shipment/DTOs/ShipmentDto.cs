@@ -1,5 +1,5 @@
-﻿using Domain.Shipment.Enums;
-using Domain.Shipment.ValueObjects;
+﻿using Domain.SharedKernel;
+using Domain.Shipment.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
