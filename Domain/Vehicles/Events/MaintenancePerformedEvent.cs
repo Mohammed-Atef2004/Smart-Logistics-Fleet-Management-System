@@ -3,7 +3,7 @@ using Domain.Vehicles.Enums;
 
 namespace Domain.Vehicles.Events
 {
-    internal class MaintenancePerformedEvent : DomainEvent
+    internal record MaintenancePerformedEvent : DomainEvent
     {
         private Guid vehicleId;
         private MaintenanceType type;

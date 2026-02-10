@@ -1,8 +1,5 @@
-﻿using Infrastructure;
-using Infrastructure.Persistence.Data;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using API.Middleware;
-using Application; // تأكد إن الـ Namespace ده موجود عشان AddApplication تشتغل
 
 namespace API
 {
@@ -16,8 +13,8 @@ namespace API
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddApplication(); 
-            builder.Services.AddInfrastructure(builder.Configuration); 
+           
+            //builder.Services.AddInfrastructure(builder.Configuration); 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             
 

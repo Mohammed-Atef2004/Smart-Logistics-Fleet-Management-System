@@ -1,14 +1,15 @@
 ﻿using Domain.Common;
 using Domain.Vehicles.Enums;
 
-public class VehicleStatusChangedEvent : DomainEvent
+public record VehicleStatusChangedEvent : DomainEvent
 {
-    public Guid VehicleId { get; }
+    public VehicleId Id { get; }
     public VehicleStatus NewStatus { get; }
 
-    public VehicleStatusChangedEvent(Guid vehicleId, VehicleStatus newStatus)
+
+    public VehicleStatusChangedEvent(VehicleId id, VehicleStatus newStatus)
     {
-        VehicleId = vehicleId;
+        Id = id;
         NewStatus = newStatus;
     }
 }

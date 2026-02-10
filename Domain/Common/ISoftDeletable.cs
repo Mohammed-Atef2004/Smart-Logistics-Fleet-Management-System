@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Common.Domain;
 
-namespace Domain.Common
+public interface ISoftDeletable
 {
-    public interface ISoftDeletable
-    {
-        bool IsDeleted { get;}
-        void Delete();
-        void Restore();
-    }
+    bool IsDeleted { get; }
+    DateTime? DeletedAtUtc { get; }
+
+    void Delete();
 }

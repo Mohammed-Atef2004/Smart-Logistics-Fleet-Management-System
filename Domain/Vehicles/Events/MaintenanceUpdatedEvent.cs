@@ -2,7 +2,7 @@
 
 namespace Domain.Vehicles.Events
 {
-    internal class MaintenanceUpdatedEvent : DomainEvent
+    internal record MaintenanceUpdatedEvent : DomainEvent
     {
         private Guid id;
         private decimal cost;

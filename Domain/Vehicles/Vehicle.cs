@@ -1,140 +1,123 @@
-﻿using Domain.Common;
-using Domain.Exceptions;
-using Domain.Fleet.Events;
-using Domain.Fleet.Rules;
+﻿using Common.Domain;
+using Domain.Common;
 using Domain.Vehicles.Enums;
+using Domain.Vehicles.Errors;
+using Domain.Vehicles.Events;
+using Domain.Vehicles.Rules;
+using Domain.Vehicles.ValueObjects;
 
-namespace Domain.Vehicles
+namespace Domain.Vehicles;
+
+public class Vehicle : AggregateRoot<VehicleId>
 {
-    public class Vehicle : BaseEntity, IAudiatable, ISoftDeletable
+    // ------------------------
+    // Private fields / state
+    // ------------------------
+    private readonly List<MaintenanceSchedule> _maintenanceSchedules = new();
+
+    // ------------------------
+    // Properties
+    // ------------------------
+    public VehiclePlateNumber PlateNumber { get; private set; }
+    public VehicleSpecification Specification { get; private set; }
+    public FuelConsumption? FuelConsumption { get; private set; }
+    public VehicleStatus Status { get; private set; }
+    //public DriverId? AssignedDriverId { get; private set; }
+
+    public IReadOnlyCollection<MaintenanceSchedule> MaintenanceSchedules =>
+        _maintenanceSchedules.AsReadOnly();
+
+    // ------------------------
+    // Constructors
+    // ------------------------
+    private Vehicle() { } // EF Core
+
+    private Vehicle(VehicleId id, VehiclePlateNumber plate, VehicleSpecification spec)
     {
-        // --- Properties ---
-        public string LicensePlate { get; private set; }
-        public string Model { get; private set; }
-        public VehicleStatus Status { get; private set; }
-        public int CurrentMileage { get; private set; }
-        public int LastMaintenanceMileage { get; private set; }
+        Id = id;
+        PlateNumber = plate;
+        Specification = spec;
+        Status = VehicleStatus.Available;
 
-        // --- Driver Relationship (The Missing Link) ---
-        public Guid? CurrentDriverId { get; private set; }
-        public virtual Driver? CurrentDriver { get; private set; }
+        AddDomainEvent(new VehicleRegisteredEvent(Id));
+    }
 
-        // --- Navigation Properties ---
-        private readonly List<MaintenanceRecord> _maintenanceRecords = new();
-        public virtual IReadOnlyCollection<MaintenanceRecord> MaintenanceRecords => _maintenanceRecords.AsReadOnly();
+    // ------------------------
+    // Factory
+    // ------------------------
+    public static Result<Vehicle> Register(
+        VehiclePlateNumber plate,
+        VehicleSpecification spec,
+        IVehicleUniquenessChecker uniquenessChecker)
+    {
+        if (!uniquenessChecker.IsPlateUnique(plate))
+            return Result<Vehicle>.Failure(VehicleErrors.PlateAlreadyExists);
 
-        // --- Auditing & Soft Delete ---
-        public DateTime CreatedAt { get; private set; }
-        public DateTime? UpdatedAt { get; private set; }
-        public string? CreatedBy { get; private set; }
-        public string? UpdatedBy { get; private set; }
-        public bool IsDeleted { get; private set; }
+        return Result<Vehicle>.Success(new Vehicle(VehicleId.New(), plate, spec));
+    }
 
-        // --- Domain Events Storage ---
-        private readonly List<DomainEvent> _domainEvents = new();
-        public virtual IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+    // ------------------------
+    // Domain Behavior Methods
+    // ------------------------
 
-        // --- Constructors ---
-        private Vehicle() { } // Required for EF Core
+    //public Result AssignDriver(DriverId driverId)
+    //{
+    //    var ruleResult = CheckRule(new VehicleMustBeAvailableRule(Status));
+    //    if (ruleResult.IsFailure)
+    //        return ruleResult;
 
-        public Vehicle(string licensePlate, string model, int currentMileage)
-        {
-            LicensePlate = licensePlate;
-            Model = model;
-            CurrentMileage = currentMileage;
-            LastMaintenanceMileage = currentMileage;
-            Status = VehicleStatus.Available;
+    //    AssignedDriverId = driverId;
+    //    Status = VehicleStatus.InUse;
 
-            AddDomainEvent(new VehicleCreatedEvent(Id, licensePlate));
-        }
+    //    AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
+    //    return Result.Success();
+    //}
 
-        // --- Helper for Business Rules ---
-        protected static void CheckRule(IBusinessRule rule)
-        {
-            if (rule.IsBroken()) throw new BusinessRuleViolationException(rule);
-        }
+    public Result ScheduleMaintenance(DateTime date, MaintenanceDescription description)
+    {
+        // BusinessRule: Vehicle must not be retired to schedule maintenance
+        var retiredRule = new VehicleCannotBeRetiredRule(Status);
+        if (retiredRule.IsBroken())
+            return Result.Failure(retiredRule.Error);
 
-        // --- Business Logic Methods ---
+        // Create MaintenanceSchedule safely with Result object
+        var maintenanceResult = MaintenanceSchedule.Create(description, date);
+        if (maintenanceResult.IsFailure)
+            return maintenanceResult;
 
-        // 1. الربط مع السائق
-        public void AssignDriver(Guid driverId)
-        {
-            // لا يمكن تعيين سائق إذا كانت السيارة في الصيانة
-            if (Status == VehicleStatus.InMaintenance)
-                throw new Exception("Cannot assign driver to a vehicle in maintenance.");
+        _maintenanceSchedules.Add(maintenanceResult.Value);
+        Status = VehicleStatus.InMaintenance;
 
-            // إذا كانت السيارة مع سائق آخر بالفعل
-            if (CurrentDriverId.HasValue && CurrentDriverId != driverId)
-                throw new Exception("Vehicle is already assigned to another driver.");
+        AddDomainEvent(new MaintenanceScheduledEvent(Id, date));
+        return Result.Success();
+    }
 
-            CurrentDriverId = driverId;
-            Status = VehicleStatus.Active; // تغيير الحالة لنشطة
+    public Result RecordFuelConsumption(FuelConsumption consumption)
+    {
+        var rule = new FuelConsumptionMustBePositiveRule(consumption);
+        if (rule.IsBroken())
+            return Result.Failure(rule.Error);
 
-            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
-        }
+        FuelConsumption = consumption;
+        return Result.Success();
+    }
 
-        public void ReleaseDriver()
-        {
-            CurrentDriverId = null;
-            Status = VehicleStatus.Available;
-            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
-        }
+    public Result Retire()
+    {
+        var rule = new VehicleCannotBeRetiredRule(Status);
+        if (rule.IsBroken())
+            return Result.Failure(rule.Error);
 
-        public void UpdateMileage(int newMileage)
-        {
-            CheckRule(new MileageCannotDecreaseRule(CurrentMileage, newMileage));
-            CurrentMileage = newMileage;
+        Status = VehicleStatus.Retired;
+        AddDomainEvent(new VehicleRetiredEvent(Id));
 
-            if (CurrentMileage - LastMaintenanceMileage >= 10000)
-            {
-                AddDomainEvent(new MaintenanceRequiredEvent(Id, CurrentMileage));
-            }
-        }
+        return Result.Success();
+    }
 
-        public void AssignToTrip()
-        {
-            CheckRule(new MaintenanceIntervalRule(CurrentMileage, LastMaintenanceMileage));
-            CheckRule(new VehicleMustBeAvailableRule(Status));
-
-            Status = VehicleStatus.OnTrip;
-            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
-        }
-
-        public void AddMaintenanceRecord(MaintenanceType type, string description, decimal cost)
-        {
-            var record = new MaintenanceRecord(Id, type, description, cost, CurrentMileage);
-            _maintenanceRecords.Add(record);
-
-            LastMaintenanceMileage = CurrentMileage;
-            Status = VehicleStatus.InMaintenance;
-
-            ReleaseDriver();
-
-            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
-        }
-
-        public void CompleteMaintenance()
-        {
-            Status = VehicleStatus.Available;
-            AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
-        }
-
-        // --- Domain Events Management ---
-        protected void AddDomainEvent(DomainEvent domainEvent) => _domainEvents.Add(domainEvent);
-        public void ClearDomainEvents() => _domainEvents.Clear();
-
-        // --- Auditing & Soft Delete Implementation ---
-        public void SetCreated(string user) { CreatedAt = DateTime.UtcNow; CreatedBy = user; }
-        public void SetUpdated(string user) { UpdatedAt = DateTime.UtcNow; UpdatedBy = user; }
-        public void Delete() => IsDeleted = true;
-        public void Restore() => IsDeleted = false;
-
-        public void Update(string licensePlate, string model, int currentMileage)
-        {
-            LicensePlate = licensePlate;
-            Model = model;
-            CurrentMileage = currentMileage;
-            AddDomainEvent(new VehicleUpdatedEvent(Id, licensePlate));
-        }
+    public Result UpdateStatus(VehicleStatus newStatus)
+    {
+        Status = newStatus;
+        AddDomainEvent(new VehicleStatusChangedEvent(Id, newStatus));
+        return Result.Success();
     }
 }

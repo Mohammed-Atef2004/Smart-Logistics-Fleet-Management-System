@@ -1,32 +1,26 @@
-﻿using Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Common;
 
-namespace Domain.Common
+namespace Common.Domain;
+
+public abstract class AggregateRoot<TId> : Entity<TId>
 {
-    public abstract class AggregateRoot : BaseEntity
+    private readonly List<DomainEvent> _domainEvents = new();
+    public IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
+    protected AggregateRoot() { }
+
+    protected AggregateRoot(TId id) : base(id) { }
+
+    protected void AddDomainEvent(DomainEvent domainEvent)
+        => _domainEvents.Add(domainEvent);
+
+    public void ClearDomainEvents()
+        => _domainEvents.Clear();
+
+    protected Result CheckRule(IBusinessRule rule)
     {
-        private readonly List<DomainEvent> _domainEvents = new();
-        public IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
-
-        protected void AddDomainEvent(DomainEvent domainEvent)
-        {
-            _domainEvents.Add(domainEvent);
-        }
-
-        protected void CheckRule(IBusinessRule rule)
-        {
-            if (rule.IsBroken())
-                throw new BusinessRuleViolationException(rule);
-        }
-
-        public void ClearDomainEvents()
-        {
-            _domainEvents.Clear();
-        }
+        return rule.IsBroken()
+            ? Result.Failure(rule.Error)
+            : Result.Success();
     }
-
 }

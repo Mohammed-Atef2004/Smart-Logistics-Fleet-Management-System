@@ -2,7 +2,7 @@
 
 namespace Domain.Vehicles.Events
 {
-    internal class VehicleUpdatedEvent : DomainEvent
+    internal record VehicleUpdatedEvent : DomainEvent
     {
         private Guid id;
         private string licensePlate;

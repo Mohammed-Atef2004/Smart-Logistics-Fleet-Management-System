@@ -1,24 +1,20 @@
 ﻿using Domain.Common;
 using Domain.Vehicles.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.Vehicles.Errors;
 
-namespace Domain.Fleet.Rules
+namespace Domain.Vehicles.Rules
 {
     public class VehicleMustBeAvailableRule : IBusinessRule
     {
         private readonly VehicleStatus _status;
+
         public VehicleMustBeAvailableRule(VehicleStatus status)
         {
             _status = status;
         }
-        public string Message => "The Vehicle Must be Available";
 
-        bool IBusinessRule.IsBroken()=> _status != VehicleStatus.Available;
+        public bool IsBroken() => _status != VehicleStatus.Available;
 
+        public Error Error => VehicleErrors.NotAvailable;
     }
-
 }

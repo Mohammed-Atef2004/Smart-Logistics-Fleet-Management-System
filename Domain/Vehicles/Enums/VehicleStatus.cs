@@ -12,7 +12,8 @@ namespace Domain.Vehicles.Enums
         OnTrip = 2,
         InMaintenance = 3,
         OutOfService = 4,
-        Active = 5
+        Active = 5,
+        Retired
     }
 
 }

@@ -2,7 +2,7 @@
 
 namespace Domain.Vehicles.Events
 {
-    public class MaintenanceCostRecordedEvent : DomainEvent
+    public record MaintenanceCostRecordedEvent : DomainEvent
     {
         public Guid VehicleId { get; }
         public decimal Amount { get; }

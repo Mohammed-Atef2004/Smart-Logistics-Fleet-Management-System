@@ -6,9 +6,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Common
 {
-    public abstract class DomainEvent
+
+    public abstract record DomainEvent
     {
-        public DateTime OccurredOn { get; private set; } = DateTime.UtcNow;
+        public Guid Id { get; } = Guid.NewGuid();
+        public DateTime OccurredOnUtc { get; } = DateTime.UtcNow;
     }
+
 
 }
