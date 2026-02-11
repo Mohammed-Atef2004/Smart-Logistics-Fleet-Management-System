@@ -27,6 +27,18 @@ public class Vehicle : AggregateRoot<VehicleId>
     public IReadOnlyCollection<MaintenanceSchedule> MaintenanceSchedules =>
         _maintenanceSchedules.AsReadOnly();
 
+    public DateTime CreatedAt => throw new NotImplementedException();
+
+    public DateTime? UpdatedAt => throw new NotImplementedException();
+
+    public string? CreatedBy => throw new NotImplementedException();
+
+    public string? UpdatedBy => throw new NotImplementedException();
+
+    public bool IsDeleted => throw new NotImplementedException();
+
+    public DateTime? DeletedAtUtc => throw new NotImplementedException();
+
     // ------------------------
     // Constructors
     // ------------------------
@@ -120,4 +132,8 @@ public class Vehicle : AggregateRoot<VehicleId>
         AddDomainEvent(new VehicleStatusChangedEvent(Id, newStatus));
         return Result.Success();
     }
+
+
+
+  
 }

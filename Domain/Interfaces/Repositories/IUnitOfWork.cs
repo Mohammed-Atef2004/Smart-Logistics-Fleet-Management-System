@@ -1,13 +1,23 @@
-﻿using Domain.Vehicles.Events;
+﻿using Domain.Vehicles;
+using Domain.Vehicles.Events;
 
 namespace Domain.Interfaces.Repositories
 {
     public interface IUnitOfWork : IDisposable
     {
-        //IVehicleRepository Vehicles { get; }
+        /// <summary>
+        /// Vehicle repository (also implements IVehicleUniquenessChecker)
+        /// </summary>
+        IVehicleRepository Vehicles { get; }
 
+        /// <summary>
+        /// Uniqueness checker (same instance as Vehicles repository)
+        /// </summary>
+        IVehicleUniquenessChecker VehicleUniquenessChecker { get; }
 
-        // Renamed to CompleteAsync to follow your preferred naming
+        /// <summary>
+        /// Save all changes to the database
+        /// </summary>
         Task<int> CompleteAsync(CancellationToken cancellationToken = default);
     }
 }

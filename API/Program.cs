@@ -1,5 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using API.Middleware;
+﻿using API.Middleware;
+using Infrastructure.Presistence.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace API
 {
@@ -14,9 +15,13 @@ namespace API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
            
-            //builder.Services.AddInfrastructure(builder.Configuration); 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            
+            builder.Services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+            });
+            builder.Services.AddInfrastructure(builder.Configuration);
+            //builder.Services.AddApplication(); // MediatR هنا
 
             var app = builder.Build();
 

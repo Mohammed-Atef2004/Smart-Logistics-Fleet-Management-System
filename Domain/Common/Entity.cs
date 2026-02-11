@@ -1,8 +1,22 @@
-﻿namespace Common.Domain;
+﻿using Domain.Common;
 
-public abstract class Entity<TId> : IEquatable<Entity<TId>>
+namespace Common.Domain;
+
+public abstract class Entity<TId> : IEquatable<Entity<TId>>,IAudiatable,ISoftDeletable
 {
     public TId Id { get; protected set; } = default!;
+
+    public bool IsDeleted { get; private set; }
+
+    public DateTime? DeletedAtUtc { get; private set; }
+
+    public DateTime CreatedAt { get;private set; }
+
+    public DateTime? UpdatedAt { get; private set; }
+
+    public string? CreatedBy { get; private set; }
+
+    public string? UpdatedBy { get; private set; }
 
     protected Entity() { }
 
@@ -19,6 +33,24 @@ public abstract class Entity<TId> : IEquatable<Entity<TId>>
 
     public override int GetHashCode()
         => Id?.GetHashCode() ?? 0;
+
+    public void Delete()
+    {
+        DeletedAtUtc = DateTime.UtcNow;
+        IsDeleted = true;
+    }
+
+    public void SetCreated(string user)
+    {
+        CreatedAt = DateTime.UtcNow;
+        CreatedBy = user;
+    }
+
+    public void SetUpdated(string UpdatedBy)
+    {
+        UpdatedAt = DateTime.UtcNow;
+        this.UpdatedBy = UpdatedBy;
+    }
 
     public static bool operator ==(Entity<TId>? a, Entity<TId>? b)
         => a is null ? b is null : a.Equals(b);

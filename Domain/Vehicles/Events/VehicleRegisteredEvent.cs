@@ -1,6 +1,6 @@
 ﻿using Domain.Common;
 
-internal record VehicleRegisteredEvent : DomainEvent
+public record VehicleRegisteredEvent : DomainEvent
 {
     private VehicleId id;
 

@@ -1,38 +1,45 @@
-﻿//using Domain.Driver;
-//using Domain.Interfaces.Repositories;
-//using Domain.Shipment;
-//using Domain.Vehicles.Events;
-//using Infrastructure.Persistence.Data;
-//using Infrastructure.Repositories;
+﻿using Domain.Interfaces.Repositories;
+using Domain.Vehicles;
+using Infrastructure.Presistence.Data;
+using Infrastructure.Repositories;
+using Infrastructure.Repositories.Vehicle;
+using Infrastructure.Repositories.Vehicle.Infrastructure.Repositories;
 
+namespace Infrastructure.Repositories.Shared
+{
+  
 
-//namespace Infrastructure.Repositories.Shared
-//{
-//    public class UnitOfWork : Domain.Interfaces.Repositories.IUnitOfWork
-//    {
-//        private readonly ApplicationDbContext _context;
+    namespace Infrastructure.Repositories.Shared
+    {
+        public sealed class UnitOfWork : IUnitOfWork
+        {
+            private readonly AppDbContext _context;
 
-//        // بنعرف الحقول كـ private عشان نشيل فيها النسخة لما تتعمل
-   
-       
+            // Repository واحد بس (اللي بينفذ الـ 2 interfaces)
+            private IVehicleRepository? _vehicleRepository;
 
-//        public UnitOfWork(ApplicationDbContext context)
-//        {
-//            _context = context ?? throw new ArgumentNullException(nameof(context));
-//        }
+            public UnitOfWork(AppDbContext context)
+            {
+                _context = context ?? throw new ArgumentNullException(nameof(context));
+            }
 
-      
+            // Repository (بينفذ كل من IVehicleRepository و IVehicleUniquenessChecker)
+            public IVehicleRepository Vehicles =>
+                _vehicleRepository ??= new VehicleRepository(_context);
 
-//        public async Task<int> CompleteAsync(CancellationToken cancellationToken = default)
-//        {
-           
-//            return await _context.SaveChangesAsync(cancellationToken);
-//        }
+            // نفس الـ Repository! (عشان الـ Domain)
+            public IVehicleUniquenessChecker VehicleUniquenessChecker => Vehicles;
 
-//        public void Dispose()
-//        {
-//            _context.Dispose();
-//            GC.SuppressFinalize(this);
-//        }
-//    }
-//}
+            public async Task<int> CompleteAsync(CancellationToken cancellationToken = default)
+            {
+                return await _context.SaveChangesAsync(cancellationToken);
+            }
+
+            public void Dispose()
+            {
+                _context?.Dispose();
+                GC.SuppressFinalize(this);
+            }
+        }
+    }
+}

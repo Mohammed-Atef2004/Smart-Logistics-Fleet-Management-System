@@ -22,7 +22,9 @@
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Interfaces\" />
-    <Folder Include="Features\" />
+    <Folder Include="Features\Vehicle\Mappings\" />
+    <Folder Include="Features\Vehicle\DTOs\" />
+    <Folder Include="Features\Vehicle\Queries\" />
   </ItemGroup>
 
   <ItemGroup>

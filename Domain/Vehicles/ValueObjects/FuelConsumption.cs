@@ -9,6 +9,7 @@ public sealed record FuelConsumption
     {
         LitersPer100Km = value;
     }
+    private FuelConsumption() { } // EF Core
 
     public static Result<FuelConsumption> Create(decimal value)
     {
