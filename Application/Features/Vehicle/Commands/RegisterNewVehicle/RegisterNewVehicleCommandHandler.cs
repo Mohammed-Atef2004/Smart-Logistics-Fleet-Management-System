@@ -26,12 +26,12 @@ namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
         public async Task<Result<VehicleId>> Handle(RegisterNewVehicleCommand request, CancellationToken cancellationToken)
         {
             _logger.LogInformation("Starting vehicle registration for {Plate}", request.PlateNumber);
-
+            var vplateNumber=  VehiclePlateNumber.Create(request.PlateNumber);
             var vehicleResult = Domain.Vehicles.Vehicle.Register(
-    request.PlateNumber,
-    request.Specification,
-    _unitOfWork.VehicleUniquenessChecker
-);
+                                vplateNumber.Value,
+                                request.Specification,
+                                _unitOfWork.VehicleUniquenessChecker
+                            );
 
             if (vehicleResult.IsFailure)
             {

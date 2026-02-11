@@ -1,21 +1,27 @@
 ﻿using Domain.Common;
-using Domain.Vehicles.Errors;
 
-public sealed record FuelConsumption
+namespace Domain.Vehicles.ValueObjects;
+
+public record FuelConsumption
 {
-    public decimal LitersPer100Km { get; }
+    public decimal Liters { get; }
+    public decimal OdometerReading { get; }
 
-    private FuelConsumption(decimal value)
+    private FuelConsumption() { } // For EF Core
+    private FuelConsumption(decimal liters, decimal odometerReading)
     {
-        LitersPer100Km = value;
+        Liters = liters;
+        OdometerReading = odometerReading;
     }
-    private FuelConsumption() { } // EF Core
 
-    public static Result<FuelConsumption> Create(decimal value)
+    public static Result<FuelConsumption> Create(decimal liters, decimal odometerReading)
     {
-        if (value <= 0 || value > 100)
-            return Result<FuelConsumption>.Failure(VehicleErrors.InvalidFuelConsumption);
+        if (liters <= 0)
+            return Result<FuelConsumption>.Failure(new Error("Fuel.InvalidLiters", "Liters must be greater than zero."));
 
-        return Result<FuelConsumption>.Success(new FuelConsumption(value));
+        if (odometerReading <= 0)
+            return Result<FuelConsumption>.Failure(new Error("Fuel.InvalidOdometer", "Odometer reading must be positive."));
+
+        return Result<FuelConsumption>.Success(new FuelConsumption(liters, odometerReading));
     }
 }

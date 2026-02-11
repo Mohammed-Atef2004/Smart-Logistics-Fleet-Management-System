@@ -6,8 +6,8 @@ namespace Domain.Vehicles.Events
     // 1. Vehicle Maintenance Trigger
     public record MaintenanceRequiredEvent : DomainEvent
     {
-        public Guid VehicleId { get; }
-        public int CurrentMileage { get; }
+        public Guid VehicleId { get; init; }
+        public int CurrentMileage { get; init; }
 
         public MaintenanceRequiredEvent(Guid vehicleId, int currentMileage)
         {

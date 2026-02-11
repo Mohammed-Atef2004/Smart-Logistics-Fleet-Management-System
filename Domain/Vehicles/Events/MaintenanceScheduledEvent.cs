@@ -1,11 +1,12 @@
-﻿using Domain.Common;
+﻿
+using Domain.Common;
 
 namespace Domain.Vehicles.Events
 {
-    internal record MaintenanceScheduledEvent : DomainEvent
+    public record MaintenanceScheduledEvent : DomainEvent
     {
-        private VehicleId id;
-        private DateTime date;
+        public VehicleId id { get; init; }
+        public DateTime date { get; init; }
 
         public MaintenanceScheduledEvent(VehicleId id, DateTime date)
         {

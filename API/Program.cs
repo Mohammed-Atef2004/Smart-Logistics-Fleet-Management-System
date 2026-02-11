@@ -1,6 +1,7 @@
-﻿using API.Middleware;
+﻿using Infrastructure.Persistence;
 using Infrastructure.Presistence.Data;
 using Microsoft.EntityFrameworkCore;
+using WebApi.Middlewares;
 
 namespace API
 {
@@ -21,7 +22,7 @@ namespace API
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             builder.Services.AddInfrastructure(builder.Configuration);
-            //builder.Services.AddApplication(); // MediatR هنا
+            builder.Services.AddApplication(); // MediatR هنا
 
             var app = builder.Build();
 

@@ -1,6 +1,7 @@
 ﻿using Domain.Common;
 using Domain.Vehicles;
 using Domain.Vehicles.Errors;
+using Domain.Vehicles.ValueObjects;
 
 namespace Domain.Vehicles.Rules
 {
@@ -13,7 +14,7 @@ namespace Domain.Vehicles.Rules
             _consumption = consumption;
         }
 
-        public bool IsBroken() => _consumption.LitersPer100Km <= 0;
+        public bool IsBroken() => _consumption.Liters <= 0;
 
         public Error Error => VehicleErrors.InvalidFuelConsumption;
     }

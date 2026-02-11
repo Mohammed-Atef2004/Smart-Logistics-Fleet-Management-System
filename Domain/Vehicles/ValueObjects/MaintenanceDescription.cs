@@ -18,6 +18,17 @@ namespace Domain.Vehicles.ValueObjects
 
             Value = value;
         }
+        // 2. Factory Method returning Result
+        public static Result<MaintenanceDescription> Create(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return Result<MaintenanceDescription>.Failure(MaintenanceErrors.DescriptionRequired);
+
+            if (value.Length > 200)
+                return Result<MaintenanceDescription>.Failure(new Error("MaintenanceDescription.TooLong", "Description cannot exceed 200 characters."));
+
+            return Result<MaintenanceDescription>.Success(new MaintenanceDescription(value));
+        }
 
         public static implicit operator string(MaintenanceDescription d) => d.Value;
         public static explicit operator MaintenanceDescription(string s) => new MaintenanceDescription(s);

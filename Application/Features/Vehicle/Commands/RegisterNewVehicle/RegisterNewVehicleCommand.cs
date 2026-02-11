@@ -11,7 +11,7 @@ namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
 {
     
 
-    public record RegisterNewVehicleCommand(VehiclePlateNumber PlateNumber, VehicleSpecification Specification)
+    public record RegisterNewVehicleCommand(string PlateNumber, VehicleSpecification Specification)
         : IRequest<Result<VehicleId>>;
 
 }

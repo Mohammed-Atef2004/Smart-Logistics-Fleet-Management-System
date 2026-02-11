@@ -2,9 +2,9 @@
 
 namespace Domain.Vehicles.Events
 {
-    internal record VehicleRetiredEvent : DomainEvent
+    public record VehicleRetiredEvent : DomainEvent
     {
-        private VehicleId id;
+        public VehicleId id { get; init; }
 
         public VehicleRetiredEvent(VehicleId id)
         {

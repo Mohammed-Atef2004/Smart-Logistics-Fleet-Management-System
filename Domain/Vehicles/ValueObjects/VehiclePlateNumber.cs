@@ -1,9 +1,10 @@
 ﻿using Domain.Common;
 using Domain.Vehicles.Errors;
+using System.Text.Json.Serialization;
 public sealed record VehiclePlateNumber
 {
     public string Value { get; }
-
+    private VehiclePlateNumber() { }
     private VehiclePlateNumber(string value)
     {
         Value = value;

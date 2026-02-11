@@ -4,8 +4,8 @@ namespace Domain.Vehicles.Events
 {
     internal record MaintenanceUpdatedEvent : DomainEvent
     {
-        private Guid id;
-        private decimal cost;
+        public Guid id { get; init; }
+        public decimal cost { get; init; }
 
         public MaintenanceUpdatedEvent(Guid id, decimal cost)
         {

@@ -112,6 +112,7 @@ public class Vehicle : AggregateRoot<VehicleId>
 
         FuelConsumption = consumption;
         return Result.Success();
+        AddDomainEvent(new FuelConsumptionRecordedEvent(Id, consumption.Liters, consumption.OdometerReading));
     }
 
     public Result Retire()

@@ -148,12 +148,12 @@ namespace Infrastructure.Migrations
                             b1.Navigation("Remarks");
                         });
 
-                    b.OwnsOne("FuelConsumption", "FuelConsumption", b1 =>
+                    b.OwnsOne("Domain.Vehicles.ValueObjects.FuelConsumption", "FuelConsumption", b1 =>
                         {
                             b1.Property<Guid>("VehicleId")
                                 .HasColumnType("uniqueidentifier");
 
-                            b1.Property<decimal>("LitersPer100Km")
+                            b1.Property<decimal>("Liters")
                                 .HasColumnType("decimal(18,2)")
                                 .HasColumnName("FuelConsumption_LitersPer100Km");
 

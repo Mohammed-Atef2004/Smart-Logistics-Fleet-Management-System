@@ -2,7 +2,7 @@
 
 public record VehicleRegisteredEvent : DomainEvent
 {
-    private VehicleId id;
+    public VehicleId id { get; init; }
 
     public VehicleRegisteredEvent(VehicleId id)
     {

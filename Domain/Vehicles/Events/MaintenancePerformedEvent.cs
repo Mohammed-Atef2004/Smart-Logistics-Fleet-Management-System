@@ -5,9 +5,9 @@ namespace Domain.Vehicles.Events
 {
     internal record MaintenancePerformedEvent : DomainEvent
     {
-        private Guid vehicleId;
-        private MaintenanceType type;
-        private decimal cost;
+        public Guid vehicleId { get; init; }
+        public MaintenanceType type { get; init; }
+        public decimal cost { get; init; }
 
         public MaintenancePerformedEvent(Guid vehicleId, MaintenanceType type, decimal cost)
         {

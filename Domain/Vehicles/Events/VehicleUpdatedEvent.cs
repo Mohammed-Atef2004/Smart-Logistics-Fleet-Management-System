@@ -4,8 +4,8 @@ namespace Domain.Vehicles.Events
 {
     internal record VehicleUpdatedEvent : DomainEvent
     {
-        private Guid id;
-        private string licensePlate;
+        public Guid id { get; init; }
+        public string licensePlate { get; init; }
 
         public VehicleUpdatedEvent(Guid id, string licensePlate)
         {

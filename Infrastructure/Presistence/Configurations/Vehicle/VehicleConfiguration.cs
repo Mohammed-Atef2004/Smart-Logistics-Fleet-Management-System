@@ -1,4 +1,5 @@
 ﻿using Domain.Vehicles;
+using Domain.Vehicles.ValueObjects; // تأكد إن الـ Namespace ده موجود
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -22,18 +23,18 @@ public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
             .ValueGeneratedNever();
 
         // -------------------------
-        // Plate Number Value Object
+        // Plate Number (المعدل هنا: استخدمنا HasConversion بدل OwnsOne)
         // -------------------------
-        builder.OwnsOne(v => v.PlateNumber, plate =>
-        {
-            plate.Property(p => p.Value)
-                .HasColumnName("PlateNumber")
-                .HasMaxLength(20)
-                .IsRequired();
-        });
+        builder.Property(v => v.PlateNumber)
+            .HasConversion(
+                p => p.Value,
+                v => VehiclePlateNumber.Create(v).Value) // بيرجع الـ Object من الـ string
+            .HasColumnName("PlateNumber")
+            .HasMaxLength(20)
+            .IsRequired();
 
         // -------------------------
-        // Specification Value Object (Record)
+        // Specification Value Object (سيبناها زي ما هي لأنها 3 أعمدة)
         // -------------------------
         builder.OwnsOne(v => v.Specification, spec =>
         {
@@ -57,7 +58,7 @@ public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
         // -------------------------
         builder.OwnsOne(v => v.FuelConsumption, fuel =>
         {
-            fuel.Property(f => f.LitersPer100Km)
+            fuel.Property(f => f.Liters)
                 .HasColumnName("FuelConsumption_LitersPer100Km");
         });
 
@@ -75,18 +76,10 @@ public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
         builder.OwnsMany(v => v.MaintenanceSchedules, ms =>
         {
             ms.ToTable("VehicleMaintenanceSchedules");
-
             ms.WithOwner().HasForeignKey("VehicleId");
-
-            // PK
             ms.HasKey(m => m.Id);
+            ms.Property(m => m.Id).ValueGeneratedNever();
 
-            ms.Property(m => m.Id)
-                .ValueGeneratedNever();
-
-            // -----------------------
-            // Description Value Object
-            // -----------------------
             ms.OwnsOne(m => m.Description, d =>
             {
                 d.Property(x => x.Value)
@@ -95,23 +88,10 @@ public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
                     .IsRequired();
             });
 
-            // -----------------------
-            // Scheduled Date
-            // -----------------------
-            ms.Property(m => m.ScheduledDate)
-                .IsRequired();
-
-            // -----------------------
-            // Completion Flags
-            // -----------------------
-            ms.Property(m => m.IsCompleted)
-                .IsRequired();
-
+            ms.Property(m => m.ScheduledDate).IsRequired();
+            ms.Property(m => m.IsCompleted).IsRequired();
             ms.Property(m => m.CompletedAt);
 
-            // -----------------------
-            // Remarks Value Object
-            // -----------------------
             ms.OwnsOne(m => m.Remarks, r =>
             {
                 r.Property(x => x.Value)
