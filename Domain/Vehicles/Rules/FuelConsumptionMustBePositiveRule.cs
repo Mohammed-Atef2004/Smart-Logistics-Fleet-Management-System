@@ -1,4 +1,4 @@
-﻿using Domain.Common;
+﻿using Domain.SharedKernel;
 using Domain.Vehicles;
 using Domain.Vehicles.Errors;
 using Domain.Vehicles.ValueObjects;

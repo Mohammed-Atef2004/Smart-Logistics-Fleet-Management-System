@@ -1,5 +1,5 @@
-﻿using Domain.Common;
-using Domain.Interfaces.Repositories;
+﻿using Domain.Interfaces.Repositories;
+using Domain.SharedKernel;
 using MediatR;
 using Microsoft.Extensions.Logging;
 using System;

@@ -1,6 +1,6 @@
 ﻿using Application.Features.Vehicle.Commands.ScheduleMaintenance;
-using Domain.Common;
 using Domain.Interfaces.Repositories;
+using Domain.SharedKernel;
 using Domain.Vehicles.ValueObjects;
 using MediatR;
 

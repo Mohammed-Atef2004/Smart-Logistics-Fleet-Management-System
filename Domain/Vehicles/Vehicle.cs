@@ -1,5 +1,4 @@
-﻿using Common.Domain;
-using Domain.Common;
+﻿using Domain.SharedKernel;
 using Domain.Vehicles.Enums;
 using Domain.Vehicles.Errors;
 using Domain.Vehicles.Events;
@@ -8,7 +7,7 @@ using Domain.Vehicles.ValueObjects;
 
 namespace Domain.Vehicles;
 
-public class Vehicle : AggregateRoot<VehicleId>
+public class Vehicle : AggregateRoot<VehicleId>, IAudiatable, ISoftDeletable
 {
     // ------------------------
     // Private fields / state
@@ -18,26 +17,26 @@ public class Vehicle : AggregateRoot<VehicleId>
     // ------------------------
     // Properties
     // ------------------------
-    public VehiclePlateNumber PlateNumber { get; private set; }
-    public VehicleSpecification Specification { get; private set; }
+    public VehiclePlateNumber PlateNumber { get; private set; } = default!;
+    public VehicleSpecification Specification { get; private set; } = default!;
     public FuelConsumption? FuelConsumption { get; private set; }
     public VehicleStatus Status { get; private set; }
-    //public DriverId? AssignedDriverId { get; private set; }
+
+    // Reference to another aggregate by ID only
+    // public DriverId? AssignedDriverId { get; private set; }
 
     public IReadOnlyCollection<MaintenanceSchedule> MaintenanceSchedules =>
         _maintenanceSchedules.AsReadOnly();
 
-    public DateTime CreatedAt => throw new NotImplementedException();
+    // Audit
+    public DateTime CreatedAt { get; private set; }
+    public DateTime? UpdatedAt { get; private set; }
+    public string? CreatedBy { get; private set; }
+    public string? UpdatedBy { get; private set; }
 
-    public DateTime? UpdatedAt => throw new NotImplementedException();
-
-    public string? CreatedBy => throw new NotImplementedException();
-
-    public string? UpdatedBy => throw new NotImplementedException();
-
-    public bool IsDeleted => throw new NotImplementedException();
-
-    public DateTime? DeletedAtUtc => throw new NotImplementedException();
+    // Soft delete
+    public bool IsDeleted { get; private set; }
+    public DateTime? DeletedAtUtc { get; private set; }
 
     // ------------------------
     // Constructors
@@ -50,6 +49,7 @@ public class Vehicle : AggregateRoot<VehicleId>
         PlateNumber = plate;
         Specification = spec;
         Status = VehicleStatus.Available;
+        CreatedAt = DateTime.UtcNow;
 
         AddDomainEvent(new VehicleRegisteredEvent(Id));
     }
@@ -72,33 +72,32 @@ public class Vehicle : AggregateRoot<VehicleId>
     // Domain Behavior Methods
     // ------------------------
 
-    //public Result AssignDriver(DriverId driverId)
-    //{
-    //    var ruleResult = CheckRule(new VehicleMustBeAvailableRule(Status));
-    //    if (ruleResult.IsFailure)
-    //        return ruleResult;
-
-    //    AssignedDriverId = driverId;
-    //    Status = VehicleStatus.InUse;
-
-    //    AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
-    //    return Result.Success();
-    //}
+    // public Result AssignDriver(DriverId driverId)
+    // {
+    //     var ruleResult = CheckRule(new VehicleMustBeAvailableRule(Status));
+    //     if (ruleResult.IsFailure)
+    //         return ruleResult;
+    //
+    //     AssignedDriverId = driverId;
+    //     Status = VehicleStatus.InUse;
+    //
+    //     AddDomainEvent(new VehicleStatusChangedEvent(Id, Status));
+    //     return Result.Success();
+    // }
 
     public Result ScheduleMaintenance(DateTime date, MaintenanceDescription description)
     {
-        // BusinessRule: Vehicle must not be retired to schedule maintenance
         var retiredRule = new VehicleCannotBeRetiredRule(Status);
         if (retiredRule.IsBroken())
             return Result.Failure(retiredRule.Error);
 
-        // Create MaintenanceSchedule safely with Result object
         var maintenanceResult = MaintenanceSchedule.Create(description, date);
         if (maintenanceResult.IsFailure)
             return maintenanceResult;
 
         _maintenanceSchedules.Add(maintenanceResult.Value);
         Status = VehicleStatus.InMaintenance;
+        UpdatedAt = DateTime.UtcNow;
 
         AddDomainEvent(new MaintenanceScheduledEvent(Id, date));
         return Result.Success();
@@ -111,8 +110,10 @@ public class Vehicle : AggregateRoot<VehicleId>
             return Result.Failure(rule.Error);
 
         FuelConsumption = consumption;
-        return Result.Success();
+        UpdatedAt = DateTime.UtcNow;
+
         AddDomainEvent(new FuelConsumptionRecordedEvent(Id, consumption.Liters, consumption.OdometerReading));
+        return Result.Success();
     }
 
     public Result Retire()
@@ -122,19 +123,28 @@ public class Vehicle : AggregateRoot<VehicleId>
             return Result.Failure(rule.Error);
 
         Status = VehicleStatus.Retired;
-        AddDomainEvent(new VehicleRetiredEvent(Id));
+        UpdatedAt = DateTime.UtcNow;
 
+        AddDomainEvent(new VehicleRetiredEvent(Id));
         return Result.Success();
     }
 
     public Result UpdateStatus(VehicleStatus newStatus)
     {
         Status = newStatus;
+        UpdatedAt = DateTime.UtcNow;
+
         AddDomainEvent(new VehicleStatusChangedEvent(Id, newStatus));
         return Result.Success();
     }
 
-
-
-  
+    // ------------------------
+    // Soft Delete
+    // ------------------------
+    public void SoftDelete(string? deletedBy = null)
+    {
+        IsDeleted = true;
+        DeletedAtUtc = DateTime.UtcNow;
+        UpdatedBy = deletedBy;
+    }
 }

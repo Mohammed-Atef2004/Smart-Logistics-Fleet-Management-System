@@ -1,7 +1,7 @@
 ﻿using Domain.Common.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace Domain.SharedKernel
+namespace Domain.Common
 {
     [Owned]
     public class StorageLocation : ValueObject

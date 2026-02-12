@@ -1,5 +1,5 @@
 ﻿using Common.Domain;
-using Domain.Common;
+using Domain.SharedKernel;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;

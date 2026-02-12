@@ -1,4 +1,4 @@
-﻿using Domain.Common;
+﻿using Domain.SharedKernel;
 
 public record VehicleRegisteredEvent : DomainEvent
 {

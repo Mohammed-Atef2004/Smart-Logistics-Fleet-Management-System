@@ -1,5 +1,4 @@
-﻿using Domain.Common;
-using Domain.Common.Domain.Common;
+﻿using Domain.Common.Domain.Common;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.SharedKernel
+namespace Domain.Common
 {
     [Owned]
     public class PhoneNumber : ValueObject

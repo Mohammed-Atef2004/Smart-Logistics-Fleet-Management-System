@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
-namespace Domain.Common
+namespace Domain.SharedKernel
 {
     public class Result<T> : Result
     {

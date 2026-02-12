@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Domain.Common; // المكان اللي فيه كلاس Result
+using Domain.SharedKernel; // المكان اللي فيه كلاس Result
 
 namespace WebApi.Controllers;
 

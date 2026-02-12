@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Common.Domain;
-using Domain.Common;
+using Domain.SharedKernel;
 using MediatR;
 
 namespace Application.Features.Vehicle.Commands.RegisterNewVehicle

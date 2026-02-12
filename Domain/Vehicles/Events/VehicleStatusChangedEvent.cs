@@ -1,4 +1,4 @@
-﻿using Domain.Common;
+﻿using Domain.SharedKernel;
 using Domain.Vehicles.Enums;
 
 public record VehicleStatusChangedEvent : DomainEvent

@@ -1,6 +1,4 @@
-﻿using Domain.Common;
-
-namespace Common.Domain;
+﻿namespace Domain.SharedKernel;
 
 public abstract class AggregateRoot<TId> : Entity<TId>, IAggregateRoot
 {

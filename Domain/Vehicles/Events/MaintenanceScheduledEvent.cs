@@ -1,5 +1,4 @@
-﻿
-using Domain.Common;
+﻿using Domain.SharedKernel;
 
 namespace Domain.Vehicles.Events
 {

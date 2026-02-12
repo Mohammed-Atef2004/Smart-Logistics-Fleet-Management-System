@@ -1,4 +1,4 @@
-﻿namespace Domain.Common;
+﻿namespace Domain.SharedKernel;
 
 public sealed class ValidationResult : Result, IValidationResult
 {

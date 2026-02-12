@@ -1,4 +1,4 @@
-﻿using Domain.Common;
+﻿using Domain.SharedKernel;
 using Domain.Vehicles.Errors;
 using System.Text.Json.Serialization;
 public sealed record VehiclePlateNumber
