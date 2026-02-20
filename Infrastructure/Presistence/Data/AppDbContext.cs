@@ -12,6 +12,7 @@ namespace Infrastructure.Presistence.Data
     public class AppDbContext : DbContext
     {
         public DbSet<Vehicle> Vehicles { get; set; }
+        public DbSet<Driver> Drivers { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }

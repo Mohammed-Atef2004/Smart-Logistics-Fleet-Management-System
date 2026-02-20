@@ -22,6 +22,7 @@
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Interfaces\" />
+    <Folder Include="Features\Driver\Commands\" />
     <Folder Include="Features\Vehicle\Mappings\" />
   </ItemGroup>
 

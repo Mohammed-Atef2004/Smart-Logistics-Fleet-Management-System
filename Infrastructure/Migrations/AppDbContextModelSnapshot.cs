@@ -42,6 +42,12 @@ namespace Infrastructure.Migrations
                         .HasColumnType("bit")
                         .HasDefaultValue(false);
 
+                    b.Property<string>("PlateNumber")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
+                        .HasColumnName("PlateNumber");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasMaxLength(30)
@@ -57,6 +63,46 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Vehicles", (string)null);
+                });
+
+            modelBuilder.Entity("Driver", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("CurrentShiftId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Drivers", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Vehicles.Vehicle", b =>
@@ -157,24 +203,8 @@ namespace Infrastructure.Migrations
                                 .HasColumnType("decimal(18,2)")
                                 .HasColumnName("FuelConsumption_LitersPer100Km");
 
-                            b1.HasKey("VehicleId");
-
-                            b1.ToTable("Vehicles");
-
-                            b1.WithOwner()
-                                .HasForeignKey("VehicleId");
-                        });
-
-                    b.OwnsOne("VehiclePlateNumber", "PlateNumber", b1 =>
-                        {
-                            b1.Property<Guid>("VehicleId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Value")
-                                .IsRequired()
-                                .HasMaxLength(20)
-                                .HasColumnType("nvarchar(20)")
-                                .HasColumnName("PlateNumber");
+                            b1.Property<decimal>("OdometerReading")
+                                .HasColumnType("decimal(18,2)");
 
                             b1.HasKey("VehicleId");
 
@@ -217,10 +247,65 @@ namespace Infrastructure.Migrations
 
                     b.Navigation("MaintenanceSchedules");
 
-                    b.Navigation("PlateNumber")
+                    b.Navigation("Specification")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Driver", b =>
+                {
+                    b.OwnsOne("Domain.Drivers.ValueObjects.DriverLicense", "License", b1 =>
+                        {
+                            b1.Property<Guid>("DriverId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Category")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Category");
+
+                            b1.Property<DateTime>("ExpiryDate")
+                                .HasColumnType("datetime2")
+                                .HasColumnName("LicenseExpiryDate");
+
+                            b1.Property<string>("LicenseNumber")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("LicenseNumber");
+
+                            b1.HasKey("DriverId");
+
+                            b1.ToTable("Drivers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("DriverId");
+                        });
+
+                    b.OwnsOne("Domain.Drivers.ValueObjects.DriverRating", "Rating", b1 =>
+                        {
+                            b1.Property<Guid>("DriverId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int>("Count")
+                                .HasColumnType("int")
+                                .HasColumnName("RatingCount");
+
+                            b1.Property<double>("Value")
+                                .HasColumnType("float")
+                                .HasColumnName("RatingValue");
+
+                            b1.HasKey("DriverId");
+
+                            b1.ToTable("Drivers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("DriverId");
+                        });
+
+                    b.Navigation("License")
                         .IsRequired();
 
-                    b.Navigation("Specification")
+                    b.Navigation("Rating")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

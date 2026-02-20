@@ -4,8 +4,8 @@ namespace Domain.Vehicles.ValueObjects;
 
 public record FuelConsumption
 {
-    public decimal Liters { get; }
-    public decimal OdometerReading { get; }
+    public decimal Liters { get; init; }
+    public decimal OdometerReading { get; init; }
 
     private FuelConsumption() { } // For EF Core
     private FuelConsumption(decimal liters, decimal odometerReading)

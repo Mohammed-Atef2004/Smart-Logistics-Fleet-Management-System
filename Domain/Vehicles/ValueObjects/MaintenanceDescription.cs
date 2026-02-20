@@ -6,7 +6,7 @@ namespace Domain.Vehicles.ValueObjects
 {
     public record MaintenanceDescription
     {
-        public string Value { get; }
+        public string Value { get; init; }
 
         public MaintenanceDescription(string value)
         {

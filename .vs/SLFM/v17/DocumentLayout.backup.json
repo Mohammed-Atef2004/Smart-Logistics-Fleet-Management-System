@@ -3,28 +3,64 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\ivehiclerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\drivers\\valueobjects\\driverlicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\drivers\\valueobjects\\driverlicense.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\drivers\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\drivers\\driver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\api\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\controllers\\vehiclecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\presistence\\configurations\\driverconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\presistence\\configurations\\driverconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\drivers\\valueobjects\\shiftid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\drivers\\valueobjects\\shiftid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\drivers\\valueobjects\\driverrating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\drivers\\valueobjects\\driverrating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\presistence\\configurations\\vehicle\\vehicleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\presistence\\configurations\\vehicle\\vehicleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\presistence\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\presistence\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\presistence\\interceptors\\domaineventinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\presistence\\interceptors\\domaineventinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\controllers\\apicontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\recordfuelconsumption\\fuelconsumptionrecordedeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\recordfuelconsumption\\fuelconsumptionrecordedeventhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\updatevehiclestatus\\updatevehiclestatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\updatevehiclestatus\\updatevehiclestatushandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\recordfuelconsumption\\recordfuelconsumptionvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\recordfuelconsumption\\recordfuelconsumptionvalidator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\updatevehiclestatus\\updatevehiclestatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\updatevehiclestatus\\updatevehiclestatuscommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\schedulemaintenance\\schedulemaintenancecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\schedulemaintenance\\schedulemaintenancecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\schedulemaintenance\\schedulemaintenancecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\schedulemaintenance\\schedulemaintenancecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\retirevehicle\\retirevehiclecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\retirevehicle\\retirevehiclecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\retirevehicle\\retirevehiclecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\retirevehicle\\retirevehiclecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\recordfuelconsumption\\recordfuelconsumptionhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -35,56 +71,20 @@
       "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\recordfuelconsumption\\recordfuelconsumptioncommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\presistence\\configurations\\vehicle\\vehicleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\presistence\\configurations\\vehicle\\vehicleconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\queries\\getbyid\\getvehicledetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\queries\\getbyid\\getvehicledetailshandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\presistence\\interceptors\\domaineventinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\presistence\\interceptors\\domaineventinterceptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\registernewvehicle\\registernewvehiclecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\registernewvehicle\\registernewvehiclecommandhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\ivehicleuniquenesschecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\ivehicleuniquenesschecker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\commands\\registernewvehicle\\registernewvehiclecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\commands\\registernewvehicle\\registernewvehiclecommand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\valueobjects\\vehicleplatenumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\valueobjects\\vehicleplatenumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\errors\\maintenanceerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\errors\\maintenanceerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\enums\\maintentancetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\enums\\maintentancetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\vehicles\\maintenanceschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\vehicles\\maintenanceschedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\common\\valueobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\valueobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\common\\isoftdeletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\isoftdeletable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\common\\iaudiatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\iaudiatable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\common\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\entity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\common\\domainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\domainevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\common\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\features\\vehicle\\queries\\getbyid\\getvehicledetailsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\features\\vehicle\\queries\\getbyid\\getvehicledetailsquery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -94,11 +94,46 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 0,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DriverLicense.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\ValueObjects\\DriverLicense.cs",
+              "RelativeDocumentMoniker": "Domain\\Drivers\\ValueObjects\\DriverLicense.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\ValueObjects\\DriverLicense.cs",
+              "RelativeToolTip": "Domain\\Drivers\\ValueObjects\\DriverLicense.cs",
+              "ViewState": "AgIAACEAAAAAvMzMzMzsvxYAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T19:35:17.565Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ShiftId.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\ValueObjects\\ShiftId.cs",
+              "RelativeDocumentMoniker": "Domain\\Drivers\\ValueObjects\\ShiftId.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\ValueObjects\\ShiftId.cs",
+              "RelativeToolTip": "Domain\\Drivers\\ValueObjects\\ShiftId.cs",
+              "ViewState": "AgIAAAIAAADGzMzMzMw8wAYAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T19:32:48.367Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DriverRating.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\ValueObjects\\DriverRating.cs",
+              "RelativeDocumentMoniker": "Domain\\Drivers\\ValueObjects\\DriverRating.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\ValueObjects\\DriverRating.cs",
+              "RelativeToolTip": "Domain\\Drivers\\ValueObjects\\DriverRating.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAxwBYAAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T19:30:35.328Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -110,258 +145,221 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "VehicleController.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\VehicleController.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\VehicleController.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\VehicleController.cs",
-              "RelativeToolTip": "API\\Controllers\\VehicleController.cs",
-              "ViewState": "AgIAABcAAAAAMzMzMzMhwBwAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Driver.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\Driver.cs",
+              "RelativeDocumentMoniker": "Domain\\Drivers\\Driver.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Drivers\\Driver.cs",
+              "RelativeToolTip": "Domain\\Drivers\\Driver.cs",
+              "ViewState": "AgIAAAIAAABgZmZmZmYUwAoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:37:36.871Z",
+              "WhenOpened": "2026-02-20T19:26:38.103Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ApiController.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\ApiController.cs",
-              "RelativeDocumentMoniker": "API\\Controllers\\ApiController.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\ApiController.cs",
-              "RelativeToolTip": "API\\Controllers\\ApiController.cs",
-              "ViewState": "AgIAAAoAAAAAmZmZmZkdwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:37:33.083Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FuelConsumptionRecordedEventHandler.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\FuelConsumptionRecordedEventHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\FuelConsumptionRecordedEventHandler.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\FuelConsumptionRecordedEventHandler.cs",
-              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\FuelConsumptionRecordedEventHandler.cs",
-              "ViewState": "AgIAAAoAAAAAm5mZmZkdwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:37:08.768Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "RecordFuelConsumptionValidator.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionValidator.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionValidator.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionValidator.cs",
-              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionValidator.cs",
-              "ViewState": "AgIAAAkAAABgNDMzMzMbwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:36:44.521Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RecordFuelConsumptionHandler.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
-              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
-              "ViewState": "AgIAABIAAAAAzczMzMwuwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:36:35.564Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "RecordFuelConsumptionCommand.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
-              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
-              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
-              "ViewState": "AgIAAAMAAACgMzMzMzMbwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:36:28.428Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "VehicleConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\Vehicle\\VehicleConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Configurations\\Vehicle\\VehicleConfiguration.cs",
               "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\Vehicle\\VehicleConfiguration.cs",
               "RelativeToolTip": "Infrastructure\\Presistence\\Configurations\\Vehicle\\VehicleConfiguration.cs",
-              "ViewState": "AgIAAAgAAADwZmZmZmYswAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:36:08.009Z"
+              "WhenOpened": "2026-02-20T16:44:32.99Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 2,
+              "Title": "DriverConfiguration.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\DriverConfiguration.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Configurations\\DriverConfiguration.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\DriverConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Presistence\\Configurations\\DriverConfiguration.cs",
+              "ViewState": "AgIAACAAAACA2czMzMz8vyQAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T16:44:19.541Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Data\\AppDbContext.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "Infrastructure\\Presistence\\Data\\AppDbContext.cs",
+              "ViewState": "AgIAAA0AAAAAmJmZmZkVwA8AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T16:39:24.705Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "DomainEventInterceptor.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Interceptors\\DomainEventInterceptor.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Interceptors\\DomainEventInterceptor.cs",
               "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Interceptors\\DomainEventInterceptor.cs",
               "RelativeToolTip": "Infrastructure\\Presistence\\Interceptors\\DomainEventInterceptor.cs",
-              "ViewState": "AgIAACcAAABA//////8nwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBkAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:35:30.306Z"
+              "WhenOpened": "2026-02-20T16:39:23.611Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApiController.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\ApiController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\ApiController.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Controllers\\ApiController.cs",
+              "RelativeToolTip": "API\\Controllers\\ApiController.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAjwBIAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T16:39:22.442Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UpdateVehicleStatusHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-20T16:39:20.305Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
-              "Title": "IVehicleUniquenessChecker.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\IVehicleUniquenessChecker.cs",
-              "RelativeDocumentMoniker": "Domain\\Vehicles\\IVehicleUniquenessChecker.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\IVehicleUniquenessChecker.cs",
-              "RelativeToolTip": "Domain\\Vehicles\\IVehicleUniquenessChecker.cs",
-              "ViewState": "AgIAAAEAAACAZmZmZmYkwAAAAAAAAAAAAAAAAA==",
+              "Title": "UpdateVehicleStatusCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\UpdateVehicleStatus\\UpdateVehicleStatusCommand.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAjwA0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:34:53.495Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "IVehicleRepository.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\IVehicleRepository.cs",
-              "RelativeDocumentMoniker": "Domain\\Vehicles\\IVehicleRepository.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\IVehicleRepository.cs",
-              "RelativeToolTip": "Domain\\Vehicles\\IVehicleRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:34:45.828Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T16:39:19.196Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
-              "Title": "VehiclePlateNumber.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\ValueObjects\\VehiclePlateNumber.cs",
-              "RelativeDocumentMoniker": "Domain\\Vehicles\\ValueObjects\\VehiclePlateNumber.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\ValueObjects\\VehiclePlateNumber.cs",
-              "RelativeToolTip": "Domain\\Vehicles\\ValueObjects\\VehiclePlateNumber.cs",
-              "ViewState": "AgIAAAcAAADImJmZmZk5wAAAAAAAAAAAAAAAAA==",
+              "Title": "ScheduleMaintenanceCommandHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommandHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommandHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:34:13.297Z"
+              "WhenOpened": "2026-02-20T16:39:18.055Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
-              "Title": "MaintenanceErrors.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Errors\\MaintenanceErrors.cs",
-              "RelativeDocumentMoniker": "Domain\\Vehicles\\Errors\\MaintenanceErrors.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Errors\\MaintenanceErrors.cs",
-              "RelativeToolTip": "Domain\\Vehicles\\Errors\\MaintenanceErrors.cs",
-              "ViewState": "AgIAAAwAAACA/P////8fwA4AAAAmAAAAAAAAAA==",
+              "Title": "ScheduleMaintenanceCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\ScheduleMaintenance\\ScheduleMaintenanceCommand.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAjwA0AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:31:26.767Z"
+              "WhenOpened": "2026-02-20T16:39:16.868Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 13,
-              "Title": "MaintentanceType.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Enums\\MaintentanceType.cs",
-              "RelativeDocumentMoniker": "Domain\\Vehicles\\Enums\\MaintentanceType.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Enums\\MaintentanceType.cs",
-              "RelativeToolTip": "Domain\\Vehicles\\Enums\\MaintentanceType.cs",
-              "ViewState": "AgIAAAoAAAAAOjMzMzPjvwAAAAAAAAAAAAAAAA==",
+              "Title": "RetireVehicleCommandHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommandHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommandHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommandHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:31:22.243Z"
+              "WhenOpened": "2026-02-20T16:39:15.572Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 14,
-              "Title": "MaintenanceSchedule.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\MaintenanceSchedule.cs",
-              "RelativeDocumentMoniker": "Domain\\Vehicles\\MaintenanceSchedule.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\MaintenanceSchedule.cs",
-              "RelativeToolTip": "Domain\\Vehicles\\MaintenanceSchedule.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "RetireVehicleCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RetireVehicle\\RetireVehicleCommand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAIAwwAoAAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:30:51.245Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Vehicle.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Vehicle.cs",
-              "RelativeDocumentMoniker": "Domain\\Vehicles\\Vehicle.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Vehicle.cs",
-              "RelativeToolTip": "Domain\\Vehicles\\Vehicle.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAQwAwAAAAfAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:28:46.297Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-20T16:39:14.184Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 15,
-              "Title": "ValueObject.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\ValueObject.cs",
-              "RelativeDocumentMoniker": "Domain\\Common\\ValueObject.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\ValueObject.cs",
-              "RelativeToolTip": "Domain\\Common\\ValueObject.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
+              "Title": "RecordFuelConsumptionHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionHandler.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:26:53.399Z"
+              "WhenOpened": "2026-02-20T16:39:11.969Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 16,
-              "Title": "ISoftDeletable.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\ISoftDeletable.cs",
-              "RelativeDocumentMoniker": "Domain\\Common\\ISoftDeletable.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\ISoftDeletable.cs",
-              "RelativeToolTip": "Domain\\Common\\ISoftDeletable.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "RecordFuelConsumptionCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RecordFuelConsumption\\RecordFuelConsumptionCommand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAIAwwA0AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:26:30.872Z"
+              "WhenOpened": "2026-02-20T16:39:10.235Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 17,
-              "Title": "IAudiatable.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\IAudiatable.cs",
-              "RelativeDocumentMoniker": "Domain\\Common\\IAudiatable.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\IAudiatable.cs",
-              "RelativeToolTip": "Domain\\Common\\IAudiatable.cs",
-              "ViewState": "AgIAAAgAAADAMDMzMzMbwAAAAAAAAAAAAAAAAA==",
+              "Title": "GetVehicleDetailsHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsHandler.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwA0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:26:19.655Z"
+              "WhenOpened": "2026-02-20T16:39:08.456Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "Entity.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\Entity.cs",
-              "RelativeDocumentMoniker": "Domain\\Common\\Entity.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\Entity.cs",
-              "RelativeToolTip": "Domain\\Common\\Entity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "RegisterNewVehicleCommandHandler.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommandHandler.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommandHandler.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommandHandler.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommandHandler.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwA0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:24:10.046Z"
+              "WhenOpened": "2026-02-20T16:39:06.254Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "DomainEvent.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\DomainEvent.cs",
-              "RelativeDocumentMoniker": "Domain\\Common\\DomainEvent.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\DomainEvent.cs",
-              "RelativeToolTip": "Domain\\Common\\DomainEvent.cs",
-              "ViewState": "AgIAAAMAAAAAMzMzMzMrwAoAAAA0AAAAAAAAAA==",
+              "Title": "RegisterNewVehicleCommand.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommand.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommand.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommand.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommand.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAcwA0AAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:23:48.161Z"
+              "WhenOpened": "2026-02-20T16:39:04.384Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "AggregateRoot.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\AggregateRoot.cs",
-              "RelativeDocumentMoniker": "Domain\\Common\\AggregateRoot.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Common\\AggregateRoot.cs",
-              "RelativeToolTip": "Domain\\Common\\AggregateRoot.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "GetVehicleDetailsQuery.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsQuery.cs",
+              "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsQuery.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsQuery.cs",
+              "RelativeToolTip": "Application\\Features\\Vehicle\\Queries\\GetById\\GetVehicleDetailsQuery.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAvwAsAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-11T19:23:36.689Z"
+              "WhenOpened": "2026-02-20T16:39:01.623Z"
             }
           ]
         }

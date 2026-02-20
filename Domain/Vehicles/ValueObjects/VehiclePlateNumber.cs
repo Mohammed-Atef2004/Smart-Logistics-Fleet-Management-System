@@ -3,7 +3,7 @@ using Domain.Vehicles.Errors;
 using System.Text.Json.Serialization;
 public sealed record VehiclePlateNumber
 {
-    public string Value { get; }
+    public string Value { get; init; }
     private VehiclePlateNumber() { }
     private VehiclePlateNumber(string value)
     {

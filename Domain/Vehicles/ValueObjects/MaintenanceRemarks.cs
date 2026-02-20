@@ -8,7 +8,7 @@ namespace Domain.Vehicles.ValueObjects
 {
     public record MaintenanceRemarks
     {
-        public string? Value { get; }
+        public string? Value { get; init; }
 
         public MaintenanceRemarks(string? value)
         {
