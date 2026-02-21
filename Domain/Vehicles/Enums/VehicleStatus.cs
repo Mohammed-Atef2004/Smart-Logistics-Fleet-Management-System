@@ -13,7 +13,8 @@ namespace Domain.Vehicles.Enums
         InMaintenance = 3,
         OutOfService = 4,
         Active = 5,
-        Retired
+        Retired,
+        InUse
     }
 
 }
