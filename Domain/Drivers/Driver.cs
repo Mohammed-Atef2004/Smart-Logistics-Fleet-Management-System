@@ -5,6 +5,7 @@ using Domain.Drivers.Events;
 using Domain.Drivers.Rules;
 using Domain.Drivers.ValueObjects;
 
+namespace Domain.Drivers;
 public sealed class Driver : AggregateRoot<DriverId>
 {
     public string FullName { get; private set; }
@@ -13,7 +14,7 @@ public sealed class Driver : AggregateRoot<DriverId>
     public DriverRating Rating { get; private set; }
     public ShiftId? CurrentShiftId { get; private set; }
 
-    private Driver() { }
+    private Driver() { } // EF Core
 
     private Driver(DriverId id, string name, DriverLicense license) : base(id)
     {
@@ -44,11 +45,16 @@ public sealed class Driver : AggregateRoot<DriverId>
         return Result.Success();
     }
 
-    public void Reactivate()
+    public Result Reactivate()
     {
+        CheckRule(new DriverMustBeSuspendedRule(Status));
+
         Status = DriverStatus.Active;
         AddDomainEvent(new DriverReactivatedEvent(Id));
+
+        return Result.Success();
     }
+
 
     public Result AssignShift(ShiftId shiftId)
     {
@@ -67,10 +73,14 @@ public sealed class Driver : AggregateRoot<DriverId>
     public void ClearShift()
     {
         CurrentShiftId = null;
+        AddDomainEvent(new DriverShiftClearedEvent(Id));
     }
 
     public Result RecordTripRating(double rating)
     {
+        if (rating is < 1 or > 5)
+            return Result.Failure(DriverErrors.InvalidRating);
+
         Rating = Rating.AddRating(rating);
 
         if (Rating.Value < 3.5)
@@ -78,4 +88,26 @@ public sealed class Driver : AggregateRoot<DriverId>
 
         return Result.Success();
     }
+
+    public Result UpdateName(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            return Result.Failure(DriverErrors.EmptyName);
+
+        FullName = name;
+        return Result.Success();
+    }
+
+    public Result UpdateLicense(DriverLicense license)
+    {
+        License = license;
+        AddDomainEvent(new DriverLicenseUpdatedEvent(Id));
+        return Result.Success();
+    }
+
+    public bool IsAvailable() =>
+        Status == DriverStatus.Active && CurrentShiftId == null;
+
+    public bool IsUnderperforming() =>
+        Rating.Value < 3.5;
 }

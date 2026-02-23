@@ -1,4 +1,5 @@
-﻿using Domain.Drivers.ValueObjects;
+﻿using Domain.Drivers;
+using Domain.Drivers.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

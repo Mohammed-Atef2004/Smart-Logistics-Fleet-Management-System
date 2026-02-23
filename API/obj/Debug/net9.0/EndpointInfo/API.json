@@ -5,6 +5,273 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/drivers/hire": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HireDriverCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/HireDriverCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/HireDriverCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/drivers/{driverId}/name": {
+      "put": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDriverNameCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDriverNameCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDriverNameCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/drivers/{driverId}/license": {
+      "put": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDriverLicenseCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDriverLicenseCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDriverLicenseCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/drivers/{driverId}/suspend": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuspendDriverCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuspendDriverCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SuspendDriverCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/drivers/{driverId}/reactivate": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReactivateDriverCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReactivateDriverCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReactivateDriverCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/drivers/record-rating": {
+      "post": {
+        "tags": [
+          "Driver"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordDriverRatingCommand"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordDriverRatingCommand"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RecordDriverRatingCommand"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/drivers/{driverId}": {
+      "get": {
+        "tags": [
+          "Driver"
+        ],
+        "parameters": [
+          {
+            "name": "driverId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverId"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverId"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DriverId"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Vehicles/{id}": {
       "get": {
         "tags": [
@@ -211,6 +478,70 @@
   },
   "components": {
     "schemas": {
+      "DriverId": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DriverSuspensionReason": {
+        "enum": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "HireDriverCommand": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "licenseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ReactivateDriverCommand": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/DriverId"
+          }
+        },
+        "additionalProperties": false
+      },
+      "RecordDriverRatingCommand": {
+        "type": "object",
+        "properties": {
+          "driverId": {
+            "$ref": "#/components/schemas/DriverId"
+          },
+          "rating": {
+            "type": "number",
+            "format": "double"
+          }
+        },
+        "additionalProperties": false
+      },
       "RecordFuelConsumptionRequest": {
         "type": "object",
         "properties": {
@@ -252,6 +583,52 @@
         },
         "additionalProperties": false
       },
+      "SuspendDriverCommand": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/DriverId"
+          },
+          "reason": {
+            "$ref": "#/components/schemas/DriverSuspensionReason"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateDriverLicenseCommand": {
+        "type": "object",
+        "properties": {
+          "driverId": {
+            "$ref": "#/components/schemas/DriverId"
+          },
+          "licenseNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "expiryDate": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UpdateDriverNameCommand": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "#/components/schemas/DriverId"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
       "UpdateStatusRequest": {
         "type": "object",
         "properties": {
@@ -266,15 +643,18 @@
         "properties": {
           "model": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "readOnly": true
           },
           "year": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "readOnly": true
           },
           "engineType": {
             "type": "string",
-            "nullable": true
+            "nullable": true,
+            "readOnly": true
           }
         },
         "additionalProperties": false
@@ -286,7 +666,8 @@
           3,
           4,
           5,
-          6
+          6,
+          7
         ],
         "type": "integer",
         "format": "int32"
@@ -294,6 +675,9 @@
     }
   },
   "tags": [
+    {
+      "name": "Driver"
+    },
     {
       "name": "Vehicles"
     }

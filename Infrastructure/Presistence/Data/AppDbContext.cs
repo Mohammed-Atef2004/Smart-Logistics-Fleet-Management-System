@@ -1,4 +1,5 @@
-﻿using Domain.SharedKernel;
+﻿using Domain.Drivers;
+using Domain.SharedKernel;
 using Domain.Vehicles;
 using Microsoft.EntityFrameworkCore;
 using System;

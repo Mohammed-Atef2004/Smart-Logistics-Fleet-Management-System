@@ -1,4 +1,5 @@
-﻿using Infrastructure.Persistence;
+﻿using Application.Features.Driver.Commands.HireDriver;
+using Infrastructure.Persistence;
 using Infrastructure.Presistence.Data;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Middlewares;
@@ -15,7 +16,8 @@ namespace API
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-           
+            builder.Services.AddLogging();
+
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             builder.Services.AddDbContext<AppDbContext>(options =>
             {
@@ -23,6 +25,8 @@ namespace API
             });
             builder.Services.AddInfrastructure(builder.Configuration);
             builder.Services.AddApplication(); // MediatR هنا
+            builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(HireDriverCommand).Assembly));
 
             var app = builder.Build();
 

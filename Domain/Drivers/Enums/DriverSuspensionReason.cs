@@ -11,6 +11,7 @@ namespace Domain.Drivers.Enums
         LowRating,
         Fraud,
         LicenseExpired,
-        AdminAction
+        AdminAction,
+        Misconduct
     }
 }

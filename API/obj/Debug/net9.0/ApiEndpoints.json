@@ -1,5 +1,142 @@
 [
   {
+    "ContainingType": "DriverController",
+    "Method": "GetDriver",
+    "RelativePath": "api/drivers/{driverId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "driverId",
+        "Type": "Domain.Drivers.ValueObjects.DriverId",
+        "IsRequired": true
+      },
+      {
+        "Name": "driverId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DriverController",
+    "Method": "UpdateLicense",
+    "RelativePath": "api/drivers/{driverId}/license",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "Application.Features.Driver.Commands.UpdateLicence.UpdateDriverLicenseCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "driverId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DriverController",
+    "Method": "UpdateName",
+    "RelativePath": "api/drivers/{driverId}/name",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "Application.Features.Driver.Commands.UpdateName.UpdateDriverNameCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "driverId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DriverController",
+    "Method": "Reactivate",
+    "RelativePath": "api/drivers/{driverId}/reactivate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "Application.Features.Driver.Commands.Reactivate.ReactivateDriverCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "driverId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DriverController",
+    "Method": "Suspend",
+    "RelativePath": "api/drivers/{driverId}/suspend",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "Application.Features.Driver.Commands.Susbend.SuspendDriverCommand",
+        "IsRequired": true
+      },
+      {
+        "Name": "driverId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DriverController",
+    "Method": "Hire",
+    "RelativePath": "api/drivers/hire",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "Application.Features.Driver.Commands.HireDriver.HireDriverCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "DriverController",
+    "Method": "RecordRating",
+    "RelativePath": "api/drivers/record-rating",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cmd",
+        "Type": "Application.Features.Driver.Commands.RecordRating.RecordDriverRatingCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.VehiclesController",
     "Method": "Register",
     "RelativePath": "api/Vehicles",

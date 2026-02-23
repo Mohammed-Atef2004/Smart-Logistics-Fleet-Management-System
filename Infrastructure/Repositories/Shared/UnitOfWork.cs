@@ -1,4 +1,5 @@
-﻿using Domain.Interfaces.Repositories;
+﻿using Domain.Drivers;
+using Domain.Interfaces.Repositories;
 using Domain.Vehicles;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Repositories;
@@ -15,19 +16,19 @@ namespace Infrastructure.Repositories.Shared
         {
             private readonly AppDbContext _context;
 
-            // Repository واحد بس (اللي بينفذ الـ 2 interfaces)
             private IVehicleRepository? _vehicleRepository;
+            private IDriverRepository? _driverRepository;
 
             public UnitOfWork(AppDbContext context)
             {
                 _context = context ?? throw new ArgumentNullException(nameof(context));
             }
 
-            // Repository (بينفذ كل من IVehicleRepository و IVehicleUniquenessChecker)
             public IVehicleRepository Vehicles =>
                 _vehicleRepository ??= new VehicleRepository(_context);
+            public IDriverRepository Drivers =>
+                _driverRepository ??= new DriverRepository(_context);
 
-            // نفس الـ Repository! (عشان الـ Domain)
             public IVehicleUniquenessChecker VehicleUniquenessChecker => Vehicles;
 
             public async Task<int> CompleteAsync(CancellationToken cancellationToken = default)
