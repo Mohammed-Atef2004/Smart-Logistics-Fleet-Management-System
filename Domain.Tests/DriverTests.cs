@@ -2,6 +2,7 @@
 using Domain.Drivers.Enums;
 using Domain.Drivers.Errors;
 using Domain.Drivers.ValueObjects;
+using Domain.Shifts.ValueObjects;
 using FluentAssertions;
 using Xunit;
 

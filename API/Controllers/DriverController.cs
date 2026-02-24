@@ -8,17 +8,16 @@ using Application.Features.Driver.Queries.GetById;
 using Domain.Drivers.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using WebApi.Controllers;
 
 [ApiController]
 [Route("api/drivers")]
-public class DriverController : ControllerBase
+public class DriverController : ApiController
 {
     private readonly IMediator _mediator;
 
-    public DriverController(IMediator mediator)
-    {
-        _mediator = mediator;
-    }
+    public DriverController(IMediator mediator) : base(mediator) { }
+
 
     // ===============================
     // Hire Driver (Command directly)

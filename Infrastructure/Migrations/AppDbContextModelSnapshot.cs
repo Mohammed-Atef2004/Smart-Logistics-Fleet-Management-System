@@ -22,6 +22,89 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Drivers.Driver", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("CurrentShiftId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Drivers", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Shifts.Shift", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("DriverId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("ShiftEnd")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ShiftStart")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DriverId", "Status");
+
+                    b.ToTable("Shifts", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Vehicles.Vehicle", b =>
                 {
                     b.Property<Guid>("Id")
@@ -65,44 +148,62 @@ namespace Infrastructure.Migrations
                     b.ToTable("Vehicles", (string)null);
                 });
 
-            modelBuilder.Entity("Driver", b =>
+            modelBuilder.Entity("Domain.Drivers.Driver", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .HasColumnType("uniqueidentifier");
+                    b.OwnsOne("Domain.Drivers.ValueObjects.DriverLicense", "License", b1 =>
+                        {
+                            b1.Property<Guid>("DriverId")
+                                .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                            b1.Property<string>("Category")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)")
+                                .HasColumnName("Category");
 
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
+                            b1.Property<DateTime>("ExpiryDate")
+                                .HasColumnType("datetime2")
+                                .HasColumnName("LicenseExpiryDate");
 
-                    b.Property<Guid?>("CurrentShiftId")
-                        .HasColumnType("uniqueidentifier");
+                            b1.Property<string>("LicenseNumber")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("LicenseNumber");
 
-                    b.Property<DateTime?>("DeletedAtUtc")
-                        .HasColumnType("datetime2");
+                            b1.HasKey("DriverId");
 
-                    b.Property<string>("FullName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                            b1.ToTable("Drivers");
 
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                            b1.WithOwner()
+                                .HasForeignKey("DriverId");
+                        });
 
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.OwnsOne("Domain.Drivers.ValueObjects.DriverRating", "Rating", b1 =>
+                        {
+                            b1.Property<Guid>("DriverId")
+                                .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
+                            b1.Property<int>("Count")
+                                .HasColumnType("int")
+                                .HasColumnName("RatingCount");
 
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
+                            b1.Property<double>("Value")
+                                .HasColumnType("float")
+                                .HasColumnName("RatingValue");
 
-                    b.HasKey("Id");
+                            b1.HasKey("DriverId");
 
-                    b.ToTable("Drivers", (string)null);
+                            b1.ToTable("Drivers");
+
+                            b1.WithOwner()
+                                .HasForeignKey("DriverId");
+                        });
+
+                    b.Navigation("License")
+                        .IsRequired();
+
+                    b.Navigation("Rating")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Domain.Vehicles.Vehicle", b =>
@@ -248,64 +349,6 @@ namespace Infrastructure.Migrations
                     b.Navigation("MaintenanceSchedules");
 
                     b.Navigation("Specification")
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Driver", b =>
-                {
-                    b.OwnsOne("Domain.Drivers.ValueObjects.DriverLicense", "License", b1 =>
-                        {
-                            b1.Property<Guid>("DriverId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Category")
-                                .IsRequired()
-                                .HasColumnType("nvarchar(max)")
-                                .HasColumnName("Category");
-
-                            b1.Property<DateTime>("ExpiryDate")
-                                .HasColumnType("datetime2")
-                                .HasColumnName("LicenseExpiryDate");
-
-                            b1.Property<string>("LicenseNumber")
-                                .IsRequired()
-                                .HasMaxLength(50)
-                                .HasColumnType("nvarchar(50)")
-                                .HasColumnName("LicenseNumber");
-
-                            b1.HasKey("DriverId");
-
-                            b1.ToTable("Drivers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("DriverId");
-                        });
-
-                    b.OwnsOne("Domain.Drivers.ValueObjects.DriverRating", "Rating", b1 =>
-                        {
-                            b1.Property<Guid>("DriverId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<int>("Count")
-                                .HasColumnType("int")
-                                .HasColumnName("RatingCount");
-
-                            b1.Property<double>("Value")
-                                .HasColumnType("float")
-                                .HasColumnName("RatingValue");
-
-                            b1.HasKey("DriverId");
-
-                            b1.ToTable("Drivers");
-
-                            b1.WithOwner()
-                                .HasForeignKey("DriverId");
-                        });
-
-                    b.Navigation("License")
-                        .IsRequired();
-
-                    b.Navigation("Rating")
                         .IsRequired();
                 });
 #pragma warning restore 612, 618

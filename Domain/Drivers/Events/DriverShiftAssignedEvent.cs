@@ -1,5 +1,6 @@
 ﻿using Domain.Drivers.ValueObjects;
 using Domain.SharedKernel;
+using Domain.Shifts.ValueObjects;
 
 public record DriverShiftAssignedEvent : DomainEvent
 {

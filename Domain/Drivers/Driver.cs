@@ -4,6 +4,7 @@ using Domain.Drivers.Errors;
 using Domain.Drivers.Events;
 using Domain.Drivers.Rules;
 using Domain.Drivers.ValueObjects;
+using Domain.Shifts.ValueObjects;
 
 namespace Domain.Drivers;
 public sealed class Driver : AggregateRoot<DriverId>
