@@ -105,6 +105,70 @@ namespace Infrastructure.Migrations
                     b.ToTable("Shifts", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Shipments.Shipment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CancellationReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime?>("CancelledAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeliveredAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Priority")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("RecipientName")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("RecipientPhone")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("SenderId")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("SpecialInstructions")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Version")
+                        .IsConcurrencyToken()
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Shipments", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Vehicles.Vehicle", b =>
                 {
                     b.Property<Guid>("Id")
@@ -203,6 +267,215 @@ namespace Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Rating")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Shipments.Shipment", b =>
+                {
+                    b.OwnsMany("Domain.Shipments.Package", "Packages", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("ContentCategory")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime>("CreatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasMaxLength(3)
+                                .HasColumnType("nvarchar(3)");
+
+                            b1.Property<decimal>("DeclaredValue")
+                                .HasPrecision(18, 4)
+                                .HasColumnType("decimal(18,4)");
+
+                            b1.Property<string>("Description")
+                                .IsRequired()
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)");
+
+                            b1.Property<bool>("IsFragile")
+                                .HasColumnType("bit");
+
+                            b1.Property<bool>("RequiresRefrigeration")
+                                .HasColumnType("bit");
+
+                            b1.Property<Guid>("ShipmentId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("ShipmentId");
+
+                            b1.ToTable("ShipmentPackages", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ShipmentId");
+
+                            b1.OwnsOne("Domain.Shipments.ValueObjects.Dimensions", "Dimensions", b2 =>
+                                {
+                                    b2.Property<Guid>("PackageId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<decimal>("Height")
+                                        .HasColumnType("decimal(18,2)");
+
+                                    b2.Property<decimal>("Length")
+                                        .HasColumnType("decimal(18,2)");
+
+                                    b2.Property<int>("Unit")
+                                        .HasColumnType("int");
+
+                                    b2.Property<decimal>("Width")
+                                        .HasColumnType("decimal(18,2)");
+
+                                    b2.HasKey("PackageId");
+
+                                    b2.ToTable("ShipmentPackages");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("PackageId");
+                                });
+
+                            b1.OwnsOne("Domain.Shipments.ValueObjects.Weight", "Weight", b2 =>
+                                {
+                                    b2.Property<Guid>("PackageId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<int>("Unit")
+                                        .HasColumnType("int");
+
+                                    b2.Property<decimal>("Value")
+                                        .HasColumnType("decimal(18,2)");
+
+                                    b2.HasKey("PackageId");
+
+                                    b2.ToTable("ShipmentPackages");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("PackageId");
+                                });
+
+                            b1.Navigation("Dimensions")
+                                .IsRequired();
+
+                            b1.Navigation("Weight")
+                                .IsRequired();
+                        });
+
+                    b.OwnsOne("Domain.Shipments.ValueObjects.DeliveryAddress", "DestinationAddress", b1 =>
+                        {
+                            b1.Property<Guid>("ShipmentId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("ApartmentUnit")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Country")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("State")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("ZipCode")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.HasKey("ShipmentId");
+
+                            b1.ToTable("Shipments");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ShipmentId");
+                        });
+
+                    b.OwnsMany("Domain.Shipments.ValueObjects.RoutePoint", "Route", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<DateTime>("ArrivedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.Property<string>("Description")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("Location")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<Guid>("ShipmentId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<int>("Type")
+                                .HasColumnType("int");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("ShipmentId");
+
+                            b1.ToTable("ShipmentRoutePoints", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ShipmentId");
+                        });
+
+                    b.OwnsOne("Domain.Shipments.ValueObjects.TrackingInfo", "Tracking", b1 =>
+                        {
+                            b1.Property<Guid>("ShipmentId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("CarrierName")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("EstimatedDeliveryDate")
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<int>("Status")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("StatusDescription")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<string>("TrackingNumber")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(max)");
+
+                            b1.Property<DateTime>("UpdatedAt")
+                                .HasColumnType("datetime2");
+
+                            b1.HasKey("ShipmentId");
+
+                            b1.ToTable("Shipments");
+
+                            b1.WithOwner()
+                                .HasForeignKey("ShipmentId");
+                        });
+
+                    b.Navigation("DestinationAddress")
+                        .IsRequired();
+
+                    b.Navigation("Packages");
+
+                    b.Navigation("Route");
+
+                    b.Navigation("Tracking")
                         .IsRequired();
                 });
 

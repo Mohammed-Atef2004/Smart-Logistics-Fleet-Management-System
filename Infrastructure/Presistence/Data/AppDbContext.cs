@@ -1,6 +1,7 @@
 ﻿using Domain.Drivers;
 using Domain.SharedKernel;
 using Domain.Shifts;
+using Domain.Shipments;
 using Domain.Vehicles;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -16,6 +17,7 @@ namespace Infrastructure.Presistence.Data
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Shift> Shifts { get; set; }
+        public DbSet<Shipment> Shipments { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }

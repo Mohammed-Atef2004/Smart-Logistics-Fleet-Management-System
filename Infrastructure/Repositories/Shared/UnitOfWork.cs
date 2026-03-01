@@ -1,6 +1,7 @@
 ﻿using Domain.Drivers;
 using Domain.Interfaces.Repositories;
 using Domain.Shifts;
+using Domain.Shipments;
 using Domain.Vehicles;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Repositories;
@@ -20,6 +21,7 @@ namespace Infrastructure.Repositories.Shared
             private IVehicleRepository? _vehicleRepository;
             private IDriverRepository? _driverRepository;
             private IShiftRepository? _shiftRepository;
+            private IShipmentRepository _shipmentRepository;
 
             public UnitOfWork(AppDbContext context)
             {
@@ -31,6 +33,7 @@ namespace Infrastructure.Repositories.Shared
             public IDriverRepository Drivers =>
                 _driverRepository ??= new DriverRepository(_context);
             public IShiftRepository Shifts =>_shiftRepository ??= new ShiftRepository(_context);
+            public IShipmentRepository Shipments => _shipmentRepository ??= new ShipmentRepository(_context);
 
             public IVehicleUniquenessChecker VehicleUniquenessChecker => Vehicles;
 
