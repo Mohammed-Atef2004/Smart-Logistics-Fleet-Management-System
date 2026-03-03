@@ -1,4 +1,5 @@
-﻿using Domain.Shipments.Enums;
+﻿using Domain.SharedKernel;
+using Domain.Shipments.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,18 @@ namespace Domain.Shipments.ValueObjects
             Width = width;
             Height = height;
             Unit = unit;
+        }
+        public static Result<Dimensions> Create(decimal length, decimal width, decimal height, DimensionUnit unit)
+        {
+            try
+            {
+                var dimensions = new Dimensions(length, width, height, unit);
+                return Result<Dimensions>.Success(dimensions);
+            }
+            catch (ArgumentException ex)
+            {
+                return Result<Dimensions>.Failure(new Error("Dimensions.Invalid", ex.Message));
+            }
         }
 
         public static Dimensions InCentimeters(decimal length, decimal width, decimal height) =>

@@ -1,5 +1,6 @@
 ﻿using Domain.Drivers;
 using Domain.Shifts;
+using Domain.Shipments;
 using Domain.Vehicles;
 using Domain.Vehicles.Events;
 using System.Numerics;
@@ -12,6 +13,7 @@ namespace Domain.Interfaces.Repositories
         IVehicleRepository Vehicles { get; }
         IDriverRepository Drivers { get; }
         IShiftRepository Shifts { get; }
+        IShipmentRepository Shipments { get; }
 
         IVehicleUniquenessChecker VehicleUniquenessChecker { get; }
 

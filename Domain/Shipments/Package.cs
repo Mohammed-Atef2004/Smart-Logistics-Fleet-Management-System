@@ -52,7 +52,7 @@ namespace Domain.Shipments
 
         // ─── Factory ─────────────────────────────────────────────
 
-        internal static Result<Package> Create(
+        public static Result<Package> Create(
             string description,
             Weight weight,
             Dimensions dimensions,

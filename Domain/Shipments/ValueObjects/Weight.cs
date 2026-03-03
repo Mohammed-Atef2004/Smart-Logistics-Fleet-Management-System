@@ -1,4 +1,5 @@
-﻿using Domain.Shipments.Enums;
+﻿using Domain.SharedKernel;
+using Domain.Shipments.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace Domain.Shipments.ValueObjects
             if (value < 0) throw new ArgumentException("Weight value cannot be negative.", nameof(value));
             Value = value;
             Unit = unit;
+        }
+        public static Result<Weight> Create(decimal value, WeightUnit unit)
+        {
+            if (value < 0) return Result<Weight>.Failure(new Error("Weight.InvalidValue", "Weight value cannot be negative."));
+            return Result<Weight>.Success(new Weight(value, unit));
         }
 
         public static Weight InKilograms(decimal value) => new(value, WeightUnit.Kg);
