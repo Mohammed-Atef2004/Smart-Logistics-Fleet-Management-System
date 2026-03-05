@@ -8,8 +8,6 @@ using Infrastructure.Repositories;
 using Infrastructure.Repositories.Vehicle;
 using Infrastructure.Repositories.Vehicle.Infrastructure.Repositories;
 
-namespace Infrastructure.Repositories.Shared
-{
   
 
     namespace Infrastructure.Repositories.Shared
@@ -49,4 +47,3 @@ namespace Infrastructure.Repositories.Shared
             }
         }
     }
-}

@@ -23,9 +23,6 @@
     <Folder Include="Common\Exceptions\" />
     <Folder Include="Common\Interfaces\" />
     <Folder Include="Features\Driver\Commands\ClearShift\" />
-    <Folder Include="Features\Shipment\Mappings\" />
-    <Folder Include="Features\Shipment\DTOs\" />
-    <Folder Include="Features\Shipment\Queries\" />
     <Folder Include="Features\Vehicle\Mappings\" />
   </ItemGroup>
 

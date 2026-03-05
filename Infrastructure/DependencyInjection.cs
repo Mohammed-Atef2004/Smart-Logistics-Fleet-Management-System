@@ -2,7 +2,7 @@
 using Domain.Vehicles;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Presistence.Interceptors;
-using Infrastructure.Repositories.Shared.Infrastructure.Repositories.Shared;
+using Infrastructure.Repositories.Shared;
 using Infrastructure.Repositories.Vehicle.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
