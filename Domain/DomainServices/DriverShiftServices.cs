@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.DomainServices
+namespace DomainDomainServices
 {
     public sealed class DriverShiftService : IDriverShiftService
     {

@@ -1,5 +1,6 @@
 ﻿using Domain.Interfaces.Repositories;
 using Domain.Shifts;
+using DomainDomainServices;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Application.Features.Driver.Commands.AssignShift
         }
         public async Task<Unit> Handle(AssignDriverToShiftCommand request, CancellationToken cancellationToken)
         {
-            var service = new Domain.DomainServices.DriverShiftService(_unitOfWork.Drivers, _unitOfWork.Shifts);
+            var service = new DriverShiftService(_unitOfWork.Drivers, _unitOfWork.Shifts);
             var result = await service.AssignDriverToShift(request.DriverId, request.Start, request.End);
             if (result.IsFailure) throw new Exception(result.Error.Message.ToString());
             await _unitOfWork.CompleteAsync();
