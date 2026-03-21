@@ -10,7 +10,7 @@
         "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\Domain.Tests.csproj",
         "projectName": "Domain.Tests",
         "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\Domain.Tests.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+        "packagesPath": "D:\\NuGet_Cache",
         "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -105,7 +105,7 @@
         "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj",
         "projectName": "Domain",
         "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+        "packagesPath": "D:\\NuGet_Cache",
         "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [

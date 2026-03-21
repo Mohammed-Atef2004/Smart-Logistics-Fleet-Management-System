@@ -10,7 +10,7 @@
         "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\API.csproj",
         "projectName": "API",
         "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+        "packagesPath": "D:\\NuGet_Cache",
         "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -109,7 +109,7 @@
         "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Application.csproj",
         "projectName": "Application",
         "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+        "packagesPath": "D:\\NuGet_Cache",
         "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -212,7 +212,7 @@
         "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj",
         "projectName": "Domain",
         "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+        "packagesPath": "D:\\NuGet_Cache",
         "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -303,7 +303,7 @@
         "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
         "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+        "packagesPath": "D:\\NuGet_Cache",
         "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [

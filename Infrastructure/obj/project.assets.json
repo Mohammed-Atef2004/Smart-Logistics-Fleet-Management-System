@@ -5998,7 +5998,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\moham\\.nuget\\packages\\": {},
+    "D:\\NuGet_Cache": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -6007,7 +6007,7 @@
       "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj",
       "projectName": "Infrastructure",
       "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+      "packagesPath": "D:\\NuGet_Cache",
       "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [

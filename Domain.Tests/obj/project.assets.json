@@ -4422,7 +4422,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\moham\\.nuget\\packages\\": {},
+    "D:\\NuGet_Cache": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
@@ -4431,7 +4431,7 @@
       "projectUniqueName": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\Domain.Tests.csproj",
       "projectName": "Domain.Tests",
       "projectPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\Domain.Tests.csproj",
-      "packagesPath": "C:\\Users\\moham\\.nuget\\packages\\",
+      "packagesPath": "D:\\NuGet_Cache",
       "outputPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [

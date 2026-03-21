@@ -459,3 +459,4 @@ D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\
 D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\net9.0\API.pdb
 D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\net9.0\API.genruntimeconfig.cache
 D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\net9.0\ref\API.dll
+D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\net9.0\API.MvcApplicationPartsAssemblyInfo.cs
