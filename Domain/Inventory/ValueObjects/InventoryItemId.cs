@@ -8,11 +8,19 @@ using System.Threading.Tasks;
 
 namespace Domain.Inventory.ValueObjects
 {
-    public record InventoryItemId(Guid Id)
+    public sealed class InventoryItemId
     {
-        public static InventoryItemId New(Guid Id) => new InventoryItemId(Id);
-        public static InventoryItemId From(Guid Id) => new InventoryItemId(Id);
-        public static InventoryItemId From(string Id) => new InventoryItemId(Guid.Parse(Id));
-       
+        public Guid Value { get; private set; }   
+
+        private InventoryItemId() { } 
+
+        public InventoryItemId(Guid value)
+        {
+            Value = value;
+        }
+        public static InventoryItemId From(Guid value)
+        {
+            return new InventoryItemId(value);
+        }
     }
 }

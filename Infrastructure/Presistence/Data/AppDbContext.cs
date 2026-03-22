@@ -1,8 +1,10 @@
 ﻿using Domain.Drivers;
+using Domain.InventoryItems;
 using Domain.SharedKernel;
 using Domain.Shifts;
 using Domain.Shipments;
 using Domain.Vehicles;
+using Domain.Warehouse;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,8 @@ namespace Infrastructure.Presistence.Data
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Shift> Shifts { get; set; }
         public DbSet<Shipment> Shipments { get; set; }
+        public DbSet<InventoryItem> InventoryItems { get; set; }
+        public DbSet<Warehouse> Warehouse { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }

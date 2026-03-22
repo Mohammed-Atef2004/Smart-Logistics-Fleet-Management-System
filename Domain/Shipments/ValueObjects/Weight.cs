@@ -12,6 +12,7 @@ namespace Domain.Shipments.ValueObjects
     {
         public decimal Value { get; init; }
         public WeightUnit Unit { get; init; }
+        private Weight() { }
 
         private Weight(decimal value, WeightUnit unit)
         {

@@ -1,4 +1,5 @@
-﻿using Domain.Common;
+﻿// StorageLocation.cs
+using Domain.Common;
 using Domain.Inventory.ValueObjects;
 using Domain.SharedKernel;
 using Domain.Warehouse.Errors;
@@ -6,8 +7,6 @@ using Domain.Warehouse.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Domain.Warehouse
 {
@@ -17,9 +16,9 @@ namespace Domain.Warehouse
         public Capacity Capacity { get; private set; }
         public bool IsActive { get; private set; }
 
-        // Reference-only — no InventoryItem navigation property
-        private readonly List<InventoryItemId> _assignedItems = new();
-        public IReadOnlyCollection<InventoryItemId> AssignedItems => _assignedItems.AsReadOnly();
+        // ⚡ AssignedItems as primitive Guid collection
+        private readonly List<Guid> _assignedItemIds = new();
+        public IReadOnlyCollection<Guid> AssignedItems => _assignedItemIds.AsReadOnly();
 
         private StorageLocation() { }
 
@@ -43,7 +42,7 @@ namespace Domain.Warehouse
             if (!IsActive)
                 return Result.Failure(StorageLocationErrors.LocationInactive);
 
-            if (_assignedItems.Contains(itemId))
+            if (_assignedItemIds.Contains(itemId.Value))
                 return Result.Failure(StorageLocationErrors.ItemAlreadyAssigned);
 
             var reserveResult = Capacity.Reserve();
@@ -51,14 +50,14 @@ namespace Domain.Warehouse
                 return Result.Failure(reserveResult.Error);
 
             Capacity = reserveResult.Value;
-            _assignedItems.Add(itemId);
+            _assignedItemIds.Add(itemId.Value);
 
             return Result.Success();
         }
 
         internal Result UnassignItem(InventoryItemId itemId)
         {
-            if (!_assignedItems.Contains(itemId))
+            if (!_assignedItemIds.Contains(itemId.Value))
                 return Result.Failure(StorageLocationErrors.ItemNotAssigned);
 
             var releaseResult = Capacity.Release();
@@ -66,7 +65,7 @@ namespace Domain.Warehouse
                 return Result.Failure(releaseResult.Error);
 
             Capacity = releaseResult.Value;
-            _assignedItems.Remove(itemId);
+            _assignedItemIds.Remove(itemId.Value);
 
             return Result.Success();
         }
@@ -76,7 +75,7 @@ namespace Domain.Warehouse
             if (!IsActive)
                 return Result.Failure(StorageLocationErrors.LocationAlreadyInactive);
 
-            if (_assignedItems.Any())
+            if (_assignedItemIds.Any())
                 return Result.Failure(StorageLocationErrors.LocationHasItems);
 
             IsActive = false;
@@ -93,4 +92,3 @@ namespace Domain.Warehouse
         }
     }
 }
-

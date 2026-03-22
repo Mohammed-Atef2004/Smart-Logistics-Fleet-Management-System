@@ -1,4 +1,5 @@
 ﻿using Domain.Common.Domain.Common;
+using Domain.Warehouse.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace Domain.SharedKernel
