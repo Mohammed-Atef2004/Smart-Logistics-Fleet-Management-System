@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Migrations\\20260322122108_addInventoryItemAndWarehouseTables2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Infrastructure\\Migrations\\20260322122108_addInventoryItemAndWarehouseTables2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\presistence\\configurations\\storagelocationconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\presistence\\configurations\\storagelocationconfiguration.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -147,11 +151,24 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "20260322122108_addInventoryItemAndWarehouseTables2.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Migrations\\20260322122108_addInventoryItemAndWarehouseTables2.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Migrations\\20260322122108_addInventoryItemAndWarehouseTables2.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Migrations\\20260322122108_addInventoryItemAndWarehouseTables2.cs",
+              "RelativeToolTip": "Infrastructure\\Migrations\\20260322122108_addInventoryItemAndWarehouseTables2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T12:21:09.402Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "StorageLocationConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\StorageLocationConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Configurations\\StorageLocationConfiguration.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\StorageLocationConfiguration.cs*",
-              "RelativeToolTip": "Infrastructure\\Presistence\\Configurations\\StorageLocationConfiguration.cs*",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\StorageLocationConfiguration.cs",
+              "RelativeToolTip": "Infrastructure\\Presistence\\Configurations\\StorageLocationConfiguration.cs",
               "ViewState": "AgIAADQAAAAAAAAAAAAkwDwAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-22T12:14:29.208Z",
@@ -159,7 +176,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "InventoryItemId.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\ValueObjects\\InventoryItemId.cs",
               "RelativeDocumentMoniker": "Domain\\Inventory\\ValueObjects\\InventoryItemId.cs",
@@ -172,7 +189,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "20260322111727_addInventoryItemAndWarehouseTables.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Migrations\\20260322111727_addInventoryItemAndWarehouseTables.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Migrations\\20260322111727_addInventoryItemAndWarehouseTables.cs",
@@ -185,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "InventoryItemConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\InventoryItemConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Configurations\\InventoryItemConfiguration.cs",
@@ -198,7 +215,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "Weight.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipments\\ValueObjects\\Weight.cs",
               "RelativeDocumentMoniker": "Domain\\Shipments\\ValueObjects\\Weight.cs",
@@ -219,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "Route.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\SharedKernel\\Route.cs",
               "RelativeDocumentMoniker": "Domain\\SharedKernel\\Route.cs",
@@ -232,7 +249,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "WarehouseConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\WarehouseConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Configurations\\WarehouseConfiguration.cs",
@@ -245,7 +262,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Data\\AppDbContext.cs",
@@ -258,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "WarehouseRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Repositories\\WarehouseRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\WarehouseRepository.cs",
@@ -271,7 +288,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "InventoryItemRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Repositories\\InventoryItemRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\InventoryItemRepository.cs",
@@ -284,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "IInventoryItemRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\IInventoryItemRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Inventory\\IInventoryItemRepository.cs",
@@ -297,7 +314,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "IWarehouseRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\IWarehouseRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\IWarehouseRepository.cs",
@@ -310,7 +327,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "InventoryItem.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\InventoryItem.cs",
               "RelativeDocumentMoniker": "Domain\\Inventory\\InventoryItem.cs",
@@ -323,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "ItemLocationUnassignedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\Events\\ItemLocationUnassignedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Inventory\\Events\\ItemLocationUnassignedEvent.cs",
@@ -335,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "ItemLocationAssignedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\Events\\ItemLocationAssignedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Inventory\\Events\\ItemLocationAssignedEvent.cs",
@@ -347,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "WarehouseDeactivatedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Events\\WarehouseDeactivatedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Events\\WarehouseDeactivatedEvent.cs",
@@ -359,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "WarehouseAddressUpdatedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Events\\WarehouseAddressUpdatedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Events\\WarehouseAddressUpdatedEvent.cs",
@@ -371,7 +388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "StorageLocationAddedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Events\\StorageLocationAddedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Events\\StorageLocationAddedEvent.cs",
@@ -383,7 +400,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "StorageLocationRemovedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Events\\StorageLocationRemovedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Events\\StorageLocationRemovedEvent.cs",
@@ -395,7 +412,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "ItemUnassignedFromLocationEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Events\\ItemUnassignedFromLocationEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Events\\ItemUnassignedFromLocationEvent.cs",
@@ -407,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "ItemAssignedToLocationEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Events\\ItemAssignedToLocationEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Events\\ItemAssignedToLocationEvent.cs",
@@ -419,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "StorageLocation.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\StorageLocation.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\StorageLocation.cs",
@@ -432,7 +449,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "WarehouseMustBeActiveRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Rules\\WarehouseMustBeActiveRule.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Rules\\WarehouseMustBeActiveRule.cs",
@@ -444,7 +461,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "StorageLocationId.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\StorageLocationId.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\ValueObjects\\StorageLocationId.cs",
@@ -457,7 +474,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "WarehouseId.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\WarehouseId.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\ValueObjects\\WarehouseId.cs",
@@ -470,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "WarehouseCreatedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Events\\WarehouseCreatedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Events\\WarehouseCreatedEvent.cs",
@@ -482,7 +499,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "Capacity.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\Capacity.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\ValueObjects\\Capacity.cs",
@@ -494,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Address .cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\Address .cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\ValueObjects\\Address .cs",
@@ -507,7 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Warehouse.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Warehouse.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Warehouse.cs",
@@ -520,7 +537,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 31,
               "Title": "AddressErrors.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Errors\\AddressErrors.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Errors\\AddressErrors.cs",
@@ -532,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 32,
               "Title": "CapacityErrors.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Errors\\CapacityErrors.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Errors\\CapacityErrors.cs",
@@ -544,7 +561,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "StorageLocationErrors.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Errors\\StorageLocationErrors.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Errors\\StorageLocationErrors.cs",
@@ -557,7 +574,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 33,
               "Title": "WarehouseErrors.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Errors\\WarehouseErrors.cs",
               "RelativeDocumentMoniker": "Domain\\Warehouse\\Errors\\WarehouseErrors.cs",

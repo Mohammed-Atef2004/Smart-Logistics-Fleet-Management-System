@@ -11,5 +11,6 @@ namespace Domain.Inventory.Errors
     {
         public static Error EmptySku = new("ProductInfo.EmptySku", "SKU cannot be empty.");
         public static Error EmptyName = new("ProductInfo.EmptyName", "Product name cannot be empty.");
+        public static Error DuplicateSku = new("ProductInfo.DuplicateSku", "Sku Is Dublicated");
     }
 }
