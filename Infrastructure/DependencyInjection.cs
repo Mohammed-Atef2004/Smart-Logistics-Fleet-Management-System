@@ -1,7 +1,10 @@
 ﻿using Domain.Interfaces.Repositories;
+using Domain.Inventory;
 using Domain.Vehicles;
+using Domain.Warehouse;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Presistence.Interceptors;
+using Infrastructure.Repositories;
 using Infrastructure.Repositories.Shared;
 using Infrastructure.Repositories.Vehicle.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -34,8 +37,10 @@ namespace Infrastructure.Persistence
 
             // ✅ 4. Register Repositories 
             services.AddScoped<IVehicleRepository, VehicleRepository>();
+            services.AddScoped<IWarehouseRepository, WarehouseRepository>();
+            services.AddScoped<IInventoryItemRepository, InventoryItemRepository>();
 
-            
+
             // services.AddScoped<IDriverRepository, DriverRepository>();
             // services.AddScoped<ITripRepository, TripRepository>();
 

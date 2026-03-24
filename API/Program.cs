@@ -19,12 +19,9 @@ namespace API
             builder.Services.AddLogging();
 
             builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-            builder.Services.AddDbContext<AppDbContext>(options =>
-            {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-            });
+            
             builder.Services.AddInfrastructure(builder.Configuration);
-            builder.Services.AddApplication(); // MediatR هنا
+            builder.Services.AddApplication(); 
             builder.Services.AddMediatR(cfg =>
     cfg.RegisterServicesFromAssembly(typeof(HireDriverCommand).Assembly));
 
