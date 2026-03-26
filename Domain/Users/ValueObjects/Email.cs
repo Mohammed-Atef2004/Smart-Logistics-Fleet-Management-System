@@ -12,8 +12,9 @@ public sealed class Email : ValueObject
         RegexOptions.Compiled | RegexOptions.IgnoreCase,
         matchTimeout: TimeSpan.FromMilliseconds(250));
 
-    public string Value { get; }
+    public string Value { get; private set; }
 
+    private Email() { }
     private Email(string value) => Value = value;
 
     public static Result<Email> Create(string? value)
@@ -38,5 +39,9 @@ public sealed class Email : ValueObject
     }
 
     public override string ToString() => Value;
+    public static Email FromDatabase(string value)
+    {
+        return new Email(value);
+    }
 }
 

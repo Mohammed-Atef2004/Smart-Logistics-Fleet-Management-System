@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="Common\Exceptions\" />
-    <Folder Include="Common\Interfaces\" />
     <Folder Include="Features\Driver\Commands\ClearShift\" />
     <Folder Include="Features\Vehicle\Mappings\" />
   </ItemGroup>
@@ -32,6 +31,8 @@
     <PackageReference Include="FluentValidation" Version="12.1.1" />
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
 	  <PackageReference Include="MediatR" Version="14.0.0" />
+	  <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.9" />
+	  <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="8.0.0" />
 	  <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.22" />
     <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="18.0.1" />
     <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />

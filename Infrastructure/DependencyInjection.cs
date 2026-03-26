@@ -1,12 +1,19 @@
-﻿using Domain.Interfaces.Repositories;
+﻿using Application.Features.Users.Services;
+using Domain.Interfaces.Repositories;
+using Domain.Interfaces.Services;
 using Domain.Inventory;
+using Domain.Users;
 using Domain.Vehicles;
 using Domain.Warehouse;
+using EducationalPlatform.Infrastructure.Services.Token;
+using Infrastructure.Identity;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Presistence.Interceptors;
 using Infrastructure.Repositories;
 using Infrastructure.Repositories.Shared;
 using Infrastructure.Repositories.Vehicle.Infrastructure.Repositories;
+using Infrastructure.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -39,10 +46,19 @@ namespace Infrastructure.Persistence
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IWarehouseRepository, WarehouseRepository>();
             services.AddScoped<IInventoryItemRepository, InventoryItemRepository>();
-
+            services.AddScoped<IUserRepository, UserRepository>();
 
             // services.AddScoped<IDriverRepository, DriverRepository>();
             // services.AddScoped<ITripRepository, TripRepository>();
+            // 7. Register Services
+            services.AddHttpContextAccessor();
+            services.AddScoped<IIdentityService, IdentityService>();
+            services.AddScoped<ITotpService, TotpService>();
+            services.AddScoped<IAuditService, AuditService>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddTransient<IEmailService, EmailService>();
+            services.AddDataProtection();
+            services.AddSingleton<IPasswordHasher, PasswordHasher>();
 
             return services;
         }

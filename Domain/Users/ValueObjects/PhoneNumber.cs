@@ -20,8 +20,9 @@ namespace  Domain.Users.ValueObjects
             RegexOptions.Compiled,
             matchTimeout: TimeSpan.FromMilliseconds(100));
 
-        public string Value { get; }
+        public string Value { get; private set; }
 
+        private PhoneNumber(){}
         private PhoneNumber(string value) => Value = value;
 
         public static Result<PhoneNumber> Create(string? value)
@@ -47,5 +48,6 @@ namespace  Domain.Users.ValueObjects
         }
 
         public override string ToString() => Value;
+        public static PhoneNumber FromDatabase(string value) => new PhoneNumber(value);
     }
 }

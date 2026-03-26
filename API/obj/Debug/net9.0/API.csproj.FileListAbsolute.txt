@@ -460,3 +460,9 @@ D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\
 D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\net9.0\API.pdb
 D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\net9.0\API.genruntimeconfig.cache
 D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\obj\Debug\net9.0\ref\API.dll
+D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\bin\Debug\net9.0\BCrypt.Net-Next.dll
+D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\bin\Debug\net9.0\BouncyCastle.Cryptography.dll
+D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\bin\Debug\net9.0\MailKit.dll
+D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\bin\Debug\net9.0\MimeKit.dll
+D:\visual-studio-programs\Smart-Logistics-Fleet-Management-System\API\bin\Debug\net9.0\Otp.NET.dll

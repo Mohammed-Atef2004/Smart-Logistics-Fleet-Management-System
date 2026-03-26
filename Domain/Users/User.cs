@@ -23,7 +23,10 @@ public sealed class User : AggregateRoot<Guid>
 
     // ─── Lifecycle ─────────────────────────────────────────────────────────────
     public bool IsActive { get; private set; }
+    public bool IsEmailConfirmed { get; private set; }
+
     public bool IsDeleted { get; private set; }
+
     public DateTime RegisteredAt { get; private set; }
     public DateTime? DeletedAt { get; private set; }
     public string? DeleteReason { get; private set; }
@@ -75,6 +78,7 @@ public sealed class User : AggregateRoot<Guid>
         FullName = fullName;
         Role = role;
         IsActive = true;
+        IsEmailConfirmed = false;
         IsDeleted = false;
         RegisteredAt = DateTime.UtcNow;
     }
@@ -84,8 +88,8 @@ public sealed class User : AggregateRoot<Guid>
     /// </summary>
     public static Result<User> Create(
         string identityId,
-        string email,
-        string username,
+        Email email,
+        Username username,
         string firstName,
         string lastName,
         bool isEmailTaken,
@@ -97,13 +101,6 @@ public sealed class User : AggregateRoot<Guid>
             return Result<User>.Failure(UserErrors.InvalidIdentityReference);
 
         // ── Build Value Objects ──
-        var emailResult = Email.Create(email);
-        if (emailResult.IsFailure)
-            return Result<User>.Failure(emailResult.Error);
-
-        var usernameResult = Username.Create(username);
-        if (usernameResult.IsFailure)
-            return Result<User>.Failure(usernameResult.Error);
 
         var fullNameResult = FullName.Create(firstName, lastName);
         if (fullNameResult.IsFailure)
@@ -113,8 +110,8 @@ public sealed class User : AggregateRoot<Guid>
         var user = new User(
             Guid.NewGuid(),
             identityId,
-            emailResult.Value,
-            usernameResult.Value,
+            email,
+            username,
             fullNameResult.Value,
             role);
 
@@ -141,7 +138,9 @@ public sealed class User : AggregateRoot<Guid>
 
     public Result ChangeName(string firstName, string lastName)
     {
-        if (!CanModify()) return Result.Failure(UserErrors.Deactivated);
+        var availabilityResult = CheckAvailability();
+        if (availabilityResult.IsFailure)
+            return availabilityResult;
 
         var result = FullName.Create(firstName, lastName);
         if (result.IsFailure) return Result.Failure(result.Error);
@@ -153,9 +152,45 @@ public sealed class User : AggregateRoot<Guid>
         return Result.Success();
     }
 
+    public Result UpdatePassword(string newPasswordHash)
+    {
+        var availabilityResult = CheckAvailability();
+        if (availabilityResult.IsFailure)
+            return availabilityResult;
+
+        _passwordHashes.Add(newPasswordHash);
+        if (_passwordHashes.Count > 5)
+        {
+            _passwordHashes.RemoveAt(0);
+        }
+        PasswordChangedAt = DateTime.UtcNow;
+        AddDomainEvent(new UserPasswordChangedDomainEvent(Id, PasswordChangedAt.Value));
+        return Result.Success();
+    }
+
+    public Result CanUpdateEmail(bool isEmailTaken)
+    {
+        var ruleResult = CheckRule(new UserEmailMustBeUniqueRule(isEmailTaken));
+        if (ruleResult.IsFailure)
+            return ruleResult;
+        return Result.Success();
+    }
+
+    public Result UpdateEmail(Email newEmail, bool isEmailTaken)
+    {
+        var checkResult = CanUpdateEmail(isEmailTaken);
+        if(checkResult.IsFailure)
+            return checkResult;
+        var oldEmail = Email.Value;
+        Email = newEmail;
+        AddDomainEvent(new UserEmailChangedDomainEvent(Id, oldEmail, Email.Value));
+        return Result.Success();
+    }
     public Result SetPhoneNumber(string phoneNumber)
     {
-        if (!CanModify()) return Result.Failure(UserErrors.Deactivated);
+        var availabilityResult = CheckAvailability();
+        if (availabilityResult.IsFailure)
+            return availabilityResult;
 
         var result = PhoneNumber.Create(phoneNumber);
         if (result.IsFailure) return Result.Failure(result.Error);
@@ -169,7 +204,9 @@ public sealed class User : AggregateRoot<Guid>
 
     public Result RemovePhoneNumber()
     {
-        if (!CanModify()) return Result.Failure(UserErrors.Deactivated);
+        var availabilityResult = CheckAvailability();
+        if (availabilityResult.IsFailure)
+            return availabilityResult;
 
         var oldPhone = PhoneNumber?.Value;
         PhoneNumber = null;
@@ -182,7 +219,10 @@ public sealed class User : AggregateRoot<Guid>
 
     public Result ChangeRole(UserRole newRole)
     {
-        if (!CanModify()) return Result.Failure(UserErrors.Deactivated);
+        var availabilityResult = CheckAvailability();
+        if (availabilityResult.IsFailure)
+            return availabilityResult;
+        
         if (Role == newRole) return Result.Failure(UserErrors.RoleAlreadyAssigned);
 
         // SuperAdmin is only seeded, never assigned through normal flow
@@ -201,6 +241,17 @@ public sealed class User : AggregateRoot<Guid>
 
     // ─── Lifecycle Operations ─────────────────────────────────────────────────
 
+    public Result ConfirmEmail()
+    {
+        if (IsDeleted) return Result.Failure(UserErrors.AlreadyDeleted);
+        if (!IsActive) return Result.Failure(UserErrors.Deactivated);
+
+        if (IsEmailConfirmed) return Result.Success();
+
+        IsEmailConfirmed = true;
+        AddDomainEvent(new UserEmailConfirmedDomainEvent(Id));
+        return Result.Success();
+    }
     public Result Deactivate(string reason)
     {
         if (Role == UserRole.SuperAdmin)
@@ -251,11 +302,9 @@ public sealed class User : AggregateRoot<Guid>
     /// </summary>
     public Result RecordSuccessfulLogin(string ipAddress)
     {
-        if (IsLockedOut())
-            return Result.Failure(SecurityErrors.AccountLocked);
-
-        if (!CanModify())
-            return Result.Failure(UserErrors.Deactivated);
+        var availabilityResult = CheckAvailability();
+        if (availabilityResult.IsFailure)
+            return availabilityResult;
 
         FailedLoginAttempts = 0;
         LockedUntil = null;
@@ -341,7 +390,9 @@ public sealed class User : AggregateRoot<Guid>
     /// </summary>
     public Result RecordPasswordChange(string newPasswordHash, bool isPasswordReused)
     {
-        if (!CanModify()) return Result.Failure(UserErrors.Deactivated);
+        var availabilityResult = CheckAvailability();
+        if (availabilityResult.IsFailure)
+            return availabilityResult;
 
         var reuseRule = CheckRule(new PasswordMustNotBeReusedRule(isPasswordReused));
         if (reuseRule.IsFailure) return Result.Failure(reuseRule.Error);
@@ -362,8 +413,19 @@ public sealed class User : AggregateRoot<Guid>
     // ─── Private Helpers ──────────────────────────────────────────────────────
 
     /// <summary>True when the account is unlocked and not soft-deleted.</summary>
-    private bool CanModify() => IsActive && !IsDeleted && !IsLockedOut();
+    public Result CheckAvailability()
+    {
+        if (IsDeleted)
+            return Result.Failure(UserErrors.AccountDeleted);
 
+        if (!IsActive)
+            return Result.Failure(UserErrors.Deactivated);
+
+        if (IsLockedOut())
+            return Result.Failure(UserErrors.SecurityErrors.AccountLocked);
+
+        return Result.Success();
+    }
     /// <summary>True when a lockout is currently in effect.</summary>
     private bool IsLockedOut() =>
         LockedUntil.HasValue && LockedUntil.Value > DateTime.UtcNow;

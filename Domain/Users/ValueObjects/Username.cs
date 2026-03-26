@@ -21,8 +21,9 @@ namespace  Domain.Users.ValueObjects
             RegexOptions.Compiled,
             matchTimeout: TimeSpan.FromMilliseconds(100));
 
-        public string Value { get; }
+        public string Value { get; private set; }
 
+        private Username() { }
         private Username(string value) => Value = value;
 
         public static Result<Username> Create(string? value)
@@ -51,5 +52,6 @@ namespace  Domain.Users.ValueObjects
         }
 
         public override string ToString() => Value;
+        public static Username FromDatabase(string value) => new Username(value);
     }
 }
