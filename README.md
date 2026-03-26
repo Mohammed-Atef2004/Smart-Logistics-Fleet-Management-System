@@ -416,9 +416,9 @@ Generic repositories promote the illusion of uniformity across aggregates that h
 | Driver | ✅ | ✅ | ✅ | ✅ |
 | Shift | ✅ | ✅ | ✅ | ✅ |
 | Shipment | ✅ | ✅ | ✅ | ✅ |
-| Warehouse | ✅ | 🔄 | ✅ | — |
-| InventoryItem | ✅ | 🔄 | ✅ | — |
-| User | 🔄 | — | — | — |
+| Warehouse | ✅ | ✅ | ✅ | — |
+| InventoryItem | ✅ | ✅ | ✅ | — |
+| User | ✅ | — | — | — |
 | Invoice | 📋 | — | — | — |
 | Payment | 📋 | — | — | — |
 | InsuranceClaim | 📋 | — | — | — |
