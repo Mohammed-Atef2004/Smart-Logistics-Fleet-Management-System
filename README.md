@@ -2,8 +2,14 @@
 <div align="center">
   
 ![.NET 9](https://img.shields.io/badge/.NET-9-512BD4) ![C#](https://img.shields.io/badge/C%23-13-239120) ![EF Core](https://img.shields.io/badge/EF_Core-9-512BD4) ![SQL Server](https://img.shields.io/badge/SQL_Server-2022-CC2927) ![MediatR](https://img.shields.io/badge/MediatR-14-blue)
+
 </div>
+
+<div align="center">
+  
 A production-grade logistics platform built with **Vertical Slice Architecture**, **Domain-Driven Design**, and **CQRS**.
+
+</div>
 
 ---
 
