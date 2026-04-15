@@ -37,7 +37,7 @@ namespace API
 
             builder.Services.AddSwaggerGen(options =>
             {
-                options.SwaggerDoc("v1", new OpenApiInfo { Title = "Doc2Pod API", Version = "v1" });
+                options.SwaggerDoc("v1", new OpenApiInfo { Title = "SLFM", Version = "v1" });
 
                 options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
