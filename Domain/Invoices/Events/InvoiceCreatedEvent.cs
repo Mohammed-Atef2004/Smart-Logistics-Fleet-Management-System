@@ -10,6 +10,6 @@ namespace Domain.Invoices.Events
 {
     public record InvoiceCreatedEvent(
         InvoiceId id,
-        double Price
+        decimal Price
         ):DomainEvent;
 }
