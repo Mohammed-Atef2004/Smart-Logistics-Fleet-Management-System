@@ -26,6 +26,7 @@ namespace Infrastructure.Presistence.Data
         public DbSet<Warehouse> Warehouse { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Invoice> Invoices { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
