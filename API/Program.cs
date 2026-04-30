@@ -34,6 +34,7 @@ namespace API
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddHttpContextAccessor();
+            builder.Services.AddMemoryCache();
 
             builder.Services.AddSwaggerGen(options =>
             {
