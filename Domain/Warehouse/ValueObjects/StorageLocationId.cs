@@ -8,6 +8,7 @@ namespace Domain.Warehouse.ValueObjects
 {
     public record StorageLocationId(Guid Value)
     {
+        public static StorageLocationId New() { return new StorageLocationId(Guid.NewGuid()); }
         public static StorageLocationId From(Guid Value) { return new StorageLocationId(Value); }
     }
    

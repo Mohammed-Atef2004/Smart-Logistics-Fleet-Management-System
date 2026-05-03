@@ -18,6 +18,10 @@ namespace Domain.Inventory.ValueObjects
         {
             Value = value;
         }
+        public static InventoryItemId New()
+        {
+            return new InventoryItemId(Guid.NewGuid());
+        }
         public static InventoryItemId From(Guid value)
         {
             return new InventoryItemId(value);

@@ -10,6 +10,7 @@ namespace Domain.Warehouse.ValueObjects
     public record WarehouseId(Guid Id)
     {
         public static WarehouseId Create(Guid Id) { return new WarehouseId(Id); }
+        public static WarehouseId New() { return new WarehouseId(Guid.NewGuid()); }
         public static WarehouseId From(Guid Id) {return new WarehouseId(Id); }
     }
 

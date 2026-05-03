@@ -3,6 +3,38 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain.tests\\inverntoryitemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|solutionrelative:domain.tests\\inverntoryitemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\warehouse\\valueobjects\\storagelocationid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\warehouse\\valueobjects\\storagelocationid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\warehouse\\valueobjects\\warehouseid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\warehouse\\valueobjects\\warehouseid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\inventory\\valueobjects\\inventoryitemid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\inventory\\valueobjects\\inventoryitemid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\services\\cashingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\cashingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\common\\interfaces\\icashingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\common\\interfaces\\icashingservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0634E9-FBE3-49C9-9525-58231EE2C0D4}|API\\API.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\repositories\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repositories\\invoicerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -146,8 +178,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "StorageLocationId.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\StorageLocationId.cs",
+              "RelativeDocumentMoniker": "Domain\\Warehouse\\ValueObjects\\StorageLocationId.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\StorageLocationId.cs",
+              "RelativeToolTip": "Domain\\Warehouse\\ValueObjects\\StorageLocationId.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAADwvwoAAABVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T01:50:47.179Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "WarehouseId.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\WarehouseId.cs",
+              "RelativeDocumentMoniker": "Domain\\Warehouse\\ValueObjects\\WarehouseId.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\ValueObjects\\WarehouseId.cs",
+              "RelativeToolTip": "Domain\\Warehouse\\ValueObjects\\WarehouseId.cs",
+              "ViewState": "AgIAAAcAAAAAa2ZmZmbmvwsAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T01:50:25.646Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "InventoryItemId.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\ValueObjects\\InventoryItemId.cs",
+              "RelativeDocumentMoniker": "Domain\\Inventory\\ValueObjects\\InventoryItemId.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\ValueObjects\\InventoryItemId.cs",
+              "RelativeToolTip": "Domain\\Inventory\\ValueObjects\\InventoryItemId.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAzwBQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T01:48:56.145Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
@@ -158,7 +229,70 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
+              "Title": "InventoryItem.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\InventoryItem.cs",
+              "RelativeDocumentMoniker": "Domain\\Inventory\\InventoryItem.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\InventoryItem.cs",
+              "RelativeToolTip": "Domain\\Inventory\\InventoryItem.cs",
+              "ViewState": "AgIAAJkAAAAAAAAAAAA8wKcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T01:46:15.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InverntoryItemTests.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\InverntoryItemTests.cs",
+              "RelativeDocumentMoniker": "Domain.Tests\\InverntoryItemTests.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\InverntoryItemTests.cs",
+              "RelativeToolTip": "Domain.Tests\\InverntoryItemTests.cs",
+              "ViewState": "AgIAAAQAAAAAPDMzMzMbwAgAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-03T01:45:58.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Program.cs",
+              "RelativeDocumentMoniker": "API\\Program.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\API\\Program.cs",
+              "RelativeToolTip": "API\\Program.cs",
+              "ViewState": "AgIAABwAAACAamZmZmYSwCIAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T22:07:31.583Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CashingService.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Services\\CashingService.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\CashingService.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Services\\CashingService.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\CashingService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAADwvwkAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:49:09.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ICashingService.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Common\\Interfaces\\ICashingService.cs",
+              "RelativeDocumentMoniker": "Application\\Common\\Interfaces\\ICashingService.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Common\\Interfaces\\ICashingService.cs",
+              "RelativeToolTip": "Application\\Common\\Interfaces\\ICashingService.cs",
+              "ViewState": "AgIAAAsAAAAAzszMzMz8vw8AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-30T21:39:05.048Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "IInvoiceRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\IInvoiceRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\IInvoiceRepository.cs",
@@ -170,20 +304,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 8,
               "Title": "InvoiceRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Repositories\\InvoiceRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\InvoiceRepository.cs",
               "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Repositories\\InvoiceRepository.cs",
               "RelativeToolTip": "Infrastructure\\Repositories\\InvoiceRepository.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA6wA8AAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAiwA8AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-22T22:59:38.008Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-04-22T22:59:38.008Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "DomainEventInterceptor.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Interceptors\\DomainEventInterceptor.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Interceptors\\DomainEventInterceptor.cs",
@@ -195,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 10,
               "Title": "SoftDeleteInterceptor.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Interceptors\\SoftDeleteInterceptor.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Interceptors\\SoftDeleteInterceptor.cs",
@@ -207,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "20260422224712_add_invoice_DB.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Migrations\\20260422224712_add_invoice_DB.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Migrations\\20260422224712_add_invoice_DB.cs",
@@ -219,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 14,
               "Title": "DriverConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\DriverConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Configurations\\DriverConfiguration.cs",
@@ -231,7 +364,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 13,
               "Title": "InvoiceConfiguration.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Configurations\\InvoiceConfiguration.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Configurations\\InvoiceConfiguration.cs",
@@ -243,7 +376,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "AppDbContext.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Presistence\\Data\\AppDbContext.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Presistence\\Data\\AppDbContext.cs",
@@ -255,7 +388,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 17,
               "Title": "PaymentFailedDomainEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Payments\\Events\\PaymentFailedDomainEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Payments\\Events\\PaymentFailedDomainEvent.cs",
@@ -267,7 +400,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
               "Title": "PaymentProcessedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Payments\\Events\\PaymentProcessedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Payments\\Events\\PaymentProcessedEvent.cs",
@@ -279,7 +412,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 19,
               "Title": "TransactionInfo.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Payments\\ValueObjects\\TransactionInfo.cs",
               "RelativeDocumentMoniker": "Domain\\Payments\\ValueObjects\\TransactionInfo.cs",
@@ -291,7 +424,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 20,
               "Title": "PaymentMethod.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Payments\\Enums\\PaymentMethod.cs",
               "RelativeDocumentMoniker": "Domain\\Payments\\Enums\\PaymentMethod.cs",
@@ -303,7 +436,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 21,
               "Title": "PaymentId.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Payments\\ValueObjects\\PaymentId.cs",
               "RelativeDocumentMoniker": "Domain\\Payments\\ValueObjects\\PaymentId.cs",
@@ -315,7 +448,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 23,
               "Title": "InvoiceErrors.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\InvoiceErrors.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\InvoiceErrors.cs",
@@ -327,7 +460,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 24,
               "Title": "InvoiceIssuedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\Events\\InvoiceIssuedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\Events\\InvoiceIssuedEvent.cs",
@@ -339,7 +472,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 25,
               "Title": "InvoiceItem.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\InvoiceItem.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\InvoiceItem.cs",
@@ -351,7 +484,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 26,
               "Title": "InvoiceStatus.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\Enums\\InvoiceStatus.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\Enums\\InvoiceStatus.cs",
@@ -363,7 +496,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 29,
               "Title": "CarrierAssignedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipments\\Events\\CarrierAssignedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Shipments\\Events\\CarrierAssignedEvent.cs",
@@ -375,7 +508,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 30,
               "Title": "ShipmentMustHavePackagesRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipments\\Rules\\ShipmentMustHavePackagesRule.cs",
               "RelativeDocumentMoniker": "Domain\\Shipments\\Rules\\ShipmentMustHavePackagesRule.cs",
@@ -387,7 +520,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 22,
               "Title": "InvoiceCreatedEvent.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\Events\\InvoiceCreatedEvent.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\Events\\InvoiceCreatedEvent.cs",
@@ -399,7 +532,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 33,
               "Title": "ShipmentMustBeEditableRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipments\\Rules\\ShipmentMustBeEditableRule.cs",
               "RelativeDocumentMoniker": "Domain\\Shipments\\Rules\\ShipmentMustBeEditableRule.cs",
@@ -411,7 +544,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 27,
               "Title": "Shipment.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipments\\Shipment.cs",
               "RelativeDocumentMoniker": "Domain\\Shipments\\Shipment.cs",
@@ -423,7 +556,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 32,
               "Title": "PriceMustBePositiveRule.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\Rules\\PriceMustBePositiveRule.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\Rules\\PriceMustBePositiveRule.cs",
@@ -435,7 +568,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 31,
               "Title": "ShipmentId.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shipments\\ValueObjects\\ShipmentId.cs",
               "RelativeDocumentMoniker": "Domain\\Shipments\\ValueObjects\\ShipmentId.cs",
@@ -447,7 +580,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 28,
               "Title": "InvoiceId.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\ValueObjects\\InvoiceId.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\ValueObjects\\InvoiceId.cs",
@@ -459,7 +592,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "Invoice.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Invoices\\Invoice.cs",
               "RelativeDocumentMoniker": "Domain\\Invoices\\Invoice.cs",
@@ -471,7 +604,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 35,
               "Title": "Vehicle.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Vehicles\\Vehicle.cs",
               "RelativeDocumentMoniker": "Domain\\Vehicles\\Vehicle.cs",
@@ -483,7 +616,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 34,
               "Title": "Shift.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Shifts\\Shift.cs",
               "RelativeDocumentMoniker": "Domain\\Shifts\\Shift.cs",
@@ -495,7 +628,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 36,
               "Title": "RegisterNewVehicleCommandHandler.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Features\\Vehicle\\Commands\\RegisterNewVehicle\\RegisterNewVehicleCommandHandler.cs",
@@ -507,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 37,
               "Title": "AddStockCommandHandler.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Inventory\\Commands\\AddStock\\AddStockCommandHandler.cs",
               "RelativeDocumentMoniker": "Application\\Features\\Inventory\\Commands\\AddStock\\AddStockCommandHandler.cs",
@@ -519,7 +652,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 38,
               "Title": "AddStockCommand.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Features\\Inventory\\Commands\\AddStock\\AddStockCommand.cs",
               "RelativeDocumentMoniker": "Application\\Features\\Inventory\\Commands\\AddStock\\AddStockCommand.cs",
@@ -531,7 +664,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 39,
               "Title": "UnitOfWork.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Repositories\\Shared\\UnitOfWork.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\Shared\\UnitOfWork.cs",
@@ -543,7 +676,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 40,
               "Title": "DriverRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Repositories\\DriverRepository.cs",
               "RelativeDocumentMoniker": "Infrastructure\\Repositories\\DriverRepository.cs",
@@ -555,7 +688,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 41,
               "Title": "IGenericRepository.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
               "RelativeDocumentMoniker": "Domain\\Interfaces\\Repositories\\IGenericRepository.cs",
