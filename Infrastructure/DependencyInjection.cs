@@ -2,6 +2,7 @@
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using Domain.Inventory;
+using Domain.Invoices;
 using Domain.Users;
 using Domain.Vehicles;
 using Domain.Warehouse;
@@ -47,6 +48,7 @@ namespace Infrastructure.Persistence
             services.AddScoped<IWarehouseRepository, WarehouseRepository>();
             services.AddScoped<IInventoryItemRepository, InventoryItemRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IInvoiceRepository, InvoiceRepository>();
 
             // services.AddScoped<IDriverRepository, DriverRepository>();
             // services.AddScoped<ITripRepository, TripRepository>();

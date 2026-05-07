@@ -735,6 +735,115 @@
     ]
   },
   {
+    "ContainingType": "API.Controllers.InvoiceController",
+    "Method": "GetAll",
+    "RelativePath": "api/Invoice",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.InvoiceController",
+    "Method": "Create",
+    "RelativePath": "api/Invoice",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.InvoiceController",
+    "Method": "GetById",
+    "RelativePath": "api/Invoice/{invoiceId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "invoiceId",
+        "Type": "Domain.Invoices.ValueObjects.InvoiceId",
+        "IsRequired": true
+      },
+      {
+        "Name": "invoiceId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.InvoiceController",
+    "Method": "AddItem",
+    "RelativePath": "api/Invoice/{invoiceId}/add-item",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "invoiceId",
+        "Type": "Domain.Invoices.ValueObjects.InvoiceId",
+        "IsRequired": false
+      },
+      {
+        "Name": "request",
+        "Type": "API.Controllers.AddInvoiceItemRequest",
+        "IsRequired": true
+      },
+      {
+        "Name": "invoiceId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.InvoiceController",
+    "Method": "Cancel",
+    "RelativePath": "api/Invoice/{invoiceId}/cancel",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "invoiceId",
+        "Type": "Domain.Invoices.ValueObjects.InvoiceId",
+        "IsRequired": true
+      },
+      {
+        "Name": "invoiceId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "API.Controllers.InvoiceController",
+    "Method": "Issue",
+    "RelativePath": "api/Invoice/{invoiceId}/issue",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "invoiceId",
+        "Type": "Domain.Invoices.ValueObjects.InvoiceId",
+        "IsRequired": true
+      },
+      {
+        "Name": "invoiceId",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "API.Controllers.ProfileController",
     "Method": "GetProfileData",
     "RelativePath": "api/Profile",

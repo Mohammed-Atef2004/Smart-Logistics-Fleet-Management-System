@@ -9,6 +9,8 @@ namespace Domain.Invoices
 {
     public static class InvoiceErrors
     {
+        public static Error NotFound =>
+            new("Invoice.NotFound", "No Invoice with This Id");
         public static Error NotDraft =>
             new("Invoice.NotDraft", "Cannot modify a non-draft invoice");
 
