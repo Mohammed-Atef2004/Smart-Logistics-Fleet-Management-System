@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain.tests\\warehousetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|solutionrelative:domain.tests\\warehousetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\warehouse\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\warehouse\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain.tests\\inventoryitemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|solutionrelative:domain.tests\\inventoryitemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -31,19 +39,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "WarehouseTests.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\WarehouseTests.cs",
+              "RelativeDocumentMoniker": "Domain.Tests\\WarehouseTests.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\WarehouseTests.cs",
+              "RelativeToolTip": "Domain.Tests\\WarehouseTests.cs",
+              "ViewState": "AgIAALIAAAAAAAAAAAAmwMMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T01:19:00.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Warehouse.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Warehouse.cs",
+              "RelativeDocumentMoniker": "Domain\\Warehouse\\Warehouse.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Warehouse.cs",
+              "RelativeToolTip": "Domain\\Warehouse\\Warehouse.cs",
+              "ViewState": "AgIAAIIAAAAAAAAAAAAgwJIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T01:18:15.702Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "InventoryItemTests.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\InventoryItemTests.cs",
               "RelativeDocumentMoniker": "Domain.Tests\\InventoryItemTests.cs",
               "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\InventoryItemTests.cs",
               "RelativeToolTip": "Domain.Tests\\InventoryItemTests.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAAAiwMsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAALkAAAAAAAAAAAAiwMQAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-08T01:12:02.453Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "InventoryItem.cs",
               "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\InventoryItem.cs",
               "RelativeDocumentMoniker": "Domain\\Inventory\\InventoryItem.cs",
