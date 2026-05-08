@@ -556,8 +556,8 @@ Identity handles the security-sensitive concerns (password hashing, lockout poli
 | Driver | ✅ | ✅ | ✅ | ✅ |
 | Shift | ✅ | ✅ | ✅ | ✅ |
 | Shipment | ✅ | ✅ | ✅ | ✅ |
-| Warehouse | ✅ | ✅ | ✅ | — |
-| InventoryItem | ✅ | ✅ | ✅ | — |
+| Warehouse | ✅ | ✅ | ✅ | ✅ |
+| InventoryItem | ✅ | ✅ | ✅ | ✅ |
 | User | ✅ | ✅ | ✅ | — |
 | Invoice | ✅ | ✅ | ✅ | ✅ |
 | Payment | 📋 | — | — | — |
