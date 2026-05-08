@@ -559,7 +559,7 @@ Identity handles the security-sensitive concerns (password hashing, lockout poli
 | Warehouse | ✅ | ✅ | ✅ | — |
 | InventoryItem | ✅ | ✅ | ✅ | — |
 | User | ✅ | ✅ | ✅ | — |
-| Invoice | 📋 | — | — | — |
+| Invoice | ✅ | ✅ | ✅ | ✅ |
 | Payment | 📋 | — | — | — |
 | InsuranceClaim | 📋 | — | — | — |
 
