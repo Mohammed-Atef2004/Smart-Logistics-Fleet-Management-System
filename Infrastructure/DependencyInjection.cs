@@ -1,4 +1,5 @@
 ﻿using Application.Features.Users.Services;
+using Domain.Claims;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using Domain.Inventory;
@@ -49,6 +50,7 @@ namespace Infrastructure.Persistence
             services.AddScoped<IInventoryItemRepository, InventoryItemRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+            services.AddScoped<IClaimRepository,ClaimRepository>();
 
             // services.AddScoped<IDriverRepository, DriverRepository>();
             // services.AddScoped<ITripRepository, TripRepository>();

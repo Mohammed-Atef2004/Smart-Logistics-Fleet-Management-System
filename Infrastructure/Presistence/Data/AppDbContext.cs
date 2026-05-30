@@ -1,4 +1,5 @@
-﻿using Domain.Drivers;
+﻿using Domain.Claims;
+using Domain.Drivers;
 using Domain.InventoryItems;
 using Domain.SharedKernel;
 using Domain.Shifts;
@@ -7,6 +8,7 @@ using Domain.Users;
 using Domain.Vehicles;
 using Domain.Warehouse;
 using Infrastructure.Presistence.Entities;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,7 @@ namespace Infrastructure.Presistence.Data
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<InventoryItem> InventoryItems { get; set; }
         public DbSet<Warehouse> Warehouse { get; set; }
+        public DbSet<InsuranceClaim> insuranceClaims { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Invoice> Invoices { get; set; }

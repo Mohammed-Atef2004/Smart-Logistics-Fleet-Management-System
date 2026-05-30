@@ -22,6 +22,79 @@ namespace Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Domain.Claims.InsuranceClaim", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("ClaimNumber")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid>("CustomerId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("DeletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("ProcessedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RejectionReason")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<DateTime?>("ReviewedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ShipmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
+
+                    b.Property<DateTime>("SubmittedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ClaimNumber")
+                        .IsUnique();
+
+                    b.HasIndex("CustomerId");
+
+                    b.HasIndex("ShipmentId");
+
+                    b.HasIndex("Status");
+
+                    b.HasIndex("SubmittedAt");
+
+                    b.ToTable("InsuranceClaims", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Drivers.Driver", b =>
                 {
                     b.Property<Guid>("Id")
@@ -504,6 +577,159 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Invoices", (string)null);
+                });
+
+            modelBuilder.Entity("Domain.Claims.InsuranceClaim", b =>
+                {
+                    b.OwnsMany("Domain.Claims.ClaimItem", "Items", b1 =>
+                        {
+                            b1.Property<Guid>("Id")
+                                .ValueGeneratedOnAdd()
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<Guid>("ClaimId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Description")
+                                .IsRequired()
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)");
+
+                            b1.Property<int>("Quantity")
+                                .HasColumnType("int");
+
+                            b1.HasKey("Id");
+
+                            b1.HasIndex("ClaimId");
+
+                            b1.ToTable("ClaimItems", (string)null);
+
+                            b1.WithOwner()
+                                .HasForeignKey("ClaimId");
+
+                            b1.OwnsOne("Domain.Claims.ValueObjects.ClaimAmount", "UnitValue", b2 =>
+                                {
+                                    b2.Property<Guid>("ClaimItemId")
+                                        .HasColumnType("uniqueidentifier");
+
+                                    b2.Property<string>("Currency")
+                                        .IsRequired()
+                                        .HasMaxLength(3)
+                                        .HasColumnType("nvarchar(3)")
+                                        .HasColumnName("UnitCurrency");
+
+                                    b2.Property<decimal>("Value")
+                                        .HasPrecision(18, 4)
+                                        .HasColumnType("decimal(18,4)")
+                                        .HasColumnName("UnitAmount");
+
+                                    b2.HasKey("ClaimItemId");
+
+                                    b2.ToTable("ClaimItems");
+
+                                    b2.WithOwner()
+                                        .HasForeignKey("ClaimItemId");
+                                });
+
+                            b1.Navigation("UnitValue")
+                                .IsRequired();
+                        });
+
+                    b.OwnsOne("Domain.Claims.ValueObjects.ClaimAmount", "ApprovedAmount", b1 =>
+                        {
+                            b1.Property<Guid>("InsuranceClaimId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasMaxLength(3)
+                                .HasColumnType("nvarchar(3)")
+                                .HasColumnName("ApprovedCurrency");
+
+                            b1.Property<decimal>("Value")
+                                .HasPrecision(18, 4)
+                                .HasColumnType("decimal(18,4)")
+                                .HasColumnName("ApprovedAmount");
+
+                            b1.HasKey("InsuranceClaimId");
+
+                            b1.ToTable("InsuranceClaims");
+
+                            b1.WithOwner()
+                                .HasForeignKey("InsuranceClaimId");
+                        });
+
+                    b.OwnsOne("Domain.Claims.ValueObjects.ClaimAmount", "ClaimAmount", b1 =>
+                        {
+                            b1.Property<Guid>("InsuranceClaimId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Currency")
+                                .IsRequired()
+                                .HasMaxLength(3)
+                                .HasColumnType("nvarchar(3)")
+                                .HasColumnName("ClaimCurrency");
+
+                            b1.Property<decimal>("Value")
+                                .HasPrecision(18, 4)
+                                .HasColumnType("decimal(18,4)")
+                                .HasColumnName("ClaimAmount");
+
+                            b1.HasKey("InsuranceClaimId");
+
+                            b1.ToTable("InsuranceClaims");
+
+                            b1.WithOwner()
+                                .HasForeignKey("InsuranceClaimId");
+                        });
+
+                    b.OwnsOne("Domain.Claims.ValueObjects.ClaimDocument", "SupportingDocument", b1 =>
+                        {
+                            b1.Property<Guid>("InsuranceClaimId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("ContentType")
+                                .IsRequired()
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("DocContentType");
+
+                            b1.Property<string>("FileName")
+                                .IsRequired()
+                                .HasMaxLength(255)
+                                .HasColumnType("nvarchar(255)")
+                                .HasColumnName("DocFileName");
+
+                            b1.Property<long>("FileSizeBytes")
+                                .HasColumnType("bigint")
+                                .HasColumnName("DocFileSizeBytes");
+
+                            b1.Property<string>("FileUrl")
+                                .IsRequired()
+                                .HasMaxLength(1000)
+                                .HasColumnType("nvarchar(1000)")
+                                .HasColumnName("DocFileUrl");
+
+                            b1.Property<DateTime>("UploadedAt")
+                                .HasColumnType("datetime2")
+                                .HasColumnName("DocUploadedAt");
+
+                            b1.HasKey("InsuranceClaimId");
+
+                            b1.ToTable("InsuranceClaims");
+
+                            b1.WithOwner()
+                                .HasForeignKey("InsuranceClaimId");
+                        });
+
+                    b.Navigation("ApprovedAmount");
+
+                    b.Navigation("ClaimAmount")
+                        .IsRequired();
+
+                    b.Navigation("Items");
+
+                    b.Navigation("SupportingDocument");
                 });
 
             modelBuilder.Entity("Domain.Drivers.Driver", b =>
