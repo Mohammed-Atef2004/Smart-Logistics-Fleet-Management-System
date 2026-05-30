@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <Folder Include="Claims\" />
-    <Folder Include="Payments\Errors\" />
     <Folder Include="Payments\Rules\" />
   </ItemGroup>
 

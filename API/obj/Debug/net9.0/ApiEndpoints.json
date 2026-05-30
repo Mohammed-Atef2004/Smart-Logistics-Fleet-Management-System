@@ -232,6 +232,138 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "GetByStatus",
+    "RelativePath": "api/claims",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "GetById",
+    "RelativePath": "api/claims/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "Approve",
+    "RelativePath": "api/claims/{id}/approve",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SLFMS.API.Controllers.ApproveClaimRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "ProcessPayment",
+    "RelativePath": "api/claims/{id}/process-payment",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "Reject",
+    "RelativePath": "api/claims/{id}/reject",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "SLFMS.API.Controllers.RejectClaimRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "StartReview",
+    "RelativePath": "api/claims/{id}/start-review",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "GetPending",
+    "RelativePath": "api/claims/pending",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.ClaimsController",
+    "Method": "SubmitClaim",
+    "RelativePath": "api/claims/submit",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Application.Features.Claims.Commands.SubmitClaim.SubmitClaimCommand",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "DriverController",
     "Method": "GetDriver",
     "RelativePath": "api/drivers/{driverId}",
@@ -838,6 +970,75 @@
       {
         "Name": "invoiceId",
         "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.PaymentsController",
+    "Method": "GetPaymentDetails",
+    "RelativePath": "api/payments/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.PaymentsController",
+    "Method": "RefundPayment",
+    "RelativePath": "api/payments/{id}/refund",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.PaymentsController",
+    "Method": "GetPaymentHistory",
+    "RelativePath": "api/payments/history",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "invoiceId",
+        "Type": "System.Nullable\u00601[[System.Guid, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      },
+      {
+        "Name": "status",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SLFMS.API.Controllers.PaymentsController",
+    "Method": "ProcessPayment",
+    "RelativePath": "api/payments/process",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "command",
+        "Type": "Application.Payments.Commands.ProcessPayment.ProcessPaymentCommand",
         "IsRequired": true
       }
     ],

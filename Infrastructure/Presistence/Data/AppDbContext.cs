@@ -1,6 +1,7 @@
 ﻿using Domain.Claims;
 using Domain.Drivers;
 using Domain.InventoryItems;
+using Domain.Payments;
 using Domain.SharedKernel;
 using Domain.Shifts;
 using Domain.Shipments;
@@ -28,6 +29,7 @@ namespace Infrastructure.Presistence.Data
         public DbSet<Warehouse> Warehouse { get; set; }
         public DbSet<InsuranceClaim> insuranceClaims { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)

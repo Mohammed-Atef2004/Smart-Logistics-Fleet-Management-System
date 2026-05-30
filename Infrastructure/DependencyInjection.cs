@@ -4,11 +4,13 @@ using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
 using Domain.Inventory;
 using Domain.Invoices;
+using Domain.Payments;
 using Domain.Users;
 using Domain.Vehicles;
 using Domain.Warehouse;
 using EducationalPlatform.Infrastructure.Services.Token;
 using Infrastructure.Identity;
+using Infrastructure.Persistence.Repositories;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Presistence.Interceptors;
 using Infrastructure.Repositories;
@@ -51,6 +53,8 @@ namespace Infrastructure.Persistence
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IClaimRepository,ClaimRepository>();
+            services.AddScoped<IPaymentRepository,PaymentRepository>();
+             services.AddScoped<IPaymentGateway, MockPaymentGateway>();
 
             // services.AddScoped<IDriverRepository, DriverRepository>();
             // services.AddScoped<ITripRepository, TripRepository>();

@@ -174,6 +174,50 @@ namespace Infrastructure.Migrations
                     b.ToTable("InventoryItems", (string)null);
                 });
 
+            modelBuilder.Entity("Domain.Payments.Payment", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<decimal>("Amount")
+                        .HasPrecision(18, 2)
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("DeletedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("InvoiceId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId");
+
+                    b.HasIndex("Status");
+
+                    b.ToTable("Payments", (string)null);
+                });
+
             modelBuilder.Entity("Domain.Shifts.Shift", b =>
                 {
                     b.Property<Guid>("Id")
@@ -878,6 +922,71 @@ namespace Infrastructure.Migrations
 
                     b.Navigation("Weight")
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Payments.Payment", b =>
+                {
+                    b.OwnsOne("Domain.Payments.PaymentMethod", "Method", b1 =>
+                        {
+                            b1.Property<Guid>("PaymentId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Last4Digits")
+                                .HasMaxLength(4)
+                                .HasColumnType("nvarchar(4)")
+                                .HasColumnName("CardLast4Digits");
+
+                            b1.Property<string>("Provider")
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)")
+                                .HasColumnName("PaymentMethodProvider");
+
+                            b1.Property<string>("Type")
+                                .IsRequired()
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)")
+                                .HasColumnName("PaymentMethodType");
+
+                            b1.HasKey("PaymentId");
+
+                            b1.ToTable("Payments");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PaymentId");
+                        });
+
+                    b.OwnsOne("Domain.Payments.TransactionInfo", "Transaction", b1 =>
+                        {
+                            b1.Property<Guid>("PaymentId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("FailureReason")
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)")
+                                .HasColumnName("FailureReason");
+
+                            b1.Property<DateTime>("ProcessedAt")
+                                .HasColumnType("datetime2")
+                                .HasColumnName("ProcessedAt");
+
+                            b1.Property<string>("TransactionReference")
+                                .IsRequired()
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)")
+                                .HasColumnName("TransactionReference");
+
+                            b1.HasKey("PaymentId");
+
+                            b1.ToTable("Payments");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PaymentId");
+                        });
+
+                    b.Navigation("Method")
+                        .IsRequired();
+
+                    b.Navigation("Transaction");
                 });
 
             modelBuilder.Entity("Domain.Shipments.Shipment", b =>
