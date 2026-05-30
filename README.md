@@ -558,10 +558,10 @@ Identity handles the security-sensitive concerns (password hashing, lockout poli
 | Shipment | ✅ | ✅ | ✅ | ✅ |
 | Warehouse | ✅ | ✅ | ✅ | ✅ |
 | InventoryItem | ✅ | ✅ | ✅ | ✅ |
-| User | ✅ | ✅ | ✅ | — |
+| User | ✅ | ✅ | ✅ | ✅ |
 | Invoice | ✅ | ✅ | ✅ | ✅ |
-| Payment | 📋 | — | — | — |
-| InsuranceClaim | 📋 | — | — | — |
+| Payment | ✅ | ✅ | ✅ | ✅ |
+| InsuranceClaim | ✅ | ✅ | ✅ |✅— |
 
 ✅ Done &nbsp;·&nbsp; 📋 Planned
 
