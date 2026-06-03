@@ -1,5 +1,4 @@
-﻿
-using Domain.Vehicles.Enums;
+﻿using Domain.Vehicles.Enums;
 using Domain.Vehicles.Errors;
 using Domain.Vehicles.Events;
 using Domain.Vehicles.ValueObjects;
@@ -10,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Tests.Vehicle
+namespace Domain.Tests
 {
     public class VehicleTests
     {
@@ -27,7 +26,7 @@ namespace Domain.Tests.Vehicle
             var checker = new FakeVehicleUniquenessChecker(true);
 
             // Act
-            var result = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker);
+            var result = Vehicles.Vehicle.Register(_plate, _spec, checker);
 
             // Assert
             result.IsSuccess.Should().BeTrue();
@@ -41,7 +40,7 @@ namespace Domain.Tests.Vehicle
         {
             var checker = new FakeVehicleUniquenessChecker(false);
 
-            var result = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker);
+            var result = Vehicles.Vehicle.Register(_plate, _spec, checker);
 
             result.IsFailure.Should().BeTrue();
             result.Error.Should().Be(VehicleErrors.PlateAlreadyExists);
@@ -50,7 +49,7 @@ namespace Domain.Tests.Vehicle
         public void ScheduleMaintenance_Should_Change_Status_And_Add_Event()
         {
             var checker = new FakeVehicleUniquenessChecker(true);
-            var vehicle = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
+            var vehicle = Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
 
             var description = MaintenanceDescription.Create("Oil Change").Value;
             var date = DateTime.UtcNow.AddDays(10);
@@ -79,7 +78,7 @@ namespace Domain.Tests.Vehicle
         public void RecordFuelConsumption_Should_Succeed()
         {
             var checker = new FakeVehicleUniquenessChecker(true);
-            var vehicle = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
+            var vehicle = Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
 
             var fuel = FuelConsumption.Create(50, 1200).Value;
 
@@ -93,7 +92,7 @@ namespace Domain.Tests.Vehicle
         public void Retire_Should_Set_Status_To_Retired()
         {
             var checker = new FakeVehicleUniquenessChecker(true);
-            var vehicle = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
+            var vehicle = Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
 
             var result = vehicle.Retire();
 
@@ -105,7 +104,7 @@ namespace Domain.Tests.Vehicle
         public void UpdateStatus_Should_Raise_StatusChanged_Event()
         {
             var checker = new FakeVehicleUniquenessChecker(true);
-            var vehicle = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
+            var vehicle = Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
 
             var result = vehicle.UpdateStatus(VehicleStatus.InUse);
 
@@ -117,7 +116,7 @@ namespace Domain.Tests.Vehicle
         public void SoftDelete_Should_Mark_Vehicle_As_Deleted()
         {
             var checker = new FakeVehicleUniquenessChecker(true);
-            var vehicle = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
+            var vehicle = Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
 
             vehicle.SoftDelete("admin");
 
@@ -129,7 +128,7 @@ namespace Domain.Tests.Vehicle
         public void DomainEvents_Should_Be_Cleared()
         {
             var checker = new FakeVehicleUniquenessChecker(true);
-            var vehicle = Domain.Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
+            var vehicle = Vehicles.Vehicle.Register(_plate, _spec, checker).Value;
 
             vehicle.ClearDomainEvents();
 
