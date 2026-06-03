@@ -1,8 +1,7 @@
 using Domain.Claims.Errors;
-using Domain.Claims.ValueObjects;
 using Domain.SharedKernel;
 
-namespace Domain.Claims;
+namespace Domain.Claims.ValueObjects;
 
 public sealed class ClaimItem 
 {

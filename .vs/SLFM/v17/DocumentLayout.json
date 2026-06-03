@@ -3,56 +3,28 @@
   "WorkspaceRootPath": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\infrastructureclaims\\insuranceclaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\infrastructureclaims\\insuranceclaim.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\claims\\errors\\claimerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\claims\\errors\\claimerrors.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\infrastructureclaims\\enums\\claimstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\infrastructureclaims\\enums\\claimstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\claims\\events\\claimsubmittedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\claims\\events\\claimsubmittedevent.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\infrastructureclaims\\rules\\claimrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\infrastructureclaims\\rules\\claimrules.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\claims\\rules\\claimmustbesubmittedrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\claims\\rules\\claimmustbesubmittedrule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\infrastructureclaims\\valueobjects\\claimnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\infrastructureclaims\\valueobjects\\claimnumber.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\claims\\valueobjects\\claimdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\claims\\valueobjects\\claimdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\infrastructureclaims\\claimitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\infrastructureclaims\\claimitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\claims\\valueobjects\\claimitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\claims\\valueobjects\\claimitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\infrastructureclaims\\valueobjects\\claimid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\infrastructureclaims\\valueobjects\\claimid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\infrastructureclaims\\valueobjects\\claimdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\infrastructureclaims\\valueobjects\\claimdocument.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\services\\inmemorycacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\inmemorycacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\application\\common\\interfaces\\icacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{84F4685B-0184-4FAA-B02B-C5D52FADDA38}|Application\\Application.csproj|solutionrelative:application\\common\\interfaces\\icacheservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain.tests\\warehousetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|solutionrelative:domain.tests\\warehousetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\warehouse\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\warehouse\\warehouse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain.tests\\inventoryitemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{192E5BD6-50BB-425C-A228-81CEE8C53BAA}|Domain.Tests\\Domain.Tests.csproj|solutionrelative:domain.tests\\inventoryitemtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\domain\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{635424FA-8355-4D4D-BFEA-6BC5BF5BDCBF}|Domain\\Domain.csproj|solutionrelative:domain\\inventory\\inventoryitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|d:\\visual-studio-programs\\smart-logistics-fleet-management-system\\infrastructure\\services\\mockpaymentgateway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A7F8833B-7F18-40D2-988B-90C10B739039}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\services\\mockpaymentgateway.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -75,166 +47,80 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "InsuranceClaim.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\InsuranceClaim.cs",
-              "RelativeDocumentMoniker": "Domain\\InfrastructureClaims\\InsuranceClaim.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\InsuranceClaim.cs",
-              "RelativeToolTip": "Domain\\InfrastructureClaims\\InsuranceClaim.cs",
-              "ViewState": "AgIAAC8AAAAALjMzMzMbwD4AAAA3AAAAAAAAAA==",
+              "Title": "ClaimErrors.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\Errors\\ClaimErrors.cs",
+              "RelativeDocumentMoniker": "Domain\\Claims\\Errors\\ClaimErrors.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\Errors\\ClaimErrors.cs",
+              "RelativeToolTip": "Domain\\Claims\\Errors\\ClaimErrors.cs",
+              "ViewState": "AgIAAAMAAAAAMzMzMzMrwBEAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T19:18:25.604Z",
+              "WhenOpened": "2026-06-03T00:19:21.04Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ClaimStatus.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\Enums\\ClaimStatus.cs",
-              "RelativeDocumentMoniker": "Domain\\InfrastructureClaims\\Enums\\ClaimStatus.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\Enums\\ClaimStatus.cs",
-              "RelativeToolTip": "Domain\\InfrastructureClaims\\Enums\\ClaimStatus.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ClaimSubmittedEvent.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\Events\\ClaimSubmittedEvent.cs",
+              "RelativeDocumentMoniker": "Domain\\Claims\\Events\\ClaimSubmittedEvent.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\Events\\ClaimSubmittedEvent.cs",
+              "RelativeToolTip": "Domain\\Claims\\Events\\ClaimSubmittedEvent.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T19:18:10.653Z",
+              "WhenOpened": "2026-06-03T00:18:29.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ClaimRules.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\Rules\\ClaimRules.cs",
-              "RelativeDocumentMoniker": "Domain\\InfrastructureClaims\\Rules\\ClaimRules.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\Rules\\ClaimRules.cs",
-              "RelativeToolTip": "Domain\\InfrastructureClaims\\Rules\\ClaimRules.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ClaimMustBeSubmittedRule.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\Rules\\ClaimMustBeSubmittedRule.cs",
+              "RelativeDocumentMoniker": "Domain\\Claims\\Rules\\ClaimMustBeSubmittedRule.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\Rules\\ClaimMustBeSubmittedRule.cs",
+              "RelativeToolTip": "Domain\\Claims\\Rules\\ClaimMustBeSubmittedRule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T19:18:03.823Z",
+              "WhenOpened": "2026-06-03T00:16:30.405Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "ClaimNumber.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ValueObjects\\ClaimNumber.cs",
-              "RelativeDocumentMoniker": "Domain\\InfrastructureClaims\\ValueObjects\\ClaimNumber.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ValueObjects\\ClaimNumber.cs",
-              "RelativeToolTip": "Domain\\InfrastructureClaims\\ValueObjects\\ClaimNumber.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "ClaimDocument.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\ValueObjects\\ClaimDocument.cs",
+              "RelativeDocumentMoniker": "Domain\\Claims\\ValueObjects\\ClaimDocument.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\ValueObjects\\ClaimDocument.cs",
+              "RelativeToolTip": "Domain\\Claims\\ValueObjects\\ClaimDocument.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T19:17:57.394Z",
+              "WhenOpened": "2026-06-03T00:15:46.812Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "ClaimItem.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ClaimItem.cs",
-              "RelativeDocumentMoniker": "Domain\\InfrastructureClaims\\ClaimItem.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ClaimItem.cs",
-              "RelativeToolTip": "Domain\\InfrastructureClaims\\ClaimItem.cs",
-              "ViewState": "AgIAAAAAAAAAMzMzMzMrwAYAAAAoAAAAAAAAAA==",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\ValueObjects\\ClaimItem.cs",
+              "RelativeDocumentMoniker": "Domain\\Claims\\ValueObjects\\ClaimItem.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Claims\\ValueObjects\\ClaimItem.cs",
+              "RelativeToolTip": "Domain\\Claims\\ValueObjects\\ClaimItem.cs",
+              "ViewState": "AgIAAA0AAAAAwJmZmZnJvwoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T19:17:24.146Z",
+              "WhenOpened": "2026-06-03T00:15:34.49Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "ClaimId.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ValueObjects\\ClaimId.cs",
-              "RelativeDocumentMoniker": "Domain\\InfrastructureClaims\\ValueObjects\\ClaimId.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ValueObjects\\ClaimId.cs",
-              "RelativeToolTip": "Domain\\InfrastructureClaims\\ValueObjects\\ClaimId.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "MockPaymentGateway.cs",
+              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Services\\MockPaymentGateway.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Services\\MockPaymentGateway.cs",
+              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Services\\MockPaymentGateway.cs",
+              "RelativeToolTip": "Infrastructure\\Services\\MockPaymentGateway.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAmwBsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T19:17:16.502Z",
+              "WhenOpened": "2026-05-30T21:11:36.23Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ClaimDocument.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ValueObjects\\ClaimDocument.cs",
-              "RelativeDocumentMoniker": "Domain\\InfrastructureClaims\\ValueObjects\\ClaimDocument.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\InfrastructureClaims\\ValueObjects\\ClaimDocument.cs",
-              "RelativeToolTip": "Domain\\InfrastructureClaims\\ValueObjects\\ClaimDocument.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-30T19:16:23.142Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ICacheService.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Common\\Interfaces\\ICacheService.cs",
-              "RelativeDocumentMoniker": "Application\\Common\\Interfaces\\ICacheService.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Application\\Common\\Interfaces\\ICacheService.cs",
-              "RelativeToolTip": "Application\\Common\\Interfaces\\ICacheService.cs",
-              "ViewState": "AgIAAAQAAAAAmJmZmZkdwA8AAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T15:14:39.855Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "InMemoryCacheService.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Services\\InMemoryCacheService.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Services\\InMemoryCacheService.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Infrastructure\\Services\\InMemoryCacheService.cs",
-              "RelativeToolTip": "Infrastructure\\Services\\InMemoryCacheService.cs",
-              "ViewState": "AgIAABEAAABA/f////8nwCEAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T15:13:28.15Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "WarehouseTests.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\WarehouseTests.cs",
-              "RelativeDocumentMoniker": "Domain.Tests\\WarehouseTests.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\WarehouseTests.cs",
-              "RelativeToolTip": "Domain.Tests\\WarehouseTests.cs",
-              "ViewState": "AgIAALQAAAAAAAAAAAA3wL4AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T01:19:00.383Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Warehouse.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Warehouse.cs",
-              "RelativeDocumentMoniker": "Domain\\Warehouse\\Warehouse.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Warehouse\\Warehouse.cs",
-              "RelativeToolTip": "Domain\\Warehouse\\Warehouse.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAgwJIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T01:18:15.702Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "InventoryItemTests.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\InventoryItemTests.cs",
-              "RelativeDocumentMoniker": "Domain.Tests\\InventoryItemTests.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain.Tests\\InventoryItemTests.cs",
-              "RelativeToolTip": "Domain.Tests\\InventoryItemTests.cs",
-              "ViewState": "AgIAALkAAAAAAAAAAAAiwMQAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T01:12:02.453Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "InventoryItem.cs",
-              "DocumentMoniker": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\InventoryItem.cs",
-              "RelativeDocumentMoniker": "Domain\\Inventory\\InventoryItem.cs",
-              "ToolTip": "D:\\visual-studio-programs\\Smart-Logistics-Fleet-Management-System\\Domain\\Inventory\\InventoryItem.cs",
-              "RelativeToolTip": "Domain\\Inventory\\InventoryItem.cs",
-              "ViewState": "AgIAAJUAAAAAAAAAAAAiwKcAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-08T01:11:05.663Z"
             }
           ]
         }

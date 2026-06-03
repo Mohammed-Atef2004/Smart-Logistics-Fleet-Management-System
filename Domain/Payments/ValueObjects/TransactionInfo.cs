@@ -1,21 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Domain.SharedKernel;
 
-namespace Domain.Payments.ValueObjects
+namespace Domain.Payments
 {
-    public class TransactionInfo
+    public record TransactionInfo
     {
-        public string TransactionId { get; }
-        public string PaymentGateway { get; }
-        public DateTime TransactionDate { get; }
-        public TransactionInfo(string transactionId, string paymentGateway, DateTime transactionDate)
+        public string TransactionReference { get; init; }
+        public DateTime ProcessedAt { get; init; }
+        public string? FailureReason { get; init; } 
+
+        private TransactionInfo() { }
+
+        private TransactionInfo(string transactionReference, DateTime processedAt, string? failureReason)
         {
-            TransactionId = transactionId;
-            PaymentGateway = paymentGateway;
-            TransactionDate = transactionDate;
+            TransactionReference = transactionReference;
+            ProcessedAt = processedAt;
+            FailureReason = failureReason;
         }
+
+        public static TransactionInfo ForSuccess(string transactionReference, DateTime processedAt)
+            => new(transactionReference, processedAt, null);
+
+        public static TransactionInfo ForFailure(string transactionReference, DateTime processedAt, string failureReason)
+            => new(transactionReference, processedAt, failureReason);
     }
 }
