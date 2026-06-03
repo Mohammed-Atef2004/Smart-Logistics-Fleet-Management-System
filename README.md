@@ -1,116 +1,430 @@
 # SLFMS — Smart Logistics & Fleet Management System
-<div align="center">
-  
-![.NET 9](https://img.shields.io/badge/.NET-9-512BD4) ![C#](https://img.shields.io/badge/C%23-13-239120) ![EF Core](https://img.shields.io/badge/EF_Core-9-512BD4) ![SQL Server](https://img.shields.io/badge/SQL_Server-2022-CC2927) ![MediatR](https://img.shields.io/badge/MediatR-14-blue)
 
-</div>
+![.NET](https://img.shields.io/badge/.NET-9.0-purple)
+![C#](https://img.shields.io/badge/C%23-13-blue)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-red)
+![Architecture](https://img.shields.io/badge/Architecture-DDD%20%7C%20CQRS%20%7C%20Vertical%20Slice-success)
+![Tests](https://img.shields.io/badge/Tests-xUnit%20%7C%20NetArchTest-informational)
 
-<div align="center">
-  
-A production-grade logistics platform built with **Vertical Slice Architecture**, **Domain-Driven Design**, and **CQRS**.
+SLFMS is a large-scale backend system built with .NET 9 to explore and apply modern enterprise software architecture patterns in a realistic logistics domain.
 
-</div>
+The system models real-world logistics operations: fleet management, driver lifecycle, shift scheduling, shipment tracking with full route history, warehouse and inventory management, billing, payment processing, insurance claims, and a complete identity layer.
 
----
+The primary goal is to demonstrate practical, production-quality implementation of:
 
-## Table of Contents
-
-- [Overview](#overview)
-- [Architecture](#architecture)
-- [Bounded Contexts & Aggregates](#bounded-contexts--aggregates)
-- [Project Structure](#project-structure)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [API Reference](#api-reference)
-- [Domain Model Highlights](#domain-model-highlights)
-- [Design Decisions](#design-decisions)
-- [Implementation Status](#implementation-status)
+- Domain-Driven Design (DDD) with rich Aggregate Roots
+- Vertical Slice Architecture (features own their full stack)
+- CQRS with MediatR
+- Rich Domain Models (behavior-first, not anemic)
+- Domain Events dispatched via EF Core `SaveChangesInterceptor`
+- Business Rules as first-class objects
+- Result Pattern for explicit failure modeling
+- Soft Delete & Audit Logging as cross-cutting infrastructure concerns
+- ASP.NET Core Identity with JWT, Refresh Tokens, and TOTP 2FA
+- Architecture Tests with NetArchTest
 
 ---
 
-## Overview
+## Domain Model
 
-SLFMS is a backend system for managing fleet operations, shipments, warehouse inventory, billing, and identity access — all within a single deployable .NET 9 API.
+The system is organized around 10 Aggregate Roots, each owning its own consistency boundary.
 
-The system is built around **Vertical Slice Architecture** where each Aggregate Root owns its full slice from the HTTP endpoint down to the database configuration. There are no shared service layers or bloated generic repositories — only focused, cohesive feature slices.
+| Aggregate Root | Responsibility | Key Value Objects |
+|----------------|---------------|-------------------|
+| `Vehicle` | Fleet lifecycle, maintenance, fuel tracking | `VehiclePlateNumber`, `VehicleSpecification`, `FuelConsumption` |
+| `Driver` | Driver lifecycle, license, rating, shift assignment | `DriverLicense`, `DriverRating`, `PhoneNumber` |
+| `Shift` | Shift creation, start/complete/cancel lifecycle | `ShiftId` |
+| `Shipment` | Full shipment lifecycle, route history, packages | `TrackingInfo`, `DeliveryAddress`, `Weight`, `Dimensions`, `RoutePoint` |
+| `Warehouse` | Storage locations, item assignment, capacity | `Address`, `Capacity`, `StorageLocationId` |
+| `InventoryItem` | Stock tracking, reorder thresholds, product info | `StockLevel`, `ProductInfo`, `Weight` |
+| `User` | Identity, login/logout, account management | *(via ASP.NET Core Identity + custom domain)* |
+| `Invoice` | Invoice creation, payment, cancellation | `InvoiceItem` |
+| `Payment` | Payment processing, refunds, failure tracking | `TransactionInfo`, `PaymentMethod` |
+| `InsuranceClaim` | Claim submission, review, approval/rejection | `ClaimAmount`, `ClaimDocument`, `ClaimNumber` |
 
 ---
 
 ## Architecture
 
-```
-┌────────────────────────────────────────────────────────┐
-│                        API Layer                       │
-│     Controllers · Middleware · DI · JWT Auth           │
-└─────────────────────┬──────────────────────────────────┘
-                      │ MediatR
-┌─────────────────────▼──────────────────────────────────┐
-│                  Application Layer                     │
-│     Commands · Queries · Validators · Event Handlers   │
-│         Pipeline Behaviors (Logging · Validation)      │
-└─────────────────────┬──────────────────────────────────┘
-                      │ Interfaces
-┌─────────────────────▼──────────────────────────────────┐
-│                   Domain Layer                         │
-│  Aggregate Roots · Entities · Value Objects · Events   │
-│          Business Rules · Domain Errors                │
-└─────────────────────┬──────────────────────────────────┘
-                      │ EF Core
-┌─────────────────────▼──────────────────────────────────┐
-│               Infrastructure Layer                     │
-│  Repositories · DbContext · Configurations · Migrations│
-│       Interceptors · DomainEventInterceptor            │
-│   Identity (ASP.NET Core) · Email (MailKit) · Audit    │
-└────────────────────────────────────────────────────────┘
-```
+The project combines Domain-Driven Design, Vertical Slice Architecture, and CQRS — all grounded in Clean Architecture layering.
 
-### Core Principles
-
-| Principle | Implementation |
-|---|---|
-| Vertical Slice per Aggregate | Each AR owns its Commands, Queries, DTOs, Repository, DbSet, and EF Configuration |
-| Rich Domain Model | Aggregates expose behavior methods, not just properties |
-| Task-Based API | No generic CRUD — every endpoint reflects a business intent |
-| CQRS | Commands and Queries are fully separated via MediatR |
-| Domain Events | Cross-aggregate communication via `DomainEventInterceptor` on `SaveChangesAsync` |
-| Repository only for ARs | Inner Entities (e.g. `Package`, `MaintenanceSchedule`) are never accessed directly |
-| Result Pattern | No exceptions for expected failures — `Result<T>` flows from Domain to API |
-| Token Blacklist | Revoked access tokens are tracked in-memory until expiry via `BlacklistMiddleware` |
+```
+┌─────────────────────────────────────┐
+│               API Layer             │
+│  Controllers · Middleware · Auth    │
+└──────────────────┬──────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────┐
+│          Application Layer          │
+│  Features (Vertical Slices)         │
+│  Commands · Queries · Handlers      │
+│  Validators · DTOs · Mappings       │
+│  Pipeline Behaviors                 │
+└──────────────────┬──────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────┐
+│             Domain Layer            │
+│  Aggregates · Entities              │
+│  Value Objects · Domain Events      │
+│  Business Rules · SharedKernel      │
+└──────────────────┬──────────────────┘
+                   │
+                   ▼
+┌─────────────────────────────────────┐
+│         Infrastructure Layer        │
+│  EF Core · SQL Server               │
+│  SaveChanges Interceptors           │
+│  Repositories · Identity            │
+│  Email · Token Blacklist            │
+└─────────────────────────────────────┘
+```
 
 ---
 
-## Bounded Contexts & Aggregates
+## Key Architectural Decisions
+
+### Vertical Slice Architecture
+
+Each Aggregate Root owns its full Application layer slice:
+
+```
+Application/Features/
+├── Vehicles/
+│   ├── Commands/
+│   ├── Queries/
+│   ├── DTOs/
+│   └── Mappings/
+├── Drivers/
+├── Shifts/
+├── Shipments/
+├── Warehouses/
+├── Inventory/
+├── Invoices/
+├── Payments/
+├── Claim/
+└── Users/
+```
+
+This keeps business capabilities cohesive and avoids horizontal coupling between unrelated features.
+
+---
+
+### Rich Domain Model
+
+Business behavior lives inside the Aggregate, not in service classes.
+
+```csharp
+// Driver
+var result = Driver.Hire(name, license);
+driver.Suspend(DriverSuspensionReason.Misconduct);
+driver.Reactivate();
+driver.AssignShift(shiftId);
+driver.RecordTripRating(4.5);
+
+// Shipment
+var shipment = Shipment.Create(senderId, address, trackingNumber);
+shipment.AddPackage(description, weight, dimensions);
+shipment.AssignCarrier("FedEx");
+shipment.Dispatch();
+shipment.AddRoutePoint(location, description, arrivedAt, RoutePointType.OutForDelivery);
+shipment.MarkDelivered(deliveredAt, receivedBy);
+
+// Vehicle
+vehicle.ScheduleMaintenance(date, description);
+vehicle.RecordFuelConsumption(consumption);
+vehicle.Retire();
+```
+
+State transitions are never done by directly assigning properties. Every state change goes through a domain method that enforces the relevant business rules.
+
+---
+
+### Business Rules as First-Class Objects
+
+Business invariants are encapsulated in dedicated rule classes.
+
+```csharp
+public sealed class DriverMustNotBeSuspendedRule : IBusinessRule
+{
+    private readonly DriverStatus _status;
+
+    public DriverMustNotBeSuspendedRule(DriverStatus status) => _status = status;
+
+    public bool IsBroken() => _status == DriverStatus.Suspended;
+
+    public Error Error => DriverErrors.AlreadySuspended;
+}
+```
+
+Aggregates check rules before executing any operation:
+
+```csharp
+public Result Suspend(DriverSuspensionReason reason)
+{
+    CheckRule(new DriverMustNotBeSuspendedRule(Status));
+    // ...
+}
+```
+
+The system contains **26 business rules** across all aggregates.
+
+---
+
+### Domain Events
+
+Aggregates raise Domain Events on every meaningful state change. There are **76 Domain Events** across the system.
+
+```csharp
+// Examples
+VehicleRegisteredEvent
+VehicleRetiredEvent
+MaintenanceScheduledEvent
+FuelConsumptionRecordedEvent
+
+DriverHiredEvent
+DriverSuspendedEvent
+DriverReactivatedEvent
+DriverPerformanceDroppedEvent
+DriverShiftAssignedEvent
+
+ShipmentCreatedEvent
+ShipmentDispatchedEvent
+ShipmentDeliveredEvent
+ShipmentDeliveryFailedEvent
+ShipmentCancelledEvent
+RoutePointAddedEvent
+ShipmentOutForDeliveryEvent
+
+InvoiceCreatedEvent
+InvoicePaidEvent
+PaymentProcessedEvent
+PaymentRefundedEvent
+
+ClaimSubmittedEvent
+UserRegisteredDomainEvent
+UserTwoFactorEnabledDomainEvent
+// ... and more
+```
+
+Domain Events are dispatched automatically through an EF Core `SaveChangesInterceptor`:
+
+```csharp
+public sealed class DomainEventInterceptor : SaveChangesInterceptor
+{
+    public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(...)
+    {
+        // Collect all pending events from tracked aggregates
+        var domainEvents = context.ChangeTracker
+            .Entries<IAggregateRoot>()
+            .SelectMany(e => e.Entity.DomainEvents)
+            .ToList();
+
+        // Publish via MediatR before committing
+        foreach (var domainEvent in domainEvents)
+            await _mediator.Publish(domainEvent, cancellationToken);
+
+        // Clear to prevent re-publishing
+        entities.ForEach(e => e.ClearDomainEvents());
+
+        return await base.SavingChangesAsync(eventData, result, cancellationToken);
+    }
+}
+```
+
+---
+
+### Result Pattern
+
+Expected failures are modeled explicitly — no exceptions for business rule violations.
+
+```csharp
+// Result<T> for operations that return a value
+Result<Driver> result = Driver.Hire(name, license);
+
+if (result.IsFailure)
+    return result.Error; // typed Error, not an exception
+
+var driver = result.Value;
+
+// Result for void operations
+Result suspendResult = driver.Suspend(reason);
+```
+
+---
+
+### Soft Delete & Audit Logging
+
+Implemented as cross-cutting infrastructure concerns via EF Core interceptors. Aggregates implement the relevant interfaces:
+
+```csharp
+public class Vehicle : AggregateRoot<VehicleId>, IAudiatable, ISoftDeletable
+{
+    // Soft delete
+    public bool IsDeleted { get; private set; }
+    public DateTime? DeletedAtUtc { get; private set; }
+
+    // Audit
+    public DateTime CreatedAt { get; private set; }
+    public DateTime? UpdatedAt { get; private set; }
+    public string? CreatedBy { get; private set; }
+    public string? UpdatedBy { get; private set; }
+}
+```
+
+The `SoftDeleteInterceptor` handles deletion automatically — business logic never touches deletion flags directly.
+
+---
+
+### CQRS
+
+Commands mutate state. Queries read state. Never mixed.
+
+**Commands (examples)**
+
+```
+HireDriverCommand
+SuspendDriverCommand
+CreateShipmentCommand
+DispatchShipmentCommand
+AssignCarrierCommand
+ScheduleMaintenanceCommand
+SubmitClaimCommand
+ProcessPaymentCommand
+```
+
+**Queries (examples)**
+
+```
+GetDriverByIdQuery
+GetShipmentByIdQuery
+GetVehicleByIdQuery
+GetWarehouseByIdQuery
+GetProfileQuery
+GetClaimsByStatusQuery
+```
+
+---
+
+### MediatR Pipeline Behaviors
+
+Every request passes through a shared pipeline before reaching its handler.
+
+```
+Request
+  ↓
+LoggingBehavior      (structured request/response logging)
+  ↓
+ValidationBehavior   (FluentValidation — fails fast before handler)
+  ↓
+Handler
+```
+
+---
+
+## Features
 
 ### Fleet Management
+- Vehicle registration with uniqueness enforcement (plate number)
+- Fuel consumption recording
+- Maintenance scheduling with date and description validation
+- Vehicle status tracking (Available → InMaintenance → Retired)
+- Soft delete with audit trail
 
-| Aggregate Root | Inner Entities | Value Objects |
-|---|---|---|
-| `Vehicle` | `MaintenanceSchedule` | `VehiclePlateNumber`, `VehicleSpecification`, `FuelConsumption` |
-| `Driver` | — | `DriverId`, `DriverLicense`, `DriverRating` |
-| `Shift` | — | `ShiftId` |
+### Driver Management
+- Driver onboarding with license validation
+- Suspension and reactivation with reason tracking
+- Performance-based rating (triggers `DriverPerformanceDroppedEvent` below 3.5)
+- Shift assignment with overlap prevention
+- Name and license update
+
+### Shift Management
+- Shift creation with duration validation
+- Lifecycle: Planned → Active → Completed / Cancelled
 
 ### Shipment Management
+- Shipment creation with priority levels (Economy, Standard, Express, Overnight)
+- Package management (weight, dimensions, fragile/refrigeration flags, declared value)
+- Carrier assignment
+- Dispatch with pre-conditions (must have packages + carrier)
+- Route point recording (Transit, CustomsClearance, SortingFacility, OutForDelivery)
+- Status auto-update on route events (e.g. `OutForDelivery` route point → `ShipmentOutForDeliveryEvent`)
+- Delivery confirmation (with receiver name)
+- Delivery failure recording
+- Cancellation with reason
 
-| Aggregate Root | Inner Entities | Value Objects |
-|---|---|---|
-| `Shipment` | `Package` | `ShipmentId`, `DeliveryAddress`, `TrackingInfo`, `RoutePoint`, `Weight`, `Dimensions` |
+### Warehouse Management
+- Warehouse registration with address
+- Storage location management with capacity
+- Item assignment/unassignment to locations
 
-> Route is modeled as `List<RoutePoint>` (Value Objects) — not a `Route` entity.
+### Inventory Management
+- Inventory item creation with product info and stock level
+- Stock additions and removals
+- Reorder threshold management
+- Item deactivation
+- Out-of-stock and reorder-needed events
 
-### Warehouse & Inventory
+### Insurance Claims
+- Claim submission against a shipment (with optional supporting document)
+- Claim item line management
+- Lifecycle: Submitted → UnderReview → Approved / Rejected
+- Payment processing on approved claims
 
-| Aggregate Root | Inner Entities | Value Objects |
-|---|---|---|
-| `Warehouse` | `StorageLocation` | `WarehouseId`, `Address`, `Capacity` |
-| `InventoryItem` | — | `InventoryItemId`, `ProductInfo`, `StockLevel`, `Weight` |
+### Financial Operations
+- Invoice creation and management
+- Payment processing via a mock payment gateway (injectable for real gateways)
+- Payment refunds and failure tracking
 
-### Identity & Access
+### Identity & Access Management
+- User registration and login
+- Email confirmation workflow
+- Password reset workflow
+- JWT access tokens + sliding Refresh Tokens
+- Two-Factor Authentication (TOTP via Otp.NET)
+- Token blacklisting for logout revocation
+- Role-Based and Claims-Based Authorization
+- Account lock/unlock, deactivation, reactivation
 
-| Aggregate Root | Inner Entities | Value Objects |
-|---|---|---|
-| `User` | — | `Email`, `PhoneNumber`, `FullName`, `Username` |
+---
 
-> User authentication is backed by **ASP.NET Core Identity** (`IdentityUser`). The Domain `User` aggregate holds business state while Identity handles password hashing, email confirmation, and refresh tokens.
+## Security
+
+### Authentication Stack
+- ASP.NET Core Identity (persistence + password hashing)
+- JWT access tokens
+- Refresh tokens (sliding expiry)
+- Two-Factor Authentication — TOTP via `Otp.NET`, compatible with standard authenticator apps
+
+### Token Revocation
+Logged-out tokens are tracked in an in-memory blacklist service until their natural expiry. The `BlacklistMiddleware` rejects blacklisted tokens on every request.
+
+### Authorization
+- Role-Based Authorization
+- Claims-Based Authorization
+- Admin management endpoints separated into a dedicated `AdminController`
+
+---
+
+## Tech Stack
+
+| Category | Technology |
+|----------|------------|
+| Runtime | .NET 9 |
+| Language | C# 13 |
+| API | ASP.NET Core |
+| ORM | Entity Framework Core 9 |
+| Database | SQL Server |
+| Architecture | DDD + CQRS + Vertical Slice |
+| Mediator | MediatR 14 |
+| Validation | FluentValidation |
+| Mapping | AutoMapper |
+| Authentication | JWT + ASP.NET Core Identity |
+| Two-Factor Auth | Otp.NET (TOTP) |
+| Email | MailKit |
+| Testing | xUnit + FluentAssertions |
+| Architecture Testing | NetArchTest |
 
 ---
 
@@ -119,454 +433,147 @@ The system is built around **Vertical Slice Architecture** where each Aggregate 
 ```
 SLFMS/
 ├── API/
-│   ├── Controllers/
-│   │   ├── AdminController.cs
-│   │   ├── ApiController.cs              ← Base controller (HandleFailure)
-│   │   ├── AuthenticationController.cs
-│   │   ├── DriverController.cs
-│   │   ├── InventoryController.cs
-│   │   ├── ProfileController.cs
-│   │   ├── SecurityController.cs         ← 2FA management
-│   │   ├── ShiftController.cs
-│   │   ├── ShipmentController.cs
-│   │   ├── VehicleController.cs
-│   │   └── WarehousesController.cs
-│   ├── Middleware/
-│   │   ├── BlacklistMiddleware.cs         ← JWT token revocation
-│   │   └── ExceptionHandlingMiddleware.cs
-│   └── Program.cs
+│   ├── Controllers/          # AdminController, AuthenticationController,
+│   │                         # ShipmentController, VehicleController, ...
+│   └── Middleware/           # BlacklistMiddleware
 │
 ├── Application/
-│   ├── Common/
-│   │   └── Behaviors/
-│   │       ├── LoggingBehaviour.cs
-│   │       └── ValidationBehaviour.cs
-│   └── Features/
-│       ├── Vehicle/
-│       │   ├── Commands/
-│       │   │   ├── RegisterNewVehicle/
-│       │   │   ├── ScheduleMaintenance/
-│       │   │   ├── RecordFuelConsumption/
-│       │   │   ├── UpdateVehicleStatus/
-│       │   │   └── RetireVehicle/
-│       │   └── Queries/ GetById/
-│       ├── Driver/
-│       │   ├── Commands/
-│       │   │   ├── HireDriver/
-│       │   │   ├── Suspend/
-│       │   │   ├── Reactivate/
-│       │   │   ├── AssignShift/
-│       │   │   ├── RecordRating/
-│       │   │   ├── UpdateName/
-│       │   │   └── UpdateLicence/
-│       │   └── Queries/ GetById/ GetAll/
-│       ├── Shift/
-│       │   ├── Commands/ Create/ StartShift/ CancelShift/ CompleteShift/
-│       │   └── Queries/ GetById/ GetAll/
-│       ├── Shipment/
-│       │   ├── Commands/
-│       │   │   ├── Create/
-│       │   │   ├── AddPackage/ RemovePackage/
-│       │   │   ├── AddRoutePoint/
-│       │   │   ├── AssignCarrier/
-│       │   │   ├── Dispatch/
-│       │   │   ├── MarkDelivered/ MarkDeliveryFailed/
-│       │   │   ├── Cancel/
-│       │   │   └── UpdateDeliveryAddress/
-│       │   └── Queries/ GetById/ GetAll/ GetPackages/
-│       ├── Inventory/
-│       │   ├── Commands/
-│       │   │   ├── CreateInventoryItem/
-│       │   │   ├── AdjustStock/
-│       │   │   ├── DeactivateItem/
-│       │   │   └── UpdateWeight/
-│       │   └── Queries/ GetById/ GetAll/
-│       ├── Warehouse/
-│       │   ├── Commands/
-│       │   │   ├── CreateWarehouse/
-│       │   │   ├── AddStorageLocation/ RemoveStorageLocation/
-│       │   │   ├── AssignItemToLocation/ UnassignItemFromLocation/
-│       │   │   ├── DeactivateWarehouse/
-│       │   │   └── UpdateAddress/
-│       │   └── Queries/ GetById/ GetAll/
-│       └── Users/
-│           ├── Commands/
-│           │   ├── Authentication/
-│           │   │   ├── Register/
-│           │   │   ├── Login/            ← supports 2FA flow
-│           │   │   ├── Logout/           ← token blacklisting
-│           │   │   ├── RefreshToken/
-│           │   │   ├── ConfirmEmail/
-│           │   │   ├── ForgotPassword/
-│           │   │   ├── ResetPassword/
-│           │   │   └── VerifyTwoFactor/
-│           │   ├── Profile/ UpdateName/ UpdatePhone/
-│           │   └── Security/ EnableTwoFactor/ DisableTwoFactor/
-│           └── Queries/ GetProfile/
+│   ├── Features/
+│   │   ├── Vehicles/         # Commands, Queries, DTOs, Mappings
+│   │   ├── Drivers/
+│   │   ├── Shifts/
+│   │   ├── Shipments/
+│   │   ├── Warehouses/
+│   │   ├── Inventory/
+│   │   ├── Invoices/
+│   │   ├── Payments/
+│   │   ├── Claim/
+│   │   └── Users/
+│   └── Common/
+│       ├── Behaviors/        # LoggingBehavior, ValidationBehavior
+│       └── Interfaces/       # IEmailService, ITokenService, ICacheService, ...
 │
 ├── Domain/
-│   ├── SharedKernel/
-│   │   ├── AggregateRoot.cs
-│   │   ├── Entity.cs
-│   │   ├── ValueObject.cs
-│   │   ├── DomainEvent.cs
-│   │   ├── Result.cs / GenericResult.cs
-│   │   ├── Error.cs
-│   │   └── IBusinessRule.cs
+│   ├── SharedKernel/         # AggregateRoot<T>, Entity<T>, ValueObject,
+│   │                         # IBusinessRule, Result<T>, Error, DomainEvent
 │   ├── Vehicles/
-│   │   ├── Vehicle.cs                   ← Aggregate Root
-│   │   ├── MaintenanceSchedule.cs       ← Entity inside AR
-│   │   ├── ValueObjects/
-│   │   ├── Events/
-│   │   ├── Rules/
-│   │   ├── Errors/
-│   │   └── IVehicleRepository.cs
 │   ├── Drivers/
 │   ├── Shifts/
 │   ├── Shipments/
 │   ├── Warehouse/
 │   ├── Inventory/
-│   ├── Users/
-│   │   ├── User.cs                      ← Aggregate Root
-│   │   ├── ValueObjects/                ← Email, Username, FullName, PhoneNumber
-│   │   ├── Errors/
-│   │   └── IUserRepository.cs
-│   ├── Interfaces/
-│   │   ├── Repositories/  IUnitOfWork, IUserRepository, ...
-│   │   └── Services/      ITokenService, IEmailService, IIdentityService,
-│   │                      ITotpService, IAuditService, ITokenBlacklistService
-│   ├── Settings/           ApiSettings, JwtSettings, EmailSettings
-│   └── DomainServices/
+│   ├── Invoices/
+│   ├── Payments/
+│   ├── Claims/
+│   └── Users/
 │
 ├── Infrastructure/
-│   ├── Persistence/
-│   │   ├── Data/ AppDbContext.cs
-│   │   ├── Configurations/
-│   │   │   ├── VehicleConfiguration.cs
-│   │   │   ├── DriverConfiguration.cs
-│   │   │   ├── ShipmentConfiguration.cs
-│   │   │   ├── ShiftConfiguration.cs
-│   │   │   ├── WarehouseConfiguration.cs
-│   │   │   ├── InventoryItemConfiguration.cs
-│   │   │   └── UserConfiguration.cs
-│   │   ├── Interceptors/
-│   │   │   └── DomainEventInterceptor.cs
-│   │   └── Migrations/
-│   ├── Repositories/
-│   │   ├── VehicleRepository.cs
-│   │   ├── DriverRepository.cs
-│   │   ├── ShiftRepository.cs
-│   │   ├── ShipmentRepository.cs
-│   │   ├── WarehouseRepository.cs
-│   │   ├── InventoryItemRepository.cs
-│   │   ├── UserRepository.cs
-│   │   └── Shared/ GenericRepository.cs / UnitOfWork.cs
-│   └── Services/
-│       ├── TokenService.cs              ← JWT access + refresh tokens
-│       ├── IdentityService.cs           ← ASP.NET Core Identity wrapper
-│       ├── EmailService.cs              ← MailKit / SMTP
-│       ├── TotpService.cs               ← Otp.NET (TOTP 2FA)
-│       ├── AuditService.cs
-│       └── TokenBlacklistService.cs     ← In-memory token revocation
+│   ├── Presistence/
+│   │   ├── Configurations/   # EF Core fluent configs per aggregate
+│   │   └── Interceptors/     # DomainEventInterceptor, SoftDeleteInterceptor
+│   ├── Repositories/         # One repository per aggregate root
+│   ├── Services/             # EmailService, TokenBlacklistService,
+│   │                         # InMemoryCacheService, MockPaymentGateway
+│   └── Identity/             # ApplicationUser, IdentityService
 │
 └── Domain.Tests/
-    ├── VehicleTests.cs
     ├── DriverTests.cs
     ├── ShipmentTests.cs
-    └── ShiftTests.cs
+    ├── VehicleTests.cs
+    ├── ShiftTests.cs
+    ├── WarehouseTests.cs
+    ├── InventoryItemTests.cs
+    └── InvoiceTests.cs
 ```
 
 ---
 
-## Tech Stack
+## Running the Project
 
-| Layer | Technology |
-|---|---|
-| Runtime | .NET 9 / C# 13 |
-| API | ASP.NET Core (MVC Controllers) |
-| CQRS / Mediator | MediatR 14 |
-| Validation | FluentValidation |
-| ORM | Entity Framework Core 9 |
-| Database | SQL Server 2022 |
-| Identity | ASP.NET Core Identity + EF Core |
-| Authentication | JWT Bearer (access + refresh tokens) |
-| Two-Factor Auth | TOTP via Otp.NET |
-| Password Hashing | BCrypt.Net-Next |
-| Email | MailKit (SMTP) |
-| Mapping | AutoMapper |
-| Architecture Tests | NetArchTest.Rules |
-| Testing | xUnit |
-| Domain Events | EF Core `SaveChangesInterceptor` |
-
----
-
-## Getting Started
-
-### Prerequisites
-
-- [.NET 9 SDK](https://dotnet.microsoft.com/download)
-- SQL Server (local or Docker)
-- SMTP server (or MailHog for local dev)
-
-### Setup
+### Clone
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/Mohammed-Atef2004/Smart-Logistics-Fleet-Management-System.git
-cd Smart-Logistics-Fleet-Management-System
+```
 
-# 2. Configure settings in API/appsettings.Development.json:
-# "ConnectionStrings": { "DefaultConnection": "Server=.;Database=SLFMS;Trusted_Connection=True;" }
-# "JwtSettings": { "SecretKey": "...", "Issuer": "...", "Audience": "...", "ExpiryMinutes": 15 }
-# "EmailSettings": { "SmtpHost": "...", "SmtpPort": 587, "Username": "...", "Password": "..." }
-# "ApiSettings": { "BaseUrl": "https://localhost:7xxx" }
+### Configure
 
-# 3. Apply migrations
-dotnet ef database update --project Infrastructure --startup-project API
+Update `appsettings.Development.json` with your:
 
-# 4. Run
+```json
+{
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=...;Database=SLFMS;..."
+  },
+  "JwtSettings": {
+    "SecretKey": "...",
+    "Issuer": "...",
+    "Audience": "...",
+    "ExpiryMinutes": 60
+  },
+  "EmailSettings": {
+    "Host": "...",
+    "Port": 587,
+    "Username": "...",
+    "Password": "..."
+  }
+}
+```
+
+### Apply Migrations
+
+```bash
+dotnet ef database update \
+  --project Infrastructure \
+  --startup-project API
+```
+
+### Run
+
+```bash
 dotnet run --project API
 ```
 
-The API will be available at `https://localhost:7xxx` with Swagger at `/swagger`.
+Swagger UI: `https://localhost:{port}/swagger`
 
-### Running Tests
+---
+
+## Testing
 
 ```bash
-dotnet test Domain.Tests
+dotnet test
 ```
+
+The test suite covers:
+
+- **Domain Unit Tests** — aggregate behavior for all 10 aggregates (hire/suspend/reactivate, dispatch/deliver/cancel, add-stock/remove-stock, etc.)
+- **Architecture Tests** — layer dependency rules enforced with NetArchTest (Domain has no Infrastructure references, etc.)
 
 ---
 
-## API Reference
+## Current Status
 
-### Authentication
+### Implemented
+- All 10 domain aggregates with rich behavior
+- 76 domain events + automatic dispatch via EF Core interceptor
+- 26 business rules
+- 32 value objects
+- CQRS with 10 vertical slices
+- Full authentication stack (JWT + Refresh Tokens + TOTP 2FA + token blacklisting)
+- Soft delete and audit logging via interceptors
+- Domain unit tests + architecture tests
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/authentication/register` | Register a new user (sends confirmation email) |
-| `POST` | `/api/authentication/login` | Login — returns JWT or triggers 2FA |
-| `POST` | `/api/authentication/logout` | Logout (blacklists current token) |
-| `POST` | `/api/authentication/refresh-token` | Exchange refresh token for new access token |
-| `GET` | `/api/authentication/confirm-email` | Confirm email via link |
-| `POST` | `/api/authentication/forgot-password` | Request password reset email |
-| `POST` | `/api/authentication/reset-password` | Reset password via token |
-| `POST` | `/api/authentication/verify-2fa` | Verify TOTP code after login |
-
-### Profile
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/api/profile` | Get current user profile |
-| `PUT` | `/api/profile/name` | Update display name |
-| `PUT` | `/api/profile/phone` | Update phone number |
-
-### Security (2FA)
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/security/enable-2fa` | Enable two-factor authentication |
-| `POST` | `/api/security/disable-2fa` | Disable two-factor authentication |
-
-### Vehicles
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/vehicles` | Register a new vehicle |
-| `GET` | `/api/vehicles/{id}` | Get vehicle details |
-| `PUT` | `/api/vehicles/{id}/status` | Update vehicle status |
-| `POST` | `/api/vehicles/{id}/maintenance` | Schedule maintenance |
-| `POST` | `/api/vehicles/{id}/fuel` | Record fuel consumption |
-| `DELETE` | `/api/vehicles/{id}` | Retire vehicle |
-
-### Drivers
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/drivers` | Hire a driver |
-| `GET` | `/api/drivers/{id}` | Get driver details |
-| `GET` | `/api/drivers` | Get all drivers |
-| `PUT` | `/api/drivers/{id}/suspend` | Suspend driver |
-| `PUT` | `/api/drivers/{id}/reactivate` | Reactivate driver |
-| `PUT` | `/api/drivers/{id}/assign-shift` | Assign shift to driver |
-| `PUT` | `/api/drivers/{id}/rating` | Record driver rating |
-
-### Shifts
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/shifts` | Create a shift |
-| `GET` | `/api/shifts/{id}` | Get shift by ID |
-| `GET` | `/api/shifts` | Get all shifts |
-| `POST` | `/api/shifts/{id}/start` | Start shift |
-| `POST` | `/api/shifts/{id}/complete` | Complete shift |
-| `POST` | `/api/shifts/{id}/cancel` | Cancel shift |
-
-### Shipments
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/shipments` | Create shipment |
-| `GET` | `/api/shipments/{id}` | Get shipment details |
-| `GET` | `/api/shipments` | List all shipments |
-| `GET` | `/api/shipments/{id}/packages` | Get shipment packages |
-| `POST` | `/api/shipments/{id}/packages` | Add package |
-| `DELETE` | `/api/shipments/{id}/packages/{packageId}` | Remove package |
-| `POST` | `/api/shipments/{id}/route-points` | Add route point |
-| `POST` | `/api/shipments/{id}/assign-carrier` | Assign carrier |
-| `POST` | `/api/shipments/{id}/dispatch` | Dispatch shipment |
-| `POST` | `/api/shipments/{id}/deliver` | Mark as delivered |
-| `POST` | `/api/shipments/{id}/delivery-failed` | Mark delivery failed |
-| `POST` | `/api/shipments/{id}/cancel` | Cancel shipment |
-| `PATCH` | `/api/shipments/{id}/update-address` | Update delivery address |
-
-### Warehouses
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/warehouses` | Create a warehouse |
-| `GET` | `/api/warehouses` | Get all warehouses (`?activeOnly=true`) |
-| `GET` | `/api/warehouses/{id}` | Get warehouse by ID |
-| `POST` | `/api/warehouses/{warehouseId}/storage-locations` | Add storage location |
-| `DELETE` | `/api/warehouses/{warehouseId}/storage-locations/{locationId}` | Remove storage location |
-| `POST` | `/api/warehouses/{warehouseId}/storage-locations/{locationId}/items/{itemId}` | Assign item to location |
-| `DELETE` | `/api/warehouses/{warehouseId}/storage-locations/{locationId}/items/{itemId}` | Unassign item from location |
-| `PUT` | `/api/warehouses/{warehouseId}/address` | Update warehouse address |
-| `PUT` | `/api/warehouses/{warehouseId}/deactivate` | Deactivate warehouse |
-
-### Inventory
-
-| Method | Endpoint | Description |
-|---|---|---|
-| `POST` | `/api/inventory` | Create inventory item |
-| `GET` | `/api/inventory` | Get all items (`?activeOnly=true`) |
-| `GET` | `/api/inventory/{id}` | Get item by ID |
-| `PUT` | `/api/inventory/{id}/stock` | Adjust stock quantity |
-| `PUT` | `/api/inventory/{id}/weight` | Update item weight |
-| `PUT` | `/api/inventory/{id}/deactivate` | Deactivate item |
-
----
-
-## Domain Model Highlights
-
-### Result Pattern
-
-All domain operations return `Result` or `Result<T>` — never throw for expected failures:
-
-```csharp
-public static Result<Driver> Hire(string name, DriverLicense license)
-{
-    if (string.IsNullOrWhiteSpace(name))
-        return Result<Driver>.Failure(DriverErrors.EmptyName);
-
-    var driver = new Driver(new DriverId(Guid.NewGuid()), name, license);
-    driver.AddDomainEvent(new DriverHiredEvent(driver.Id, name));
-
-    return Result<Driver>.Success(driver);
-}
-```
-
-### Business Rules
-
-Rules are first-class objects implementing `IBusinessRule`:
-
-```csharp
-public class DriverMustNotBeSuspendedRule : IBusinessRule
-{
-    private readonly DriverStatus _status;
-    public DriverMustNotBeSuspendedRule(DriverStatus status) => _status = status;
-
-    public bool IsBroken() => _status == DriverStatus.Suspended;
-    public Error Error => DriverErrors.AlreadySuspended;
-}
-```
-
-### Domain Events via EF Interceptor
-
-Domain events are dispatched automatically inside `SaveChangesAsync` via `DomainEventInterceptor` — no manual publish calls needed:
-
-```csharp
-public sealed class DomainEventInterceptor : SaveChangesInterceptor
-{
-    public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(...)
-    {
-        var entities = context.ChangeTracker
-            .Entries<IAggregateRoot>()
-            .Where(e => e.Entity.DomainEvents.Any())
-            .Select(e => e.Entity)
-            .ToList();
-
-        foreach (var domainEvent in domainEvents)
-            await _mediator.Publish(domainEvent, cancellationToken);
-    }
-}
-```
-
-### MediatR Pipeline
-
-```
-Request
-  → LoggingBehavior      (logs request name + payload)
-  → ValidationBehavior   (runs FluentValidation validators)
-  → Handler              (executes business logic)
-```
-
-### Authentication Flow
-
-```
-Register → Email Confirmation → Login
-  ↓ (if 2FA enabled)
-  → Returns UserId + RequiresTwoFactor: true
-  → POST /verify-2fa with TOTP code
-  → Returns JWT access token + refresh token
-
-Logout → Token JTI added to in-memory blacklist
-       → BlacklistMiddleware rejects further requests with that token
-```
-
----
-
-## Design Decisions
-
-**Why Vertical Slices per Aggregate instead of per Bounded Context?**
-Each Aggregate Root is the true unit of consistency. Grouping by Bounded Context would co-locate unrelated aggregates (e.g. `Vehicle` and `Driver`) and encourage shortcuts that violate aggregate boundaries.
-
-**Why SaveChangesInterceptor for Domain Events instead of outbox?**
-For the current scale, in-process dispatch before commit is sufficient and keeps the infrastructure simple. An outbox pattern (`OutboxMessage`) can be layered in later without touching domain logic.
-
-**Why OwnsMany/OwnsOne for inner Entities instead of separate DbSets?**
-`Package`, `MaintenanceSchedule`, and `StorageLocation` are part of their parent aggregate's consistency boundary. Giving them independent `DbSet`s would leak their existence to the outside world and invite direct access bypassing the aggregate root.
-
-**Why no generic `IRepository<T>`?**
-Generic repositories promote the illusion of uniformity across aggregates that have fundamentally different query and persistence needs. Each repository interface is defined in the Domain and implemented with only the methods that aggregate actually needs.
-
-**Why in-memory token blacklist instead of Redis?**
-For the current scale, an in-memory `ConcurrentDictionary` keyed by JTI and cleaned up on expiry is sufficient. A distributed cache (Redis) can be swapped in transparently via the `ITokenBlacklistService` interface without touching any other layer.
-
-**Why ASP.NET Core Identity alongside the Domain User aggregate?**
-Identity handles the security-sensitive concerns (password hashing, lockout policy, email confirmation tokens) that are well-solved problems. The Domain `User` aggregate holds business state (rating, status, audit trail) that Identity doesn't model.
-
----
-
-## Implementation Status
-
-| Aggregate | Domain | Application | Infrastructure | Tests |
-|---|---|---|---|---|
-| Vehicle | ✅ | ✅ | ✅ | ✅ |
-| Driver | ✅ | ✅ | ✅ | ✅ |
-| Shift | ✅ | ✅ | ✅ | ✅ |
-| Shipment | ✅ | ✅ | ✅ | ✅ |
-| Warehouse | ✅ | ✅ | ✅ | ✅ |
-| InventoryItem | ✅ | ✅ | ✅ | ✅ |
-| User | ✅ | ✅ | ✅ | ✅ |
-| Invoice | ✅ | ✅ | ✅ | ✅ |
-| Payment | ✅ | ✅ | ✅ | ✅ |
-| InsuranceClaim | ✅ | ✅ | ✅ |✅— |
-
-✅ Done &nbsp;·&nbsp; 📋 Planned
+### Planned
+- Docker support
+- GitHub Actions CI/CD
+- Redis caching (replace in-memory cache)
+- Outbox Pattern (reliable event delivery)
+- Background processing
+- OpenTelemetry + structured logging
+- Integration tests
 
 ---
 
 ## License
 
-MIT
+MIT License
