@@ -45,7 +45,7 @@
 | C2 | ~~**Domain يعتمد على Application**~~ **✅ اتصلحت** — `ShipmentId` اترجع للـ Domain + كل الـ dead usings اتشالت + `DriverShiftService` اتنقل للـ Application | `Domain/Shipments/Shipment.cs` | مخالفة dependency rule صريحة |
 | C3 | ~~**Architecture Tests فاضية**~~ **✅ اتصلحت** — 5 قواعد حقيقية في `Architecture.Tests/LayerDependencyTests.cs` | `Architecture.Tests/` | الـ README بيدّعي حاجة غير موجودة |
 | C4 | **بقايا مشروع تاني**: namespace `EducationalPlatform.Infrastructure.Services.Token` | `TokenService.cs`, `Program.cs`, `DependencyInjection.cs` | سوء سمعة فوري |
-| C5 | **Domain Events بتتـpublish قبل الـ commit** — لو الـ save فشل، الـ side effects حصلت أصلاً | `DomainEventInterceptor.cs` | مشكلة consistency حقيقية |
+| C5 | ~~**Domain Events بتتـpublish قبل الـ commit**~~ **✅ اتصلحت** — الـ events بتتجمع في `SavingChanges` وبتتـpublish في `SavedChanges` (بعد الـ commit الناجح فقط) + فاشلة = discard؛ 5 regression tests بـ SQLite | `DomainEventInterceptor.cs` | مشكلة consistency حقيقية |
 | C6 | ~~**TFMs غير متطابقة**: net8/net9 متخلطين~~ **✅ اتصلحت** — كل المشاريع net10.0 | كل الـ `.csproj` | خطر runtime conflicts |
 | C7 | **الـ `.sln` بيشاور على مشروع خارجي مش موجود** | `SLFM.sln` | **✅ اتصلحت** |
 
@@ -153,10 +153,12 @@
 
 **الهدف:** الـ events تضمن Delivery صح، والـ concurrent updates تتمنع فعلًا.
 
-- [ ] **2.1** غيّر `DomainEventInterceptor`:
-  - [ ] `SavingChangesAsync`: بس **يجمع** الـ events ويـclearها (من غير publish)
-  - [ ] `SavedChangesAsync`: بعد الـ commit الناجح، اعمل publish
-  - [ ] لو حصل استثناء في الـ save، الـ events مينشرش أبدًا
+- [x] **2.1** ~~غيّر `DomainEventInterceptor`:~~ **✅ خلصت**
+  - [x] `SavingChangesAsync`: بس **يجمع** الـ events ويـclearها (من غير publish)
+  - [x] `SavedChangesAsync`: بعد الـ commit الناجح، اعمل publish
+  - [x] لو حصل استثناء في الـ save، الـ events مينشرش أبدًا
+  - [x] + sync parity (`SavingChanges`/`SavedChanges`/`SaveChangesFailed`) + stash per-context
+  - [x] + 5 regression tests في `Architecture.Tests/DomainEventInterceptorTests.cs` (SQLite in-memory: نجاح → publish، فشل → مفيش side effects، الـ events تتفضى من الـ aggregates)
 - [ ] **2.2** اعمل **Outbox بسيط** (ده المستوى التاني):
   - [ ] جدول `OutboxMessage` (Id, Type, Payload JSON, OccurredOnUtc, ProcessedOnUtc, Error)
   - [ ] الـ interceptor يسجل الـ events في الجدول **في نفس الـ transaction بتاع الـ save**
