@@ -13,12 +13,10 @@ namespace Infrastructure.Repositories
 {
     public sealed class ShipmentRepository :GenericRepository<Shipment>, IShipmentRepository
     {
-        private readonly AppDbContext _context;
-
+    
         public ShipmentRepository(AppDbContext context):base(context)
         {
-            _context = context;
-        }
+            }
 
 
 

@@ -1,7 +1,6 @@
 ﻿using Domain.Shipments.ValueObjects;
 using Domain.SharedKernel;
 using Domain.Shipments.Enums;
-using Domain.Shipments.ValueObjects;
 using MediatR;
 using System;
 using System.Collections.Generic;

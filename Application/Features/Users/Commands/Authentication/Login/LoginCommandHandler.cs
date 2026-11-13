@@ -1,4 +1,5 @@
 ﻿using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
+using Application.Common;
 using Application.Features.Users.Services;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
@@ -9,7 +10,6 @@ using Domain.Users.Errors;
 using Domain.Users.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -76,7 +76,7 @@ namespace Application.Features.Users.Commands.Authentication.Login
             {
                 var confirmToken = await _identityService.GenerateEmailConfirmationTokenAsync(user.IdentityId);
                 byte[] confirmTokenBytes = Encoding.UTF8.GetBytes(confirmToken);
-                string safeconfirmToken = WebEncoders.Base64UrlEncode(confirmTokenBytes);
+                string safeconfirmToken = Base64Url.Encode(confirmTokenBytes);
 
                 var confirmationLink = $"{_apiSettings.BaseUrl}/api/authentication/confirm-email?" +
                     $"userId={user.Id}&" +

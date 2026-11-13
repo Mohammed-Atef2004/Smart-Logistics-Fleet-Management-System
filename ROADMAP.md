@@ -46,7 +46,7 @@
 | C3 | ~~**Architecture Tests فاضية**~~ **✅ اتصلحت** — 5 قواعد حقيقية في `Architecture.Tests/LayerDependencyTests.cs` | `Architecture.Tests/` | الـ README بيدّعي حاجة غير موجودة |
 | C4 | **بقايا مشروع تاني**: namespace `EducationalPlatform.Infrastructure.Services.Token` | `TokenService.cs`, `Program.cs`, `DependencyInjection.cs` | سوء سمعة فوري |
 | C5 | **Domain Events بتتـpublish قبل الـ commit** — لو الـ save فشل، الـ side effects حصلت أصلاً | `DomainEventInterceptor.cs` | مشكلة consistency حقيقية |
-| C6 | **TFMs غير متطابقة**: Domain/Application = net8.0، API/Infrastructure = net9.0 | كل الـ `.csproj` | خطر runtime conflicts |
+| C6 | ~~**TFMs غير متطابقة**: net8/net9 متخلطين~~ **✅ اتصلحت** — كل المشاريع net10.0 | كل الـ `.csproj` | خطر runtime conflicts |
 | C7 | **الـ `.sln` بيشاور على مشروع خارجي مش موجود** | `SLFM.sln` | **✅ اتصلحت** |
 
 ### 🟠 مهمة — ثغرات فعلية

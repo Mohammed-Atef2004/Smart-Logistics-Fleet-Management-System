@@ -12,7 +12,6 @@ namespace Infrastructure.Repositories
 {
     public class InventoryItemRepository:GenericRepository<InventoryItem>,IInventoryItemRepository
     {
-        private readonly AppDbContext? _appDbContext;
         public InventoryItemRepository(AppDbContext appDbContext):base(appDbContext) { }
     }
 }

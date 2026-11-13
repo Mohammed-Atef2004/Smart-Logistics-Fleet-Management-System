@@ -1,5 +1,6 @@
 ﻿using Application.Features.Users;
 using Application.Features.Users.Commands.Authentication.Register;
+using Application.Common;
 using Application.Features.Users.Services;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
@@ -9,7 +10,6 @@ using Domain.Users;
 using Domain.Users.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Text;
@@ -97,7 +97,7 @@ namespace Application.Auth.Commands.Register
 
             var token = await _identity.GenerateEmailConfirmationTokenAsync(identityId, ct);
             byte[] tokenBytes = Encoding.UTF8.GetBytes(token);
-            string safeToken = WebEncoders.Base64UrlEncode(tokenBytes);
+            string safeToken = Base64Url.Encode(tokenBytes);
             var confirmationLink = $"{_apiSettings.BaseUrl}/api/Authentication/confirm-email?userId={user.Id}&token={safeToken}";
             var emailResult2 = await _emailService.SendConfirmationEmailAsync(
                  user.Email.Value,

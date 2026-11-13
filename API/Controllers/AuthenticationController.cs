@@ -8,11 +8,11 @@ using Application.Features.Users.Commands.Authentication.ResetPassword;
 using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
 using Application.Features.Users.Commands.Authentication.VerifyTwoFactorLogin;
 using Domain.Users.Errors;
+using Application.Common;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.WebUtilities;
 using System.Security.Claims;
 using System.Text;
 
@@ -88,7 +88,7 @@ namespace API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail([FromQuery] Guid userId, [FromQuery] string token, CancellationToken ct)
         {
-            byte[] decodedBytes = WebEncoders.Base64UrlDecode(token);
+            byte[] decodedBytes = Base64Url.Decode(token);
             string originalToken = Encoding.UTF8.GetString(decodedBytes);
 
             var command = new ConfirmEmailCommand(userId, originalToken);
@@ -107,7 +107,7 @@ namespace API.Controllers
             [FromQuery] string token,
             CancellationToken ct)
         {
-            byte[] decodedBytes = WebEncoders.Base64UrlDecode(token);
+            byte[] decodedBytes = Base64Url.Decode(token);
             string originalToken = Encoding.UTF8.GetString(decodedBytes);
 
             var result = await _mediator.Send(new ConfirmEmailChangeCommand(userId, newEmail, originalToken), ct);
@@ -134,7 +134,7 @@ namespace API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordCommand command, CancellationToken ct)
         {
-            byte[] decodedBytes = WebEncoders.Base64UrlDecode(command.Token);
+            byte[] decodedBytes = Base64Url.Decode(command.Token);
             string originalToken = Encoding.UTF8.GetString(decodedBytes);
             var updatedCommand = command with { Token = originalToken };
             var result = await _mediator.Send(updatedCommand, ct);

@@ -1,4 +1,5 @@
 ﻿using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
+using Application.Common;
 using Application.Features.Users.Services;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
@@ -9,7 +10,6 @@ using Domain.Users.Errors;
 using Domain.Users.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Options;
 using System;
 using System.Collections.Generic;
@@ -120,7 +120,7 @@ namespace Application.Features.Users.Commands.Profile.ChangeEmail
 
             var token = await _identityService.GenerateChangeEmailTokenAsync(user.IdentityId, command.NewEmail, ct);
             byte[] tokenBytes = Encoding.UTF8.GetBytes(token);
-            string safeToken = WebEncoders.Base64UrlEncode(tokenBytes);
+            string safeToken = Base64Url.Encode(tokenBytes);
             string safeEmail = WebUtility.UrlEncode(command.NewEmail);
             var confirmationLink = $"{_apiSettings.BaseUrl}/api/authentication/confirm-email-change?" +
                                    $"userId={user.Id}&" +

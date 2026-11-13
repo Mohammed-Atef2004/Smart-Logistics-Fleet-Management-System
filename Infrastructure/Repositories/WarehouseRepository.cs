@@ -11,7 +11,6 @@ namespace Infrastructure.Repositories
 {
     public class WarehouseRepository:GenericRepository<Warehouse>,IWarehouseRepository
     {
-        private readonly AppDbContext? _appDbContext;
         public WarehouseRepository(AppDbContext appDbContext) : base(appDbContext) { }
     }
 }

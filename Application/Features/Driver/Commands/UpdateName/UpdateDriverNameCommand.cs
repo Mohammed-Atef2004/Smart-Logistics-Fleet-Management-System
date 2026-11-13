@@ -1,5 +1,4 @@
-﻿using Amazon.Runtime.Internal;
-using Domain.Drivers.ValueObjects;
+﻿using Domain.Drivers.ValueObjects;
 using Domain.SharedKernel;
 using MediatR;
 using System;

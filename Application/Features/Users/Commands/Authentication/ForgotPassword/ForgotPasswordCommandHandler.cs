@@ -1,4 +1,5 @@
 ﻿using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
+using Application.Common;
 using Application.Features.Users.Services;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
@@ -9,7 +10,6 @@ using Domain.Users.Errors;
 using Domain.Users.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System;
@@ -66,7 +66,7 @@ namespace Application.Features.Users.Commands.Authentication.ForgotPassword
             {
                 var confirmToken = await _identityService.GenerateEmailConfirmationTokenAsync(user.IdentityId);
                 byte[] confirmTokenBytes = Encoding.UTF8.GetBytes(confirmToken);
-                string safeconfirmToken = WebEncoders.Base64UrlEncode(confirmTokenBytes);
+                string safeconfirmToken = Base64Url.Encode(confirmTokenBytes);
                 var confirmationLink = $"{_apiSettings.BaseUrl}/api/authentication/confirm-email?" +
                     $"userId={user.Id}&" +
                     $"token={safeconfirmToken}";
@@ -121,7 +121,7 @@ namespace Application.Features.Users.Commands.Authentication.ForgotPassword
             }
 
             byte[] tokenBytes = Encoding.UTF8.GetBytes(token);
-            string safeToken = WebEncoders.Base64UrlEncode(tokenBytes);
+            string safeToken = Base64Url.Encode(tokenBytes);
             var resetLink = $"{_apiSettings.BaseUrl}/api/authentication/reset-password?" +
                 $"userId={user.Id}&" +
                 $"token={safeToken}";

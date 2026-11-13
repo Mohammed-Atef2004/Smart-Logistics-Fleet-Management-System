@@ -14,9 +14,7 @@ using WebApi.Controllers;
 [Route("api/drivers")]
 public class DriverController : ApiController
 {
-    private readonly IMediator _mediator;
-
-    public DriverController(IMediator mediator) : base(mediator) { }
+    public DriverController(ISender mediator) : base(mediator) { }
 
 
     // ===============================
@@ -25,7 +23,7 @@ public class DriverController : ApiController
     [HttpPost("hire")]
     public async Task<IActionResult> Hire([FromBody] HireDriverCommand cmd)
     {
-        var result = await _mediator.Send(cmd);
+        var result = await _sender.Send(cmd);
         return Ok(result);
     }
 
@@ -35,7 +33,7 @@ public class DriverController : ApiController
     [HttpPut("{driverId}/name")]
     public async Task<IActionResult> UpdateName([FromBody] UpdateDriverNameCommand cmd)
     {
-        var result = await _mediator.Send(cmd);
+        var result = await _sender.Send(cmd);
         return Ok();
     }
 
@@ -45,7 +43,7 @@ public class DriverController : ApiController
     [HttpPut("{driverId}/license")]
     public async Task<IActionResult> UpdateLicense([FromBody] UpdateDriverLicenseCommand cmd)
     {
-        var result = await _mediator.Send(cmd);
+        var result = await _sender.Send(cmd);
         return Ok();
     }
 
@@ -55,7 +53,7 @@ public class DriverController : ApiController
     [HttpPost("{driverId}/suspend")]
     public async Task<IActionResult> Suspend([FromBody] SuspendDriverCommand cmd)
     {
-        var result = await _mediator.Send(cmd);
+        var result = await _sender.Send(cmd);
         return Ok();
     }
 
@@ -65,7 +63,7 @@ public class DriverController : ApiController
     [HttpPost("{driverId}/reactivate")]
     public async Task<IActionResult> Reactivate([FromBody] ReactivateDriverCommand cmd)
     {
-        var result = await _mediator.Send(cmd);
+        var result = await _sender.Send(cmd);
         return Ok();
     }
 
@@ -75,7 +73,7 @@ public class DriverController : ApiController
     //[HttpPost("assign-shift")]
     //public async Task<IActionResult> AssignShift([FromBody] AssignShiftToDriverCommand cmd)
     //{
-    //    var result = await _mediator.Send(cmd);
+    //    var result = await _sender.Send(cmd);
     //    if (result.IsFailure) return BadRequest(result.Error);
     //    return Ok();
     //}
@@ -86,7 +84,7 @@ public class DriverController : ApiController
     //[HttpPost("clear-shift")]
     //public async Task<IActionResult> ClearShift([FromBody] ClearDriverShiftCommand cmd)
     //{
-    //    var result = await _mediator.Send(cmd);
+    //    var result = await _sender.Send(cmd);
     //    if (result.IsFailure) return BadRequest(result.Error);
     //    return Ok();
     //}
@@ -97,7 +95,7 @@ public class DriverController : ApiController
     [HttpPost("record-rating")]
     public async Task<IActionResult> RecordRating([FromBody] RecordDriverRatingCommand cmd)
     {
-        var result = await _mediator.Send(cmd);
+        var result = await _sender.Send(cmd);
         return Ok();
     }
 
@@ -108,7 +106,7 @@ public class DriverController : ApiController
     public async Task<IActionResult> GetDriver(DriverId driverId)
     {
         var query = new GetDriverByIdQuery(driverId);
-        var dto = await _mediator.Send(query);
+        var dto = await _sender.Send(query);
 
         if (dto == null) return NotFound();
         return Ok(dto);

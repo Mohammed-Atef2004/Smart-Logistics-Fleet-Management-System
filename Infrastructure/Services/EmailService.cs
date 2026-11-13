@@ -2,6 +2,7 @@
 using Application.Common.Settings;
 using Domain.SharedKernel;
 using Domain.Users.Errors;
+using MailKit;
 using MailKit.Net.Smtp;
 using MailKit.Security;
 using Microsoft.Extensions.Logging;
@@ -35,7 +36,7 @@ namespace Infrastructure.Services
                 message.Subject = subject;
                 message.Body = new TextPart("html") { Text = body };
 
-                using var smtp = new MailKit.Net.Smtp.SmtpClient(); ;
+                using var smtp = new MailKit.Net.Smtp.SmtpClient();
                 await smtp.ConnectAsync(_emailSettings.Host, _emailSettings.Port, SecureSocketOptions.StartTls, ct);
                 await smtp.AuthenticateAsync(_emailSettings.Email, _emailSettings.Password, ct);
                 await smtp.SendAsync(message, ct);

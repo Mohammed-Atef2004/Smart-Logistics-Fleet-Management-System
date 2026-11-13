@@ -1,5 +1,4 @@
-using Amazon.Runtime.Internal;
-using Domain.SharedKernel;
+﻿using Domain.SharedKernel;
 using MediatR;
 
 namespace Application.Payments.Commands.ProcessPayment

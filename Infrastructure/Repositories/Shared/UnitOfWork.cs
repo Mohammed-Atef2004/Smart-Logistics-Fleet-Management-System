@@ -19,7 +19,7 @@ using Infrastructure.Repositories.Vehicle.Infrastructure.Repositories;
             private IVehicleRepository? _vehicleRepository;
             private IDriverRepository? _driverRepository;
             private IShiftRepository? _shiftRepository;
-            private IShipmentRepository _shipmentRepository;
+            private IShipmentRepository? _shipmentRepository;
 
             public UnitOfWork(AppDbContext context)
             {
@@ -32,7 +32,6 @@ using Infrastructure.Repositories.Vehicle.Infrastructure.Repositories;
                 _driverRepository ??= new DriverRepository(_context);
             public IShiftRepository Shifts =>_shiftRepository ??= new ShiftRepository(_context);
             public IShipmentRepository Shipments => _shipmentRepository ??= new ShipmentRepository(_context);
-
             public IVehicleUniquenessChecker VehicleUniquenessChecker => Vehicles;
 
             public async Task<int> CompleteAsync(CancellationToken cancellationToken = default)

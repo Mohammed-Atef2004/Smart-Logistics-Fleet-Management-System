@@ -8,11 +8,9 @@ namespace Infrastructure.Repositories
 {
     public class UserRepository : GenericRepository<User>, IUserRepository
     {
-        private readonly AppDbContext _context;
-        public UserRepository(AppDbContext context) : base(context)
+            public UserRepository(AppDbContext context) : base(context)
         {
-            _context = context;
-        }
+            }
 
         // قارن الأوبجكت مباشرة (u.Email == email) 
         // الـ EF هيستخدم الـ ValueConverter اللي إنت عامله أوتوماتيكياً

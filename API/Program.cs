@@ -15,7 +15,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using WebApi.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.OpenApi.Models;
 
 namespace API
 {
@@ -50,21 +49,20 @@ namespace API
                     Description = "Please enter your JWT token like this: Bearer {your_token}"
                 });
 
-                options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
+                options.AddSecurityRequirement(_ =>
+                    new OpenApiSecurityRequirement
                     {
-                        new OpenApiSecurityScheme
                         {
-                            Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" }
-                        },
-                        Array.Empty<string>()
-                    }
-                });
+                            new OpenApiSecuritySchemeReference("Bearer"),
+                            new List<string>()
+                        }
+                    });
             });
 
             builder.Services.AddLogging();
             builder.Services.AddHttpContextAccessor();
-            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            builder.Services.AddAutoMapper(cfg =>
+                cfg.AddMaps(typeof(ApplicationAssemblyMarker).Assembly));
 
             // ==========================
             // 2. Database & Core Services
@@ -110,7 +108,8 @@ namespace API
             // ==========================
             var jwtSection = builder.Configuration.GetSection("Jwt");
             builder.Services.Configure<JwtOptions>(jwtSection);
-            var jwtOptions = jwtSection.Get<JwtOptions>();
+            var jwtOptions = jwtSection.Get<JwtOptions>()
+                ?? throw new InvalidOperationException("Missing 'Jwt' configuration section.");
 
             builder.Services.AddAuthentication(options =>
             {

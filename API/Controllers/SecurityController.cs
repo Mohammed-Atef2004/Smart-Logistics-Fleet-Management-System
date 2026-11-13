@@ -1,7 +1,6 @@
 ﻿using Application.Features.Users.Commands.Security.Confirm2FASetup;
 using Application.Features.Users.Commands.Security.Disable2FA;
 using Application.Features.Users.Commands.Security.Setup2FA;
-using MassTransit.Mediator;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;

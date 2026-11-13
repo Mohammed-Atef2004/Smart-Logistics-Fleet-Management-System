@@ -1,6 +1,5 @@
 ﻿using Domain.Shipments.ValueObjects;
 using Domain.Shipments;
-using Domain.Shipments.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

@@ -1,5 +1,4 @@
-﻿using Amazon.Runtime.Internal;
-using Domain.Invoices;
+﻿using Domain.Invoices;
 using Domain.Invoices.ValueObjects;
 using Domain.SharedKernel;
 using MediatR;
