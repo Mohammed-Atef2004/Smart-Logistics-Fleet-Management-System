@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.UpdateLicence
 {
-    public class LicenceUpdatedEventHandler : INotificationHandler<DriverLicenseUpdatedEvent>
+    public sealed class LicenceUpdatedEventHandler : INotificationHandler<DriverLicenseUpdatedEvent>
     {
         private readonly ILogger<DriverLicenseUpdatedEvent> _logger;
         public LicenceUpdatedEventHandler(ILogger<DriverLicenseUpdatedEvent> logger)

@@ -29,18 +29,18 @@ public sealed class LogoutCommandHandler : IRequestHandler<LogoutCommand, Result
         var user = _httpContextAccessor.HttpContext?.User;
 
         // بنجيب الـ IdentityId من الـ sub claim عشان نمسح الـ RefreshToken
-        var identityId = user?.FindFirstValue(JwtRegisteredClaimNames.Sub)
-                         ?? user?.FindFirstValue(ClaimTypes.NameIdentifier)
+        var identityId = user?.FindFirst(JwtRegisteredClaimNames.Sub)?.Value
+                         ?? user?.FindFirst(ClaimTypes.NameIdentifier)?.Value
                          ?? user?.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
 
         if (string.IsNullOrEmpty(identityId))
             return Result.Failure(new Error("Auth.Error", "User Identity not found in Security Context."));
 
         // بنجيب الـ JTI عشان نضيفه للـ Blacklist
-        var jti = user?.FindFirstValue(JwtRegisteredClaimNames.Jti);
+        var jti = user?.FindFirst(JwtRegisteredClaimNames.Jti)?.Value;
 
         // بنجيب وقت انتهاء التوكن من الـ exp claim
-        var expClaim = user?.FindFirstValue(JwtRegisteredClaimNames.Exp);
+        var expClaim = user?.FindFirst(JwtRegisteredClaimNames.Exp)?.Value;
         var tokenExpiry = expClaim is not null
             ? DateTimeOffset.FromUnixTimeSeconds(long.Parse(expClaim)).UtcDateTime
             : DateTime.UtcNow.AddMinutes(15); // fallback لو مش موجود

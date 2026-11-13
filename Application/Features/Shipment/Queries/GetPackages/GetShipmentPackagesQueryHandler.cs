@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Queries.GetPackages
 {
-    public class GetShipmentPackagesQueryHandler :IRequestHandler<GetShipmentPackagesQuery, Result<List<PackageDto>>>
+    public sealed class GetShipmentPackagesQueryHandler :IRequestHandler<GetShipmentPackagesQuery, Result<List<PackageDto>>>
     {
         private readonly IUnitOfWork _uintOfWork;
         private readonly IMapper _mapper;

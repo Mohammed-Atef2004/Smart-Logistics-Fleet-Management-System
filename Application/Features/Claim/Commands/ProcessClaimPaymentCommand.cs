@@ -1,4 +1,4 @@
-using Domain.Claims;
+﻿using Domain.Claims;
 using Domain.Claims.ValueObjects;
 using Domain.Interfaces.Repositories;
 using MediatR;
@@ -8,7 +8,7 @@ namespace Application.Features.Claims.Commands.ProcessClaimPayment;
 
 public record ProcessClaimPaymentCommand(Guid ClaimId) : IRequest<Unit>;
 
-public class ProcessClaimPaymentCommandHandler
+public sealed class ProcessClaimPaymentCommandHandler
     : IRequestHandler<ProcessClaimPaymentCommand, Unit>
 {
     private readonly IUnitOfWork _unitOfWork;

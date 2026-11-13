@@ -1,4 +1,4 @@
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Domain.Interfaces.Repositories;
 using Domain.Invoices;
 using Domain.Invoices.ValueObjects;
@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 namespace Application.Payments.EventHandlers
 {
     
-    public class PaymentProcessedEventHandler : INotificationHandler<PaymentProcessedEvent>
+    public sealed class PaymentProcessedEventHandler : INotificationHandler<PaymentProcessedEvent>
     {
         private readonly IInvoiceRepository _invoiceRepository;
         private readonly IUnitOfWork _unitOfWork;
@@ -31,7 +31,7 @@ namespace Application.Payments.EventHandlers
                 cancellationToken);
 
             if (invoice is null)
-                return; // log it in production - مفروض ما يحصلش ده
+                return; // log it in production - Ù…ÙØ±ÙˆØ¶ Ù…Ø§ ÙŠØ­ØµÙ„Ø´ Ø¯Ù‡
 
             invoice.Pay();
 

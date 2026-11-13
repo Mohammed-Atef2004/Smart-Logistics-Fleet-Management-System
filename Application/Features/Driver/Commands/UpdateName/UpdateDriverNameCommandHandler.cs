@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.UpdateName
 {
-    public class UpdateDriverNameCommandHandler : IRequestHandler<UpdateDriverNameCommand, Unit>
+    public sealed class UpdateDriverNameCommandHandler : IRequestHandler<UpdateDriverNameCommand, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
         public UpdateDriverNameCommandHandler(IUnitOfWork unitOfWork)

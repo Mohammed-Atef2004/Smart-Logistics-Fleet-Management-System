@@ -1,4 +1,4 @@
-﻿using Application.Features.Shipments.ValueObjects;
+﻿using Domain.Shipments.ValueObjects;
 using Domain.Shipments;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Repositories.Shared;

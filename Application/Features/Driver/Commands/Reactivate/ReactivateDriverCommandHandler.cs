@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.Reactivate
 {
-    public class ReactivateDriverCommandHandler:IRequestHandler<ReactivateDriverCommand,Unit>
+    public sealed class ReactivateDriverCommandHandler:IRequestHandler<ReactivateDriverCommand,Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
         public ReactivateDriverCommandHandler(IUnitOfWork unitOfWork)

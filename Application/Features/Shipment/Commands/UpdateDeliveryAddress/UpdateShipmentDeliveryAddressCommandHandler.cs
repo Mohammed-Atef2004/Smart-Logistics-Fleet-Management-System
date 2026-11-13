@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.UpdateDeliveryAddress
 {
-    public class UpdateShipmentDeliveryAddressCommandHandler: IRequestHandler<UpdateShipmentDeliveryAddressCommand, Result>
+    public sealed class UpdateShipmentDeliveryAddressCommandHandler: IRequestHandler<UpdateShipmentDeliveryAddressCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public UpdateShipmentDeliveryAddressCommandHandler(IUnitOfWork unitOfWork)

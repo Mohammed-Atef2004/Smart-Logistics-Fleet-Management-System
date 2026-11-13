@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.RecordRating
 {
-    public class RecordDriverRatingCommandHandler : IRequestHandler<RecordDriverRatingCommand, Unit>
+    public sealed class RecordDriverRatingCommandHandler : IRequestHandler<RecordDriverRatingCommand, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
         public RecordDriverRatingCommandHandler(IUnitOfWork unitOfWork)

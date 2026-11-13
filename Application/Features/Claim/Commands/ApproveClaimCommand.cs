@@ -1,4 +1,4 @@
-using Domain.Claims;
+﻿using Domain.Claims;
 using Domain.Claims.ValueObjects;
 using Domain.Interfaces.Repositories;
 using MediatR;
@@ -12,7 +12,7 @@ public record ApproveClaimCommand(
     string Currency
 ) : IRequest<Unit>;
 
-public class ApproveClaimCommandHandler : IRequestHandler<ApproveClaimCommand, Unit>
+public sealed class ApproveClaimCommandHandler : IRequestHandler<ApproveClaimCommand, Unit>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IClaimRepository _claimRepository;

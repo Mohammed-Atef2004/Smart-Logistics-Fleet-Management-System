@@ -1,5 +1,4 @@
-﻿using Application.Features.Shipments.ValueObjects;
-using Domain.SharedKernel;
+﻿using Domain.SharedKernel;
 using Domain.Shipments.Enums;
 using Domain.Shipments.Errors;
 using Domain.Shipments.Events;

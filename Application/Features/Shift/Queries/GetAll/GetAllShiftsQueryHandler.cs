@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shift.Queries.GetAll
 {
-    public class GetAllShiftsQueryHandler : IRequestHandler<GetAllShiftsQuery,Result< List<ShiftDto>>>
+    public sealed class GetAllShiftsQueryHandler : IRequestHandler<GetAllShiftsQuery,Result< List<ShiftDto>>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

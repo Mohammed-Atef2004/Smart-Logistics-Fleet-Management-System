@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shift.Commands.CompleteShift
 {
-    public class CompleteShiftCommandHandler : IRequestHandler<CompleteShiftCommand, Result>
+    public sealed class CompleteShiftCommandHandler : IRequestHandler<CompleteShiftCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public CompleteShiftCommandHandler(IUnitOfWork unitOfWork)

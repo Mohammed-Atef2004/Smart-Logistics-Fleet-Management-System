@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Commands.Pay
 {
-    public class PayInvoiceCommandHandler : IRequestHandler<PayInvoiceCommand, Result>
+    public sealed class PayInvoiceCommandHandler : IRequestHandler<PayInvoiceCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInvoiceRepository _invoiceRepository;

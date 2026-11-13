@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.UpdateLicence
 {
-    public class UpdateDriverLicenseCommandHandler : IRequestHandler<UpdateDriverLicenseCommand, Unit>
+    public sealed class UpdateDriverLicenseCommandHandler : IRequestHandler<UpdateDriverLicenseCommand, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
         public UpdateDriverLicenseCommandHandler(IUnitOfWork unitOfWork)

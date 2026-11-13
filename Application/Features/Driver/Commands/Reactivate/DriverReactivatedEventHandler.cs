@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.Reactivate
 {
-    public class DriverReactivatedEventHandler:INotificationHandler<DriverReactivatedEvent>
+    public sealed class DriverReactivatedEventHandler:INotificationHandler<DriverReactivatedEvent>
     {
         private readonly ILogger<DriverReactivatedEvent> _logger;
         public DriverReactivatedEventHandler(ILogger<DriverReactivatedEvent> logger)

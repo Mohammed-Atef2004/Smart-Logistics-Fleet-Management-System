@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.MarkDelivered
 {
-    public class MarkShipmentDeliveredCommandHandler: IRequestHandler<MarkShipmentDeliveredCommand, Result>
+    public sealed class MarkShipmentDeliveredCommandHandler: IRequestHandler<MarkShipmentDeliveredCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public MarkShipmentDeliveredCommandHandler(IUnitOfWork unitOfWork)

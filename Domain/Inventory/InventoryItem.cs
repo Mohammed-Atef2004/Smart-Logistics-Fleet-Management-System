@@ -6,7 +6,6 @@ using Domain.Inventory.ValueObjects;
 using Domain.SharedKernel;
 using Domain.Shipments.ValueObjects;
 using Domain.Warehouse.ValueObjects;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;

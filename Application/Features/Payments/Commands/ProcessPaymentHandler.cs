@@ -1,4 +1,4 @@
-using Domain.Interfaces.Repositories;
+﻿using Domain.Interfaces.Repositories;
 using Domain.Invoices;
 using Domain.Invoices.ValueObjects;
 using Domain.Payments;
@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Payments.Commands.ProcessPayment;
 
-public class ProcessPaymentHandler
+public sealed class ProcessPaymentHandler
     : IRequestHandler<ProcessPaymentCommand, Result<Guid>>
 {
     private readonly IPaymentRepository _paymentRepository;

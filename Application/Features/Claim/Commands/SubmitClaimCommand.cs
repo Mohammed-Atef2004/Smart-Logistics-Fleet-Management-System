@@ -1,4 +1,4 @@
-using Domain.Claims;
+﻿using Domain.Claims;
 using Domain.Claims.ValueObjects;
 using Domain.Interfaces.Repositories;
 using MediatR;
@@ -17,7 +17,7 @@ public record SubmitClaimCommand(
     long? DocumentFileSizeBytes
 ) : IRequest<Guid>;
 
-public class SubmitClaimCommandHandler
+public sealed class SubmitClaimCommandHandler
     : IRequestHandler<SubmitClaimCommand, Guid>
 {
     private readonly IUnitOfWork _unitOfWork;

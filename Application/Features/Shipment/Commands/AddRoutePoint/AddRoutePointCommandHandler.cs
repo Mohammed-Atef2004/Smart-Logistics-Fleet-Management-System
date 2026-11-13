@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.AddRoutePoint
 {
-    public class AddRoutePointCommandHandler:IRequestHandler<AddRoutePointCommand, Result>
+    public sealed class AddRoutePointCommandHandler:IRequestHandler<AddRoutePointCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public AddRoutePointCommandHandler(IUnitOfWork unitOfWork)

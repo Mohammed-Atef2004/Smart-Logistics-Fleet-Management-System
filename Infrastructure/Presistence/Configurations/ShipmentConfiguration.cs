@@ -1,4 +1,4 @@
-﻿using Application.Features.Shipments.ValueObjects;
+﻿using Domain.Shipments.ValueObjects;
 using Domain.Shipments;
 using Domain.Shipments.ValueObjects;
 using Microsoft.EntityFrameworkCore;

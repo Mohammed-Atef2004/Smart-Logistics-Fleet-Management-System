@@ -1,4 +1,4 @@
-﻿using Application.Features.Shipments.ValueObjects;
+﻿using Domain.Shipments.ValueObjects;
 using Domain.SharedKernel;
 using Domain.Shipments.Enums;
 using MediatR;

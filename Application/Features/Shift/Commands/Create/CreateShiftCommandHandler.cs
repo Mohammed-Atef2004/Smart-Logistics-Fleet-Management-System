@@ -10,7 +10,7 @@ using Domain.Shifts.ValueObjects;
 using Domain.SharedKernel;
 namespace Application.Features.Shift.Commands.Create
 {
-    public class CreateShiftCommandHandler :IRequestHandler<CreateShiftCommand, Result<ShiftId>>
+    public sealed class CreateShiftCommandHandler :IRequestHandler<CreateShiftCommand, Result<ShiftId>>
     {
         private readonly IUnitOfWork _unitOfWork;
         public CreateShiftCommandHandler(IUnitOfWork unitOfWork)

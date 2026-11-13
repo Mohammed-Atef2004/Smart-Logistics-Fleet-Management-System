@@ -1,4 +1,4 @@
-using Application.Features.Claims.DTOs;
+﻿using Application.Features.Claims.DTOs;
 using Domain.Claims;
 using Domain.Claims.Enums;
 using Domain.Interfaces.Repositories;
@@ -10,7 +10,7 @@ namespace Application.Features.Claims.Queries.GetPendingClaims;
 public record GetPendingClaimsQuery
     : IRequest<List<ClaimSummaryDto>>;
 
-public class GetPendingClaimsQueryHandler
+public sealed class GetPendingClaimsQueryHandler
     : IRequestHandler<GetPendingClaimsQuery, List<ClaimSummaryDto>>
 {
     private readonly IClaimRepository _claimRepository;

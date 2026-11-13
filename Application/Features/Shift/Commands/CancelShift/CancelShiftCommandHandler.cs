@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shift.Commands.CancelShift
 {
-    public class CancelShiftCommandHandler : IRequestHandler<CancelShiftCommand, Result>
+    public sealed class CancelShiftCommandHandler : IRequestHandler<CancelShiftCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public CancelShiftCommandHandler(IUnitOfWork unitOfWork)

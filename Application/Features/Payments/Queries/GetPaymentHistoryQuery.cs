@@ -1,4 +1,4 @@
-using Domain.Payments;
+﻿using Domain.Payments;
 using Domain.Payments.Enums;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +10,7 @@ public record GetPaymentHistoryQuery(
     string? Status = null
 ) : IRequest<IReadOnlyList<PaymentListItemDto>>;
 
-public class GetPaymentHistoryHandler
+public sealed class GetPaymentHistoryHandler
     : IRequestHandler<GetPaymentHistoryQuery, IReadOnlyList<PaymentListItemDto>>
 {
     private readonly IPaymentRepository _paymentRepository;

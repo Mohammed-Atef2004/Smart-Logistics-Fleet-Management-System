@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shift.Queries.GetById
 {
-    public class GetShiftByIdQueryHandler : IRequestHandler<GetShiftByIdQuery, Result<ShiftDto>>
+    public sealed class GetShiftByIdQueryHandler : IRequestHandler<GetShiftByIdQuery, Result<ShiftDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

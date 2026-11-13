@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.Dispatch
 {
-    public class DispatchCommandHandler : IRequestHandler<DispatchCommand, Result>
+    public sealed class DispatchCommandHandler : IRequestHandler<DispatchCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public DispatchCommandHandler(IUnitOfWork unitOfWork)

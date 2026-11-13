@@ -1,5 +1,5 @@
-﻿using Application.Features.Shipments.ValueObjects;
-using Domain.SharedKernel;
+﻿using Domain.SharedKernel;
+using Domain.Shipments.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

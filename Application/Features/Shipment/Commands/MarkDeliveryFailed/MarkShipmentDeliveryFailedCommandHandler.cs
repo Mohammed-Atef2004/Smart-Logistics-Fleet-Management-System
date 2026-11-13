@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.MarkDeliveryFailed
 {
-    public class MarkShipmentDeliveryFailedCommandHandler : IRequestHandler<MarkShipmentDeliveryFailedCommand, Result>
+    public sealed class MarkShipmentDeliveryFailedCommandHandler : IRequestHandler<MarkShipmentDeliveryFailedCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public MarkShipmentDeliveryFailedCommandHandler(IUnitOfWork unitOfWork)

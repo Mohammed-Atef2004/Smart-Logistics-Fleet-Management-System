@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.AssignCarrier
 {
-    internal class AssignCarrierCommandHandler : IRequestHandler<AssignCarrierCommand, Result>
+    internal sealed class AssignCarrierCommandHandler : IRequestHandler<AssignCarrierCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public AssignCarrierCommandHandler(IUnitOfWork unitOfWork)

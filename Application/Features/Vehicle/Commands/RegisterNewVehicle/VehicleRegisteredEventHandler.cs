@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
 {
-    public class VehicleRegisteredEventHandler : INotificationHandler<VehicleRegisteredEvent>
+    public sealed class VehicleRegisteredEventHandler : INotificationHandler<VehicleRegisteredEvent>
     {
         private readonly ILogger<VehicleRegisteredEventHandler> _logger;
 

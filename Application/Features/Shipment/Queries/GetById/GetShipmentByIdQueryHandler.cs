@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Queries.GetById
 {
-    public class GetShipmentByIdQueryHandler : IRequestHandler<GetShipmentByIdQuery, Result<ShipmentDetailsDto>>
+    public sealed class GetShipmentByIdQueryHandler : IRequestHandler<GetShipmentByIdQuery, Result<ShipmentDetailsDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

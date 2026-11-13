@@ -1,5 +1,5 @@
 ﻿using Domain.Interfaces.Services;
-using Domain.Settings;
+using Application.Common.Settings;
 using Domain.SharedKernel;
 using Domain.Users.Errors;
 using MailKit.Net.Smtp;

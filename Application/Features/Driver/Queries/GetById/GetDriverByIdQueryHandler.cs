@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Queries.GetById
 {
-    public class GetDriverByIdQueryHandler : IRequestHandler<GetDriverByIdQuery, DriverDto>
+    public sealed class GetDriverByIdQueryHandler : IRequestHandler<GetDriverByIdQuery, DriverDto>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

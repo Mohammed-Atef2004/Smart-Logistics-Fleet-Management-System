@@ -1,29 +1,25 @@
-﻿using Domain.Interfaces.Repositories;
-using Domain.Shifts;
-using DomainDomainServices;
+﻿using Application.Features.Driver.DomainServices;
+using Domain.Interfaces.Repositories;
 using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Application.Features.Driver.Commands.AssignShift
+namespace Application.Features.Driver.Commands.AssignShift;
+
+public sealed class AssignDriverToShiftCommandHandler : IRequestHandler<AssignDriverToShiftCommand, Unit>
 {
-    public class AssignDriverToShiftCommandHandler : IRequestHandler<AssignDriverToShiftCommand, Unit>
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IDriverShiftService _driverShiftService;
+
+    public AssignDriverToShiftCommandHandler(IUnitOfWork unitOfWork, IDriverShiftService driverShiftService)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        public AssignDriverToShiftCommandHandler(IUnitOfWork unitOfWork)
-        {
-            _unitOfWork = unitOfWork;
-        }
-        public async Task<Unit> Handle(AssignDriverToShiftCommand request, CancellationToken cancellationToken)
-        {
-            var service = new DriverShiftService(_unitOfWork.Drivers, _unitOfWork.Shifts);
-            var result = await service.AssignDriverToShift(request.DriverId, request.Start, request.End);
-            if (result.IsFailure) throw new Exception(result.Error.Message.ToString());
-            await _unitOfWork.CompleteAsync();
-            return Unit.Value;
-        }
+        _unitOfWork = unitOfWork;
+        _driverShiftService = driverShiftService;
+    }
+
+    public async Task<Unit> Handle(AssignDriverToShiftCommand request, CancellationToken cancellationToken)
+    {
+        var result = await _driverShiftService.AssignDriverToShift(request.DriverId, request.Start, request.End);
+        if (result.IsFailure) throw new Exception(result.Error.Message);
+        await _unitOfWork.CompleteAsync(cancellationToken);
+        return Unit.Value;
     }
 }

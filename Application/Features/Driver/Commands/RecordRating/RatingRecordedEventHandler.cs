@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.RecordRating
 {
-    public class RatingRecordedEventHandler: INotificationHandler<DriverPerformanceDroppedEvent>
+    public sealed class RatingRecordedEventHandler: INotificationHandler<DriverPerformanceDroppedEvent>
     {
         private readonly ILogger<DriverPerformanceDroppedEvent> _logger;
         public RatingRecordedEventHandler(ILogger<DriverPerformanceDroppedEvent> logger)

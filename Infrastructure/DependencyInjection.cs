@@ -30,10 +30,8 @@ namespace Infrastructure.Persistence
             this IServiceCollection services,
             IConfiguration configuration)
         {
-            // ✅ 1. Register Interceptor
             services.AddScoped<DomainEventInterceptor>();
 
-            // ✅ 2. Register DbContext
             services.AddDbContext<AppDbContext>((sp, options) =>
             {
                 var interceptor = sp.GetRequiredService<DomainEventInterceptor>();
@@ -43,10 +41,12 @@ namespace Infrastructure.Persistence
                 options.AddInterceptors(interceptor);
             });
 
-            // ✅ 3. Register UnitOfWork 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-            // ✅ 4. Register Repositories 
+            // Settings used by infrastructure services (bound once, injected via IOptions)
+            services.Configure<Application.Common.Settings.EmailSettings>(
+                configuration.GetSection(Application.Common.Settings.EmailSettings.SectionName));
+
             services.AddScoped<IVehicleRepository, VehicleRepository>();
             services.AddScoped<IWarehouseRepository, WarehouseRepository>();
             services.AddScoped<IInventoryItemRepository, InventoryItemRepository>();
@@ -54,7 +54,7 @@ namespace Infrastructure.Persistence
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IClaimRepository,ClaimRepository>();
             services.AddScoped<IPaymentRepository,PaymentRepository>();
-             services.AddScoped<IPaymentGateway, MockPaymentGateway>();
+            services.AddScoped<IPaymentGateway, MockPaymentGateway>();
 
             // services.AddScoped<IDriverRepository, DriverRepository>();
             // services.AddScoped<ITripRepository, TripRepository>();

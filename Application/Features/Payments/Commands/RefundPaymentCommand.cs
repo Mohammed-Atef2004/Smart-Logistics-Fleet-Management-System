@@ -1,4 +1,4 @@
-using Application.Common.Interfaces;
+﻿using Application.Common.Interfaces;
 using Domain.Interfaces.Repositories;
 using Domain.Payments;
 using Domain.Payments.Errors;
@@ -30,7 +30,7 @@ public class RefundPaymentValidator : AbstractValidator<RefundPaymentCommand>
 // =====================
 // Handler
 // =====================
-public class RefundPaymentCommandHandler
+public sealed class RefundPaymentCommandHandler
     : IRequestHandler<RefundPaymentCommand, Result>
 {
     private readonly IPaymentRepository _paymentRepository;

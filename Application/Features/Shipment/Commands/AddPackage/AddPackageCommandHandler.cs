@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.AddPackage
 {
-    public class AddPackageCommandHandler : IRequestHandler<AddPackageCommand, Result<PackageId>>
+    public sealed class AddPackageCommandHandler : IRequestHandler<AddPackageCommand, Result<PackageId>>
     {
         private readonly IUnitOfWork _unitOfWork;
         public AddPackageCommandHandler(IUnitOfWork unitOfWork)

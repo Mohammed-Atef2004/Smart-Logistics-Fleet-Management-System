@@ -1,4 +1,4 @@
-using Domain.Payments;
+﻿using Domain.Payments;
 using Domain.Payments.Errors;
 using Domain.Payments.ValueObjects;
 using Domain.SharedKernel;
@@ -16,7 +16,7 @@ public record GetPaymentDetailsQuery(Guid PaymentId)
 // =====================
 // Handler
 // =====================
-public class GetPaymentDetailsHandler
+public sealed class GetPaymentDetailsHandler
     : IRequestHandler<GetPaymentDetailsQuery, Result<PaymentDetailsDto>>
 {
     private readonly IPaymentRepository _paymentRepository;

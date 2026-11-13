@@ -11,7 +11,6 @@ using Application.Features.Shipment.Commands.UpdateDeliveryAddress;
 using Application.Features.Shipment.Queries.GetAll;
 using Application.Features.Shipment.Queries.GetById;
 using Application.Features.Shipment.Queries.GetPackages;
-using Application.Features.Shipments.ValueObjects;
 using Domain.Shipments.Enums;
 using Domain.Shipments.ValueObjects;
 using MediatR;

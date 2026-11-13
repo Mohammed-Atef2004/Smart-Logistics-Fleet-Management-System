@@ -1,5 +1,5 @@
 ﻿using Amazon.Runtime.Internal;
-using Application.Features.Shipments.ValueObjects;
+using Domain.Shipments.ValueObjects;
 using Domain.SharedKernel;
 using MediatR;
 using System;

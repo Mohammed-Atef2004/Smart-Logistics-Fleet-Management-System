@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Commands.AddItem
 {
-    public class AddInvoiceItemCommandHandler : IRequestHandler<AddInvoiceItemCommand, Result>
+    public sealed class AddInvoiceItemCommandHandler : IRequestHandler<AddInvoiceItemCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInvoiceRepository _invoiceRepository;

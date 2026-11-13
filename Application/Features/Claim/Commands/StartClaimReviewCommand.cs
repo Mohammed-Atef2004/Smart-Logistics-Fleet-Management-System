@@ -1,4 +1,4 @@
-using Domain.Claims;
+﻿using Domain.Claims;
 using Domain.Claims.ValueObjects;
 using Domain.Interfaces.Repositories;
 using MediatR;
@@ -8,7 +8,7 @@ namespace Application.Features.Claims.Commands.StartClaimReview;
 
 public record StartClaimReviewCommand(Guid ClaimId) : IRequest<Unit>;
 
-public class StartClaimReviewCommandHandler : IRequestHandler<StartClaimReviewCommand, Unit>
+public sealed class StartClaimReviewCommandHandler : IRequestHandler<StartClaimReviewCommand, Unit>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IClaimRepository _claimRepository;

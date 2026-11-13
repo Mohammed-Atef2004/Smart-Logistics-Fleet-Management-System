@@ -1,4 +1,4 @@
-using Application.Features.Claims.DTOs;
+﻿using Application.Features.Claims.DTOs;
 using Domain.Claims;
 using Domain.Claims.Enums;
 using Domain.Interfaces.Repositories;
@@ -10,7 +10,7 @@ namespace Application.Features.Claims.Queries.GetClaimsByStatus;
 public record GetClaimsByStatusQuery(ClaimStatus Status)
     : IRequest<List<ClaimSummaryDto>>;
 
-public class GetClaimsByStatusQueryHandler
+public sealed class GetClaimsByStatusQueryHandler
     : IRequestHandler<GetClaimsByStatusQuery, List<ClaimSummaryDto>>
 {
     private readonly IClaimRepository _claimRepository;

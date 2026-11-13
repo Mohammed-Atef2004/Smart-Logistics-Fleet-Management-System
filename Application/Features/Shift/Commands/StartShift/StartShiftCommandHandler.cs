@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shift.Commands.StartShift
 {
-    public class StartShiftCommandHandler : IRequestHandler<StartShiftCommand, Result>
+    public sealed class StartShiftCommandHandler : IRequestHandler<StartShiftCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public StartShiftCommandHandler(IUnitOfWork unitOfWork)

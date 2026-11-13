@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Features.Shipments.ValueObjects
+namespace Domain.Shipments.ValueObjects
 {
     public sealed record ShipmentId(Guid Value)
     {

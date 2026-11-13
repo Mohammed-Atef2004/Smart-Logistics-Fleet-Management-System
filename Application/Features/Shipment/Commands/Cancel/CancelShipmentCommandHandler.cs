@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.Cancel
 {
-    public class CancelShipmentCommandHandler: IRequestHandler<CancelShipmentCommand, Result>
+    public sealed class CancelShipmentCommandHandler: IRequestHandler<CancelShipmentCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public CancelShipmentCommandHandler(IUnitOfWork unitOfWork)

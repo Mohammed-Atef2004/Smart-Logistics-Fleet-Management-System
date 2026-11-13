@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.HireDriver
 {
-    public class HireDriverCommandHandler:IRequestHandler<HireDriverCommand, Guid>
+    public sealed class HireDriverCommandHandler:IRequestHandler<HireDriverCommand, Guid>
     {
       private readonly IUnitOfWork _unitOfWork;
         public HireDriverCommandHandler(IUnitOfWork unitOfWork)

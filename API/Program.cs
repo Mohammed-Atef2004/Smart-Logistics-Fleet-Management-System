@@ -75,7 +75,7 @@ namespace API
             });
 
             builder.Services.AddInfrastructure(builder.Configuration);
-            builder.Services.AddApplication();
+            builder.Services.AddApplication(builder.Configuration);
 
             // MediatR Setup
             builder.Services.AddMediatR(cfg =>
@@ -133,7 +133,7 @@ namespace API
             });
 
             // ==========================
-            // 6. CORS (لو محتاج Angular Frontend)
+            // 6. CORS Angular Frontend)
             // ==========================
             builder.Services.AddCors(options =>
             {

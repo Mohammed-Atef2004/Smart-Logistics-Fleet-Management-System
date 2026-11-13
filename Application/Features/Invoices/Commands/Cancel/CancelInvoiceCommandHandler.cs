@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Commands.Cancel
 {
-    public class CancelInvoiceCommandHandler : IRequestHandler<CancelInvoiceCommand, Result>
+    public sealed class CancelInvoiceCommandHandler : IRequestHandler<CancelInvoiceCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInvoiceRepository _invoiceRepository;

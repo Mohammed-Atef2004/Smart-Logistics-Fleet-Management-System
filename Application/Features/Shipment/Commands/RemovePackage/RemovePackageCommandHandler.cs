@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.RemovePackage
 {
-    public class RemovePackageCommandHandler : IRequestHandler<RemovePackageCommand, Result>
+    public sealed class RemovePackageCommandHandler : IRequestHandler<RemovePackageCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         public RemovePackageCommandHandler(IUnitOfWork unitOfWork)

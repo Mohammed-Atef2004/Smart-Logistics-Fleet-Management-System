@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Commands.Issue
 {
-    public class IssueInvoiceCommandHandler : IRequestHandler<IssueInvoiceCommand, Result>
+    public sealed class IssueInvoiceCommandHandler : IRequestHandler<IssueInvoiceCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInvoiceRepository _invoiceRepository;

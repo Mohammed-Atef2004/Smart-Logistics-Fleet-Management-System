@@ -1,4 +1,4 @@
-using Application.Features.Claims.DTOs;
+﻿using Application.Features.Claims.DTOs;
 using Domain.Claims;
 using Domain.Claims.ValueObjects;
 using Domain.Interfaces.Repositories;
@@ -9,7 +9,7 @@ namespace Application.Features.Claims.Queries.GetClaimDetails;
 
 public record GetClaimDetailsQuery(Guid ClaimId) : IRequest<ClaimDto>;
 
-public class GetClaimDetailsQueryHandler : IRequestHandler<GetClaimDetailsQuery, ClaimDto>
+public sealed class GetClaimDetailsQueryHandler : IRequestHandler<GetClaimDetailsQuery, ClaimDto>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IClaimRepository _claimRepository;

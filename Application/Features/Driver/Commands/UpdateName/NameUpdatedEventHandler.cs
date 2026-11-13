@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.UpdateName
 {
-    public class NameUpdatedEventHandler: INotificationHandler<DriverNameUpdatedEvent>
+    public sealed class NameUpdatedEventHandler: INotificationHandler<DriverNameUpdatedEvent>
     {
         private readonly ILogger<DriverNameUpdatedEvent> _logger;
         public NameUpdatedEventHandler(ILogger<DriverNameUpdatedEvent> logger)

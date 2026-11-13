@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.HireDriver
 {
-    public class DriverHiredEventHandler: INotificationHandler<DriverHiredEvent>
+    public sealed class DriverHiredEventHandler: INotificationHandler<DriverHiredEvent>
     {
         private ILogger<DriverHiredEvent> _logger;
         public DriverHiredEventHandler(ILogger<DriverHiredEvent> logger)

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.Susbend
 {
-    public class SuspendDriverCommandHandler : IRequestHandler<SuspendDriverCommand, Unit>
+    public sealed class SuspendDriverCommandHandler : IRequestHandler<SuspendDriverCommand, Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
         public SuspendDriverCommandHandler(IUnitOfWork unitOfWork)

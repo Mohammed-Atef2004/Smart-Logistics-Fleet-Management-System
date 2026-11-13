@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Queries.GetAll
 {
-    public class GetAllInvoicesQueryHandler : IRequestHandler<GetAllInvoicesQuery, List<GetInvoiceByIdResponse>>
+    public sealed class GetAllInvoicesQueryHandler : IRequestHandler<GetAllInvoicesQuery, List<GetInvoiceByIdResponse>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInvoiceRepository _invoiceRepository;

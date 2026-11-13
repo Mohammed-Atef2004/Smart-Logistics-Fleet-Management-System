@@ -1,5 +1,4 @@
-﻿using Application.Features.Shipments.ValueObjects;
-using Domain.Interfaces.Repositories;
+﻿using Domain.Interfaces.Repositories;
 using Domain.Shipments.Enums;
 using System;
 using System.Collections.Generic;

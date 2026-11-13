@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Commands.Create
 {
-    public class CreateInvoiceCommandHandler:IRequestHandler<CreateInvoiceCommand, Result<InvoiceId>>
+    public sealed class CreateInvoiceCommandHandler:IRequestHandler<CreateInvoiceCommand, Result<InvoiceId>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInvoiceRepository _invoiceRepository;

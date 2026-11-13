@@ -1,4 +1,4 @@
-﻿using Application.Features.Shipments.ValueObjects;
+﻿using Domain.Shipments.ValueObjects;
 using Domain.Shipments;
 using Domain.Interfaces.Repositories;
 using Domain.SharedKernel;
@@ -12,7 +12,7 @@ using Domain.Shipments.ValueObjects;
 
 namespace Application.Features.Shipment.Commands.Create
 {
-    public class CreateShipmentCommandHandler : IRequestHandler<CreateShipmentCommand, Result<ShipmentId>>
+    public sealed class CreateShipmentCommandHandler : IRequestHandler<CreateShipmentCommand, Result<ShipmentId>>
     {
         private readonly IUnitOfWork _unitOfWork;
         public CreateShipmentCommandHandler(IUnitOfWork unitOfWork)

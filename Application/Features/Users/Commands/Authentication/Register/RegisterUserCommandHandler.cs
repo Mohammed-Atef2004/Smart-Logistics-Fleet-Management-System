@@ -3,7 +3,7 @@ using Application.Features.Users.Commands.Authentication.Register;
 using Application.Features.Users.Services;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
-using Domain.Settings;
+using Application.Common.Settings;
 using Domain.SharedKernel;
 using Domain.Users;
 using Domain.Users.ValueObjects;

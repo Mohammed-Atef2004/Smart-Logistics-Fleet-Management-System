@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Queries.GetAll
 {
-    public class GetAllDriversQueryHandler : IRequestHandler<GetAllDriversQuery, List<DriverDto>>
+    public sealed class GetAllDriversQueryHandler : IRequestHandler<GetAllDriversQuery, List<DriverDto>>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;

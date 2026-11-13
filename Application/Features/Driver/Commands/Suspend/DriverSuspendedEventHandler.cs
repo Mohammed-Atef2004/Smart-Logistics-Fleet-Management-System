@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Commands.Suspend
 {
-    public class DriverSuspendedEventHandler : INotificationHandler<DriverSuspendedEvent>
+    public sealed class DriverSuspendedEventHandler : INotificationHandler<DriverSuspendedEvent>
     {
         private readonly ILogger<DriverSuspendedEventHandler> _logger;
         public DriverSuspendedEventHandler(ILogger<DriverSuspendedEventHandler> logger)
