@@ -44,7 +44,7 @@
 | C1 | ~~**الـ Domain مش Clean**: `Domain.csproj` فيه EF Core SqlServer + Identity + AutoMapper + MediatR~~ **✅ اتصلحت** — Domain.csproj فيه MediatR بس | `Domain/Domain.csproj` | أول reviewer محترف هيكت فورًا |
 | C2 | ~~**Domain يعتمد على Application**~~ **✅ اتصلحت** — `ShipmentId` اترجع للـ Domain + كل الـ dead usings اتشالت + `DriverShiftService` اتنقل للـ Application | `Domain/Shipments/Shipment.cs` | مخالفة dependency rule صريحة |
 | C3 | ~~**Architecture Tests فاضية**~~ **✅ اتصلحت** — 5 قواعد حقيقية في `Architecture.Tests/LayerDependencyTests.cs` | `Architecture.Tests/` | الـ README بيدّعي حاجة غير موجودة |
-| C4 | **بقايا مشروع تاني**: namespace `EducationalPlatform.Infrastructure.Services.Token` | `TokenService.cs`, `Program.cs`, `DependencyInjection.cs` | سوء سمعة فوري |
+| C4 | ~~**بقايا مشروع تاني**: namespace `EducationalPlatform.Infrastructure.Services.Token`~~ **✅ اتصلحت** — TokenService → `Infrastructure.Services`، Controllers → `WebApi.Controllers`، TOTP issuer → "SLFMS" | `TokenService.cs`, `Program.cs`, `DependencyInjection.cs` | سوء سمعة فوري |
 | C5 | ~~**Domain Events بتتـpublish قبل الـ commit**~~ **✅ اتصلحت** — الـ events بتتجمع في `SavingChanges` وبتتـpublish في `SavedChanges` (بعد الـ commit الناجح فقط) + فاشلة = discard؛ 5 regression tests بـ SQLite | `DomainEventInterceptor.cs` | مشكلة consistency حقيقية |
 | C6 | ~~**TFMs غير متطابقة**: net8/net9 متخلطين~~ **✅ اتصلحت** — كل المشاريع net10.0 | كل الـ `.csproj` | خطر runtime conflicts |
 | C7 | **الـ `.sln` بيشاور على مشروع خارجي مش موجود** | `SLFM.sln` | **✅ اتصلحت** |
@@ -88,7 +88,7 @@
 
 **الهدف:** تصفير الديون السطحية. أسهل مرحلة وأكبر تأثير بصري.
 
-- [ ] **0.1** شيل كل الـ namespaces اللي فيها `EducationalPlatform` (استبدلها بـ `Infrastructure.Services`):
+- [x] **0.1** ~~شيل كل الـ namespaces اللي فيها `EducationalPlatform`~~ **✅ خلصت** — كمان اتصلح الـ 2FA issuer name اللي كان "EducationalPlatform" في الـ authenticator app
   - [ ] `Infrastructure/Services/TokenService.cs`
   - [ ] `API/Program.cs`
   - [ ] `Infrastructure/DependencyInjection.cs`

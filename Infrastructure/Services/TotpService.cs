@@ -14,7 +14,7 @@ namespace Infrastructure.Services
     /// </summary>
     public sealed class TotpService : ITotpService
     {
-        private const string AppName = "EducationalPlatform";
+        private const string AppName = "SLFMS";
 
         public string GenerateSecret()
         {

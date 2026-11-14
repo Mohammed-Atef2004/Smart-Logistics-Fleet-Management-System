@@ -8,7 +8,6 @@ using Domain.Payments;
 using Domain.Users;
 using Domain.Vehicles;
 using Domain.Warehouse;
-using EducationalPlatform.Infrastructure.Services.Token;
 using Infrastructure.Identity;
 using Infrastructure.Persistence.Repositories;
 using Infrastructure.Presistence.Data;

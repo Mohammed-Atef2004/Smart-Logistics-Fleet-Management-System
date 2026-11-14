@@ -2,7 +2,6 @@
 using Application.Features.Driver.Commands.HireDriver;
 using Domain.Interfaces.Repositories;
 using Domain.Interfaces.Services;
-using EducationalPlatform.Infrastructure.Services.Token;
 using Infrastructure.Identity;
 using Infrastructure.Persistence;
 using Infrastructure.Presistence.Data;

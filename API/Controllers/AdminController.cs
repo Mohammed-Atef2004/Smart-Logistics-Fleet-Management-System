@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace EducationalPlatform.Presentation.Controllers;
+namespace WebApi.Controllers;
 
 [ApiController]
 [Route("api/admin/users")]

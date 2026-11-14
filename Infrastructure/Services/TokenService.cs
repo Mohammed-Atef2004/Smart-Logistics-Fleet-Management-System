@@ -11,7 +11,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace EducationalPlatform.Infrastructure.Services.Token;
+namespace Infrastructure.Services;
 
 public sealed class JwtOptions
 {
