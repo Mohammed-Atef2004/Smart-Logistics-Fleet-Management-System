@@ -1,5 +1,5 @@
-﻿
-using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
+
 using Domain.Inventory;
 using Domain.Inventory.Errors;
 using Domain.Inventory.ValueObjects;

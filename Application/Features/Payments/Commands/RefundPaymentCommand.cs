@@ -1,5 +1,4 @@
 ﻿using Application.Common.Interfaces;
-using Domain.Interfaces.Repositories;
 using Domain.Payments;
 using Domain.Payments.Errors;
 using Domain.SharedKernel;

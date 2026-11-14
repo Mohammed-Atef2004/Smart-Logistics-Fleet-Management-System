@@ -1,5 +1,5 @@
-﻿using Domain.Drivers.ValueObjects;
-using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
+using Domain.Drivers.ValueObjects;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;

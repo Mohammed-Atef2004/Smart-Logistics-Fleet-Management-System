@@ -1,5 +1,5 @@
-﻿using Application.Features.Vehicle.Commands.RetireVehicle;
-using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
+using Application.Features.Vehicle.Commands.RetireVehicle;
 using Domain.SharedKernel;
 using Domain.Vehicles.ValueObjects;
 using MediatR;

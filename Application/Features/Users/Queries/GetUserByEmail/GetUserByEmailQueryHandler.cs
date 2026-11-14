@@ -1,4 +1,5 @@
-﻿using Application.Features.Users.Queries.GetUserById;
+﻿using Application.Common.Interfaces;
+using Application.Features.Users.Queries.GetUserById;
 using AutoMapper;
 using Domain.SharedKernel;
 using Domain.Users;

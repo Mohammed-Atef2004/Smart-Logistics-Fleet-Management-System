@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
 using MediatR;
 using System;
 using System.Collections.Generic;

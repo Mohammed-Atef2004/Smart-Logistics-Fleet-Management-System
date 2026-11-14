@@ -1,9 +1,10 @@
-﻿using Domain.SharedKernel;
+﻿using Application.Common.Interfaces;
+using Domain.SharedKernel;
 using Domain.Users;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Domain.Interfaces.Services
+namespace Application.Common.Interfaces
 {
     public interface IIdentityService
     {

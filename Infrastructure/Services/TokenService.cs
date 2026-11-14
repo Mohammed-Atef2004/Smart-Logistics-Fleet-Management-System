@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Services;
+﻿using Application.Common.Interfaces;
 using Domain.Users;
 using Infrastructure.Identity;
 using Infrastructure.Presistence.Data;

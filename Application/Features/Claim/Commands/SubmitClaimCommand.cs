@@ -1,6 +1,6 @@
-﻿using Domain.Claims;
+﻿using Application.Common.Interfaces;
+using Domain.Claims;
 using Domain.Claims.ValueObjects;
-using Domain.Interfaces.Repositories;
 using MediatR;
 
 namespace Application.Features.Claims.Commands.SubmitClaim;

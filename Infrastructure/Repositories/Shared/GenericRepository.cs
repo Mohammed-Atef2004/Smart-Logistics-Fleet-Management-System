@@ -1,6 +1,6 @@
-﻿using System.Linq.Expressions;
+﻿using Application.Common.Interfaces;
+using System.Linq.Expressions;
 using Domain.Common;
-using Domain.Interfaces.Repositories;
 using Infrastructure.Presistence.Data;
 using Microsoft.EntityFrameworkCore;
 

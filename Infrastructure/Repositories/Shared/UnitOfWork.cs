@@ -1,5 +1,5 @@
-﻿using Domain.Drivers;
-using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
+using Domain.Drivers;
 using Domain.Shifts;
 using Domain.Shipments;
 using Domain.Vehicles;

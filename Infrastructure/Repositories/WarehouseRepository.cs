@@ -1,4 +1,5 @@
-﻿using Domain.Warehouse;
+﻿using Application.Common.Interfaces;
+using Domain.Warehouse;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Repositories.Shared;
 using System;

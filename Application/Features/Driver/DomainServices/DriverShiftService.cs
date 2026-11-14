@@ -1,4 +1,5 @@
-﻿using Domain.Drivers;
+﻿using Application.Common.Interfaces;
+using Domain.Drivers;
 using Domain.Drivers.Enums;
 using Domain.Drivers.ValueObjects;
 using Domain.SharedKernel;

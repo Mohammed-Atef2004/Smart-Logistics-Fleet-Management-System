@@ -1,4 +1,5 @@
-﻿using Domain.Inventory;
+﻿using Application.Common.Interfaces;
+using Domain.Inventory;
 using Domain.Inventory.Errors;
 using Domain.SharedKernel;
 using MediatR;

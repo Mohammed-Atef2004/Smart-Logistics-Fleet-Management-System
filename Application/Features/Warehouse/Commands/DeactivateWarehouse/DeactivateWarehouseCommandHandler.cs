@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
 using Domain.SharedKernel;
 using Domain.Warehouse;
 using Domain.Warehouse.Errors;

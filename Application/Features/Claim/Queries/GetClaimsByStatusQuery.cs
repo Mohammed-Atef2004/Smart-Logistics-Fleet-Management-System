@@ -1,7 +1,7 @@
-﻿using Application.Features.Claims.DTOs;
+﻿using Application.Common.Interfaces;
+using Application.Features.Claims.DTOs;
 using Domain.Claims;
 using Domain.Claims.Enums;
-using Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 

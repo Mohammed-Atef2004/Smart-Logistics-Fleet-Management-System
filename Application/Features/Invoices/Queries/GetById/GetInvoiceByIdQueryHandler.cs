@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
 using Domain.Invoices;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

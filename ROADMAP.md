@@ -142,6 +142,12 @@
   - [x] كل الـ Aggregate Roots الـ concrete = sealed
 - [x] **1.6** الـ `.sln` كان بيشاور على مشروع خارجي مش موجود (`Delegates and Eventw`) — اتشال
 - [x] **1.7** حذف ملفات ميتة: `Domain/SharedKernel/Route.cs` (كود غير مستخدم مربوط بـ EF) + dead usings (Mono.Cecil, Microsoft.Identity.Client, EF.Infrastructure)
+- [x] **1.8** نقل كل الـ persistence/service abstractions من الـ Domain للـ **Application layer** (Dependency Inversion الصح — الـ Application يعرّف احتياجاته والـ Infrastructure يطبقها):
+  - [x] `IGenericRepository` + `IUnitOfWork` + `ITokenBlacklistService` اتنقلوا من `Domain/Interfaces/Repositories/` → `Application/Common/Interfaces/`
+  - [x] الـ 10 repo interfaces الخاصة بالـ aggregates (`IVehicleRepository`, `IDriverRepository`, `IShiftRepository`, `IShipmentRepository`, `IUserRepository`, `IInvoiceRepository`, `IPaymentRepository`, `IInventoryItemRepository`, `IClaimRepository`, `IWarehouseRepository`) اتنقلوا من فولدرات الـ Domain → `Application/Common/Interfaces/` (كانت لازم تتحرك لأنها بتورث من `IGenericRepository<T>` — ولو فضلت في Domain هتخلّي Domain يعتمد على Application وده بيكسر قاعدة الـ dependency)
+  - [x] `IEmailService`, `IIdentityService`, `IPasswordHasher`, `ITokenService` كانت فعليًا في فولدر الـ Application لكن بأسماء namespaces مضللة (`Domain.Interfaces.Services`) — اتصلحت لـ `Application.Common.Interfaces`
+  - [x] **استثناء موثّق:** `IVehicleUniquenessChecker` فضل في `Domain/Vehicles` لأنه domain service الـ `Vehicle.Create` بيستهلكه مباشرة (الـ aggregate نفسه محتاجه، مش الـ Application)
+  - [x] حوالي 140 ملف اتحدثوا (usings + namespaces) و `Domain/Interfaces/` اتفضى واتشال
 
 **معيار النجاح:** `dotnet test` على Architecture.Tests بيعدّي، والـ Domain.csproj مفيهوش غير MediatR. ✅
 

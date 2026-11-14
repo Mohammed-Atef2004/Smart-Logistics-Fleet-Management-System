@@ -1,6 +1,6 @@
-﻿using Application.Features.Driver.DTOs;
+﻿using Application.Common.Interfaces;
+using Application.Features.Driver.DTOs;
 using AutoMapper;
-using Domain.Interfaces.Repositories;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System;

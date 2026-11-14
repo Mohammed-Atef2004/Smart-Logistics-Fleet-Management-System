@@ -1,4 +1,5 @@
-﻿using Domain.Vehicles;
+﻿using Application.Common.Interfaces;
+using Domain.Vehicles;
 using Infrastructure.Presistence.Data;
 using System;
 using System.Collections.Generic;
@@ -8,8 +9,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories.Vehicle
 {
-    using Domain.Interfaces.Repositories;
-    using Domain.Vehicles.ValueObjects;
+        using Domain.Vehicles.ValueObjects;
     using Microsoft.EntityFrameworkCore;
 
     namespace Infrastructure.Repositories

@@ -1,4 +1,5 @@
-﻿using Domain.Users;
+﻿using Application.Common.Interfaces;
+using Domain.Users;
 using Domain.Users.ValueObjects;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Repositories.Shared;

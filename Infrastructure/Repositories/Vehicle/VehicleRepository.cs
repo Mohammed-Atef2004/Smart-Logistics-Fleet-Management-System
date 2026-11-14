@@ -1,9 +1,9 @@
-﻿using Infrastructure.Presistence.Data;
+﻿using Application.Common.Interfaces;
+using Infrastructure.Presistence.Data;
 
 namespace Infrastructure.Repositories.Vehicle
 {
-    using Domain.Interfaces.Repositories;
-    using Domain.Vehicles;
+        using Domain.Vehicles;
     using Domain.Vehicles.Enums;
     using Domain.Vehicles.ValueObjects;
     using global::Infrastructure.Repositories.Shared;

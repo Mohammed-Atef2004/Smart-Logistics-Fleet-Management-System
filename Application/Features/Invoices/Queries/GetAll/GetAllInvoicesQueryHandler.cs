@@ -1,5 +1,5 @@
-﻿using Application.Features.Invoices.Queries.GetById;
-using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
+using Application.Features.Invoices.Queries.GetById;
 using Domain.Invoices;
 using MediatR;
 using System;

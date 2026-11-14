@@ -1,6 +1,6 @@
-﻿using Application.Features.Shift.DTOs;
+﻿using Application.Common.Interfaces;
+using Application.Features.Shift.DTOs;
 using AutoMapper;
-using Domain.Interfaces.Repositories;
 using Domain.SharedKernel;
 using MediatR;
 using System;

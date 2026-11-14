@@ -1,4 +1,5 @@
-﻿using Domain.SharedKernel;
+﻿using Application.Common.Interfaces;
+using Domain.SharedKernel;
 using Domain.Warehouse;
 using Domain.Warehouse.Errors;
 using MediatR;

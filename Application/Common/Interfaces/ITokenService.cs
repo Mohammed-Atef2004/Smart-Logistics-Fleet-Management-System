@@ -1,6 +1,7 @@
-﻿using System.Security.Claims;
+﻿using Application.Common.Interfaces;
+using System.Security.Claims;
 
-namespace Domain.Interfaces.Services;
+namespace Application.Common.Interfaces;
 
 public sealed record TokenClaims(
     string UserId,        

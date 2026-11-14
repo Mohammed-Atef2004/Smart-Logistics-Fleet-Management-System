@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Application.Common.Interfaces;
+using AutoMapper;
 using Domain.SharedKernel;
 using Domain.Users;
 using Domain.Users.Errors;

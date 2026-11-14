@@ -1,8 +1,7 @@
-﻿using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
+﻿using Application.Common.Interfaces;
+using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
 using Application.Common;
 using Application.Features.Users.Services;
-using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services;
 using Application.Common.Settings;
 using Domain.SharedKernel;
 using Domain.Users;

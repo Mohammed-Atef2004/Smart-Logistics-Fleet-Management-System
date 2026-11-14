@@ -1,6 +1,6 @@
-﻿using Domain.Shipments.ValueObjects;
+﻿using Application.Common.Interfaces;
+using Domain.Shipments.ValueObjects;
 using Domain.Shipments;
-using Domain.Interfaces.Repositories;
 using Domain.SharedKernel;
 using MediatR;
 using System;

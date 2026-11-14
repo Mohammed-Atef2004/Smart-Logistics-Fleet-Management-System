@@ -1,7 +1,6 @@
-﻿using Application.Features.Users.Services;
+﻿using Application.Common.Interfaces;
+using Application.Features.Users.Services;
 using Domain.Claims;
-using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services;
 using Domain.Inventory;
 using Domain.Invoices;
 using Domain.Payments;

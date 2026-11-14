@@ -1,8 +1,9 @@
+﻿using Application.Common.Interfaces;
 using Domain.Payments;
 using Domain.Payments.Enums;
 using Domain.Payments.ValueObjects;
 
-namespace Domain.Payments;
+namespace Application.Common.Interfaces;
 
 public interface IPaymentRepository
 {

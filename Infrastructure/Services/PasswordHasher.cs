@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Services;
+﻿using Application.Common.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;

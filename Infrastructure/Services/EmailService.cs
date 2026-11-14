@@ -1,4 +1,4 @@
-﻿using Domain.Interfaces.Services;
+﻿using Application.Common.Interfaces;
 using Application.Common.Settings;
 using Domain.SharedKernel;
 using Domain.Users.Errors;

@@ -1,4 +1,5 @@
-﻿using Domain.Drivers.ValueObjects;
+﻿using Application.Common.Interfaces;
+using Domain.Drivers.ValueObjects;
 using Domain.Shifts;
 using Domain.Shifts.Enums;
 using Domain.Shifts.ValueObjects;

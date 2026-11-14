@@ -1,6 +1,6 @@
-﻿using Application.Features.Shipment.DTOs;
+﻿using Application.Common.Interfaces;
+using Application.Features.Shipment.DTOs;
 using AutoMapper;
-using Domain.Interfaces.Repositories;
 using Domain.SharedKernel;
 using MediatR;
 using System;

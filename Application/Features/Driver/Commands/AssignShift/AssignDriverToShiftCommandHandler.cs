@@ -1,5 +1,5 @@
-﻿using Application.Features.Driver.DomainServices;
-using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
+using Application.Features.Driver.DomainServices;
 using MediatR;
 
 namespace Application.Features.Driver.Commands.AssignShift;

@@ -1,4 +1,5 @@
-﻿using Application.Features.Users.Services;
+﻿using Application.Common.Interfaces;
+using Application.Features.Users.Services;
 using Domain.SharedKernel;
 using Domain.Users;
 using Domain.Users.Errors;

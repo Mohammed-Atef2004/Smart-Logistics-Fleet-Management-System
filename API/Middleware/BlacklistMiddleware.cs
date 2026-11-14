@@ -1,5 +1,4 @@
-﻿using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services;
+﻿using Application.Common.Interfaces;
 using System.IdentityModel.Tokens.Jwt;
 
 namespace WebApi.Middlewares;

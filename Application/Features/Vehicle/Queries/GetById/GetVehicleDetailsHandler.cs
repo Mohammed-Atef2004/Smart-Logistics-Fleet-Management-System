@@ -1,5 +1,5 @@
-﻿using Application.Features.Vehicle.DTOs;
-using Domain.Interfaces.Repositories;
+﻿using Application.Common.Interfaces;
+using Application.Features.Vehicle.DTOs;
 using Domain.SharedKernel;
 using MediatR;
 using System;

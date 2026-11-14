@@ -1,4 +1,5 @@
-﻿using Domain.Invoices;
+﻿using Application.Common.Interfaces;
+using Domain.Invoices;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Repositories.Shared;
 using System;

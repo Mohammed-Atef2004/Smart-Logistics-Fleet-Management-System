@@ -1,5 +1,4 @@
-﻿using Domain.Interfaces.Repositories;
-using Domain.Interfaces.Services;
+﻿using Application.Common.Interfaces;
 using Domain.SharedKernel;
 using MediatR;
 using Microsoft.AspNetCore.Http;
