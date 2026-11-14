@@ -94,7 +94,7 @@
   - [x] `API/Program.cs`
   - [x] `Infrastructure/DependencyInjection.cs`
 - [x] **0.2** ~~شيل الـ packages الغير مستخدمة~~ **✅ خلصت** — اتشالت بالفعل في commit الـ net10: `AWSSDK.Core`, `MassTransit.*`, `NetArchTest.Rules` (من غير الـ tests). **تعديل على الخطة:** `BCrypt.Net-Next` **مستخدم فعلًا** في `Infrastructure/Services/PasswordHasher.cs` (الـ IPasswordHasher المخصص) — هيفضل. اللي اتشال النهارده: `AutoMapper` من Infrastructure (صفر استخدام — التسجيل كله في API/Application)
-- [ ] **0.3** وحّد الـ Target Framework على **net9.0** في كل المشاريع + طابق الـ versions (JwtBearer 9.x بدل 8.0.0)
+- [x] **0.3** ~~وحّد الـ Target Framework~~ **✅ خلصت** — اتحوّلت كل المشاريع على **net10.0** (مش net9.0 زي ما كانت الخطة) في commit الـ package unification، والـ versions متطابقة (EF/JwtBearer 10.0.15)
 - [x] **0.4** ~~صلّح الـ typos~~ **✅ خلصت** — `Presistence` → `Persistence` (فولدر + namespaces + 41 ملف)، `ValidatoinBehaviour` → `ValidationBehavior` (+ `LoggingBehaviour` → `LoggingBehavior`)، `CreateInoivceCommandValidator` → `CreateInvoiceCommandValidator`، `IAudiatable` → `IAuditable`، `InverntoryItemTests` اتحمّج مع `InventoryItemTests.cs` (27 اختبار مكرر → 16 شاملين بيغطوا الـ Domain Events والـ edge cases)، `Address .cs` → `Address.cs`
 - [x] **0.5** ~~صلّح الـ namespaces المعوجة~~ **✅ خلصت** —
   `Infrastructure.Repositories.Vehicle.Infrastructure.Repositories` اتفك (nested namespace accidental) واتبسّط لـ `Infrastructure.Repositories` زي كل الـ repos،
@@ -103,10 +103,10 @@
   `DbSet<InsuranceClaim> insuranceClaims` → `InsuranceClaims`
 - [x] **0.6** ~~الـ event المكرر `PaymentFailedDomainEvent`~~ **✅ اتصلحت** — طلع class فاضي dead مش event مكرر فعليًا: `PaymentFailedEvent` هو الحدث الحقيقي المستخدم (بيـpublish من `Payment.cs`)، والفاضي اتحذف من غير أي تعديل على publisher/handler
 - [x] **0.7** ~~الـ `DbSet` الـ duplicates~~ **✅ اتحققت** — مفيش duplicates أصلًا: كل aggregate له DbSet واحد في `AppDbContext` (الـ fix الوحيد كان casing بتاع الـ claims في 0.5)
-- [ ] **0.8** شغّل: `dotnet build` + `dotnet test` — لازم كله ينجح
-- [ ] **0.9** Commit منفصل لكل مجموعة تغييرات (clean history بيبيع)
+- [x] **0.8** ~~شغّل: `dotnet build` + `dotnet test`~~ **✅ بنجاح** — 0 errors + Domain.Tests 86/86 + Architecture.Tests 9/9
+- [x] **0.9** ~~Commit منفصل لكل مجموعة تغييرات~~ **✅ خلصت** — كل بند ليه commit مستقل
 
-**معيار النجاح:** مفيش أي namespace غريب، مفيش package dead، كل المشاريع net9.0، والـ tests خضرا.
+**معيار النجاح:** مفيش أي namespace غريب، مفيش package dead، كل المشاريع **net10.0**، والـ tests خضرا. ✅ **المرحلة 0 اكتملت بالكامل**
 
 ---
 
