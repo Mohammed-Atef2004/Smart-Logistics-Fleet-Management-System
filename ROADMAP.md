@@ -95,19 +95,14 @@
   - [x] `Infrastructure/DependencyInjection.cs`
 - [x] **0.2** ~~شيل الـ packages الغير مستخدمة~~ **✅ خلصت** — اتشالت بالفعل في commit الـ net10: `AWSSDK.Core`, `MassTransit.*`, `NetArchTest.Rules` (من غير الـ tests). **تعديل على الخطة:** `BCrypt.Net-Next` **مستخدم فعلًا** في `Infrastructure/Services/PasswordHasher.cs` (الـ IPasswordHasher المخصص) — هيفضل. اللي اتشال النهارده: `AutoMapper` من Infrastructure (صفر استخدام — التسجيل كله في API/Application)
 - [ ] **0.3** وحّد الـ Target Framework على **net9.0** في كل المشاريع + طابق الـ versions (JwtBearer 9.x بدل 8.0.0)
-- [ ] **0.4** صلّح الـ typos (استخدم rename بالـ IDE مش يدوي):
-  - [ ] `Presistence` → `Persistence` (فولدرات + namespaces + usings)
-  - [ ] `ValidatoinBehaviour` → `ValidationBehavior`
-  - [ ] `CreateInoivceCommandValidator` → `CreateInvoiceCommandValidator`
-  - [ ] `IAudiatable` → `IAuditable`
-  - [ ] `InverntoryItemTests` → دمجه مع `InventoryItemTests.cs` (بعد مقارنة المحتوى واختيار الأفضل)
-  - [ ] `Address .cs` → `Address.cs` (شيل الـ space من اسم الملف)
-- [ ] **0.5** صلّح الـ namespaces المعوجة:
-  - [ ] `Infrastructure.Repositories.Vehicle.Infrastructure.Repositories` → namespace سليم
-  - [ ] وحّد `Domain.Inventory` vs `Domain.InventoryItems` على واحد
-  - [ ] `DbSet<InsuranceClaim> insuranceClaims` → `InsuranceClaims`
-- [ ] **0.6** احذف الـ event المكرر `PaymentFailedDomainEvent` (خلي واحد بس) + عدّل الـ publisher والـ handler
-- [ ] **0.7** شيل الـ `DbSet<Invoice>` الـ duplicates من `AppDbContext` لو فيه، واتأكد إن كل aggregate له DbSet واحد
+- [x] **0.4** ~~صلّح الـ typos~~ **✅ خلصت** — `Presistence` → `Persistence` (فولدر + namespaces + 41 ملف)، `ValidatoinBehaviour` → `ValidationBehavior` (+ `LoggingBehaviour` → `LoggingBehavior`)، `CreateInoivceCommandValidator` → `CreateInvoiceCommandValidator`، `IAudiatable` → `IAuditable`، `InverntoryItemTests` اتحمّج مع `InventoryItemTests.cs` (27 اختبار مكرر → 16 شاملين بيغطوا الـ Domain Events والـ edge cases)، `Address .cs` → `Address.cs`
+- [x] **0.5** ~~صلّح الـ namespaces المعوجة~~ **✅ خلصت** —
+  `Infrastructure.Repositories.Vehicle.Infrastructure.Repositories` اتفك (nested namespace accidental) واتبسّط لـ `Infrastructure.Repositories` زي كل الـ repos،
+  `VehicleUniqnessChecker.cs` → `VehicleUniquenessChecker.cs`،
+  `Domain.InventoryItems` اتوحّد على `Domain.Inventory` (entity + interface + 27 ملف)،
+  `DbSet<InsuranceClaim> insuranceClaims` → `InsuranceClaims`
+- [x] **0.6** ~~الـ event المكرر `PaymentFailedDomainEvent`~~ **✅ اتصلحت** — طلع class فاضي dead مش event مكرر فعليًا: `PaymentFailedEvent` هو الحدث الحقيقي المستخدم (بيـpublish من `Payment.cs`)، والفاضي اتحذف من غير أي تعديل على publisher/handler
+- [x] **0.7** ~~الـ `DbSet` الـ duplicates~~ **✅ اتحققت** — مفيش duplicates أصلًا: كل aggregate له DbSet واحد في `AppDbContext` (الـ fix الوحيد كان casing بتاع الـ claims في 0.5)
 - [ ] **0.8** شغّل: `dotnet build` + `dotnet test` — لازم كله ينجح
 - [ ] **0.9** Commit منفصل لكل مجموعة تغييرات (clean history بيبيع)
 
