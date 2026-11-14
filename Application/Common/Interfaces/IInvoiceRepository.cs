@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Invoices;
+﻿using Domain.Invoices;
 
 namespace Application.Common.Interfaces;
 

@@ -1,16 +1,8 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Users.Services;
-using Domain.SharedKernel;
+﻿using Application.Features.Users.Services;
 using Domain.Users;
 using Domain.Users.Errors;
 using Domain.Users.ValueObjects;
-using MediatR;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Domain.Users.Errors.UserErrors;
 
 namespace Application.Features.Users.Commands.Authentication.ConfirmEmailChange

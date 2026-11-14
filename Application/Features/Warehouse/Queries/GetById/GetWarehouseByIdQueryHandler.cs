@@ -1,10 +1,6 @@
-﻿using Application.Common.Interfaces;
-using Domain.SharedKernel;
-using Domain.Warehouse;
+﻿using Domain.Warehouse;
 using Domain.Warehouse.Errors;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace Application.Warehouses.GetWarehouseById
 {

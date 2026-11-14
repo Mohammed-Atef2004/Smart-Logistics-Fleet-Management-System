@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Warehouse;
+﻿using Domain.Warehouse;
 
 namespace Application.Common.Interfaces;
 

@@ -1,6 +1,4 @@
-﻿
-
-namespace Application.Warehouses.AddStorageLocation
+﻿namespace Application.Warehouses.AddStorageLocation
 {
 
     public sealed record AddStorageLocationResponse(Guid StorageLocationId);

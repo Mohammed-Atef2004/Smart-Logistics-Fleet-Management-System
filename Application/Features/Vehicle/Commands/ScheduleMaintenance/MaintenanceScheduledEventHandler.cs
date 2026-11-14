@@ -1,6 +1,4 @@
 ﻿using Domain.Vehicles.Events;
-using MediatR;
-using Microsoft.Extensions.Logging;
 
 namespace Application.Features.Vehicles.Events;
 

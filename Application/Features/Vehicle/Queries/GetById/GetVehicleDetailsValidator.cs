@@ -1,11 +1,4 @@
-﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Vehicle.Queries.GetById
+﻿namespace Application.Features.Vehicle.Queries.GetById
 {
     public class GetVehicleDetailsValidator : AbstractValidator<GetVehicleDetailsQuery>
     {

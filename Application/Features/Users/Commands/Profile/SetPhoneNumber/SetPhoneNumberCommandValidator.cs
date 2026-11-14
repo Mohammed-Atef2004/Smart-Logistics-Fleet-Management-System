@@ -1,11 +1,4 @@
-﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Users.Commands.Profile.SetPhoneNumber
+﻿namespace Application.Features.Users.Commands.Profile.SetPhoneNumber
 {
     public sealed class SetPhoneNumberCommandValidator : AbstractValidator<SetPhoneNumberCommand>
     {

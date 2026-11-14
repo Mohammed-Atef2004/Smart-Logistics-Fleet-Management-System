@@ -1,8 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.SharedKernel;
-using Domain.Users;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using Domain.Users;
 
 namespace Application.Common.Interfaces
 {

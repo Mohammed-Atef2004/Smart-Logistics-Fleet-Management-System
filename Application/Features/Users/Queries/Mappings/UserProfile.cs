@@ -1,13 +1,7 @@
 ﻿using Application.Features.Users.Queries.GetUserByEmail;
 using Application.Features.Users.Queries.GetUserById;
 using Application.Features.Users.Queries.GetUsersByRole;
-using AutoMapper;
 using Domain.Users;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Users.Queries.Mappings
 {

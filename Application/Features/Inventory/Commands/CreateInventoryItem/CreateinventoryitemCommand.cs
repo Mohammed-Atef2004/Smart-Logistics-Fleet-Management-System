@@ -1,8 +1,4 @@
-﻿
-using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Inventory.CreateInventoryItem
+﻿namespace Application.Inventory.CreateInventoryItem
 { 
     public sealed record CreateInventoryItemCommand(
         string Sku,

@@ -1,12 +1,9 @@
-﻿using Application.Common.Interfaces;
-using Domain.Inventory;
+﻿using Domain.Inventory;
 using Domain.Inventory.Errors;
 using Domain.Inventory.ValueObjects;
 using Domain.InventoryItems;
-using Domain.SharedKernel;
 using Domain.Shipments.Enums;
 using Domain.Shipments.ValueObjects;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Inventory.CreateInventoryItem

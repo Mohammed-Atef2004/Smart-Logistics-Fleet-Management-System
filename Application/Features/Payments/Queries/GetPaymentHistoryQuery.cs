@@ -1,7 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Domain.Payments;
+﻿using Domain.Payments;
 using Domain.Payments.Enums;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Payments.Queries;

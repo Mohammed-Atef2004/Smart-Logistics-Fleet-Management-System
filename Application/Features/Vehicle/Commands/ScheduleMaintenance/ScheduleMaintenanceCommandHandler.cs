@@ -1,8 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Vehicle.Commands.ScheduleMaintenance;
-using Domain.SharedKernel;
+﻿using Application.Features.Vehicle.Commands.ScheduleMaintenance;
 using Domain.Vehicles.ValueObjects;
-using MediatR;
 
 namespace Application.Features.Vehicles.Commands.ScheduleMaintenance;
 

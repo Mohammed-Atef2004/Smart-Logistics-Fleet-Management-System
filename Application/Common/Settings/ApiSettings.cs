@@ -1,4 +1,4 @@
-namespace Application.Common.Settings;
+﻿namespace Application.Common.Settings;
 
 public sealed class ApiSettings
 {

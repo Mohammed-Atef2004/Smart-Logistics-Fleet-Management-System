@@ -1,12 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Invoices.Queries.GetById;
+﻿using Application.Features.Invoices.Queries.GetById;
 using Domain.Invoices;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Queries.GetAll
 {

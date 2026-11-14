@@ -1,14 +1,5 @@
-﻿using Application.Common.Interfaces;
-using AutoMapper;
-using Domain.SharedKernel;
-using Domain.Users;
+﻿using Domain.Users;
 using Domain.Users.Errors;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Users.Queries.GetUserById
 {

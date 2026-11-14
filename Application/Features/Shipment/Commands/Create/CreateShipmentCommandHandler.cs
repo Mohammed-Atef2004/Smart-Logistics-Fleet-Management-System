@@ -1,13 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Domain.Shipments.ValueObjects;
+﻿using Domain.Shipments.ValueObjects;
 using Domain.Shipments;
-using Domain.SharedKernel;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Commands.Create
 {

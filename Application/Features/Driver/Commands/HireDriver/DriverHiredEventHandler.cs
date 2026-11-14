@@ -1,11 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using Domain.Drivers.Events;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Drivers.Events;
 
 namespace Application.Features.Driver.Commands.HireDriver
 {

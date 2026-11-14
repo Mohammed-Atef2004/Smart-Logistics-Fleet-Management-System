@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Inventory.AddStock
+﻿namespace Application.Inventory.AddStock
 {
     // ──────────────────────────── Validator ──────────────────────────
 

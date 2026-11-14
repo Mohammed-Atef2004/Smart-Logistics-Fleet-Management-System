@@ -1,4 +1,4 @@
-namespace Application.Features.Payments
+﻿namespace Application.Features.Payments
 {
     public record PaymentDetailsDto(
         Guid Id,

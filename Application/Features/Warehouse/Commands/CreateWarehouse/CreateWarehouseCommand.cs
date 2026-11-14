@@ -1,7 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Warehouses.CreateWarehouse
+﻿namespace Application.Warehouses.CreateWarehouse
 {
     // ──────────────────────────── Command ────────────────────────────
 

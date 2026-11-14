@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Inventory.AdjustReorderThreshold
+﻿namespace Application.Inventory.AdjustReorderThreshold
 {
     // ──────────────────────────── Validator ──────────────────────────
 

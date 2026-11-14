@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.DeactivateWarehouse
+﻿namespace Application.Warehouses.DeactivateWarehouse
 {
     // ──────────────────────────── Validator ──────────────────────────
 

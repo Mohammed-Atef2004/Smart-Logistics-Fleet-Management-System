@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Shipments;
+﻿using Domain.Shipments;
 using Domain.Shipments.Enums;
 
 namespace Application.Common.Interfaces;

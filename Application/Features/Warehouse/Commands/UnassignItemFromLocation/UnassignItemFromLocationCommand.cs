@@ -1,8 +1,4 @@
-﻿
-using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Warehouses.UnassignItemFromLocation
+﻿namespace Application.Warehouses.UnassignItemFromLocation
 {
 
     public sealed record UnassignItemFromLocationCommand(

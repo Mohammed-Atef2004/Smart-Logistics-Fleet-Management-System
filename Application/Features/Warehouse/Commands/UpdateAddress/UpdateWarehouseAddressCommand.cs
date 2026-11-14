@@ -1,8 +1,4 @@
-﻿
-using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Warehouses.UpdateAddress
+﻿namespace Application.Warehouses.UpdateAddress
 {
 
     public sealed record UpdateWarehouseAddressCommand(

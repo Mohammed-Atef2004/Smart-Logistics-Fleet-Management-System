@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Vehicles;
+﻿using Domain.Vehicles;
 using Domain.Vehicles.Enums;
 
 namespace Application.Common.Interfaces;

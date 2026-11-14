@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Inventory.GetInventoryItemById
+﻿namespace Application.Inventory.GetInventoryItemById
 {
     // ──────────────────────────── Validator ──────────────────────────
 

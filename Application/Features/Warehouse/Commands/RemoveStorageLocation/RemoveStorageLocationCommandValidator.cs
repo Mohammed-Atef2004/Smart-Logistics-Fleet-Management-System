@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.RemoveStorageLocation
+﻿namespace Application.Warehouses.RemoveStorageLocation
 {
     // ──────────────────────────── Validator ──────────────────────────
 

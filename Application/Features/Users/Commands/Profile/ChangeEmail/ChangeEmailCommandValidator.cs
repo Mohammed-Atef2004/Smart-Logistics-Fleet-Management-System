@@ -1,11 +1,4 @@
-﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Users.Commands.Profile.ChangeEmail
+﻿namespace Application.Features.Users.Commands.Profile.ChangeEmail
 {
     public sealed class ChangeEmailCommandValidator : AbstractValidator<ChangeEmailCommand>
     {

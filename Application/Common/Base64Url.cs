@@ -1,4 +1,4 @@
-namespace Application.Common;
+﻿namespace Application.Common;
 
 /// <summary>
 /// URL-safe Base64 encoding/decoding for tokens embedded in links.

@@ -1,12 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Driver.Commands.UpdateLicence
+﻿namespace Application.Features.Driver.Commands.UpdateLicence
 {
     public sealed class LicenceUpdatedEventHandler : INotificationHandler<DriverLicenseUpdatedEvent>
     {

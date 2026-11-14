@@ -1,11 +1,4 @@
-﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Driver.Commands.HireDriver
+﻿namespace Application.Features.Driver.Commands.HireDriver
 {
     public class HireDriverCommandValidator:AbstractValidator<HireDriverCommand>
     {

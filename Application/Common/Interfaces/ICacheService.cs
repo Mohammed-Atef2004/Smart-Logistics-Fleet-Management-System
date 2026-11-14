@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-namespace Application.Common.Interfaces
+﻿namespace Application.Common.Interfaces
 {
     public interface ICacheService
     {

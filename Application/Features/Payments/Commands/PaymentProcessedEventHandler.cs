@@ -1,9 +1,6 @@
-﻿using Application.Common.Interfaces;
-using Domain.Invoices;
+﻿using Domain.Invoices;
 using Domain.Invoices.ValueObjects;
 using Domain.Payments.Events;
-using Domain.SharedKernel;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Payments.EventHandlers

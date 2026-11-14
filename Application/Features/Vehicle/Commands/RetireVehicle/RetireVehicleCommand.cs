@@ -1,12 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Vehicle.Commands.RetireVehicle
+﻿namespace Application.Features.Vehicle.Commands.RetireVehicle
 {
     public record RetireVehicleCommand(Guid VehicleId) : IRequest<Result>;
 }

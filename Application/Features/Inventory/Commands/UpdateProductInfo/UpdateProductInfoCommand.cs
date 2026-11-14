@@ -1,7 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Inventory.UpdateProductInfo
+﻿namespace Application.Inventory.UpdateProductInfo
 {
 
     public sealed record UpdateProductInfoCommand(

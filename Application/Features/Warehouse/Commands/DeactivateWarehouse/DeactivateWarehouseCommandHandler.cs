@@ -1,9 +1,6 @@
-﻿using Application.Common.Interfaces;
-using Domain.SharedKernel;
-using Domain.Warehouse;
+﻿using Domain.Warehouse;
 using Domain.Warehouse.Errors;
 using Domain.Warehouse.ValueObjects;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Warehouses.DeactivateWarehouse

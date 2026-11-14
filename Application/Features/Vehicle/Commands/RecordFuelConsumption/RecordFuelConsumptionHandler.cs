@@ -1,8 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Vehicle.Commands.RecordFuelConsumption;
-using Domain.SharedKernel;
+﻿using Application.Features.Vehicle.Commands.RecordFuelConsumption;
 using Domain.Vehicles.ValueObjects;
-using MediatR;
 
 namespace Application.Features.Vehicles.Commands.RecordFuelConsumption;
 

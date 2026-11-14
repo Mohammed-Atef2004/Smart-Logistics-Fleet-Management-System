@@ -1,5 +1,4 @@
-﻿
-using Domain.Warehouse.Errors;
+﻿using Domain.Warehouse.Errors;
 
 namespace Application.Warehouses.CreateWarehouse
 {

@@ -1,22 +1,14 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
+﻿using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
 using Application.Common;
 using Application.Features.Users.Services;
 using Application.Common.Settings;
-using Domain.SharedKernel;
 using Domain.Users;
 using Domain.Users.Errors;
 using Domain.Users.ValueObjects;
-using MediatR;
 using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Users.Commands.Authentication.ForgotPassword
 {

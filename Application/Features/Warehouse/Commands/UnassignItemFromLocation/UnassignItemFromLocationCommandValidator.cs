@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.UnassignItemFromLocation
+﻿namespace Application.Warehouses.UnassignItemFromLocation
 {
     // ──────────────────────────── Validator ──────────────────────────
 

@@ -1,8 +1,4 @@
-﻿
-using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Inventory.UpdateWeight
+﻿namespace Application.Inventory.UpdateWeight
 {
 
     public sealed record UpdateWeightCommand(

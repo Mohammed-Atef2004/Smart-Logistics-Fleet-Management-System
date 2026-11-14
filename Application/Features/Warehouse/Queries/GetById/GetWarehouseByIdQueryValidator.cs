@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.GetWarehouseById
+﻿namespace Application.Warehouses.GetWarehouseById
 {
     // ──────────────────────────── Validator ──────────────────────────
 

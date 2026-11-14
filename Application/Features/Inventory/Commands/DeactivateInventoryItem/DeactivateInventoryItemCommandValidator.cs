@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Inventory.DeactivateInventoryItem
+﻿namespace Application.Inventory.DeactivateInventoryItem
 {
 
     public sealed class DeactivateInventoryItemCommandValidator

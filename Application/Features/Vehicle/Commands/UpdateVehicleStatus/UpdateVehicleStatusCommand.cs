@@ -1,11 +1,4 @@
-﻿using Domain.SharedKernel;
-using Domain.Vehicles.Enums;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Vehicles.Enums;
 
 namespace Application.Features.Vehicle.Commands.UpdateVehicleStatus
 {

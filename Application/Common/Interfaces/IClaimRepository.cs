@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Claims;
+﻿using Domain.Claims;
 
 namespace Application.Common.Interfaces;
 

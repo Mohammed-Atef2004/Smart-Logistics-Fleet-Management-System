@@ -1,9 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Domain.Payments;
+﻿using Domain.Payments;
 using Domain.Payments.Errors;
-using Domain.SharedKernel;
-using FluentValidation;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Payments.Commands.RefundPayment;

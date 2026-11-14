@@ -1,5 +1,4 @@
 ﻿using Domain.Drivers.ValueObjects;
-using Domain.SharedKernel;
 using Domain.Shifts;
 using Domain.Shifts.ValueObjects;
 using ShiftAggregate = Domain.Shifts.Shift;

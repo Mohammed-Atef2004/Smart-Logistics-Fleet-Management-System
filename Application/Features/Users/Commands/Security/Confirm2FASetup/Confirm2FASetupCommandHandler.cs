@@ -1,15 +1,7 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Users.Services;
-using Domain.SharedKernel;
+﻿using Application.Features.Users.Services;
 using Domain.Users;
 using Domain.Users.Errors;
-using MediatR;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Users.Commands.Security.Confirm2FASetup
 {

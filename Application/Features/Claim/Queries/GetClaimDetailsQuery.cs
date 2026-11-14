@@ -1,8 +1,6 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Claims.DTOs;
+﻿using Application.Features.Claims.DTOs;
 using Domain.Claims;
 using Domain.Claims.ValueObjects;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Claims.Queries.GetClaimDetails;

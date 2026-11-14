@@ -1,11 +1,4 @@
-﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Users.Commands.Admin.Delete
+﻿namespace Application.Features.Users.Commands.Admin.Delete
 {
     public sealed class DeleteUserCommandValidator : AbstractValidator<DeleteUserCommand>
     {

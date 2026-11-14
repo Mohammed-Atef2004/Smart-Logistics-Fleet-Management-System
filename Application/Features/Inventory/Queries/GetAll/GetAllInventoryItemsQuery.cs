@@ -1,7 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Inventory.GetAllInventoryItems
+﻿namespace Application.Inventory.GetAllInventoryItems
 {
     // ──────────────────────────── Query ──────────────────────────────
 

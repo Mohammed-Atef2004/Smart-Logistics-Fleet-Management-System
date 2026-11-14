@@ -1,13 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Vehicles;
-using Domain.SharedKernel;
-using MediatR;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Vehicles;
 
 namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
 {

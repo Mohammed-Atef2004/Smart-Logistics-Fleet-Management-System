@@ -1,16 +1,8 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
+﻿using Application.Features.Users.Commands.Authentication.VerifyTwoFactor;
 using Application.Features.Users.Services;
-using Domain.SharedKernel;
 using Domain.Users;
 using Domain.Users.Errors;
-using MediatR;
 using Microsoft.AspNetCore.Http;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Users.Commands.Profile.SetPhoneNumber
 {

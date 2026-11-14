@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Users;
+﻿using Domain.Users;
 using Domain.Users.ValueObjects;
 
 namespace Application.Common.Interfaces;

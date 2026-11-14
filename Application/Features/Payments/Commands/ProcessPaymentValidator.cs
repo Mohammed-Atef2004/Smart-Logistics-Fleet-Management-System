@@ -1,6 +1,4 @@
-using FluentValidation;
-
-namespace Application.Payments.Commands.ProcessPayment
+﻿namespace Application.Payments.Commands.ProcessPayment
 {
     public class ProcessPaymentValidator : AbstractValidator<ProcessPaymentCommand>
     {

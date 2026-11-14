@@ -1,7 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Inventory.AdjustReorderThreshold
+﻿namespace Application.Inventory.AdjustReorderThreshold
 {
 
     public sealed record AdjustReorderThresholdCommand(

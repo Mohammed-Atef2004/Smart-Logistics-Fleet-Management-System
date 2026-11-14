@@ -1,12 +1,4 @@
-﻿using Microsoft.Extensions.Logging;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Driver.Commands.Reactivate
+﻿namespace Application.Features.Driver.Commands.Reactivate
 {
     public sealed class DriverReactivatedEventHandler:INotificationHandler<DriverReactivatedEvent>
     {

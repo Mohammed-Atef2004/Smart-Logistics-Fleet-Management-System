@@ -1,7 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Inventory.RemoveStock
+﻿namespace Application.Inventory.RemoveStock
 {
 
     public sealed record RemoveStockCommand(

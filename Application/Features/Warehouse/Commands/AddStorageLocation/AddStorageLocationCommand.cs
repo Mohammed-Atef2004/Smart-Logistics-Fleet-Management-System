@@ -1,7 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Warehouses.AddStorageLocation
+﻿namespace Application.Warehouses.AddStorageLocation
 {
 
     public sealed record AddStorageLocationCommand(

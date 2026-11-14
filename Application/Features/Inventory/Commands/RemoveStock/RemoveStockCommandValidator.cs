@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Inventory.RemoveStock
+﻿namespace Application.Inventory.RemoveStock
 {
     // ──────────────────────────── Validator ──────────────────────────
 

@@ -1,8 +1,4 @@
-﻿
-using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Warehouses.AssignItemToLocation
+﻿namespace Application.Warehouses.AssignItemToLocation
 {
 
     public sealed record AssignItemToLocationCommand(

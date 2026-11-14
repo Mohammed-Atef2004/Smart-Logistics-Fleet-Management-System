@@ -1,7 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Payments.Commands.ProcessPayment
+﻿namespace Application.Payments.Commands.ProcessPayment
 {
     public record ProcessPaymentCommand(
     Guid InvoiceId,

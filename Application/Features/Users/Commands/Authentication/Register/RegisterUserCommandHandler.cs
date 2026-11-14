@@ -1,13 +1,10 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Users;
+﻿using Application.Features.Users;
 using Application.Features.Users.Commands.Authentication.Register;
 using Application.Common;
 using Application.Features.Users.Services;
 using Application.Common.Settings;
-using Domain.SharedKernel;
 using Domain.Users;
 using Domain.Users.ValueObjects;
-using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 using System.Net;

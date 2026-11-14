@@ -153,6 +153,10 @@
   - [x] الـ repos اتسجلت في الـ DI فرادى (`IDriverRepository`, `IShiftRepository`, `IShipmentRepository`, `IVehicleUniquenessChecker`) والـ handlers بتحقنها مباشرة (~33 handler اتحدثوا)
   - [x] الـ query handlers بقت تعتمد على الـ repos مباشرة من غير `IUnitOfWork` خالص — الـ commands بتحقن الاتنين
   - [x] `UnitOfWork` مش بيـdispose الـ DbContext — الـ DI scope هو اللي بيملكه (كانت غلطة: `Dispose()` كان بيقتل الـ context وهي DI scope لسه عايش)
+- [x] **1.10** `Application/GlobalUsings.cs` — بديل عن تكرار نفس بلوك الـ usings في أول كل ملف (~296 ملف اتشال منها الـ usings المتكررة):
+  - [x] global usings: `MediatR`, `AutoMapper`, `FluentValidation`, `Domain.SharedKernel`, `Application.Common.Interfaces`, `Microsoft.Extensions.Logging`
+  - [x] كمان اتشالت الـ `using System;`/`System.Collections.Generic`/`System.Linq`/`System.Threading(.Tasks)` الـ redundant (مغطاة بـ `ImplicitUsings`) و `System.Text` من الملفات اللي مبتستخدمهاش فعليًا (5 ملفات بس محتاجينها)
+  - [x] **متسابش global:** `Microsoft.EntityFrameworkCore` — الـ handlers مملوكة persistence concerns دي ديون المرحلة 3
 
 **معيار النجاح:** `dotnet test` على Architecture.Tests بيعدّي، والـ Domain.csproj مفيهوش غير MediatR. ✅
 

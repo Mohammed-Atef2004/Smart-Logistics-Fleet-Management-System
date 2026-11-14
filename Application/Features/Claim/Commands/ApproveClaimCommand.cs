@@ -1,7 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Domain.Claims;
+﻿using Domain.Claims;
 using Domain.Claims.ValueObjects;
-using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Claims.Commands.ApproveClaim;

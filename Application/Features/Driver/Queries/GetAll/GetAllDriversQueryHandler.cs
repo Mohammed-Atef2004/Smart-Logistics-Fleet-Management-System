@@ -1,12 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Driver.DTOs;
-using AutoMapper;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Features.Driver.DTOs;
 
 namespace Application.Features.Driver.Queries.GetAll
 {

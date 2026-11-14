@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using System.Security.Claims;
+﻿using System.Security.Claims;
 
 namespace Application.Common.Interfaces;
 

@@ -1,13 +1,5 @@
-﻿using Application.Common.Interfaces;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Domain.Shifts;
+﻿using Domain.Shifts;
 using Domain.Shifts.ValueObjects;
-using Domain.SharedKernel;
 namespace Application.Features.Shift.Commands.Create
 {
     public sealed class CreateShiftCommandHandler :IRequestHandler<CreateShiftCommand, Result<ShiftId>>

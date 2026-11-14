@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Users.Commands.Authentication.VerifyTwoFactor
+﻿namespace Application.Features.Users.Commands.Authentication.VerifyTwoFactor
 {
     public sealed record LoginResponse(
     string? Token,
@@ -13,4 +7,3 @@ namespace Application.Features.Users.Commands.Authentication.VerifyTwoFactor
     bool RequiresTwoFactor
 );
 }
-

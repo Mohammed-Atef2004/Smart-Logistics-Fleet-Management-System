@@ -1,7 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.SharedKernel;
-using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 

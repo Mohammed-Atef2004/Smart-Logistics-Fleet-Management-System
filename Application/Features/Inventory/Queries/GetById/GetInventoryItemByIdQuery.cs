@@ -1,6 +1,4 @@
 ﻿using Domain.Inventory.ValueObjects;
-using Domain.SharedKernel;
-using MediatR;
 
 namespace Application.Inventory.GetInventoryItemById
 {

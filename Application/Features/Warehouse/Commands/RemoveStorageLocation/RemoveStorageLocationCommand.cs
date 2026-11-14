@@ -1,8 +1,4 @@
-﻿
-using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Warehouses.RemoveStorageLocation
+﻿namespace Application.Warehouses.RemoveStorageLocation
 {
 
     public sealed record RemoveStorageLocationCommand(

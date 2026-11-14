@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Payments;
+﻿using Domain.Payments;
 using Domain.Payments.Enums;
 using Domain.Payments.ValueObjects;
 

@@ -1,12 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Vehicle.DTOs;
-using Domain.SharedKernel;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Features.Vehicle.DTOs;
 
 namespace Application.Features.Vehicle.Queries.GetById
 {

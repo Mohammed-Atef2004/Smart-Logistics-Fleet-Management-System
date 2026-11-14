@@ -1,12 +1,4 @@
-﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Driver.Commands.Suspend
+﻿namespace Application.Features.Driver.Commands.Suspend
 {
     public sealed class DriverSuspendedEventHandler : INotificationHandler<DriverSuspendedEvent>
     {

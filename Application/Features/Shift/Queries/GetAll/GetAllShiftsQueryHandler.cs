@@ -1,13 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Shift.DTOs;
-using AutoMapper;
-using Domain.SharedKernel;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Features.Shift.DTOs;
 
 namespace Application.Features.Shift.Queries.GetAll
 {

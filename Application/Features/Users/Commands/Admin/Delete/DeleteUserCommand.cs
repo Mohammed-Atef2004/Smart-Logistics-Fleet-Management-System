@@ -1,12 +1,4 @@
-﻿using Domain.SharedKernel;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.Features.Users.Commands.Admin.Delete
+﻿namespace Application.Features.Users.Commands.Admin.Delete
 {
     public sealed record DeleteUserCommand(
     Guid UserId,

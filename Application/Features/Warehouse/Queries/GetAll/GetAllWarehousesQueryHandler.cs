@@ -1,7 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.SharedKernel;
-using Domain.Warehouse;
-using MediatR;
+﻿using Domain.Warehouse;
 
 namespace Application.Warehouses.GetAllWarehouses
 {

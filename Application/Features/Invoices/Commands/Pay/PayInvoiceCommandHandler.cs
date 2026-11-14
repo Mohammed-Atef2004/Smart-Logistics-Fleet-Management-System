@@ -1,13 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Domain.Invoices;
-using Domain.SharedKernel;
-using MediatR;
+﻿using Domain.Invoices;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Invoices.Commands.Pay
 {

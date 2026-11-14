@@ -1,8 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Vehicle.Commands.UpdateVehicleStatus;
-using Domain.SharedKernel;
+﻿using Application.Features.Vehicle.Commands.UpdateVehicleStatus;
 using Domain.Vehicles.ValueObjects;
-using MediatR;
 
 namespace Application.Features.Vehicles.Commands.UpdateVehicleStatus;
 

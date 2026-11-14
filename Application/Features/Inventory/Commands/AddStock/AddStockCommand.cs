@@ -1,8 +1,4 @@
-﻿
-using Domain.SharedKernel;
-using MediatR;
-
-namespace Application.Inventory.AddStock
+﻿namespace Application.Inventory.AddStock
 {
     public sealed record AddStockCommand(
         Guid InventoryItemId,

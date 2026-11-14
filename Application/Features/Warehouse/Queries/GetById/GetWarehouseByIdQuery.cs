@@ -1,6 +1,4 @@
-﻿using Domain.SharedKernel;
-using Domain.Warehouse.ValueObjects;
-using MediatR;
+﻿using Domain.Warehouse.ValueObjects;
 
 namespace Application.Warehouses.GetWarehouseById
 {

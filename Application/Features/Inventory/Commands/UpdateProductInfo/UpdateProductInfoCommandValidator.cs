@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Inventory.UpdateProductInfo
+﻿namespace Application.Inventory.UpdateProductInfo
 {
     // ──────────────────────────── Validator ──────────────────────────
 

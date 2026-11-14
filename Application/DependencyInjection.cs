@@ -1,7 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MediatR;
 using Application;
 using Application.Common.Settings;
 using Application.Features.Driver.Commands.AssignShift;

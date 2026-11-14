@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.CreateWarehouse
+﻿namespace Application.Warehouses.CreateWarehouse
 {
 
     public sealed class CreateWarehouseCommandValidator : AbstractValidator<CreateWarehouseCommand>

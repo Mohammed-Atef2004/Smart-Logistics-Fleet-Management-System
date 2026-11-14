@@ -1,5 +1,4 @@
 ﻿using Domain.Shipments.Enums;
-using FluentValidation;
 
 namespace Application.Inventory.UpdateWeight
 {

@@ -1,7 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Inventory;
-using Domain.SharedKernel;
-using MediatR;
+﻿using Domain.Inventory;
 
 namespace Application.Inventory.GetAllInventoryItems
 {

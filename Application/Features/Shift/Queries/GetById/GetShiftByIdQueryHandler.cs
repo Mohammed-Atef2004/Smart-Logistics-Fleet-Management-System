@@ -1,14 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Shift.DTOs;
-using AutoMapper;
-using Domain.SharedKernel;
-using MediatR;
+﻿using Application.Features.Shift.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Shift.Queries.GetById
 {

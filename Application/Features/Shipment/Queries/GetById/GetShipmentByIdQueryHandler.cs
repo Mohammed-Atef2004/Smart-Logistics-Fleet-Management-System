@@ -1,14 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Shipment.DTOs;
-using AutoMapper;
-using Domain.SharedKernel;
-using MediatR;
+﻿using Application.Features.Shipment.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Shipment.Queries.GetById
 {

@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.AssignItemToLocation
+﻿namespace Application.Warehouses.AssignItemToLocation
 {
     // ──────────────────────────── Validator ──────────────────────────
 

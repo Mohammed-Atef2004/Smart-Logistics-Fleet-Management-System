@@ -1,5 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Drivers;
+﻿using Domain.Drivers;
 
 namespace Application.Common.Interfaces;
 

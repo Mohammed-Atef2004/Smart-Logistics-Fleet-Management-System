@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.UpdateAddress
+﻿namespace Application.Warehouses.UpdateAddress
 {
 
     public sealed class UpdateWarehouseAddressCommandValidator

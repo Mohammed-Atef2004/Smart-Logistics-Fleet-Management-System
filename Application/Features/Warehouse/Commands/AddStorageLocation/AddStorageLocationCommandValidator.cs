@@ -1,6 +1,4 @@
-﻿using FluentValidation;
-
-namespace Application.Warehouses.AddStorageLocation
+﻿namespace Application.Warehouses.AddStorageLocation
 {
 
     public sealed class AddStorageLocationCommandValidator : AbstractValidator<AddStorageLocationCommand>

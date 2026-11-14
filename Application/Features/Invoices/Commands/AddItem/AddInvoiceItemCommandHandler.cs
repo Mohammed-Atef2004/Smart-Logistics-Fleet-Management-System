@@ -1,12 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.Invoices;
-using Domain.SharedKernel;
-using MediatR;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Invoices;
 
 namespace Application.Features.Invoices.Commands.AddItem
 {

@@ -1,13 +1,5 @@
-﻿using Application.Common.Interfaces;
-using Application.Features.Driver.DTOs;
-using AutoMapper;
-using MediatR;
+﻿using Application.Features.Driver.DTOs;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Features.Driver.Queries.GetById
 {

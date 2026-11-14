@@ -1,9 +1,4 @@
-﻿using MediatR;
-using Microsoft.Extensions.Logging;
-using System.Threading;
-using System.Threading.Tasks;
-
-namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
+﻿namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
 {
     public sealed class VehicleRegisteredEventHandler : INotificationHandler<VehicleRegisteredEvent>
     {

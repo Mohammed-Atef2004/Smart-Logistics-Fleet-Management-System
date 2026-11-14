@@ -1,12 +1,4 @@
-﻿using Application.Common.Interfaces;
-using Domain.SharedKernel;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Shift.Commands.CompleteShift
 {
