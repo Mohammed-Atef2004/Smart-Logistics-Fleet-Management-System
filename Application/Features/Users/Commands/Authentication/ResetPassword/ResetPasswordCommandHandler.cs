@@ -10,6 +10,7 @@ namespace Application.Features.Users.Commands.Authentication.ResetPassword
         private readonly IUserRepository _userRepository;
         private readonly IIdentityService _identityService;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly ITokenService _tokenService;
         private readonly IAuditService _auditService;
         private readonly IUnitOfWork _unitOfWork;
         private readonly ITotpService _totpService;
@@ -19,6 +20,7 @@ namespace Application.Features.Users.Commands.Authentication.ResetPassword
           IUserRepository userRepository,
           IIdentityService identityService,
           IPasswordHasher passwordHasher,
+          ITokenService tokenService,
           IAuditService auditService,
           IUnitOfWork unitOfWork,
           ITotpService totpService,
@@ -27,6 +29,7 @@ namespace Application.Features.Users.Commands.Authentication.ResetPassword
             _userRepository = userRepository;
             _identityService = identityService;
             _passwordHasher = passwordHasher;
+            _tokenService = tokenService;
             _auditService = auditService;
             _totpService = totpService;
             _unitOfWork = unitOfWork;
@@ -41,10 +44,8 @@ namespace Application.Features.Users.Commands.Authentication.ResetPassword
             if (user is null)
                 return Result.Failure(UserErrors.NotFound);
 
-            if (user.PasswordHashes.Any(h => _passwordHasher.VerifyPassword(command.NewPassword, h)))
-            {
-                return Result.Failure(UserErrors.SecurityErrors.PasswordAlreadyUsed);
-            }
+            var isPasswordReused = user.PasswordHashes.Any(h => _passwordHasher.VerifyPassword(command.NewPassword, h));
+
             var identityResult = await _identityService.ResetPasswordAsync(
               user.IdentityId,
               command.Token,
@@ -66,9 +67,19 @@ namespace Application.Features.Users.Commands.Authentication.ResetPassword
                 return Result.Failure(identityResult.Error);
             }
 
+            // RecordPasswordChange rejects reused passwords, updates the
+            // history, sets PasswordChangedAt and raises the domain event.
             var newHash = _passwordHasher.HashPassword(command.NewPassword);
-            user.UpdatePassword(newHash);
+            var recordResult = user.RecordPasswordChange(newHash, isPasswordReused);
+            if (recordResult.IsFailure)
+                return recordResult;
+
+            _userRepository.Update(user);
             await _unitOfWork.CompleteAsync(ct);
+
+            // A password reset must invalidate any existing session: the old
+            // refresh token can no longer mint access tokens.
+            await _tokenService.RevokeRefreshTokenAsync(user.IdentityId, ct);
 
             await _auditService.LogAsync(new AuditEntry(
               ActorId: user.Id,

@@ -49,7 +49,12 @@ namespace Application.Features.Users.Commands.Authentication.ConfirmEmailChange
                 return Result<string>.Failure(identityResult.Error);
             var newMail = Email.Create(command.NewEmail).Value;
 
-            var updateResult = user.UpdateEmail(newMail, isEmailTaken: false);
+            // Re-check uniqueness at confirmation time: the initiate-time
+            // check is stale (TOCTOU) — two accounts could otherwise both
+            // confirm a change to the same email.
+            var isEmailTaken = await _userRepository.ExistsByEmailAsync(newMail, ct);
+
+            var updateResult = user.UpdateEmail(newMail, isEmailTaken);
             if (updateResult.IsFailure)
                 return Result<string>.Failure(updateResult.Error);
 
