@@ -3,7 +3,7 @@ using Application;
 using Application.Features.Driver.Commands.HireDriver;
 using Infrastructure.Identity;
 using Infrastructure.Persistence;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

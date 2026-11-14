@@ -1,5 +1,5 @@
 ﻿using Domain.SharedKernel;
-using Infrastructure.Presistence.Interceptors;
+using Infrastructure.Persistence.Interceptors;
 using MediatR;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
