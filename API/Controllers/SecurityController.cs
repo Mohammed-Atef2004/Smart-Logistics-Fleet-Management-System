@@ -17,8 +17,10 @@ public sealed class SecurityController : ControllerBase
 
     public SecurityController(ISender sender) => _sender = sender;
 
+    // Read "domain_user_id" from the token instead of sub
+    // because sub holds the IdentityId (string), not the domain Guid
     private Guid CurrentUserId =>
-     Guid.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier) 
+     Guid.Parse(User.FindFirstValue("domain_user_id")
      ?? throw new UnauthorizedAccessException("User ID not found in claims"));
 
     [HttpGet("setup-2fa")]
