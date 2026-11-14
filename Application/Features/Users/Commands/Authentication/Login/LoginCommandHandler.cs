@@ -55,8 +55,16 @@ namespace Application.Features.Users.Commands.Authentication.Login
                 return Result<LoginResponse>.Failure(emailResult.Error);
 
             var user = await _userRepository.GetByEmailAsync(emailResult.Value, ct);
+
+            // Do not reveal whether the email exists (anti-enumeration):
+            // unknown email and wrong password return the same error.
             if (user is null)
-                return Result<LoginResponse>.Failure(UserErrors.NotFound);
+            {
+                // Burn equivalent CPU time so response timing does not
+                // differentiate between "email not found" and "wrong password".
+                await _identityService.CheckPasswordAsync(command.Email, command.Password, ct);
+                return Result<LoginResponse>.Failure(UserErrors.InvalidCredentials);
+            }
 
             var availabilityResult = user.CheckAvailability();
             if (availabilityResult.IsFailure)
@@ -101,11 +109,9 @@ namespace Application.Features.Users.Commands.Authentication.Login
                 return Result<LoginResponse>.Failure(UserErrors.InvalidCredentials);
             }
 
-            var loginResult = user.RecordSuccessfulLogin(ipAddress);
-            _userRepository.Update(user);
-            await _unitOfWork.CompleteAsync(ct);
-
-            // Handle two-factor authentication
+            // Two-factor login is not complete yet: do NOT record a successful
+            // login here. The VerifyTwoFactorLogin step records it and issues
+            // the tokens after a valid TOTP code.
             if (user.IsTwoFactorEnabled)
             {
                 return Result<LoginResponse>.Success(new LoginResponse(
@@ -116,7 +122,14 @@ namespace Application.Features.Users.Commands.Authentication.Login
                 ));
             }
 
-            
+            var loginResult = user.RecordSuccessfulLogin(ipAddress);
+            if (loginResult.IsFailure)
+                return Result<LoginResponse>.Failure(loginResult.Error);
+
+            _userRepository.Update(user);
+            await _unitOfWork.CompleteAsync(ct);
+
+
             var claims = new TokenClaims(
                 UserId: user.IdentityId,   // string - goes into the sub claim
                 DomainUserId: user.Id,     // Guid  - goes into the domain_user_id claim
