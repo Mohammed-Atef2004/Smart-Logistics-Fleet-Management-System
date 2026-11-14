@@ -71,7 +71,7 @@ namespace Application.Features.Users.Commands.Authentication.Login
             if (availabilityResult.IsFailure)
                 return Result<LoginResponse>.Failure(availabilityResult.Error);
 
-            // التحقق من تأكيد الإيميل
+            // Verify the email is confirmed
             if (!user.IsEmailConfirmed)
             {
                 var confirmToken = await _identityService.GenerateEmailConfirmationTokenAsync(user.IdentityId);
@@ -114,7 +114,7 @@ namespace Application.Features.Users.Commands.Authentication.Login
             _userRepository.Update(user);
             await _unitOfWork.CompleteAsync(ct);
 
-            // التعامل مع الـ 2FA
+            // Handle two-factor authentication
             if (user.IsTwoFactorEnabled)
             {
                 return Result<LoginResponse>.Success(new LoginResponse(
@@ -127,8 +127,8 @@ namespace Application.Features.Users.Commands.Authentication.Login
 
             
             var claims = new TokenClaims(
-                UserId: user.IdentityId,   // string — يروح في الـ sub claim
-                DomainUserId: user.Id,     // Guid  — يروح في الـ domain_user_id claim
+                UserId: user.IdentityId,   // string - goes into the sub claim
+                DomainUserId: user.Id,     // Guid  - goes into the domain_user_id claim
                 Email: user.Email.Value,
                 Username: user.Username.Value,
                 Role: user.Role.ToString());

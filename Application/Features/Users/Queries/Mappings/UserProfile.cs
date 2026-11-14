@@ -19,9 +19,9 @@ namespace Application.Features.Users.Queries.Mappings
     .ForCtorParam("Id", opt => opt.MapFrom(src => src.Id))
     .ForCtorParam("Username", opt => opt.MapFrom(src => src.Username.Value))
     .ForCtorParam("Email", opt => opt.MapFrom(src => src.Email.Value))
-    .ForCtorParam("firstname", opt => opt.MapFrom(src => src.FullName.FirstName)) // ماب من الـ Value Object
-    .ForCtorParam("lastname", opt => opt.MapFrom(src => src.FullName.LastName))   // ماب من الـ Value Object
-    .ForCtorParam("phoneNumber", opt => opt.MapFrom(src => src.PhoneNumber != null ? src.PhoneNumber.Value : null)) // Handling للـ Null
+    .ForCtorParam("firstname", opt => opt.MapFrom(src => src.FullName.FirstName)) // Maps from the value object
+    .ForCtorParam("lastname", opt => opt.MapFrom(src => src.FullName.LastName))   // Maps from the value object
+    .ForCtorParam("phoneNumber", opt => opt.MapFrom(src => src.PhoneNumber != null ? src.PhoneNumber.Value : null)) // Handles null
     .ForCtorParam("Role", opt => opt.MapFrom(src => src.Role.ToString()))
     .ForCtorParam("IsActive", opt => opt.MapFrom(src => src.IsActive))
     .ForCtorParam("IsEmailConfirmed", opt => opt.MapFrom(src => src.IsEmailConfirmed))

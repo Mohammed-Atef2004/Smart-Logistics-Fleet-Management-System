@@ -2,16 +2,16 @@ using Domain.Payments;
 
 namespace Infrastructure.Services
 {
-    // ده mock implementation - في production هتستبدله بـ Stripe أو Paymob أو أي gateway
-    // بس الـ interface موجود في الـ Application layer وده هو الصح
+    // Mock implementation - in production replace with Stripe, Paymob or another gateway
+    // The interface lives in the Application layer, which is the correct placement
     public class MockPaymentGateway : IPaymentGateway
     {
         public async Task<PaymentGatewayResult> ProcessAsync(Payment payment, CancellationToken cancellationToken = default)
         {
-            // في production هنا بتعمل HTTP call للـ gateway الحقيقي
+            // In production this is where the HTTP call to the real gateway goes
             await Task.Delay(100, cancellationToken); // simulate network call
 
-            // للـ testing: لو الـ amount بيتقسم على 13 بيفشل 😄
+            // For testing: fails when the amount is divisible by 13
             if (payment.Amount % 13 == 0)
             {
                 return new PaymentGatewayResult(

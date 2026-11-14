@@ -4,8 +4,8 @@ using Domain.SharedKernel;
 
 namespace Domain.Payments.Events
 {
-    // لما الـ payment يتعالج بنجاح - الـ InvoiceId محتاجينه عشان نعمل
-    // cross-aggregate communication ونعمل mark على الـ Invoice إنه اتدفع
+    // Raised when the payment is processed successfully. The InvoiceId is
+    // used for cross-aggregate communication to mark the invoice as paid
     public record PaymentProcessedEvent(
         PaymentId PaymentId,
         InvoiceId InvoiceId,

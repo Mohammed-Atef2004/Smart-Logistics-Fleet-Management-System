@@ -43,9 +43,9 @@ public sealed class TokenService : ITokenService
 
         var jwtClaims = new[]
         {
-            // sub => IdentityId (string) — بيتستخدم في Logout و Token ops
+            // sub => IdentityId (string) - used by Logout and token operations
             new Claim(JwtRegisteredClaimNames.Sub,   claims.UserId),
-            // domain_user_id => DomainUserId (Guid) — بيتستخدم في Controllers
+            // domain_user_id => DomainUserId (Guid) - used by controllers
             new Claim("domain_user_id",              claims.DomainUserId.ToString()),
             new Claim(JwtRegisteredClaimNames.Email, claims.Email),
             new Claim(JwtRegisteredClaimNames.Jti,   Guid.NewGuid().ToString()),
@@ -99,13 +99,13 @@ public sealed class TokenService : ITokenService
 
         var newTokenValue = GenerateSecureToken();
 
-        // جيب الـ Role الحقيقي من الداتابيز بدل الـ hardcoded "User"
+        // Resolve the real role from the database instead of a hardcoded "User"
         var roles = await _userManager.GetRolesAsync(user);
         var role = roles.FirstOrDefault() ?? "User";
 
         var claims = new TokenClaims(
-            UserId: user.Id,                  // IdentityId (string) — في الـ sub
-            DomainUserId: user.DomainUserId,  // Guid — في domain_user_id
+            UserId: user.Id,                  // IdentityId (string) - goes into the sub claim
+            DomainUserId: user.DomainUserId,  // Guid - goes into the domain_user_id claim
             Email: user.Email!,
             Username: user.UserName!,
             Role: role);

@@ -6,7 +6,7 @@ namespace Domain.Payments
     {
         public string Type { get; init; }       // e.g. "CreditCard", "BankTransfer", "Cash"
         public string? Provider { get; init; }  // e.g. "Visa", "MasterCard" - optional
-        public string? Last4Digits { get; init; } // optional للكارت
+        public string? Last4Digits { get; init; } // Optional, card only
 
         private PaymentMethod() { }
 
@@ -32,7 +32,7 @@ namespace Domain.Payments
             return Result<PaymentMethod>.Success(new PaymentMethod(type, provider, last4Digits));
         }
 
-        // Factory Methods للـ convenience
+        // Convenience factory methods
         public static Result<PaymentMethod> Cash() => Create("Cash");
         public static Result<PaymentMethod> BankTransfer() => Create("BankTransfer");
         public static Result<PaymentMethod> CreditCard(string provider, string last4Digits) => Create("CreditCard", provider, last4Digits);

@@ -14,7 +14,7 @@ public sealed class TokenBlacklistService : ITokenBlacklistService
         _cache = cache;
     }
 
-    // بنحفظ الـ JTI في الـ Cache لحد ما التوكن يخلص وقته بالظبط
+    // Keep the JTI in the cache until the token's natural expiry
     public void Revoke(string jti, DateTime tokenExpiry)
     {
         var options = new MemoryCacheEntryOptions

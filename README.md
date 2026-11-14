@@ -1,12 +1,12 @@
 # SLFMS — Smart Logistics & Fleet Management System
 
-![.NET](https://img.shields.io/badge/.NET-9.0-purple)
-![C#](https://img.shields.io/badge/C%23-13-blue)
+![.NET](https://img.shields.io/badge/.NET-10.0-purple)
+![C#](https://img.shields.io/badge/C%23-14-blue)
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-2022-red)
 ![Architecture](https://img.shields.io/badge/Architecture-DDD%20%7C%20CQRS%20%7C%20Vertical%20Slice-success)
 ![Tests](https://img.shields.io/badge/Tests-xUnit%20%7C%20NetArchTest-informational)
 
-SLFMS is a large-scale backend system built with .NET 9 to explore and apply modern enterprise software architecture patterns in a realistic logistics domain.
+SLFMS is a large-scale backend system built with .NET 10 to explore and apply modern enterprise software architecture patterns in a realistic logistics domain.
 
 The system models real-world logistics operations: fleet management, driver lifecycle, shift scheduling, shipment tracking with full route history, warehouse and inventory management, billing, payment processing, insurance claims, and a complete identity layer.
 
@@ -16,12 +16,13 @@ The primary goal is to demonstrate practical, production-quality implementation 
 - Vertical Slice Architecture (features own their full stack)
 - CQRS with MediatR
 - Rich Domain Models (behavior-first, not anemic)
-- Domain Events dispatched via EF Core `SaveChangesInterceptor`
+- Domain Events collected on save and dispatched via MediatR **only after a successful database commit**
 - Business Rules as first-class objects
 - Result Pattern for explicit failure modeling
 - Soft Delete & Audit Logging as cross-cutting infrastructure concerns
 - ASP.NET Core Identity with JWT, Refresh Tokens, and TOTP 2FA
-- Architecture Tests with NetArchTest
+- Architecture Tests with NetArchTest (5 enforced layer rules)
+- Interceptor regression tests against a real database (SQLite in-memory)
 
 ---
 
@@ -208,30 +209,28 @@ UserTwoFactorEnabledDomainEvent
 // ... and more
 ```
 
-Domain Events are dispatched automatically through an EF Core `SaveChangesInterceptor`:
+Domain Events are collected by an EF Core `SaveChangesInterceptor` and published **only after the database commit succeeds** — a failed save never triggers handler side effects:
 
 ```csharp
 public sealed class DomainEventInterceptor : SaveChangesInterceptor
 {
-    public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(...)
-    {
-        // Collect all pending events from tracked aggregates
-        var domainEvents = context.ChangeTracker
-            .Entries<IAggregateRoot>()
-            .SelectMany(e => e.Entity.DomainEvents)
-            .ToList();
+    // SavingChanges / SavingChangesAsync:
+    //   Collect pending events from tracked aggregates, clear them from the
+    //   aggregates, and stash them per-context. No publishing here.
+    public override async ValueTask<InterceptionResult<int>> SavingChangesAsync(...) { /* collect + clear + stash */ }
 
-        // Publish via MediatR before committing
-        foreach (var domainEvent in domainEvents)
-            await _mediator.Publish(domainEvent, cancellationToken);
+    // SavedChanges / SavedChangesAsync — runs only after a successful commit:
+    //   Pop the stashed events first (so nested saves made by event handlers
+    //   get their own list), then publish via MediatR.
+    public override async ValueTask<int> SavedChangesAsync(...) { /* pop stash + publish */ }
 
-        // Clear to prevent re-publishing
-        entities.ForEach(e => e.ClearDomainEvents());
-
-        return await base.SavingChangesAsync(eventData, result, cancellationToken);
-    }
+    // SaveChangesFailed / SaveChangesFailedAsync — the commit failed:
+    //   Discard the stashed events so no side effects run for a failed transaction.
+    public override Task SaveChangesFailedAsync(...) { /* discard */ }
 }
 ```
+
+Known limitation (tracked in ROADMAP.md): if the application crashes between the commit and the dispatch, the events are lost. The **Outbox pattern** is the planned follow-up for guaranteed delivery.
 
 ---
 
@@ -411,10 +410,10 @@ Logged-out tokens are tracked in an in-memory blacklist service until their natu
 
 | Category | Technology |
 |----------|------------|
-| Runtime | .NET 9 |
-| Language | C# 13 |
+| Runtime | .NET 10 |
+| Language | C# 14 |
 | API | ASP.NET Core |
-| ORM | Entity Framework Core 9 |
+| ORM | Entity Framework Core 10 |
 | Database | SQL Server |
 | Architecture | DDD + CQRS + Vertical Slice |
 | Mediator | MediatR 14 |
@@ -476,14 +475,18 @@ SLFMS/
 │   │                         # InMemoryCacheService, MockPaymentGateway
 │   └── Identity/             # ApplicationUser, IdentityService
 │
-└── Domain.Tests/
-    ├── DriverTests.cs
-    ├── ShipmentTests.cs
-    ├── VehicleTests.cs
-    ├── ShiftTests.cs
-    ├── WarehouseTests.cs
-    ├── InventoryItemTests.cs
-    └── InvoiceTests.cs
+├── Domain.Tests/
+│   ├── DriverTests.cs
+│   ├── ShipmentTests.cs
+│   ├── VehicleTests.cs
+│   ├── ShiftTests.cs
+│   ├── WarehouseTests.cs
+│   ├── InventoryItemTests.cs
+│   └── InvoiceTests.cs
+│
+└── Architecture.Tests/
+    ├── LayerDependencyTests.cs        # 5 enforced layer rules (NetArchTest)
+    └── DomainEventInterceptorTests.cs # Post-commit event dispatch (SQLite in-memory)
 ```
 
 ---
@@ -547,28 +550,40 @@ dotnet test
 The test suite covers:
 
 - **Domain Unit Tests** — aggregate behavior for all 10 aggregates (hire/suspend/reactivate, dispatch/deliver/cancel, add-stock/remove-stock, etc.)
-- **Architecture Tests** — layer dependency rules enforced with NetArchTest (Domain has no Infrastructure references, etc.)
+- **Architecture Tests** — 5 layer dependency rules enforced with NetArchTest (Domain has no Infrastructure references, handlers and aggregates are sealed, etc.)
+- **Interceptor Regression Tests** — domain events are published only after a successful commit, and a failed save (real DB constraint violation on SQLite in-memory) triggers no side effects
+
+A detailed evaluation and phased plan lives in [ROADMAP.md](ROADMAP.md).
 
 ---
 
 ## Current Status
 
 ### Implemented
+
 - All 10 domain aggregates with rich behavior
-- 76 domain events + automatic dispatch via EF Core interceptor
+- 76 domain events dispatched **only after a successful database commit** (with regression tests)
 - 26 business rules
 - 32 value objects
 - CQRS with 10 vertical slices
 - Full authentication stack (JWT + Refresh Tokens + TOTP 2FA + token blacklisting)
 - Soft delete and audit logging via interceptors
-- Domain unit tests + architecture tests
+- Domain unit tests + architecture tests + interceptor regression tests
+- Clean Domain layer (EF Core / ASP.NET / AutoMapper removed from Domain; enforced by architecture tests)
+- All projects unified on a single target framework (net10.0), packages upgraded to remove known vulnerabilities
+- Collection of known real bugs fixed (unassigned controller fields, shadowed repository context, null-dereference guards)
 
 ### Planned
+
+- **Outbox Pattern** — guaranteed event delivery even on crash after commit (top priority)
+- **Optimistic Concurrency** — real `rowversion` tokens on Version columns + `409 Conflict` handling
+- **Security hardening** — hash refresh tokens at rest, move the token blacklist to Redis (survives restart / multi-instance), fix user enumeration in login
+- **Query side** — pagination for all list endpoints
+- **Repository/UoW cleanup** — expose every aggregate consistently
+- **Housekeeping** — remove `bin/obj/.vs` from git tracking, fix the `Presistence` folder/namespace typo, remove leftover third-project namespaces
 - Docker support
 - GitHub Actions CI/CD
-- Redis caching (replace in-memory cache)
-- Outbox Pattern (reliable event delivery)
-- Background processing
+- Background processing (HostedService / message bus)
 - OpenTelemetry + structured logging
 - Integration tests
 

@@ -24,8 +24,8 @@ namespace API.Controllers
     {
         private readonly IMediator _mediator;
 
-        // بنقرأ من "domain_user_id" اللي حطيناه في التوكن بدل sub
-        // لأن sub فيه IdentityId (string) مش الـ Domain Guid
+        // Read "domain_user_id" from the token instead of sub
+        // because sub holds the IdentityId (string), not the domain Guid
         private Guid CurrentUserId =>
             Guid.Parse(User.FindFirstValue("domain_user_id")
             ?? throw new UnauthorizedAccessException("User ID not found in claims"));
@@ -59,8 +59,8 @@ namespace API.Controllers
             return Ok(result);
         }
 
-        // الـ endpoint ده AllowAnonymous لأن المستخدم لسه مش logged in
-        // فبنبعت الـ UserId في الـ Body مش من التوكن
+        // This endpoint is AllowAnonymous because the user is not logged in yet
+        // so the UserId is sent in the body instead of read from the token
         [HttpPost("verify-2fa-login")]
         [AllowAnonymous]
         public async Task<IActionResult> VerifyTwoFactorLogin(

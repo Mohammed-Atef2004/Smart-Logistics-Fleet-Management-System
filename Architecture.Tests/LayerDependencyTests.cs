@@ -16,7 +16,7 @@ namespace Architecture.Tests;
 ///   Infrastructure  -> Application, Domain, EF Core, ASP.NET Identity
 ///   API             -> Application, Infrastructure (composition root)
 ///
-/// Known technical debt (tracked in ROADMAP.md, "المرحلة 3"):
+/// Known technical debt (tracked in ROADMAP.md, "Phase 3"):
 ///   Application handlers still use EF Core Include() for eager loading —
 ///   the Application layer must NOT be granted an EF Core exemption here;
 ///   the dependency must be removed instead.

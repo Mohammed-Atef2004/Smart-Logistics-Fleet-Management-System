@@ -17,7 +17,7 @@ public sealed class ScheduleMaintenanceCommandHandler : IRequestHandler<Schedule
 
     public async Task<Result> Handle(ScheduleMaintenanceCommand request, CancellationToken cancellationToken)
     {
-        // 1. تحميل الـ Aggregate من الـ Repository
+        // 1. Load the aggregate from the repository
         var vehicle = await _unitOfWork.Vehicles.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
 
         if (vehicle is null)

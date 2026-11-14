@@ -68,7 +68,7 @@ public class ShipmentsController : ApiController
     [HttpPost("{id:guid}/packages")]
     public async Task<IActionResult> AddPackage([FromRoute] ShipmentId id, [FromBody] AddPackageCommand command, CancellationToken ct)
     {
-        // ملحوظة: لو الـ Command محتاج الـ Id جواه، يفضل تساويه هنا قبل الإرسال
+        // NOTE: if the command carries the Id, prefer setting it here before sending
         var result = await _sender.Send(command, ct);
         return result.IsSuccess ? Ok(result.Value) : HandleFailure(result);
     }

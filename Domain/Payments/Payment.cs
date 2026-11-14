@@ -17,7 +17,7 @@ namespace Domain.Payments
 
         public PaymentStatus Status { get; private set; }
 
-        public TransactionInfo? Transaction { get; private set; } // بيبقى null لو لسه Pending
+        public TransactionInfo? Transaction { get; private set; } // Null until the payment is processed
 
         // EF Core
         private Payment() { }
@@ -42,7 +42,7 @@ namespace Domain.Payments
 
             var payment = new Payment(PaymentId.New(), invoiceId, amount, method);
 
-            // مفيش event هنا - الـ payment لسه مش اتعالج، بس اتعمل
+            // No event here - the payment is created but not processed yet
             return Result<Payment>.Success(payment);
         }
 
@@ -50,7 +50,7 @@ namespace Domain.Payments
         // Behavior
         // -------------------------
 
-        // لما الـ payment gateway يرجع success
+        // Called when the payment gateway returns success
         public Result Process(string transactionReference)
         {
             if (Status != PaymentStatus.Pending)
@@ -67,7 +67,7 @@ namespace Domain.Payments
             return Result.Success();
         }
 
-        // لما الـ payment gateway يرجع failure
+        // Called when the payment gateway returns failure
         public Result Fail(string transactionReference, string reason)
         {
             if (Status != PaymentStatus.Pending)
@@ -84,7 +84,7 @@ namespace Domain.Payments
             return Result.Success();
         }
 
-        // لما يطلبوا استرداد المبلغ
+        // Called when a refund is requested
         public Result Refund()
         {
             if (Status != PaymentStatus.Processed)

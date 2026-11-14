@@ -1,5 +1,5 @@
 ﻿using Domain.Vehicles;
-using Domain.Vehicles.ValueObjects; // تأكد إن الـ Namespace ده موجود
+using Domain.Vehicles.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -23,18 +23,18 @@ public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
             .ValueGeneratedNever();
 
         // -------------------------
-        // Plate Number (المعدل هنا: استخدمنا HasConversion بدل OwnsOne)
+        // Plate number (uses HasConversion instead of OwnsOne)
         // -------------------------
         builder.Property(v => v.PlateNumber)
             .HasConversion(
                 p => p.Value,
-                v => VehiclePlateNumber.Create(v).Value) // بيرجع الـ Object من الـ string
+                v => VehiclePlateNumber.Create(v).Value) // Rebuilds the value object from the string
             .HasColumnName("PlateNumber")
             .HasMaxLength(20)
             .IsRequired();
 
         // -------------------------
-        // Specification Value Object (سيبناها زي ما هي لأنها 3 أعمدة)
+        // Specification value object (kept as three columns)
         // -------------------------
         builder.OwnsOne(v => v.Specification, spec =>
         {

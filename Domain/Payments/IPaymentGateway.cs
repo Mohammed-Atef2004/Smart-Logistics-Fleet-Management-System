@@ -1,8 +1,7 @@
 namespace Domain.Payments
 {
-    // الـ interface هنا في الـ Application
-    // الـ implementation في الـ Infrastructure
-    // Dependency Inversion Principle بالظبط
+    // The interface is defined here; the implementation lives in Infrastructure
+    // Classic Dependency Inversion Principle
     public interface IPaymentGateway
     {
         Task<PaymentGatewayResult> ProcessAsync(Payment payment, CancellationToken cancellationToken = default);

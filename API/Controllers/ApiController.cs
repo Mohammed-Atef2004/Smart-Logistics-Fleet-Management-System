@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Domain.SharedKernel; // المكان اللي فيه كلاس Result
+using Domain.SharedKernel; // Home of the Result class
 
 namespace WebApi.Controllers;
 
@@ -15,14 +15,14 @@ public abstract class ApiController : ControllerBase
         _sender = sender;
     }
 
-    // دالة سحرية بتهندل الـ Result العادي
+    // Handles a plain Result (no value)
     protected IActionResult HandleFailure(Result result)
     {
         return result switch
         {
             { IsSuccess: true } => throw new InvalidOperationException(),
 
-            // هنا الكومبيلر هيتعرف على النوع بعد ما ضفنا الـ Interface
+            // The compiler resolves the type thanks to the added interface
             IValidationResult validationResult =>
                 BadRequest(
                     CreateProblemDetails(

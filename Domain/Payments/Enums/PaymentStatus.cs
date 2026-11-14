@@ -2,9 +2,9 @@ namespace Domain.Payments.Enums
 {
     public enum PaymentStatus
     {
-        Pending,    // اتعمل ولسه ما اتعالجش
-        Processed,  // اتعالج بنجاح
-        Failed,     // فشل
-        Refunded    // اترجع
+        Pending,    // Created but not processed yet
+        Processed,  // Processed successfully
+        Failed,     // Payment failed
+        Refunded    // Money returned to the payer
     }
 }

@@ -28,7 +28,7 @@ public sealed class LogoutCommandHandler : IRequestHandler<LogoutCommand, Result
     {
         var user = _httpContextAccessor.HttpContext?.User;
 
-        // بنجيب الـ IdentityId من الـ sub claim عشان نمسح الـ RefreshToken
+        // Get the IdentityId from the sub claim to remove the refresh token
         var identityId = user?.FindFirst(JwtRegisteredClaimNames.Sub)?.Value
                          ?? user?.FindFirst(ClaimTypes.NameIdentifier)?.Value
                          ?? user?.Claims.FirstOrDefault(c => c.Type == "sub")?.Value;
@@ -36,20 +36,20 @@ public sealed class LogoutCommandHandler : IRequestHandler<LogoutCommand, Result
         if (string.IsNullOrEmpty(identityId))
             return Result.Failure(new Error("Auth.Error", "User Identity not found in Security Context."));
 
-        // بنجيب الـ JTI عشان نضيفه للـ Blacklist
+        // Get the JTI to add it to the blacklist
         var jti = user?.FindFirst(JwtRegisteredClaimNames.Jti)?.Value;
 
-        // بنجيب وقت انتهاء التوكن من الـ exp claim
+        // Get the token expiry from the exp claim
         var expClaim = user?.FindFirst(JwtRegisteredClaimNames.Exp)?.Value;
         var tokenExpiry = expClaim is not null
             ? DateTimeOffset.FromUnixTimeSeconds(long.Parse(expClaim)).UtcDateTime
-            : DateTime.UtcNow.AddMinutes(15); // fallback لو مش موجود
+            : DateTime.UtcNow.AddMinutes(15); // fallback when the claim is missing
 
-        // 1. نبطل الـ AccessToken فوراً عن طريق الـ Blacklist
+        // 1. Invalidate the access token immediately via the blacklist
         if (!string.IsNullOrEmpty(jti))
             _blacklist.Revoke(jti, tokenExpiry);
 
-        // 2. نمسح الـ RefreshToken من الداتابيز
+        // 2. Remove the refresh token from the database
         await _tokenService.RevokeRefreshTokenAsync(identityId, ct);
 
         return Result.Success();

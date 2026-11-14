@@ -19,7 +19,7 @@ namespace Infrastructure.Presistence.Configurations
                     v => new PaymentId(v))
                 .IsRequired();
 
-            // InvoiceId conversion - reference للـ Invoice aggregate بس عن طريق ID
+            // InvoiceId conversion - reference the Invoice aggregate by ID only
             builder.Property(p => p.InvoiceId)
                 .HasConversion(
                     v => v.Id,
@@ -35,7 +35,7 @@ namespace Infrastructure.Presistence.Configurations
                 .HasMaxLength(50)
                 .IsRequired();
 
-            // PaymentMethod - OwnsOne لأنه Value Object
+            // PaymentMethod - OwnsOne because it is a value object
             builder.OwnsOne(p => p.Method, method =>
             {
                 method.Property(m => m.Type)
@@ -52,7 +52,7 @@ namespace Infrastructure.Presistence.Configurations
                     .HasMaxLength(4);
             });
 
-            // TransactionInfo - OwnsOne لأنه Value Object - nullable لو لسه Pending
+            // TransactionInfo - OwnsOne because it is a value object; null while pending
             builder.OwnsOne(p => p.Transaction, tx =>
             {
                 tx.Property(t => t.TransactionReference)

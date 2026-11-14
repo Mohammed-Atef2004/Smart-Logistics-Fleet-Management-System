@@ -17,7 +17,7 @@ namespace Application.Payments.Commands.ProcessPayment
                 .Must(x => new[] { "CreditCard", "BankTransfer", "Cash" }.Contains(x))
                 .WithMessage("Payment method must be CreditCard, BankTransfer, or Cash");
 
-            // لو CreditCard لازم يبعت الـ provider
+            // CreditCard payments must include the provider
             When(x => x.PaymentMethodType == "CreditCard", () =>
             {
                 RuleFor(x => x.Provider)

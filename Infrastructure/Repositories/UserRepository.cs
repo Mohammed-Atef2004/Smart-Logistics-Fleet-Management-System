@@ -12,8 +12,8 @@ namespace Infrastructure.Repositories
         {
             }
 
-        // قارن الأوبجكت مباشرة (u.Email == email) 
-        // الـ EF هيستخدم الـ ValueConverter اللي إنت عامله أوتوماتيكياً
+        // Compare the value object directly (u.Email == email)
+        // EF uses the configured value converter automatically
         public Task<bool> ExistsByEmailAsync(Email email, CancellationToken ct = default)
             => _context.Users
                 .AnyAsync(u => u.Email == email, ct);

@@ -5,13 +5,13 @@ using Microsoft.Extensions.Configuration;
 
 namespace Infrastructure.Presistence.Data
 {
-    // الـ class ده بيتستخدم بس وقت الـ migrations - مش في الـ runtime
-    // dotnet ef بيدور عليه أوتوماتيك لما ما يلاقيش الـ DI جاهز
+    // Used only at design time for migrations - never at runtime
+    // dotnet ef discovers it automatically when the DI container is not ready
     public class AppDbContextFactory : IDesignTimeDbContextFactory<AppDbContext>
     {
         public AppDbContext CreateDbContext(string[] args)
         {
-            // بيقرأ الـ appsettings من مجلد الـ API project
+            // Reads appsettings from the API project folder
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: false)
