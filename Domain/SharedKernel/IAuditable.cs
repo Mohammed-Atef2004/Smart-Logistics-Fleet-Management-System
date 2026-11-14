@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.SharedKernel
 {
-    public interface IAudiatable
+    public interface IAuditable
     {
          DateTime CreatedAt { get; }
          DateTime? UpdatedAt { get; }

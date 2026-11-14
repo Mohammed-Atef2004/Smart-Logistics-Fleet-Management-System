@@ -1,6 +1,6 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Vehicles;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;

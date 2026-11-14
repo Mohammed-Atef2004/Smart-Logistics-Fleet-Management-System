@@ -1,6 +1,6 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Warehouse;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Infrastructure.Repositories.Shared;
 using System;
 using System.Collections.Generic;

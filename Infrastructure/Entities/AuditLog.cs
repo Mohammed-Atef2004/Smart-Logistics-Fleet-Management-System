@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Presistence.Entities
+namespace Infrastructure.Persistence.Entities
 {
     /// <summary>
     /// Infrastructure Entity — Not a Domain Entity

@@ -1,5 +1,5 @@
 ﻿using Application.Common.Interfaces;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 
 namespace Infrastructure.Repositories.Vehicle
 {

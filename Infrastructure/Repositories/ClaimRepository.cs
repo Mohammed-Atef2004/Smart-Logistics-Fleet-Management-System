@@ -3,7 +3,7 @@
 using Domain.Claims;
 using Domain.Claims.Enums;
 using Domain.Claims.ValueObjects;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 

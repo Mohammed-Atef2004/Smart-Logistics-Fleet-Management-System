@@ -3,7 +3,7 @@ using Domain.Payments;
 using Domain.Payments.Enums;
 using Domain.Payments.ValueObjects;
 using Infrastructure.Persistence;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence.Repositories;

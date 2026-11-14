@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Presistence.Interceptors
+namespace Infrastructure.Persistence.Interceptors
 {
     public class SoftDeleteInterceptor:SaveChangesInterceptor 
     {

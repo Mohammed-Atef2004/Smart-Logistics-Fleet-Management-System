@@ -8,7 +8,7 @@ using Domain.Shipments;
 using Domain.Users;
 using Domain.Vehicles;
 using Domain.Warehouse;
-using Infrastructure.Presistence.Entities;
+using Infrastructure.Persistence.Entities;
 using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,7 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Presistence.Data
+namespace Infrastructure.Persistence.Data
 {
     public class AppDbContext : DbContext
     {

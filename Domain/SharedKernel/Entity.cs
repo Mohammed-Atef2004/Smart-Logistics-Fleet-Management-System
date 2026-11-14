@@ -1,6 +1,6 @@
 ﻿namespace Domain.SharedKernel;
 
-public abstract class Entity<TId> : IEquatable<Entity<TId>>,IAudiatable,ISoftDeletable
+public abstract class Entity<TId> : IEquatable<Entity<TId>>,IAuditable,ISoftDeletable
 {
     public TId Id { get; protected set; } = default!;
 

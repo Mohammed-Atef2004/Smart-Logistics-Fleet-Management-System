@@ -1,7 +1,7 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Inventory;
 using Domain.InventoryItems;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Infrastructure.Repositories.Shared;
 using System;
 using System.Collections.Generic;

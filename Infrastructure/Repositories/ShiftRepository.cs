@@ -3,7 +3,7 @@ using Domain.Drivers.ValueObjects;
 using Domain.Shifts;
 using Domain.Shifts.Enums;
 using Domain.Shifts.ValueObjects;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Infrastructure.Repositories.Shared;
 using Microsoft.EntityFrameworkCore;
 using System;

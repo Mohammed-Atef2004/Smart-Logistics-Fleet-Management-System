@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Logging;
 
-namespace Infrastructure.Presistence.Interceptors;
+namespace Infrastructure.Persistence.Interceptors;
 
 /// <summary>
 /// Collects domain events from tracked aggregate roots and publishes them via MediatR

@@ -1,9 +1,9 @@
-﻿using Infrastructure.Presistence.Data;
+﻿using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 
-namespace Infrastructure.Presistence.Data
+namespace Infrastructure.Persistence.Data
 {
     // Used only at design time for migrations - never at runtime
     // dotnet ef discovers it automatically when the DI container is not ready

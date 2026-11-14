@@ -1,10 +1,10 @@
-using Domain.Invoices.ValueObjects;
+﻿using Domain.Invoices.ValueObjects;
 using Domain.Payments;
 using Domain.Payments.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Presistence.Configurations
+namespace Infrastructure.Persistence.Configurations
 {
     public class PaymentConfiguration : IEntityTypeConfiguration<Payment>
     {

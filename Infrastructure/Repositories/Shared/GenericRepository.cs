@@ -1,7 +1,7 @@
 ﻿using Application.Common.Interfaces;
 using System.Linq.Expressions;
 using Domain.Common;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories.Shared

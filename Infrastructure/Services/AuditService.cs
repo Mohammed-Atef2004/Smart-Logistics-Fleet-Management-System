@@ -1,7 +1,7 @@
 ﻿using Application.Features.Users;
 using Application.Features.Users.Services;
-using Infrastructure.Presistence.Data;
-using Infrastructure.Presistence.Entities;
+using Infrastructure.Persistence.Data;
+using Infrastructure.Persistence.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

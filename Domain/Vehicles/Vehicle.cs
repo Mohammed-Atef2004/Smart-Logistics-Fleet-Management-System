@@ -7,7 +7,7 @@ using Domain.Vehicles.ValueObjects;
 
 namespace Domain.Vehicles;
 
-public class Vehicle : AggregateRoot<VehicleId>, IAudiatable, ISoftDeletable
+public class Vehicle : AggregateRoot<VehicleId>, IAuditable, ISoftDeletable
 {
     // ------------------------
     // Private fields / state

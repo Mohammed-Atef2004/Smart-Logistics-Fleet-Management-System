@@ -1,6 +1,6 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Invoices;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Infrastructure.Repositories.Shared;
 using Microsoft.EntityFrameworkCore;
 using System;

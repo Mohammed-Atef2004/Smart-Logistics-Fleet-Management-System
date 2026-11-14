@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Presistence.Configurations
+namespace Infrastructure.Persistence.Configurations
 {
     public class ShiftConfiguration : IEntityTypeConfiguration<Shift>
     {

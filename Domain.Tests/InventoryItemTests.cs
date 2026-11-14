@@ -1,203 +1,225 @@
-﻿using System;
-using Xunit;
-using FluentAssertions;
-using Domain.InventoryItems;
+﻿using Domain.Inventory.Enums;
+using Domain.Inventory.Errors;
+using Domain.Inventory.Events;
 using Domain.Inventory.ValueObjects;
-using Domain.SharedKernel;
+using Domain.InventoryItems;
 using Domain.Shipments.ValueObjects;
 using Domain.Warehouse.ValueObjects;
-using Domain.Inventory.Errors;
-using Domain.Inventory.Enums;
+using FluentAssertions;
+using Xunit;
 
-namespace Domain.Tests.InventoryItems
+namespace Domain.Tests;
+
+public class InventoryItemTests
 {
-    public class InventoryItemTests
+    private static InventoryItem CreateItem(int quantity = 10, int reorderThreshold = 5)
     {
-        private static InventoryItem CreateSut(int stock = 10)
-        {
-            var result = InventoryItem.Create(
-                InventoryItemId.New(),
-                ProductInfo.Create("SKU-1", "Test Product").Value,
-                StockLevel.Create(stock, reorderThreshold: 5).Value,
-                Weight.Create(2, Shipments.Enums.WeightUnit.Kg).Value);
+        return InventoryItem.Create(
+            InventoryItemId.New(),
+            ProductInfo.Create("SKU1", "Test Product").Value,
+            StockLevel.Create(quantity, reorderThreshold).Value,
+            Weight.Create(2, Domain.Shipments.Enums.WeightUnit.Kg).Value
+        ).Value;
+    }
 
-            return result.Value;
-        }
+    // ───────────────────────── Create ─────────────────────────
 
-        // ───────────────────────── Create ─────────────────────────
+    [Fact]
+    public void Create_Should_ReturnSuccess_AndRaiseEvent()
+    {
+        var result = InventoryItem.Create(
+            InventoryItemId.New(),
+            ProductInfo.Create("SKU-1", "Test Product").Value,
+            StockLevel.Create(10, 5).Value,
+            Weight.Create(2, Domain.Shipments.Enums.WeightUnit.Gram).Value);
 
-        [Fact]
-        public void Create_Should_ReturnSuccess_AndRaiseEvent()
-        {
-            var result = InventoryItem.Create(
-                InventoryItemId.New(),
-                ProductInfo.Create("SKU-1", "Test Product").Value,
-                StockLevel.Create(10, 5).Value,
-                Weight.Create(2,Shipments.Enums.WeightUnit.Gram).Value);
+        result.IsSuccess.Should().BeTrue();
+        result.Value.Should().NotBeNull();
+        result.Value.DomainEvents.Should().Contain(e => e is InventoryItemCreatedEvent);
+    }
 
-            result.IsSuccess.Should().BeTrue();
-            result.Value.Should().NotBeNull();
-        }
+    // ───────────────────────── Add Stock ─────────────────────────
 
-        // ───────────────────────── Add Stock ─────────────────────────
+    [Fact]
+    public void AddStock_WhenActive_ShouldIncreaseQuantity_AndRaiseEvent()
+    {
+        var item = CreateItem();
 
-        [Fact]
-        public void AddStock_Should_IncreaseQuantity()
-        {
-            var item = CreateSut(10);
+        var result = item.AddStock(5);
 
-            var result = item.AddStock(5);
+        result.IsSuccess.Should().BeTrue();
+        item.StockLevel.Quantity.Should().Be(15);
+        item.DomainEvents.Should().Contain(e => e is StockAddedEvent);
+    }
 
-            result.IsSuccess.Should().BeTrue();
-            item.StockLevel.Quantity.Should().Be(15);
-        }
+    [Fact]
+    public void AddStock_WhenInactive_ShouldFail()
+    {
+        var item = CreateItem();
+        item.Deactivate();
 
-        [Fact]
-        public void AddStock_WhenInactive_ShouldFail()
-        {
-            var item = CreateSut();
-            item.Deactivate();
+        var result = item.AddStock(5);
 
-            var result = item.AddStock(5);
+        result.IsFailure.Should().BeTrue();
+    }
 
-            result.IsFailure.Should().BeTrue();
-        }
+    // ───────────────────────── Remove Stock ─────────────────────────
 
-        // ───────────────────────── Remove Stock ─────────────────────────
+    [Fact]
+    public void RemoveStock_WhenEnoughQuantity_ShouldDecrease_AndRaiseEvent()
+    {
+        var item = CreateItem();
 
-        [Fact]
-        public void RemoveStock_Should_DecreaseQuantity()
-        {
-            var item = CreateSut(10);
+        var result = item.RemoveStock(5);
 
-            var result = item.RemoveStock(3);
+        result.IsSuccess.Should().BeTrue();
+        item.StockLevel.Quantity.Should().Be(5);
+        item.DomainEvents.Should().Contain(e => e is StockRemovedEvent);
+    }
 
-            result.IsSuccess.Should().BeTrue();
-            item.StockLevel.Quantity.Should().Be(7);
-        }
+    [Fact]
+    public void RemoveStock_WhenBelowThreshold_ShouldRaiseReorderEvent()
+    {
+        var item = CreateItem(quantity: 10, reorderThreshold: 8);
 
-        [Fact]
-        public void RemoveStock_WhenOutOfStock_ShouldRaiseEvent()
-        {
-            var item = CreateSut(1);
+        item.RemoveStock(5);
 
-            item.RemoveStock(1);
+        item.DomainEvents.Should().Contain(e => e is ReorderNeededEvent);
+    }
 
-            item.StockLevel.IsOutOfStock.Should().BeTrue();
-        }
+    [Fact]
+    public void RemoveStock_WhenZero_ShouldRaiseOutOfStockEvent()
+    {
+        var item = CreateItem(quantity: 5);
 
-        [Fact]
-        public void RemoveStock_WhenNeedsReorder_ShouldRaiseEvent()
-        {
-            var item = CreateSut(6); // threshold 5
+        item.RemoveStock(5);
 
-            item.RemoveStock(2);
+        item.DomainEvents.Should().Contain(e => e is ItemOutOfStockEvent);
+    }
 
-            item.StockLevel.NeedsReorder.Should().BeTrue();
-        }
+    [Fact]
+    public void RemoveStock_WhenInsufficient_ShouldFail()
+    {
+        var item = CreateItem();
 
-        // ───────────────────────── Location ─────────────────────────
+        var result = item.RemoveStock(50);
 
-        [Fact]
-        public void AssignToLocation_Should_AssignSuccessfully()
-        {
-            var item = CreateSut();
+        result.IsFailure.Should().BeTrue();
+    }
 
-            var result = item.AssignToLocation(
-                WarehouseId.New(),
-                StorageLocationId.New());
+    // ───────────────────────── Location ─────────────────────────
 
-            result.IsSuccess.Should().BeTrue();
-            item.WarehouseId.Should().NotBeNull();
-        }
+    [Fact]
+    public void AssignToLocation_FirstTime_ShouldSucceed_AndRaiseEvent()
+    {
+        var item = CreateItem();
 
-        [Fact]
-        public void AssignToLocation_WhenAlreadyAssigned_ShouldFail()
-        {
-            var item = CreateSut();
+        var result = item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
 
-            item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
+        result.IsSuccess.Should().BeTrue();
+        item.WarehouseId.Should().NotBeNull();
+        item.DomainEvents.Should().Contain(e => e is ItemLocationAssignedEvent);
+    }
 
-            var result = item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
+    [Fact]
+    public void AssignToLocation_WhenAlreadyAssigned_ShouldFail()
+    {
+        var item = CreateItem();
+        item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
 
-            result.IsFailure.Should().BeTrue();
-            result.Error.Should().Be(InventoryErrors.AlreadyAssignedToLocation);
-        }
+        var result = item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
 
-        [Fact]
-        public void UnassignFromLocation_Should_ClearLocation()
-        {
-            var item = CreateSut();
+        result.IsFailure.Should().BeTrue();
+        result.Error.Should().Be(InventoryErrors.AlreadyAssignedToLocation);
+    }
 
-            item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
-            var result = item.UnassignFromLocation();
+    [Fact]
+    public void UnassignFromLocation_ShouldClearLocation_AndRaiseEvent()
+    {
+        var item = CreateItem();
+        item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
 
-            result.IsSuccess.Should().BeTrue();
-            item.WarehouseId.Should().BeNull();
-        }
+        var result = item.UnassignFromLocation();
 
-        // ───────────────────────── Update Product Info ─────────────────────────
+        result.IsSuccess.Should().BeTrue();
+        item.WarehouseId.Should().BeNull();
+        item.DomainEvents.Should().Contain(e => e is ItemLocationUnassignedEvent);
+    }
 
-        [Fact]
-        public void UpdateProductInfo_Should_UpdateSuccessfully()
-        {
-            var item = CreateSut();
+    // ───────────────────────── Update Product Info ─────────────────────────
 
-            var newInfo = ProductInfo.Create("SKU-2", "New Product").Value;
-            var result = item.UpdateProductInfo(newInfo);
+    [Fact]
+    public void UpdateProductInfo_WhenActive_ShouldUpdate()
+    {
+        var item = CreateItem();
+        var newInfo = ProductInfo.Create("SKU2", "Updated").Value;
 
-            result.IsSuccess.Should().BeTrue();
-            item.ProductInfo.Sku.Should().Be("SKU-2");
-        }
+        var result = item.UpdateProductInfo(newInfo);
 
-        // ───────────────────────── Weight ─────────────────────────
+        result.IsSuccess.Should().BeTrue();
+        item.ProductInfo.Sku.Should().Be("SKU2");
+    }
 
-        [Fact]
-        public void UpdateWeight_Should_UpdateSuccessfully()
-        {
-            var item = CreateSut();
+    [Fact]
+    public void UpdateProductInfo_WhenInactive_ShouldFail()
+    {
+        var item = CreateItem();
+        item.Deactivate();
 
-            var result = item.UpdateWeight(Weight.Create(5, Shipments.Enums.WeightUnit.Gram).Value);
+        var newInfo = ProductInfo.Create("SKU2", "Updated").Value;
+        var result = item.UpdateProductInfo(newInfo);
 
-            result.IsSuccess.Should().BeTrue();
-            item.Weight.Value.Should().Be(5);
-        }
+        result.IsFailure.Should().BeTrue();
+    }
 
-        // ───────────────────────── Deactivate ─────────────────────────
+    // ───────────────────────── Weight ─────────────────────────
 
-        [Fact]
-        public void Deactivate_Should_Work_WhenNotAssigned()
-        {
-            var item = CreateSut();
+    [Fact]
+    public void UpdateWeight_ShouldAlwaysSucceed()
+    {
+        var item = CreateItem();
 
-            var result = item.Deactivate();
+        var result = item.UpdateWeight(Weight.Create(10, Domain.Shipments.Enums.WeightUnit.Kg).Value);
 
-            result.IsSuccess.Should().BeTrue();
-            item.IsActive.Should().BeFalse();
-        }
+        result.IsSuccess.Should().BeTrue();
+        item.Weight.Value.Should().Be(10);
+    }
 
-        [Fact]
-        public void Deactivate_WhenAlreadyInactive_ShouldFail()
-        {
-            var item = CreateSut();
-            item.Deactivate();
+    // ───────────────────────── Deactivate ─────────────────────────
 
-            var result = item.Deactivate();
+    [Fact]
+    public void Deactivate_WhenValid_ShouldDeactivate_AndRaiseEvent()
+    {
+        var item = CreateItem();
 
-            result.IsFailure.Should().BeTrue();
-            result.Error.Should().Be(InventoryErrors.AlreadyInactive);
-        }
+        var result = item.Deactivate();
 
-        [Fact]
-        public void Deactivate_WhenAssigned_ShouldFail()
-        {
-            var item = CreateSut();
-            item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
+        result.IsSuccess.Should().BeTrue();
+        item.IsActive.Should().BeFalse();
+        item.DomainEvents.Should().Contain(e => e is InventoryItemDeactivatedEvent);
+    }
 
-            var result = item.Deactivate();
+    [Fact]
+    public void Deactivate_WhenAlreadyInactive_ShouldFail()
+    {
+        var item = CreateItem();
+        item.Deactivate();
 
-            result.IsFailure.Should().BeTrue();
-            result.Error.Should().Be(InventoryErrors.CannotDeactivateAssignedItem);
-        }
+        var result = item.Deactivate();
+
+        result.IsFailure.Should().BeTrue();
+        result.Error.Should().Be(InventoryErrors.AlreadyInactive);
+    }
+
+    [Fact]
+    public void Deactivate_WhenAssigned_ShouldFail()
+    {
+        var item = CreateItem();
+        item.AssignToLocation(WarehouseId.New(), StorageLocationId.New());
+
+        var result = item.Deactivate();
+
+        result.IsFailure.Should().BeTrue();
+        result.Error.Should().Be(InventoryErrors.CannotDeactivateAssignedItem);
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Users;
 using Infrastructure.Identity;
-using Infrastructure.Presistence.Data;
+using Infrastructure.Persistence.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;

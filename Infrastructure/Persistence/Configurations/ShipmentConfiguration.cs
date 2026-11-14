@@ -3,7 +3,7 @@ using Domain.Shipments;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Infrastructure.Presistence.Configurations;
+namespace Infrastructure.Persistence.Configurations;
 
 public sealed class ShipmentConfiguration : IEntityTypeConfiguration<Shipment>
 {

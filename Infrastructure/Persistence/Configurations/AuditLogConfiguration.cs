@@ -1,4 +1,4 @@
-﻿using Infrastructure.Presistence.Entities;
+﻿using Infrastructure.Persistence.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infrastructure.Presistence.Configurations
+namespace Infrastructure.Persistence.Configurations
 {
     public sealed class AuditLogConfiguration : IEntityTypeConfiguration<AuditLog>
     {
