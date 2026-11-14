@@ -88,10 +88,11 @@
 
 **الهدف:** تصفير الديون السطحية. أسهل مرحلة وأكبر تأثير بصري.
 
+- [x] **0.0** ~~تنضيف الـ repo نفسه من الـ build artifacts~~ **✅ خلصت** — `.gitignore` كامل + `git rm -r --cached` لـ 1,323 ملف bin/obj/.vs + حذف `repomix-output.xml` (snapshot مولد قديم) — working tree بقى clean 100%
 - [x] **0.1** ~~شيل كل الـ namespaces اللي فيها `EducationalPlatform`~~ **✅ خلصت** — كمان اتصلح الـ 2FA issuer name اللي كان "EducationalPlatform" في الـ authenticator app
-  - [ ] `Infrastructure/Services/TokenService.cs`
-  - [ ] `API/Program.cs`
-  - [ ] `Infrastructure/DependencyInjection.cs`
+  - [x] `Infrastructure/Services/TokenService.cs`
+  - [x] `API/Program.cs`
+  - [x] `Infrastructure/DependencyInjection.cs`
 - [ ] **0.2** شيل الـ packages الغير مستخدمة من كل الـ `.csproj`:
   - [ ] `AWSSDK.Core` من Application
   - [ ] `MassTransit.EntityFrameworkCore` + `MassTransit.RabbitMQ` من Infrastructure (هترجعها في المرحلة 7 لو محتاجها)

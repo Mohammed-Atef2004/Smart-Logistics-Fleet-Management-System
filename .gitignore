@@ -1,2 +1,89 @@
+# Build artifacts
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+[Oo]bjd/
+[Bb]uild/
 
+# Visual Studio / Rider / VS Code caches
 .vs/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
+
+# Test results
+[Tt]est[Rr]esult*/
+[TestB]uild/
+*.trx
+*.coverage
+*.coveragexml
+CoverageReports/
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Publish output
+[Pp]ublish/
+publish/
+
+# Generated files
+*_i.c
+*_p.c
+*_h.h
+*.meta
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.log
+*.tlog
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
+
+# User-specific generated files
+mono_crash.*
+
+# Tools / generated snapshots
+repomix-output.*
+
+# OS files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Secrets / local config (never commit)
+*.env
+appsettings.Development.local.json
+appsettings.*.local.json
