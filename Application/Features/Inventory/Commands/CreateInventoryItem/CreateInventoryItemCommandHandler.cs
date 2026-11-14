@@ -1,7 +1,6 @@
 ﻿using Domain.Inventory;
 using Domain.Inventory.Errors;
 using Domain.Inventory.ValueObjects;
-using Domain.InventoryItems;
 using Domain.Shipments.Enums;
 using Domain.Shipments.ValueObjects;
 using Microsoft.EntityFrameworkCore;

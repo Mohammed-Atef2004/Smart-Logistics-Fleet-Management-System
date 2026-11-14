@@ -21,7 +21,7 @@ public sealed class ClaimRepository : IClaimRepository
         ClaimId id,
         CancellationToken cancellationToken = default)
     {
-        return await _context.insuranceClaims
+        return await _context.InsuranceClaims
             .FirstOrDefaultAsync(c => c.Id == id, cancellationToken);
     }
 
@@ -29,7 +29,7 @@ public sealed class ClaimRepository : IClaimRepository
         ClaimNumber claimNumber,
         CancellationToken cancellationToken = default)
     {
-        return await _context.insuranceClaims
+        return await _context.InsuranceClaims
             .FirstOrDefaultAsync(c => c.ClaimNumber == claimNumber, cancellationToken);
     }
 
@@ -37,7 +37,7 @@ public sealed class ClaimRepository : IClaimRepository
         Guid shipmentId,
         CancellationToken cancellationToken = default)
     {
-        return await _context.insuranceClaims
+        return await _context.InsuranceClaims
             .Where(c => c.ShipmentId == shipmentId)
             .OrderByDescending(c => c.SubmittedAt)
             .ToListAsync(cancellationToken);
@@ -47,7 +47,7 @@ public sealed class ClaimRepository : IClaimRepository
         Guid customerId,
         CancellationToken cancellationToken = default)
     {
-        return await _context.insuranceClaims
+        return await _context.InsuranceClaims
             .Where(c => c.CustomerId == customerId)
             .OrderByDescending(c => c.SubmittedAt)
             .ToListAsync(cancellationToken);
@@ -57,7 +57,7 @@ public sealed class ClaimRepository : IClaimRepository
         ClaimStatus status,
         CancellationToken cancellationToken = default)
     {
-        return await _context.insuranceClaims
+        return await _context.InsuranceClaims
             .Where(c => c.Status == status)
             .OrderBy(c => c.SubmittedAt)  // oldest first (FIFO review)
             .ToListAsync(cancellationToken);
@@ -65,12 +65,12 @@ public sealed class ClaimRepository : IClaimRepository
 
     public async Task AddAsync(InsuranceClaim claim, CancellationToken cancellationToken = default)
     {
-        await _context.insuranceClaims.AddAsync(claim, cancellationToken);
+        await _context.InsuranceClaims.AddAsync(claim, cancellationToken);
     }
 
     public void Update(InsuranceClaim claim)
     {
-        _context.insuranceClaims.Update(claim);
+        _context.InsuranceClaims.Update(claim);
     }
 
 

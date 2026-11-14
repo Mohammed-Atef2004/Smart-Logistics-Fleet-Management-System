@@ -1,4 +1,4 @@
-using Domain.Claims;
+﻿using Domain.Claims;
 using Domain.Claims.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;

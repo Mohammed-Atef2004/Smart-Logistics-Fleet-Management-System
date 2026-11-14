@@ -138,7 +138,7 @@ namespace Infrastructure.Migrations
                     b.ToTable("Drivers", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.InventoryItems.InventoryItem", b =>
+            modelBuilder.Entity("Domain.Inventory.InventoryItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -793,7 +793,7 @@ namespace Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.InventoryItems.InventoryItem", b =>
+            modelBuilder.Entity("Domain.Inventory.InventoryItem", b =>
                 {
                     b.OwnsOne("Domain.Inventory.ValueObjects.ProductInfo", "ProductInfo", b1 =>
                         {

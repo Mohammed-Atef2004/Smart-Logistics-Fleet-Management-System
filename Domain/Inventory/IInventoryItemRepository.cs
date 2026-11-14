@@ -1,4 +1,4 @@
-﻿namespace Domain.InventoryItems;
+﻿namespace Domain.Inventory;
 
 /// <summary>
 /// Repository contract for the InventoryItem aggregate.

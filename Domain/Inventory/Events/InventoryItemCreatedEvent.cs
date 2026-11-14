@@ -1,6 +1,6 @@
 ﻿using Domain.Common;
 using Domain.Inventory.ValueObjects;
-using Domain.InventoryItems;
+using Domain.Inventory;
 using Domain.SharedKernel;
 using System;
 using System.Collections.Generic;

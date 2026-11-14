@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProductInfo = Domain.Inventory.ValueObjects.ProductInfo;
 
-namespace Domain.InventoryItems
+namespace Domain.Inventory
 {
     public sealed class InventoryItem : AggregateRoot<InventoryItemId>
     {

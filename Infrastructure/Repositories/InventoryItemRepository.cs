@@ -1,6 +1,5 @@
 ﻿using Application.Common.Interfaces;
 using Domain.Inventory;
-using Domain.InventoryItems;
 using Infrastructure.Persistence.Data;
 using Infrastructure.Repositories.Shared;
 using System;

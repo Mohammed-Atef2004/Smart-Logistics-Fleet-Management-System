@@ -2,7 +2,7 @@
 using Domain.Inventory.Errors;
 using Domain.Inventory.Events;
 using Domain.Inventory.ValueObjects;
-using Domain.InventoryItems;
+using Domain.Inventory;
 using Domain.Shipments.ValueObjects;
 using Domain.Warehouse.ValueObjects;
 using FluentAssertions;

@@ -1,6 +1,6 @@
 ﻿using Domain.Claims;
 using Domain.Drivers;
-using Domain.InventoryItems;
+using Domain.Inventory;
 using Domain.Payments;
 using Domain.SharedKernel;
 using Domain.Shifts;
@@ -27,7 +27,7 @@ namespace Infrastructure.Persistence.Data
         public DbSet<Shipment> Shipments { get; set; }
         public DbSet<InventoryItem> InventoryItems { get; set; }
         public DbSet<Warehouse> Warehouse { get; set; }
-        public DbSet<InsuranceClaim> insuranceClaims { get; set; }
+        public DbSet<InsuranceClaim> InsuranceClaims { get; set; }
         public DbSet<AuditLog> AuditLogs { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<User> Users { get; set; }
