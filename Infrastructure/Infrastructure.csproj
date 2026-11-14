@@ -16,7 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="AutoMapper" Version="17.0.0" />
 		<PackageReference Include="BCrypt.Net-Next" Version="4.0.2" />
 		<PackageReference Include="MailKit" Version="5.0.0" />
 		<PackageReference Include="MediatR" Version="14.0.0" />

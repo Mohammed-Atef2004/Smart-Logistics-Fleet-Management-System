@@ -93,11 +93,7 @@
   - [x] `Infrastructure/Services/TokenService.cs`
   - [x] `API/Program.cs`
   - [x] `Infrastructure/DependencyInjection.cs`
-- [ ] **0.2** شيل الـ packages الغير مستخدمة من كل الـ `.csproj`:
-  - [ ] `AWSSDK.Core` من Application
-  - [ ] `MassTransit.EntityFrameworkCore` + `MassTransit.RabbitMQ` من Infrastructure (هترجعها في المرحلة 7 لو محتاجها)
-  - [ ] `BCrypt.Net-Next` من API (Identity بيعمل الـ hashing)
-  - [ ] `NetArchTest.Rules` من Domain + Application + Infrastructure (هتبقى في Architecture.Tests بس)
+- [x] **0.2** ~~شيل الـ packages الغير مستخدمة~~ **✅ خلصت** — اتشالت بالفعل في commit الـ net10: `AWSSDK.Core`, `MassTransit.*`, `NetArchTest.Rules` (من غير الـ tests). **تعديل على الخطة:** `BCrypt.Net-Next` **مستخدم فعلًا** في `Infrastructure/Services/PasswordHasher.cs` (الـ IPasswordHasher المخصص) — هيفضل. اللي اتشال النهارده: `AutoMapper` من Infrastructure (صفر استخدام — التسجيل كله في API/Application)
 - [ ] **0.3** وحّد الـ Target Framework على **net9.0** في كل المشاريع + طابق الـ versions (JwtBearer 9.x بدل 8.0.0)
 - [ ] **0.4** صلّح الـ typos (استخدم rename بالـ IDE مش يدوي):
   - [ ] `Presistence` → `Persistence` (فولدرات + namespaces + usings)
