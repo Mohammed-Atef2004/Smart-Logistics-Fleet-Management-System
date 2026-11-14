@@ -13,11 +13,11 @@ namespace Application.Features.Vehicle.Queries.GetById
     public sealed class GetVehicleDetailsHandler
      : IRequestHandler<GetVehicleDetailsQuery, Result<VehicleDetailsDto>>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IVehicleRepository _vehicleRepository;
 
-        public GetVehicleDetailsHandler(IUnitOfWork unitOfWork)
+        public GetVehicleDetailsHandler(IVehicleRepository vehicleRepository)
         {
-            _unitOfWork = unitOfWork;
+            _vehicleRepository = vehicleRepository;
         }
 
         public async Task<Result<VehicleDetailsDto>> Handle(
@@ -26,7 +26,7 @@ namespace Application.Features.Vehicle.Queries.GetById
         {
             var vehicleId = new VehicleId(request.VehicleId);
 
-            var vehicle = await _unitOfWork.Vehicles.GetByIdAsync(vehicleId, cancellationToken);
+            var vehicle = await _vehicleRepository.GetByIdAsync(vehicleId, cancellationToken);
 
             if (vehicle is null)
             {

@@ -12,9 +12,11 @@ namespace Application.Features.Driver.Commands.HireDriver
     public sealed class HireDriverCommandHandler:IRequestHandler<HireDriverCommand, Guid>
     {
       private readonly IUnitOfWork _unitOfWork;
-        public HireDriverCommandHandler(IUnitOfWork unitOfWork)
+      private readonly IDriverRepository _driverRepository;
+        public HireDriverCommandHandler(IUnitOfWork unitOfWork, IDriverRepository driverRepository)
         {
             _unitOfWork = unitOfWork;
+            _driverRepository = driverRepository;
         }
         public async Task<Guid> Handle(HireDriverCommand request, CancellationToken cancellationToken)
         {
@@ -25,7 +27,7 @@ namespace Application.Features.Driver.Commands.HireDriver
             if (driverResult.IsFailure)
                 throw new Exception(driverResult.Error.ToString());
             var driver = driverResult.Value;
-            await _unitOfWork.Drivers.AddAsync(driver);
+            await _driverRepository.AddAsync(driver);
             await _unitOfWork.CompleteAsync(cancellationToken);
             return driver.Id.Value;
         }

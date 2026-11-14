@@ -16,17 +16,17 @@ namespace Application.Features.Shipment.Queries.GetPackages
 {
     public sealed class GetShipmentPackagesQueryHandler :IRequestHandler<GetShipmentPackagesQuery, Result<List<PackageDto>>>
     {
-        private readonly IUnitOfWork _uintOfWork;
+        private readonly IShipmentRepository _shipmentRepository;
         private readonly IMapper _mapper;
-        public GetShipmentPackagesQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetShipmentPackagesQueryHandler(IShipmentRepository shipmentRepository, IMapper mapper)
         {
-            _uintOfWork = unitOfWork;
+            _shipmentRepository = shipmentRepository;
             _mapper = mapper;
         }
 
         public Task<Result<List<PackageDto>>> Handle(GetShipmentPackagesQuery request, CancellationToken cancellationToken)
         {
-           var Shipment = _uintOfWork.Shipments.EntityQuery.Where(x => x.Id == request.Id).Include(x=>x.Packages);
+           var Shipment = _shipmentRepository.EntityQuery.Where(x => x.Id == request.Id).Include(x=>x.Packages);
            var packages = Shipment.FirstOrDefault()?.Packages;
             if (packages is null || !packages.Any())
                 return Task.FromResult(Result<List<PackageDto>>.Failure(new Error("Shipment.NotFound", "Shipment not found.")));

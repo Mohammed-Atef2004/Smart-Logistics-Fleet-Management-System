@@ -13,17 +13,19 @@ namespace Application.Features.Shift.Commands.StartShift
     public sealed class StartShiftCommandHandler : IRequestHandler<StartShiftCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
-        public StartShiftCommandHandler(IUnitOfWork unitOfWork)
+        private readonly IShiftRepository _shiftRepository;
+        public StartShiftCommandHandler(IUnitOfWork unitOfWork, IShiftRepository shiftRepository)
         {
             _unitOfWork = unitOfWork;
+            _shiftRepository = shiftRepository;
         }
         public async Task<Result> Handle(StartShiftCommand request, CancellationToken cancellationToken)
         {
-            var result = await _unitOfWork.Shifts.EntityQuery.SingleOrDefaultAsync(x => x.Id == request.ShiftId);
+            var result = await _shiftRepository.EntityQuery.SingleOrDefaultAsync(x => x.Id == request.ShiftId);
             if (result == null) throw new Exception("there is no shift with this Id");
             var res=result.Start();
             if (res.IsFailure) return Result.Failure(res.Error);
-            _unitOfWork.Shifts.Update(result);
+            _shiftRepository.Update(result);
             await _unitOfWork.CompleteAsync();
             return res;
         }

@@ -14,16 +14,16 @@ namespace Application.Features.Shift.Queries.GetById
 {
     public sealed class GetShiftByIdQueryHandler : IRequestHandler<GetShiftByIdQuery, Result<ShiftDto>>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IShiftRepository _shiftRepository;
         private readonly IMapper _mapper;
-        public GetShiftByIdQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetShiftByIdQueryHandler(IShiftRepository shiftRepository, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+            _shiftRepository = shiftRepository;
             _mapper = mapper;
         }
         public async Task<Result<ShiftDto>> Handle(GetShiftByIdQuery request, CancellationToken cancellationToken)
         {
-            var shift = await _unitOfWork.Shifts.EntityQuery.SingleOrDefaultAsync(x => x.Id == request.shiftId);
+            var shift = await _shiftRepository.EntityQuery.SingleOrDefaultAsync(x => x.Id == request.shiftId);
             if (shift is null) throw new Exception("Shift not found");
             return _mapper.Map<Result<ShiftDto>>(shift);
         }

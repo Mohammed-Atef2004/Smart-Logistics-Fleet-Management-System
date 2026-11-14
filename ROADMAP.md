@@ -148,6 +148,11 @@
   - [x] `IEmailService`, `IIdentityService`, `IPasswordHasher`, `ITokenService` كانت فعليًا في فولدر الـ Application لكن بأسماء namespaces مضللة (`Domain.Interfaces.Services`) — اتصلحت لـ `Application.Common.Interfaces`
   - [x] **استثناء موثّق:** `IVehicleUniquenessChecker` فضل في `Domain/Vehicles` لأنه domain service الـ `Vehicle.Create` بيستهلكه مباشرة (الـ aggregate نفسه محتاجه، مش الـ Application)
   - [x] حوالي 140 ملف اتحدثوا (usings + namespaces) و `Domain/Interfaces/` اتفضى واتشال
+- [x] **1.9** `IUnitOfWork` بقى **transaction boundary بس** — شيلنا منه الـ repository accessors (`Vehicles/Drivers/Shifts/Shipments/VehicleUniquenessChecker`) ووراثة `IDisposable`:
+  - [x] الـ interface دلوقتي فيه `CompleteAsync` + `BeginTransactionAsync`/`CommitTransactionAsync`/`RollbackTransactionAsync` بس — مفيش أي repository منه
+  - [x] الـ repos اتسجلت في الـ DI فرادى (`IDriverRepository`, `IShiftRepository`, `IShipmentRepository`, `IVehicleUniquenessChecker`) والـ handlers بتحقنها مباشرة (~33 handler اتحدثوا)
+  - [x] الـ query handlers بقت تعتمد على الـ repos مباشرة من غير `IUnitOfWork` خالص — الـ commands بتحقن الاتنين
+  - [x] `UnitOfWork` مش بيـdispose الـ DbContext — الـ DI scope هو اللي بيملكه (كانت غلطة: `Dispose()` كان بيقتل الـ context وهي DI scope لسه عايش)
 
 **معيار النجاح:** `dotnet test` على Architecture.Tests بيعدّي، والـ Domain.csproj مفيهوش غير MediatR. ✅
 

@@ -13,16 +13,16 @@ namespace Application.Features.Shift.Queries.GetAll
 {
     public sealed class GetAllShiftsQueryHandler : IRequestHandler<GetAllShiftsQuery,Result< List<ShiftDto>>>
     {
-        private readonly IUnitOfWork _unitOfWork;
+        private readonly IShiftRepository _shiftRepository;
         private readonly IMapper _mapper;
-        public GetAllShiftsQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
+        public GetAllShiftsQueryHandler(IShiftRepository shiftRepository, IMapper mapper)
         {
-            _unitOfWork = unitOfWork;
+            _shiftRepository = shiftRepository;
             _mapper = mapper;
         }
         public async Task<Result<List<ShiftDto>>> Handle(GetAllShiftsQuery request, CancellationToken cancellationToken)
         {
-            var shifts = _unitOfWork.Shifts.EntityQuery.Select(x => x);
+            var shifts = _shiftRepository.EntityQuery.Select(x => x);
             return _mapper.Map<Result<List<ShiftDto>>>(shifts);
         }
     }

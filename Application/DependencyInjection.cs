@@ -16,12 +16,8 @@ public static class DependencyInjection
         services.AddMediatR(cfg =>
             cfg.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly));
 
-        // Cross-aggregate orchestration service (repos are exposed via IUnitOfWork, not registered individually)
-        services.AddScoped<IDriverShiftService>(sp =>
-        {
-            var unitOfWork = sp.GetRequiredService<IUnitOfWork>();
-            return new DriverShiftService(unitOfWork.Drivers, unitOfWork.Shifts);
-        });
+        // Cross-aggregate orchestration service — resolves its repositories directly from DI
+        services.AddScoped<IDriverShiftService, DriverShiftService>();
 
         // Settings owned by the Application layer (bound once, injected via IOptions)
         services.Configure<ApiSettings>(configuration.GetSection(ApiSettings.SectionName));        return services;

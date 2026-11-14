@@ -1,23 +1,27 @@
-﻿using Application.Common.Interfaces;
-using Domain.Drivers;
-using Domain.Shifts;
-using Domain.Shipments;
-using Domain.Vehicles;
-
-namespace Application.Common.Interfaces;
+﻿namespace Application.Common.Interfaces;
 
 /// <summary>
-/// Unit of work abstraction owned by the Application layer and implemented
-/// by Infrastructure on top of the EF Core DbContext.
+/// Transaction-scoped unit of work owned by the Application layer and
+/// implemented by Infrastructure on top of the EF Core DbContext.
+/// Pure transaction boundary: repositories are NOT exposed from here —
+/// handlers inject the repository interfaces directly.
+/// Lifetime is the DI scope; the container owns the DbContext, so this
+/// type is not IDisposable.
 /// </summary>
-public interface IUnitOfWork : IDisposable
+public interface IUnitOfWork
 {
-    IVehicleRepository Vehicles { get; }
-    IDriverRepository Drivers { get; }
-    IShiftRepository Shifts { get; }
-    IShipmentRepository Shipments { get; }
-
-    IVehicleUniquenessChecker VehicleUniquenessChecker { get; }
-
+    /// <summary>
+    /// Saves all pending changes in one atomic commit and returns the
+    /// number of affected state entries.
+    /// </summary>
     Task<int> CompleteAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>Begins an explicit database transaction.</summary>
+    Task BeginTransactionAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>Commits the current explicit database transaction.</summary>
+    Task CommitTransactionAsync(CancellationToken cancellationToken = default);
+
+    /// <summary>Rolls back the current explicit database transaction.</summary>
+    Task RollbackTransactionAsync(CancellationToken cancellationToken = default);
 }

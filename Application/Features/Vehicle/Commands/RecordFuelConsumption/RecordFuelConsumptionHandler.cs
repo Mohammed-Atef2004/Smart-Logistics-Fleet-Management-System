@@ -9,15 +9,17 @@ namespace Application.Features.Vehicles.Commands.RecordFuelConsumption;
 public sealed class RecordFuelConsumptionCommandHandler : IRequestHandler<RecordFuelConsumptionCommand, Result>
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IVehicleRepository _vehicleRepository;
 
-    public RecordFuelConsumptionCommandHandler(IUnitOfWork unitOfWork)
+    public RecordFuelConsumptionCommandHandler(IUnitOfWork unitOfWork, IVehicleRepository vehicleRepository)
     {
         _unitOfWork = unitOfWork;
+        _vehicleRepository = vehicleRepository;
     }
 
     public async Task<Result> Handle(RecordFuelConsumptionCommand request, CancellationToken cancellationToken)
     {
-        var vehicle = await _unitOfWork.Vehicles.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
+        var vehicle = await _vehicleRepository.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
 
         if (vehicle is null)
             return Result.Failure(new Error("Vehicle.NotFound", "Vehicle not found."));

@@ -52,10 +52,14 @@ namespace Infrastructure.Persistence
             services.AddScoped<IInvoiceRepository, InvoiceRepository>();
             services.AddScoped<IClaimRepository,ClaimRepository>();
             services.AddScoped<IPaymentRepository,PaymentRepository>();
+            services.AddScoped<IDriverRepository, DriverRepository>();
+            services.AddScoped<IShiftRepository, ShiftRepository>();
+            services.AddScoped<IShipmentRepository, ShipmentRepository>();
+            // IVehicleRepository already implements IVehicleUniquenessChecker,
+            // but the domain service is injected on its own into Vehicle.Create flows.
+            services.AddScoped<IVehicleUniquenessChecker, VehicleUniquenessChecker>();
             services.AddScoped<IPaymentGateway, MockPaymentGateway>();
 
-            // services.AddScoped<IDriverRepository, DriverRepository>();
-            // services.AddScoped<ITripRepository, TripRepository>();
             // 7. Register Services
             services.AddHttpContextAccessor();
             services.AddScoped<IIdentityService, IdentityService>();

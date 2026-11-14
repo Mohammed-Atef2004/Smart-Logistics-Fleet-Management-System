@@ -1,4 +1,5 @@
 ﻿using Application.Common.Interfaces;
+using Domain.Vehicles;
 using Domain.SharedKernel;
 using MediatR;
 using Microsoft.Extensions.Logging;
@@ -14,12 +15,17 @@ namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
     : IRequestHandler<RegisterNewVehicleCommand, Result<VehicleId>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IVehicleRepository _vehicleRepository;
+        private readonly IVehicleUniquenessChecker _vehicleUniquenessChecker;
         private readonly ILogger<RegisterNewVehicleCommandHandler> _logger;
 
         public RegisterNewVehicleCommandHandler(IUnitOfWork unitOfWork,
+        IVehicleRepository vehicleRepository, IVehicleUniquenessChecker vehicleUniquenessChecker,
                                                 ILogger<RegisterNewVehicleCommandHandler> logger)
         {
             _unitOfWork = unitOfWork;
+            _vehicleRepository = vehicleRepository;
+            _vehicleUniquenessChecker = vehicleUniquenessChecker;
             _logger = logger;
         }
 
@@ -30,7 +36,7 @@ namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
             var vehicleResult = Domain.Vehicles.Vehicle.Register(
                                 vplateNumber.Value,
                                 request.Specification,
-                                _unitOfWork.VehicleUniquenessChecker
+                                _vehicleUniquenessChecker
                             );
 
             if (vehicleResult.IsFailure)
@@ -40,7 +46,7 @@ namespace Application.Features.Vehicle.Commands.RegisterNewVehicle
             }
 
             // Add to DB
-            await _unitOfWork.Vehicles.AddAsync(vehicleResult.Value);
+            await _vehicleRepository.AddAsync(vehicleResult.Value);
             await _unitOfWork.CompleteAsync(cancellationToken);
 
             _logger.LogInformation("Vehicle registered with Id {VehicleId}", vehicleResult.Value.Id);

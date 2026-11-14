@@ -13,13 +13,15 @@ namespace Application.Features.Shipment.Commands.RemovePackage
     public sealed class RemovePackageCommandHandler : IRequestHandler<RemovePackageCommand, Result>
     {
         private readonly IUnitOfWork _unitOfWork;
-        public RemovePackageCommandHandler(IUnitOfWork unitOfWork)
+        private readonly IShipmentRepository _shipmentRepository;
+        public RemovePackageCommandHandler(IUnitOfWork unitOfWork, IShipmentRepository shipmentRepository)
         {
             _unitOfWork = unitOfWork;
+            _shipmentRepository = shipmentRepository;
         }
         public async Task<Result> Handle(RemovePackageCommand request, CancellationToken cancellationToken)
         {
-            var shipmentResult = await _unitOfWork.Shipments.EntityQuery.FirstOrDefaultAsync(x => x.Id == request.ShipmentId);
+            var shipmentResult = await _shipmentRepository.EntityQuery.FirstOrDefaultAsync(x => x.Id == request.ShipmentId);
             if (shipmentResult is null)
                 return Result.Failure(new Error("Shipment.NotFound", "Shipment not found."));
             var shipment = shipmentResult;

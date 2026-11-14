@@ -14,9 +14,11 @@ namespace Application.Features.Shipment.Commands.Create
     public sealed class CreateShipmentCommandHandler : IRequestHandler<CreateShipmentCommand, Result<ShipmentId>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        public CreateShipmentCommandHandler(IUnitOfWork unitOfWork)
+        private readonly IShipmentRepository _shipmentRepository;
+        public CreateShipmentCommandHandler(IUnitOfWork unitOfWork, IShipmentRepository shipmentRepository)
         {
             _unitOfWork = unitOfWork;
+            _shipmentRepository = shipmentRepository;
         }
         public async Task<Result<ShipmentId>> Handle(CreateShipmentCommand request, CancellationToken cancellationToken)
         {
@@ -38,7 +40,7 @@ namespace Application.Features.Shipment.Commands.Create
             );
             if (shipment.IsFailure)
                 return Result<ShipmentId>.Failure(shipment.Error);
-            await _unitOfWork.Shipments.AddAsync(shipment.Value);
+            await _shipmentRepository.AddAsync(shipment.Value);
             await _unitOfWork.CompleteAsync(cancellationToken);
             return Result<ShipmentId>.Success(shipment.Value.Id);
         }

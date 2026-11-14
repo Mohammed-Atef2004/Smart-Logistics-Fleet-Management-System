@@ -14,13 +14,15 @@ namespace Application.Features.Shipment.Commands.AddPackage
     public sealed class AddPackageCommandHandler : IRequestHandler<AddPackageCommand, Result<PackageId>>
     {
         private readonly IUnitOfWork _unitOfWork;
-        public AddPackageCommandHandler(IUnitOfWork unitOfWork)
+        private readonly IShipmentRepository _shipmentRepository;
+        public AddPackageCommandHandler(IUnitOfWork unitOfWork, IShipmentRepository shipmentRepository)
         {
             _unitOfWork = unitOfWork;
+            _shipmentRepository = shipmentRepository;
         }
         public async Task<Result<PackageId>> Handle(AddPackageCommand request, CancellationToken cancellationToken)
         {
-            var shipmentResult = await _unitOfWork.Shipments.EntityQuery.FirstOrDefaultAsync(x => x.Id == request.ShipmentId);
+            var shipmentResult = await _shipmentRepository.EntityQuery.FirstOrDefaultAsync(x => x.Id == request.ShipmentId);
             if (shipmentResult is null)
                 return Result<PackageId>.Failure(new Error("Shipment.NotFound", "Shipment not found."));
             var shipment = shipmentResult;

@@ -9,16 +9,18 @@ namespace Application.Features.Vehicles.Commands.ScheduleMaintenance;
 public sealed class ScheduleMaintenanceCommandHandler : IRequestHandler<ScheduleMaintenanceCommand, Result>
 {
     private readonly IUnitOfWork _unitOfWork;
+    private readonly IVehicleRepository _vehicleRepository;
 
-    public ScheduleMaintenanceCommandHandler(IUnitOfWork unitOfWork)
+    public ScheduleMaintenanceCommandHandler(IUnitOfWork unitOfWork, IVehicleRepository vehicleRepository)
     {
         _unitOfWork = unitOfWork;
+        _vehicleRepository = vehicleRepository;
     }
 
     public async Task<Result> Handle(ScheduleMaintenanceCommand request, CancellationToken cancellationToken)
     {
         // 1. Load the aggregate from the repository
-        var vehicle = await _unitOfWork.Vehicles.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
+        var vehicle = await _vehicleRepository.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
 
         if (vehicle is null)
             return Result.Failure(new Error("Vehicle.NotFound", "The specified vehicle was not found."));
