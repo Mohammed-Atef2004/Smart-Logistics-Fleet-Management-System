@@ -148,6 +148,11 @@
   - [x] `IEmailService`, `IIdentityService`, `IPasswordHasher`, `ITokenService` كانت فعليًا في فولدر الـ Application لكن بأسماء namespaces مضللة (`Domain.Interfaces.Services`) — اتصلحت لـ `Application.Common.Interfaces`
   - [x] **استثناء موثّق:** `IVehicleUniquenessChecker` فضل في `Domain/Vehicles` لأنه domain service الـ `Vehicle.Create` بيستهلكه مباشرة (الـ aggregate نفسه محتاجه، مش الـ Application)
   - [x] حوالي 140 ملف اتحدثوا (usings + namespaces) و `Domain/Interfaces/` اتفضى واتشال
+- [x] **1.11** **تصحيح معماري بعد research** — الـ aggregate repository interfaces رجعت للـ Domain جنب aggregates بتاعتهم (أثبتّه: Microsoft Learn DDD guide، Vaughn Vernon IDDD، DDD Sample، eShopOnContainers — كلهم بيقولوا "repository interfaces live in the domain model layer"):
+  - [x] الـ 10 interfaces (`IClaimRepository`, `IDriverRepository`, `IInventoryItemRepository`, `IInvoiceRepository`, `IPaymentRepository`, `IShiftRepository`, `IShipmentRepository`, `IUserRepository`, `IVehicleRepository`, `IWarehouseRepository`) رجعوا لفولدر الـ aggregate بتاعهم بنفس namespace الـ aggregate
+  - [x] بقوا **self-contained** — بيعرّفوا الـ members اللي الـ handlers محتاجينها فعلًا (EntityQuery/AddAsync/Update/Delete + الـ custom methods) من غير وراثة من `IGenericRepository` (لأن Domain مش مسموح يعتمد على Application — الـ arch tests بيفرضوا كده، وده كمان أقرب لـ Vernon: الـ repository بيتكلم لغة الـ aggregate)
+  - [x] `IUnitOfWork` + `IGenericRepository` فضلوا في `Application.Common.Interfaces` (الـ transaction boundary بتاع الـ use case + الـ generic persistence contract اللي الـ Infrastructure بيطبقه)
+  - [x] 41 ملف consumers اتحدثوا (usings) + `InvoiceRepository.CountAsync()` اتضاف صراحة (الـ interface signature مختلفة عن الـ base)
 - [x] **1.9** `IUnitOfWork` بقى **transaction boundary بس** — شيلنا منه الـ repository accessors (`Vehicles/Drivers/Shifts/Shipments/VehicleUniquenessChecker`) ووراثة `IDisposable`:
   - [x] الـ interface دلوقتي فيه `CompleteAsync` + `BeginTransactionAsync`/`CommitTransactionAsync`/`RollbackTransactionAsync` بس — مفيش أي repository منه
   - [x] الـ repos اتسجلت في الـ DI فرادى (`IDriverRepository`, `IShiftRepository`, `IShipmentRepository`, `IVehicleUniquenessChecker`) والـ handlers بتحقنها مباشرة (~33 handler اتحدثوا)

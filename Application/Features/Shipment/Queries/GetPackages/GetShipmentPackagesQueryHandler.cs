@@ -1,4 +1,5 @@
-﻿using Application.Features.Shipment.DTOs;
+﻿using Domain.Shipments;
+using Application.Features.Shipment.DTOs;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System.Net.NetworkInformation;

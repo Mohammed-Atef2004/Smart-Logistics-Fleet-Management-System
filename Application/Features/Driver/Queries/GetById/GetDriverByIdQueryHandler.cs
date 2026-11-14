@@ -1,4 +1,5 @@
-﻿using Application.Features.Driver.DTOs;
+﻿using Domain.Drivers;
+using Application.Features.Driver.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Driver.Queries.GetById

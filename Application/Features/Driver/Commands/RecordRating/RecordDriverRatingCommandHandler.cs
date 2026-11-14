@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Drivers;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Driver.Commands.RecordRating
 {

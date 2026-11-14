@@ -1,4 +1,5 @@
-﻿using Application.Features.Driver.DTOs;
+﻿using Domain.Drivers;
+using Application.Features.Driver.DTOs;
 
 namespace Application.Features.Driver.Queries.GetAll
 {

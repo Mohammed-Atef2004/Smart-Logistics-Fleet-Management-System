@@ -1,4 +1,5 @@
-﻿using Domain.Inventory;
+﻿using Domain.InventoryItems;
+using Domain.Inventory;
 
 namespace Application.Inventory.GetAllInventoryItems
 {

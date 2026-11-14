@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Domain.Shipments;
+using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Shipment.Commands.RemovePackage
 {

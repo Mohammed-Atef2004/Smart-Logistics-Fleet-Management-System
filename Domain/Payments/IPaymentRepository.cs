@@ -1,9 +1,12 @@
-﻿using Domain.Payments;
-using Domain.Payments.Enums;
+﻿using Domain.Payments.Enums;
 using Domain.Payments.ValueObjects;
 
-namespace Application.Common.Interfaces;
+namespace Domain.Payments;
 
+/// <summary>
+/// Repository contract for the Payment aggregate.
+/// Owned by the Domain (classic DDD); implemented by Infrastructure.
+/// </summary>
 public interface IPaymentRepository
 {
     IQueryable<Payment> Query { get; }

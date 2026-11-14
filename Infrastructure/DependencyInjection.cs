@@ -1,4 +1,8 @@
-﻿using Application.Common.Interfaces;
+﻿using Domain.Drivers;
+using Domain.InventoryItems;
+using Domain.Shifts;
+using Domain.Shipments;
+using Application.Common.Interfaces;
 using Application.Features.Users.Services;
 using Domain.Claims;
 using Domain.Inventory;

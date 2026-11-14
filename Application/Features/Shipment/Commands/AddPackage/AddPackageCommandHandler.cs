@@ -1,4 +1,5 @@
-﻿using Domain.Shipments.ValueObjects;
+﻿using Domain.Shipments;
+using Domain.Shipments.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Shipment.Commands.AddPackage

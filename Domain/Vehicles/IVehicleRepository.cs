@@ -1,14 +1,14 @@
-﻿using Domain.Vehicles;
-using Domain.Vehicles.Enums;
+﻿using Domain.Vehicles.Enums;
 
-namespace Application.Common.Interfaces;
+namespace Domain.Vehicles;
 
 /// <summary>
 /// Repository contract for the Vehicle aggregate.
-/// Inherits <see cref="IVehicleUniquenessChecker"/> (a Domain service) for
-/// plate-number uniqueness checks performed by the aggregate itself.
+/// Owned by the Domain (classic DDD); implemented by Infrastructure.
+/// Inherits <see cref="IVehicleUniquenessChecker"/> (a Domain service used
+/// by <see cref="Vehicle.Register"/> for plate-number uniqueness checks).
 /// </summary>
-public interface IVehicleRepository : IGenericRepository<Vehicle>, IVehicleUniquenessChecker
+public interface IVehicleRepository : IVehicleUniquenessChecker
 {
     /// <summary>Get vehicle by its strongly-typed ID.</summary>
     Task<Vehicle?> GetByIdAsync(VehicleId id, CancellationToken cancellationToken = default);
@@ -44,4 +44,6 @@ public interface IVehicleRepository : IGenericRepository<Vehicle>, IVehicleUniqu
         int pageSize,
         VehicleStatus? status = null,
         CancellationToken cancellationToken = default);
+
+    Task AddAsync(Vehicle entity);
 }

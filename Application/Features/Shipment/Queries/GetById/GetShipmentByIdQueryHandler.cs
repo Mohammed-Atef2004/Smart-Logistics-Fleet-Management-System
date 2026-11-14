@@ -1,4 +1,5 @@
-﻿using Application.Features.Shipment.DTOs;
+﻿using Domain.Shipments;
+using Application.Features.Shipment.DTOs;
 using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Shipment.Queries.GetById

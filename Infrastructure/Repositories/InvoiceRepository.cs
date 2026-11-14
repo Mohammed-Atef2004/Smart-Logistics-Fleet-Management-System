@@ -2,6 +2,7 @@
 using Domain.Invoices;
 using Infrastructure.Presistence.Data;
 using Infrastructure.Repositories.Shared;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,8 @@ namespace Infrastructure.Repositories
         public InvoiceRepository(AppDbContext context) : base(context)
         {
         }
+
+        // Interface signature (no predicate) differs from GenericRepository<T>.CountAsync(predicate)
+        public Task<int> CountAsync() => _context.Invoices.CountAsync();
     }
 }

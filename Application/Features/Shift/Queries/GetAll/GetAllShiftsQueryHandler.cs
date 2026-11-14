@@ -1,4 +1,5 @@
-﻿using Application.Features.Shift.DTOs;
+﻿using Domain.Shifts;
+using Application.Features.Shift.DTOs;
 
 namespace Application.Features.Shift.Queries.GetAll
 {

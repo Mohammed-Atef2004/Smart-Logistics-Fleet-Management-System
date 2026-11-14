@@ -1,4 +1,5 @@
-﻿using Application.Features.Vehicle.DTOs;
+﻿using Domain.Vehicles;
+using Application.Features.Vehicle.DTOs;
 
 namespace Application.Features.Vehicle.Queries.GetById
 {

@@ -1,4 +1,5 @@
-﻿using Application.Features.Vehicle.Commands.RecordFuelConsumption;
+﻿using Domain.Vehicles;
+using Application.Features.Vehicle.Commands.RecordFuelConsumption;
 using Domain.Vehicles.ValueObjects;
 
 namespace Application.Features.Vehicles.Commands.RecordFuelConsumption;

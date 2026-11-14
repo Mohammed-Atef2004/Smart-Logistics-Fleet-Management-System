@@ -1,4 +1,5 @@
-﻿using Domain.Inventory;
+﻿using Domain.InventoryItems;
+using Domain.Inventory;
 using Domain.Inventory.Errors;
 using Domain.Inventory.ValueObjects;
 using Domain.Warehouse;
