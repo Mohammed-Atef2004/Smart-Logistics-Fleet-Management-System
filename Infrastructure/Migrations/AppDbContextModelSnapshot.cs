@@ -1287,8 +1287,8 @@ namespace Infrastructure.Migrations
 
                                     b2.Property<string>("Value")
                                         .IsRequired()
-                                        .HasMaxLength(500)
-                                        .HasColumnType("nvarchar(500)")
+                                        .HasMaxLength(200)
+                                        .HasColumnType("nvarchar(200)")
                                         .HasColumnName("Description");
 
                                     b2.HasKey("MaintenanceScheduleId");
@@ -1305,8 +1305,8 @@ namespace Infrastructure.Migrations
                                         .HasColumnType("uniqueidentifier");
 
                                     b2.Property<string>("Value")
-                                        .HasMaxLength(1000)
-                                        .HasColumnType("nvarchar(1000)")
+                                        .HasMaxLength(500)
+                                        .HasColumnType("nvarchar(500)")
                                         .HasColumnName("Remarks");
 
                                     b2.HasKey("MaintenanceScheduleId");
@@ -1343,7 +1343,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("VehicleId");
                         });
 
-                    b.OwnsOne("VehicleSpecification", "Specification", b1 =>
+                    b.OwnsOne("Domain.Vehicles.ValueObjects.VehicleSpecification", "Specification", b1 =>
                         {
                             b1.Property<Guid>("VehicleId")
                                 .HasColumnType("uniqueidentifier");
