@@ -359,3 +359,31 @@ Week 8:  المرحلة 6 (DevEx/Ops)  ←  ⏱️ أسبوع  →  CI + Docker 
 - [ ] CI أخضر + Docker compose بيشغل المشروع بأمر واحد
 - [ ] Health checks + structured logging
 - [ ] الـ README كلها مطابقة للواقع
+
+---
+
+# 🔍 Scanning & Enhancement Roadmap (منفصلة عن خطة التطوير)
+
+> خطة موازية: لكل موديول branch مستقل باسم `<module>-enhance`، وفحص كامل senior-level من الـ Domain للـ Endpoints والـ Tests، مع بحث في المصادر الموثوقة، والتسليم **Pull Request** فيه خطة الملفات المحدثة + الأسباب + الـ resources + شرح للمذاكرة. النظام يفضل **Monolith + Clean Architecture** بدون تغييرات معمارية.
+
+| # | الموديول | الحالة |
+|---|---|---|
+| 1 | **Vehicle** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `vehicle-enhance` + PR |
+| 2 | Driver | ⏳ محجوز للجولة الجاية |
+| 3 | Shift | ⏳ |
+| 4 | Shipment (+ Package) | ⏳ |
+| 5 | User/Security (مراجعة ثانية بعد جولة الـ auth) | ⏳ |
+| 6 | Inventory / Warehouse | ⏳ |
+| 7 | Claim / Invoice / Payment | ⏳ |
+| 8 | Audit / Notifications | ⏳ |
+
+> ملاحظة: جولة الـ Vehicle عالجت جزء من W1 (CS0108 في أحداث Vehicle + الـ audit props المكررة في `Vehicle` + تحويل `Entity<TId>` setters لـ protected). باقي W1 (أحداث Driver/Shift + `ValueObject.Equals` CS8765 + User/Shipment shadows) هيُعالج في جولات الموديولات الخاصة بيها أو في W1 المباشر لو سبقناها.
+
+## منهجية الفحص لكل موديول
+
+1. **Domain:** الـ aggregate invariants، الـ Rules مستخدمة فعلًا، الـ Value Objects Result-pattern، الـ Events ليها publishers/handlers حقيقيين وpayload naming سليم.
+2. **Application:** الـ handlers بتفحص كل Result قبل `.Value`، أخطاء موحدة من الـ Errors classes، الـ use cases الناقصة مكتملة، الـ validators متوافقة مع الـ domain.
+3. **Infrastructure:** الـ EF mapping متوافقة مع الـ domain (أطوال أعمدة/converters/owned types)، مفيش state مكرر.
+4. **API:** الـ contracts مربوطة بـ primitives مش Domain VOs، الـ endpoints كاملة.
+5. **Tests:** Domain tests لكل invariant + handler tests بـ fakes لكل use case.
+6. **Resources مرجعية:** Microsoft Learn (EF Core owned entities / DDD patterns)، eShopOnContainers (aggregate encapsulation + rules pattern)، Milan Jovanović (owned types + aggregate design).
