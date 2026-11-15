@@ -1,8 +1,8 @@
-﻿using Domain.Vehicles;
-using Application.Features.Vehicle.Commands.RetireVehicle;
+using Domain.Vehicles;
+using Domain.Vehicles.Errors;
 using Domain.Vehicles.ValueObjects;
 
-namespace Application.Features.Vehicles.Commands.RetireVehicle;
+namespace Application.Features.Vehicle.Commands.RetireVehicle;
 
 public sealed class RetireVehicleCommandHandler : IRequestHandler<RetireVehicleCommand, Result>
 {
@@ -20,9 +20,8 @@ public sealed class RetireVehicleCommandHandler : IRequestHandler<RetireVehicleC
         var vehicle = await _vehicleRepository.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
 
         if (vehicle is null)
-            return Result.Failure(new Error("Vehicle.NotFound", "Vehicle not found."));
+            return Result.Failure(VehicleErrors.NotFound(request.VehicleId));
 
-        
         var result = vehicle.Retire();
 
         if (result.IsFailure)

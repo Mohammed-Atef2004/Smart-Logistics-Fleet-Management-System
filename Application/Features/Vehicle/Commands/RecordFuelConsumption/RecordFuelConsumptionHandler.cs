@@ -1,8 +1,8 @@
-﻿using Domain.Vehicles;
-using Application.Features.Vehicle.Commands.RecordFuelConsumption;
+using Domain.Vehicles;
+using Domain.Vehicles.Errors;
 using Domain.Vehicles.ValueObjects;
 
-namespace Application.Features.Vehicles.Commands.RecordFuelConsumption;
+namespace Application.Features.Vehicle.Commands.RecordFuelConsumption;
 
 public sealed class RecordFuelConsumptionCommandHandler : IRequestHandler<RecordFuelConsumptionCommand, Result>
 {
@@ -20,13 +20,12 @@ public sealed class RecordFuelConsumptionCommandHandler : IRequestHandler<Record
         var vehicle = await _vehicleRepository.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
 
         if (vehicle is null)
-            return Result.Failure(new Error("Vehicle.NotFound", "Vehicle not found."));
+            return Result.Failure(VehicleErrors.NotFound(request.VehicleId));
 
         var fuelResult = FuelConsumption.Create(request.Liters, request.OdometerReading);
         if (fuelResult.IsFailure)
             return Result.Failure(fuelResult.Error);
 
-        
         var result = vehicle.RecordFuelConsumption(fuelResult.Value);
 
         if (result.IsFailure)

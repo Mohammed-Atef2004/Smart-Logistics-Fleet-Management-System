@@ -1,20 +1,24 @@
 ﻿namespace Domain.SharedKernel;
 
-public abstract class Entity<TId> : IEquatable<Entity<TId>>,IAuditable,ISoftDeletable
+public abstract class Entity<TId> : IEquatable<Entity<TId>>, IAuditable, ISoftDeletable
 {
     public TId Id { get; protected set; } = default!;
 
-    public bool IsDeleted { get; private set; }
+    // Audit / soft-delete state. The setters are *protected* (not private)
+    // so derived aggregates manage their own lifecycle state directly
+    // instead of shadow-casting duplicate properties over them (CS0108).
+    // EF Core materializes these through the backing fields either way.
+    public bool IsDeleted { get; protected set; }
 
-    public DateTime? DeletedAtUtc { get; private set; }
+    public DateTime? DeletedAtUtc { get; protected set; }
 
-    public DateTime CreatedAt { get;private set; }
+    public DateTime CreatedAt { get; protected set; }
 
-    public DateTime? UpdatedAt { get; private set; }
+    public DateTime? UpdatedAt { get; protected set; }
 
-    public string? CreatedBy { get; private set; }
+    public string? CreatedBy { get; protected set; }
 
-    public string? UpdatedBy { get; private set; }
+    public string? UpdatedBy { get; protected set; }
 
     protected Entity() { }
 

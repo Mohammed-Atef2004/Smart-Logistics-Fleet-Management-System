@@ -1,13 +1,12 @@
-﻿using Application.Features.Vehicle.Commands.RecordFuelConsumption;
+﻿using Application.Features.Vehicle.Commands.CompleteMaintenance;
+using Application.Features.Vehicle.Commands.RecordFuelConsumption;
 using Application.Features.Vehicle.Commands.RegisterNewVehicle;
+using Application.Features.Vehicle.Commands.RescheduleMaintenance;
 using Application.Features.Vehicle.Commands.RetireVehicle;
 using Application.Features.Vehicle.Commands.ScheduleMaintenance;
 using Application.Features.Vehicle.Commands.UpdateVehicleStatus;
 using Application.Features.Vehicle.Queries.GetById;
-using Application.Features.Vehicles.Commands.RecordFuelConsumption;
-using Application.Features.Vehicles.Commands.RetireVehicle;
-using Application.Features.Vehicles.Commands.ScheduleMaintenance;
-using Application.Features.Vehicles.Commands.UpdateVehicleStatus;
+using Domain.SharedKernel;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -48,6 +47,34 @@ public class VehiclesController : ApiController
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 
+    /// <summary>Move a not-yet-performed maintenance schedule to a new date.</summary>
+    [HttpPatch("{id:guid}/maintenance/{scheduleId:guid}")]
+    public async Task<IActionResult> RescheduleMaintenance(
+        Guid id,
+        Guid scheduleId,
+        [FromBody] RescheduleMaintenanceRequest request,
+        CancellationToken ct)
+    {
+        var command = new RescheduleMaintenanceCommand(id, scheduleId, request.NewDate);
+        var result = await _sender.Send(command, ct);
+
+        return result.IsSuccess ? Ok() : HandleFailure(result);
+    }
+
+    /// <summary>Marks a maintenance schedule as performed and returns the vehicle to service.</summary>
+    [HttpPost("{id:guid}/maintenance/{scheduleId:guid}/complete")]
+    public async Task<IActionResult> CompleteMaintenance(
+        Guid id,
+        Guid scheduleId,
+        [FromBody] CompleteMaintenanceRequest? request,
+        CancellationToken ct)
+    {
+        var command = new CompleteMaintenanceCommand(id, scheduleId, request?.Remarks);
+        var result = await _sender.Send(command, ct);
+
+        return result.IsSuccess ? Ok() : HandleFailure(result);
+    }
+
     [HttpPost("{id:guid}/fuel")]
     public async Task<IActionResult> RecordFuel(Guid id, [FromBody] RecordFuelConsumptionRequest request, CancellationToken ct)
     {
@@ -79,6 +106,8 @@ public class VehiclesController : ApiController
 #region Requests DTOs
 
 public record ScheduleMaintenanceRequest(DateTime ScheduledDate, string Description);
+public record RescheduleMaintenanceRequest(DateTime NewDate);
+public record CompleteMaintenanceRequest(string? Remarks);
 public record RecordFuelConsumptionRequest(decimal Liters, decimal OdometerReading);
 public record UpdateStatusRequest(Domain.Vehicles.Enums.VehicleStatus NewStatus);
 

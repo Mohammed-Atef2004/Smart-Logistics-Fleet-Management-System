@@ -1,24 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.SharedKernel;
+using Domain.Vehicles.Errors;
 
-namespace Domain.Vehicles.ValueObjects
+namespace Domain.Vehicles.ValueObjects;
+
+/// <summary>
+/// Result-pattern value object for optional maintenance notes.
+/// The old public constructor threw on long values; all validation now
+/// lives in <see cref="Create"/>.
+/// </summary>
+public record MaintenanceRemarks
 {
-    public record MaintenanceRemarks
+    public const int MaxLength = 500;
+
+    public string? Value { get; init; }
+
+    private MaintenanceRemarks(string value)
     {
-        public string? Value { get; init; }
+        Value = string.IsNullOrWhiteSpace(value) ? null : value;
+    }
 
-        public MaintenanceRemarks(string? value)
-        {
-            if (value != null && value.Length > 500)
-                throw new ArgumentException("Remarks too long");
+    public static Result<MaintenanceRemarks> Create(string? value)
+    {
+        var trimmed = value?.Trim();
 
-            Value = value;
-        }
+        if (string.IsNullOrEmpty(trimmed))
+            return Result<MaintenanceRemarks>.Success(new MaintenanceRemarks(string.Empty));
 
-        public static implicit operator string?(MaintenanceRemarks r) => r.Value;
-        public static explicit operator MaintenanceRemarks(string? s) => new MaintenanceRemarks(s);
+        if (trimmed.Length > MaxLength)
+            return Result<MaintenanceRemarks>.Failure(MaintenanceErrors.RemarksTooLong);
+
+        return Result<MaintenanceRemarks>.Success(new MaintenanceRemarks(trimmed));
     }
 }

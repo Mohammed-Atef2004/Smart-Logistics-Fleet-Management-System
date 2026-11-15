@@ -1,4 +1,5 @@
 ﻿using Domain.Vehicles;
+using Domain.Vehicles.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;

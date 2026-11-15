@@ -1,6 +1,7 @@
-﻿using Domain.Vehicles.Events;
+﻿using Application.Features.Vehicle.Commands.RecordFuelConsumption;
+using Domain.Vehicles.Events;
 
-namespace Application.Features.Vehicles.Events;
+namespace Application.Features.Vehicle.Commands.RecordFuelConsumption;
 
 public sealed class FuelConsumptionRecordedEventHandler : INotificationHandler<FuelConsumptionRecordedEvent>
 {
@@ -13,8 +14,11 @@ public sealed class FuelConsumptionRecordedEventHandler : INotificationHandler<F
 
     public Task Handle(FuelConsumptionRecordedEvent notification, CancellationToken cancellationToken)
     {
+        // Reads the event's own payload now; the old lowercase properties
+        // (liters / odometerReading) logged null/wrong values and
+        // notification.Id logged the base event GUID, not the vehicle id.
         _logger.LogInformation("Fuel consumption recorded for Vehicle {VehicleId}: {Liters}L at {Odometer} km.",
-            notification.Id, notification.liters, notification.odometerReading);
+            notification.VehicleId.Value, notification.Liters, notification.OdometerReading);
 
         return Task.CompletedTask;
     }

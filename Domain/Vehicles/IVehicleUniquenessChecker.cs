@@ -1,4 +1,5 @@
 ﻿using Domain.Vehicles;
+using Domain.Vehicles.ValueObjects;
 
 namespace Domain.Vehicles
 {

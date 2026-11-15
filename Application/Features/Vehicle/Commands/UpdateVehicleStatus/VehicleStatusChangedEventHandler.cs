@@ -1,6 +1,7 @@
-﻿using Domain.Vehicles.Events;
+﻿using Application.Features.Vehicle.Commands.UpdateVehicleStatus;
+using Domain.Vehicles.Events;
 
-namespace Application.Features.Vehicles.Events;
+namespace Application.Features.Vehicle.Commands.UpdateVehicleStatus;
 
 public sealed class VehicleStatusChangedEventHandler : INotificationHandler<VehicleStatusChangedEvent>
 {
@@ -14,9 +15,9 @@ public sealed class VehicleStatusChangedEventHandler : INotificationHandler<Vehi
     public Task Handle(VehicleStatusChangedEvent notification, CancellationToken cancellationToken)
     {
         _logger.LogInformation(
-         "Vehicle {VehicleId} status changed to {Status}",
-         notification.Id.Value, 
-         notification.NewStatus);
+            "Vehicle {VehicleId} status changed to {Status}",
+            notification.VehicleId.Value,
+            notification.NewStatus);
 
         return Task.CompletedTask;
     }

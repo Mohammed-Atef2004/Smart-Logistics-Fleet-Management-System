@@ -1,18 +1,18 @@
 ﻿using Domain.SharedKernel;
+using Domain.Vehicles.ValueObjects;
 
-namespace Domain.Vehicles.Events
+namespace Domain.Vehicles.Events;
+
+public record FuelConsumptionRecordedEvent : DomainEvent
 {
-    public record FuelConsumptionRecordedEvent : DomainEvent
-    {
-        public VehicleId id { get; init; }
-        public decimal liters { get; init; }
-        public decimal odometerReading { get; init; }
+    public VehicleId VehicleId { get; init; }
+    public decimal Liters { get; init; }
+    public decimal OdometerReading { get; init; }
 
-        public FuelConsumptionRecordedEvent(VehicleId id, decimal liters, decimal odometerReading)
-        {
-            this.id = id;
-            this.liters = liters;
-            this.odometerReading = odometerReading;
-        }
+    public FuelConsumptionRecordedEvent(VehicleId vehicleId, decimal liters, decimal odometerReading)
+    {
+        VehicleId = vehicleId;
+        Liters = liters;
+        OdometerReading = odometerReading;
     }
 }

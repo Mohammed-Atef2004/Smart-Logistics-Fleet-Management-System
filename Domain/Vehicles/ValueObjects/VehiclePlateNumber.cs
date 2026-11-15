@@ -1,10 +1,14 @@
 ﻿using Domain.SharedKernel;
 using Domain.Vehicles.Errors;
-using System.Text.Json.Serialization;
+
+namespace Domain.Vehicles.ValueObjects;
+
 public sealed record VehiclePlateNumber
 {
-    public string Value { get; init; }
-    private VehiclePlateNumber() { }
+    public string Value { get; init; } = default!;
+
+    private VehiclePlateNumber() { } // EF Core
+
     private VehiclePlateNumber(string value)
     {
         Value = value;

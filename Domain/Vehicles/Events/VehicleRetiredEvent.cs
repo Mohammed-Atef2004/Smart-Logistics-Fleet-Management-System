@@ -1,14 +1,14 @@
 ﻿using Domain.SharedKernel;
+using Domain.Vehicles.ValueObjects;
 
-namespace Domain.Vehicles.Events
+namespace Domain.Vehicles.Events;
+
+public record VehicleRetiredEvent : DomainEvent
 {
-    public record VehicleRetiredEvent : DomainEvent
-    {
-        public VehicleId id { get; init; }
+    public VehicleId VehicleId { get; init; }
 
-        public VehicleRetiredEvent(VehicleId id)
-        {
-            this.id = id;
-        }
+    public VehicleRetiredEvent(VehicleId vehicleId)
+    {
+        VehicleId = vehicleId;
     }
 }

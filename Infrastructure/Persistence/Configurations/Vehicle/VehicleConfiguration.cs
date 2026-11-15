@@ -2,7 +2,6 @@
 using Domain.Vehicles.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-
 namespace Infrastructure.Persistence.Configurations.Vehicles;
 
 public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
@@ -84,7 +83,10 @@ public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
             {
                 d.Property(x => x.Value)
                     .HasColumnName("Description")
-                    .HasMaxLength(500)
+                    // Matches MaintenanceDescription.MaxLength (200) — the
+                    // DB column previously allowed 500, wider than the
+                    // domain invariant.
+                    .HasMaxLength(MaintenanceDescription.MaxLength)
                     .IsRequired();
             });
 
@@ -96,7 +98,8 @@ public sealed class VehicleConfiguration : IEntityTypeConfiguration<Vehicle>
             {
                 r.Property(x => x.Value)
                     .HasColumnName("Remarks")
-                    .HasMaxLength(1000);
+                    // Matches MaintenanceRemarks.MaxLength (500).
+                    .HasMaxLength(MaintenanceRemarks.MaxLength);
             });
         });
 
