@@ -1,6 +1,7 @@
-﻿using Domain.Vehicles.Events;
+﻿using Application.Features.Vehicle.Commands.ScheduleMaintenance;
+using Domain.Vehicles.Events;
 
-namespace Application.Features.Vehicles.Events;
+namespace Application.Features.Vehicle.Commands.ScheduleMaintenance;
 
 public sealed class MaintenanceScheduledEventHandler : INotificationHandler<MaintenanceScheduledEvent>
 {
@@ -13,8 +14,10 @@ public sealed class MaintenanceScheduledEventHandler : INotificationHandler<Main
 
     public Task Handle(MaintenanceScheduledEvent notification, CancellationToken cancellationToken)
     {
-        _logger.LogInformation("Vehicle {VehicleId} has been scheduled for maintenance on {Date}",
-            notification.Id, notification.OccurredOnUtc);
+        // The old handler logged notification.OccurredOnUtc (the moment the
+        // event was raised) instead of the actual maintenance date.
+        _logger.LogInformation("Vehicle {VehicleId} has been scheduled for maintenance on {ScheduledDate} (schedule {ScheduleId}).",
+            notification.VehicleId.Value, notification.ScheduledDate, notification.ScheduleId);
 
         return Task.CompletedTask;
     }

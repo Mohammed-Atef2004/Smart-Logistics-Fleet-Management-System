@@ -1,6 +1,7 @@
-﻿using Domain.Vehicles.Events;
+﻿using Application.Features.Vehicle.Commands.RetireVehicle;
+using Domain.Vehicles.Events;
 
-namespace Application.Features.Vehicles.Events;
+namespace Application.Features.Vehicle.Commands.RetireVehicle;
 
 public sealed class VehicleRetiredEventHandler : INotificationHandler<VehicleRetiredEvent>
 {
@@ -14,7 +15,7 @@ public sealed class VehicleRetiredEventHandler : INotificationHandler<VehicleRet
     public Task Handle(VehicleRetiredEvent notification, CancellationToken cancellationToken)
     {
         _logger.LogWarning("Vehicle {VehicleId} has been retired. Archiving related records...",
-            notification.id);
+            notification.VehicleId.Value);
         // Here I would add logic to archive related records, notify other systems, etc.
         return Task.CompletedTask;
     }

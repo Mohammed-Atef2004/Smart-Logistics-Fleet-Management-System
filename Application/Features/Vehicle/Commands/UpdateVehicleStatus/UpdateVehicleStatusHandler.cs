@@ -1,8 +1,8 @@
-﻿using Domain.Vehicles;
-using Application.Features.Vehicle.Commands.UpdateVehicleStatus;
+using Domain.Vehicles;
+using Domain.Vehicles.Errors;
 using Domain.Vehicles.ValueObjects;
 
-namespace Application.Features.Vehicles.Commands.UpdateVehicleStatus;
+namespace Application.Features.Vehicle.Commands.UpdateVehicleStatus;
 
 public sealed class UpdateVehicleStatusHandler : IRequestHandler<UpdateVehicleStatusCommand, Result>
 {
@@ -20,7 +20,7 @@ public sealed class UpdateVehicleStatusHandler : IRequestHandler<UpdateVehicleSt
         var vehicle = await _vehicleRepository.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
 
         if (vehicle is null)
-            return Result.Failure(new Error("Vehicle.NotFound", "Vehicle not found."));
+            return Result.Failure(VehicleErrors.NotFound(request.VehicleId));
 
         var result = vehicle.UpdateStatus(request.NewStatus);
 

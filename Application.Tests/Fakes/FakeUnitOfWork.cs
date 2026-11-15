@@ -10,6 +10,7 @@ public sealed class FakeUnitOfWork : IUnitOfWork
 {
     public int SaveCount { get; private set; }
     public FakeUserRepository Users { get; } = new();
+    public FakeVehicleRepository Vehicles { get; } = new();
 
     public Task<int> CompleteAsync(CancellationToken cancellationToken = default)
     {

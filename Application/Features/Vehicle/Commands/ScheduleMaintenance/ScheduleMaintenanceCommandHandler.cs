@@ -1,8 +1,8 @@
 ﻿using Domain.Vehicles;
-using Application.Features.Vehicle.Commands.ScheduleMaintenance;
+using Domain.Vehicles.Errors;
 using Domain.Vehicles.ValueObjects;
 
-namespace Application.Features.Vehicles.Commands.ScheduleMaintenance;
+namespace Application.Features.Vehicle.Commands.ScheduleMaintenance;
 
 public sealed class ScheduleMaintenanceCommandHandler : IRequestHandler<ScheduleMaintenanceCommand, Result>
 {
@@ -17,11 +17,10 @@ public sealed class ScheduleMaintenanceCommandHandler : IRequestHandler<Schedule
 
     public async Task<Result> Handle(ScheduleMaintenanceCommand request, CancellationToken cancellationToken)
     {
-        // 1. Load the aggregate from the repository
         var vehicle = await _vehicleRepository.GetByIdAsync(new VehicleId(request.VehicleId), cancellationToken);
 
         if (vehicle is null)
-            return Result.Failure(new Error("Vehicle.NotFound", "The specified vehicle was not found."));
+            return Result.Failure(VehicleErrors.NotFound(request.VehicleId));
 
         var descriptionResult = MaintenanceDescription.Create(request.Description);
         if (descriptionResult.IsFailure)
