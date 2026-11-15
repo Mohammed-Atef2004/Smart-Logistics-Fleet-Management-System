@@ -1,4 +1,6 @@
-﻿using Domain.Vehicles.Enums;
+﻿using Domain.SharedKernel;
+using Domain.Vehicles.Enums;
+using Domain.Vehicles.ValueObjects;
 
 namespace Domain.Vehicles;
 

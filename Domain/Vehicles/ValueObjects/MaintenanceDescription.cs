@@ -1,37 +1,33 @@
 ﻿using Domain.SharedKernel;
 using Domain.Vehicles.Errors;
-using System;
 
-namespace Domain.Vehicles.ValueObjects
+namespace Domain.Vehicles.ValueObjects;
+
+/// <summary>
+/// Result-pattern value object: the only way in is <see cref="Create"/>,
+/// which returns a Result instead of throwing like the old public
+/// constructor did (throwing constructors broke the Result convention
+/// used everywhere else in this codebase).
+/// </summary>
+public record MaintenanceDescription
 {
-    public record MaintenanceDescription
+    public const int MaxLength = 200;
+
+    public string Value { get; init; } = default!;
+
+    private MaintenanceDescription(string value)
     {
-        public string Value { get; init; }
-
-        public MaintenanceDescription(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-                throw new ArgumentException(MaintenanceErrors.DescriptionRequired.Message);
-
-            if (value.Length > 200)
-                throw new ArgumentException("Description too long");
-
-            Value = value;
-        }
-        // 2. Factory Method returning Result
-        public static Result<MaintenanceDescription> Create(string value)
-        {
-            if (string.IsNullOrWhiteSpace(value))
-                return Result<MaintenanceDescription>.Failure(MaintenanceErrors.DescriptionRequired);
-
-            if (value.Length > 200)
-                return Result<MaintenanceDescription>.Failure(new Error("MaintenanceDescription.TooLong", "Description cannot exceed 200 characters."));
-
-            return Result<MaintenanceDescription>.Success(new MaintenanceDescription(value));
-        }
-
-        public static implicit operator string(MaintenanceDescription d) => d.Value;
-        public static explicit operator MaintenanceDescription(string s) => new MaintenanceDescription(s);
+        Value = value;
     }
 
+    public static Result<MaintenanceDescription> Create(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return Result<MaintenanceDescription>.Failure(MaintenanceErrors.DescriptionRequired);
+
+        if (value.Length > MaxLength)
+            return Result<MaintenanceDescription>.Failure(MaintenanceErrors.DescriptionTooLong);
+
+        return Result<MaintenanceDescription>.Success(new MaintenanceDescription(value));
+    }
 }
