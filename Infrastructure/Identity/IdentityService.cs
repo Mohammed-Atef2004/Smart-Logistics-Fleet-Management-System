@@ -2,7 +2,9 @@
 using Domain.SharedKernel;
 using Domain.Users;
 using Domain.Users.Errors;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Options;
 
 namespace Infrastructure.Identity;
 
@@ -10,13 +12,16 @@ public sealed class IdentityService : IIdentityService
 {
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly RoleManager<IdentityRole> _roleManager;
+    private readonly JwtOptions _jwtOptions;
 
     public IdentityService(
         UserManager<ApplicationUser> userManager,
-        RoleManager<IdentityRole> roleManager)
+        RoleManager<IdentityRole> roleManager,
+        IOptions<JwtOptions> jwtOptions)
     {
         _userManager = userManager;
         _roleManager = roleManager;
+        _jwtOptions = jwtOptions.Value;
     }
 
     // =====================
@@ -32,12 +37,9 @@ public sealed class IdentityService : IIdentityService
         };
 
         var result = await _userManager.CreateAsync(user, password);
-       
 
         if (!result.Succeeded)
             return Result<string>.Failure(MapIdentityErrors(result.Errors));
-
-        var emailToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
 
         return Result<string>.Success(user.Id);
     }
@@ -178,7 +180,6 @@ public sealed class IdentityService : IIdentityService
         var result = await _userManager.ChangeEmailAsync(user, newEmail, token);
         if (!result.Succeeded) return Result.Failure(UserErrors.SecurityErrors.InvalidEmailToken);
 
-        await _userManager.UpdateAsync(user);
         return Result.Success();
     }
 
@@ -191,10 +192,16 @@ public sealed class IdentityService : IIdentityService
         if (user != null)
         {
             user.RefreshToken = refreshToken;
-            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(7);
+            // Use the configured lifetime instead of a hardcoded value.
+            user.RefreshTokenExpiryTime = DateTime.UtcNow.AddDays(_jwtOptions.RefreshTokenDays);
 
-            await _userManager.UpdateAsync(user);
-            
+            var result = await _userManager.UpdateAsync(user);
+            if (!result.Succeeded)
+            {
+                throw new InvalidOperationException(
+                    "Failed to persist the refresh token: " +
+                    string.Join(" | ", result.Errors.Select(e => e.Description)));
+            }
         }
     }
     // =====================

@@ -103,8 +103,21 @@ namespace Application.Auth.Commands.Register
 
             if (emailResult2.IsFailure)
             {
-                return Result<Guid>.Failure(emailResult2.Error);
+                // The user IS created and persisted — reporting failure here
+                // would make a retry hit "email/username taken". The login
+                // flow re-sends the activation link for unconfirmed accounts,
+                // so a failed email send is an operational issue, not a
+                // failed registration.
+                await _auditService.LogAsync(new AuditEntry(
+                    ActorId: user.Id,
+                    Action: AuditActions.UserRegistered,
+                    EntityType: nameof(User),
+                    EntityId: user.Id,
+                    IpAddress: ipAddress,
+                    Succeeded: false,
+                    FailureReason: $"Confirmation email failed: {emailResult2.Error.Message}"), ct);
             }
+
             return Result<Guid>.Success(user.Id);
         }
     }

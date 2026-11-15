@@ -88,7 +88,8 @@ namespace API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> ConfirmEmail([FromQuery] Guid userId, [FromQuery] string token, CancellationToken ct)
         {
-            byte[] decodedBytes = Base64Url.Decode(token);
+            if (!Base64Url.TryDecode(token, out var decodedBytes))
+                return BadRequest(new Domain.SharedKernel.Error("User.Token.Invalid", "The confirmation token is malformed."));
             string originalToken = Encoding.UTF8.GetString(decodedBytes);
 
             var command = new ConfirmEmailCommand(userId, originalToken);
@@ -107,7 +108,8 @@ namespace API.Controllers
             [FromQuery] string token,
             CancellationToken ct)
         {
-            byte[] decodedBytes = Base64Url.Decode(token);
+            if (!Base64Url.TryDecode(token, out var decodedBytes))
+                return BadRequest(new Domain.SharedKernel.Error("User.Token.Invalid", "The confirmation token is malformed."));
             string originalToken = Encoding.UTF8.GetString(decodedBytes);
 
             var result = await _mediator.Send(new ConfirmEmailChangeCommand(userId, newEmail, originalToken), ct);
@@ -134,8 +136,10 @@ namespace API.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> ResetPassword([FromBody] ResetPasswordCommand command, CancellationToken ct)
         {
-            byte[] decodedBytes = Base64Url.Decode(command.Token);
+            if (!Base64Url.TryDecode(command.Token, out var decodedBytes))
+                return BadRequest(new Domain.SharedKernel.Error("User.Token.Invalid", "The reset token is malformed."));
             string originalToken = Encoding.UTF8.GetString(decodedBytes);
+
             var updatedCommand = command with { Token = originalToken };
             var result = await _mediator.Send(updatedCommand, ct);
             if (result.IsSuccess)

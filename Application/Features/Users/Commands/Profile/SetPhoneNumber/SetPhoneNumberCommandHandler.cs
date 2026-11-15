@@ -18,7 +18,6 @@ namespace Application.Features.Users.Commands.Profile.SetPhoneNumber
         public SetPhoneNumberCommandHandler(
             IUserRepository userRepository,
             IIdentityService identityService,
-            IPasswordHasher passwordHasher,
             ITotpService totpService,
             IUnitOfWork unitOfWork,
             IAuditService auditService,

@@ -118,21 +118,21 @@ namespace Application.Features.Users.Commands.Profile.ChangeEmail
                                    $"userId={user.Id}&" +
                                    $"newEmail={safeEmail}&" +
                                    $"token={safeToken}";
-            var warningResult =await _emailService.SendEmailChangeWarningAsync
+            var warningResult = await _emailService.SendEmailChangeWarningAsync
               (user.Email.Value,
               user.FullName.DisplayName,
               ct);
             if (warningResult.IsFailure)
             {
-                return Result<Guid>.Failure(warningResult.Error);
+                return Result.Failure(warningResult.Error);
             }
-            var changeMailResult =await _emailService.SendEmailChangeConfirmationAsync
+            var changeMailResult = await _emailService.SendEmailChangeConfirmationAsync
               (command.NewEmail
               , user.FullName.DisplayName,
               confirmationLink, ct);
             if (changeMailResult.IsFailure)
             {
-                return Result<Guid>.Failure(changeMailResult.Error);
+                return Result.Failure(changeMailResult.Error);
             }
             return Result.Success();
         }

@@ -18,6 +18,21 @@ public static class Base64Url
 
     public static byte[] Decode(string encoded)
     {
+        return TryDecode(encoded, out var decoded)
+            ? decoded
+            : throw new FormatException("The value is not a valid Base64Url string.");
+    }
+
+    /// <summary>
+    /// Non-throwing variant for untrusted input: returns false instead of
+    /// throwing FormatException on malformed tokens.
+    /// </summary>
+    public static bool TryDecode(string encoded, out byte[] decoded)
+    {
+        decoded = Array.Empty<byte>();
+        if (string.IsNullOrEmpty(encoded))
+            return false;
+
         var base64 = encoded
             .Replace('-', '+')
             .Replace('_', '/');
@@ -28,6 +43,14 @@ public static class Base64Url
             case 3: base64 += "="; break;
         }
 
-        return Convert.FromBase64String(base64);
+        try
+        {
+            decoded = Convert.FromBase64String(base64);
+            return true;
+        }
+        catch (FormatException)
+        {
+            return false;
+        }
     }
 }

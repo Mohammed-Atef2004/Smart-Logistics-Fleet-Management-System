@@ -37,9 +37,16 @@ public sealed class LogoutCommandHandler : IRequestHandler<LogoutCommand, Result
 
         // Get the token expiry from the exp claim
         var expClaim = user?.FindFirst(JwtRegisteredClaimNames.Exp)?.Value;
-        var tokenExpiry = expClaim is not null
-            ? DateTimeOffset.FromUnixTimeSeconds(long.Parse(expClaim)).UtcDateTime
-            : DateTime.UtcNow.AddMinutes(15); // fallback when the claim is missing
+        DateTime tokenExpiry;
+        if (expClaim is not null && long.TryParse(expClaim, out var expSeconds))
+        {
+            tokenExpiry = DateTimeOffset.FromUnixTimeSeconds(expSeconds).UtcDateTime;
+        }
+        else
+        {
+            // Fallback when the claim is missing or malformed
+            tokenExpiry = DateTime.UtcNow.AddMinutes(15);
+        }
 
         // 1. Invalidate the access token immediately via the blacklist
         if (!string.IsNullOrEmpty(jti))

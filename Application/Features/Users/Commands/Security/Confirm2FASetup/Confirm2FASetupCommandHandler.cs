@@ -36,6 +36,11 @@ namespace Application.Features.Users.Commands.Security.Confirm2FASetup
             if (user is null)
                 return Result.Failure(UserErrors.NotFound);
 
+            // Locked / deactivated / deleted accounts cannot enable 2FA.
+            var availabilityResult = user.CheckAvailability();
+            if (availabilityResult.IsFailure)
+                return availabilityResult;
+
             var isVerified = _totpService.Verify(command.NewSecret, command.TotpCode);
 
             if (!isVerified)
@@ -51,7 +56,10 @@ namespace Application.Features.Users.Commands.Security.Confirm2FASetup
                 ), ct);
                 return Result.Failure(UserErrors.SecurityErrors.InvalidTotpCode);
             }
-            user.EnableTwoFactor(command.NewSecret);
+            var enableResult = user.EnableTwoFactor(command.NewSecret);
+            if (enableResult.IsFailure)
+                return enableResult;
+
             _userRepository.Update(user);
             await _unitOfWork.CompleteAsync(ct);
 
