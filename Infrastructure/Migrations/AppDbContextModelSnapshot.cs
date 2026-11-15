@@ -17,7 +17,7 @@ namespace Infrastructure.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.1")
+                .HasAnnotation("ProductVersion", "10.0.15")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
@@ -404,6 +404,11 @@ namespace Infrastructure.Migrations
                         .HasColumnType("nvarchar(450)")
                         .HasColumnName("Username");
 
+                    b.Property<string>("_passwordHashes")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)")
+                        .HasColumnName("PasswordHashes");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdentityId")
@@ -625,7 +630,7 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Claims.InsuranceClaim", b =>
                 {
-                    b.OwnsMany("Domain.Claims.ClaimItem", "Items", b1 =>
+                    b.OwnsMany("Domain.Claims.ValueObjects.ClaimItem", "Items", b1 =>
                         {
                             b1.Property<Guid>("Id")
                                 .ValueGeneratedOnAdd()
@@ -651,7 +656,7 @@ namespace Infrastructure.Migrations
                             b1.WithOwner()
                                 .HasForeignKey("ClaimId");
 
-                            b1.OwnsOne("Domain.Claims.ValueObjects.ClaimAmount", "UnitValue", b2 =>
+                            b1.OwnsOne("ClaimAmount", "UnitValue", b2 =>
                                 {
                                     b2.Property<Guid>("ClaimItemId")
                                         .HasColumnType("uniqueidentifier");
@@ -679,7 +684,7 @@ namespace Infrastructure.Migrations
                                 .IsRequired();
                         });
 
-                    b.OwnsOne("Domain.Claims.ValueObjects.ClaimAmount", "ApprovedAmount", b1 =>
+                    b.OwnsOne("ClaimAmount", "ApprovedAmount", b1 =>
                         {
                             b1.Property<Guid>("InsuranceClaimId")
                                 .HasColumnType("uniqueidentifier");
@@ -703,7 +708,7 @@ namespace Infrastructure.Migrations
                                 .HasForeignKey("InsuranceClaimId");
                         });
 
-                    b.OwnsOne("Domain.Claims.ValueObjects.ClaimAmount", "ClaimAmount", b1 =>
+                    b.OwnsOne("ClaimAmount", "ClaimAmount", b1 =>
                         {
                             b1.Property<Guid>("InsuranceClaimId")
                                 .HasColumnType("uniqueidentifier");
@@ -836,6 +841,30 @@ namespace Infrastructure.Migrations
 
             modelBuilder.Entity("Domain.Inventory.InventoryItem", b =>
                 {
+                    b.OwnsOne("Domain.Shipments.ValueObjects.Weight", "Weight", b1 =>
+                        {
+                            b1.Property<Guid>("InventoryItemId")
+                                .HasColumnType("uniqueidentifier");
+
+                            b1.Property<string>("Unit")
+                                .IsRequired()
+                                .HasMaxLength(20)
+                                .HasColumnType("nvarchar(20)")
+                                .HasColumnName("WeightUnit");
+
+                            b1.Property<decimal>("Value")
+                                .HasPrecision(18, 4)
+                                .HasColumnType("decimal(18,4)")
+                                .HasColumnName("WeightValue");
+
+                            b1.HasKey("InventoryItemId");
+
+                            b1.ToTable("InventoryItems");
+
+                            b1.WithOwner()
+                                .HasForeignKey("InventoryItemId");
+                        });
+
                     b.OwnsOne("Domain.Inventory.ValueObjects.ProductInfo", "ProductInfo", b1 =>
                         {
                             b1.Property<Guid>("InventoryItemId")
@@ -881,30 +910,6 @@ namespace Infrastructure.Migrations
                             b1.Property<int>("ReorderThreshold")
                                 .HasColumnType("int")
                                 .HasColumnName("ReorderThreshold");
-
-                            b1.HasKey("InventoryItemId");
-
-                            b1.ToTable("InventoryItems");
-
-                            b1.WithOwner()
-                                .HasForeignKey("InventoryItemId");
-                        });
-
-                    b.OwnsOne("Domain.Shipments.ValueObjects.Weight", "Weight", b1 =>
-                        {
-                            b1.Property<Guid>("InventoryItemId")
-                                .HasColumnType("uniqueidentifier");
-
-                            b1.Property<string>("Unit")
-                                .IsRequired()
-                                .HasMaxLength(20)
-                                .HasColumnType("nvarchar(20)")
-                                .HasColumnName("WeightUnit");
-
-                            b1.Property<decimal>("Value")
-                                .HasPrecision(18, 4)
-                                .HasColumnType("decimal(18,4)")
-                                .HasColumnName("WeightValue");
 
                             b1.HasKey("InventoryItemId");
 

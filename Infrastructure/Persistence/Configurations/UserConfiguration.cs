@@ -3,6 +3,7 @@ using Domain.Users.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Migrations;
+using System.Text.Json;
 
 public class UserConfiguration : IEntityTypeConfiguration<User>
 {
@@ -69,5 +70,16 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 
         builder.HasIndex(u => u.IdentityId)
             .IsUnique();
+
+        // ========================
+        // Password History (field-only property)
+        // ========================
+        // _passwordHashes holds the last N BCrypt hashes used by
+        // PasswordMustNotBeReusedRule. Stored as a JSON string.
+        builder.Property<List<string>>("_passwordHashes")
+            .HasConversion(
+                hashes => JsonSerializer.Serialize(hashes, (JsonSerializerOptions?)null),
+                json => JsonSerializer.Deserialize<List<string>>(json, (JsonSerializerOptions?)null) ?? new List<string>())
+            .HasColumnName("PasswordHashes");
     }
 }
