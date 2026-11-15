@@ -55,7 +55,7 @@
 |---|---|---|
 | M1 | Refresh token مخزّن **plain text** في جدول Users | `TokenService.cs` |
 | M2 | Token Blacklist في **MemoryCache singleton** — بيضيع مع restart ومش يشتغل multi-instance | `TokenBlacklistService.cs` |
-| M3 | **User enumeration** في الـ login: NotFound للإيميل الغلط، InvalidCredentials للباسورد الغلط | `LoginCommandHandler.cs` |
+| M3 | ~~**User enumeration** في الـ login~~ **✅ اتصلحت قبل موعدها في جولة الـ auth hardening** — نفس الـ `InvalidCredentials` للإيميل المجهول والباسورد الغلط + dummy password check للـ timing | `LoginCommandHandler.cs` |
 | M4 | `Shipment.Version` مش **concurrency token** — بيزيد رقم بس مفيش حماية فعلية | `Shipment.cs` + `ShipmentConfiguration.cs` |
 | M5 | كل الـ **GetAll queries من غير pagination** — `_unitOfWork.Drivers.EntityQuery.Select(x => x)` | كل الـ query handlers |
 | M6 | Repository/UoW مهدولة: UoW يكشف 4 aggregates بس + `DriverRepository` متشال من الـ DI بـ comment | `UnitOfWork.cs`, `DependencyInjection.cs` |
@@ -220,9 +220,9 @@
 - [ ] **4.4** Blacklist حقيقي:
   - [ ] اختيار 1 (سهل): جدول `RevokedTokens` في الـ DB مع cleanup job
   - [ ] اختيار 2 (متبقى للمرحلة 7): Redis
-- [ ] **4.5** صلّح الـ user enumeration في LoginCommandHandler:
-  - [ ] نفس الـ رسالة (InvalidCredentials) في الحالتين
-  - [ ] نفس الـ timing تقريبًا (dummy password check لو الإيميل مش موجود)
+- [x] **4.5** ~~صلّح الـ user enumeration في LoginCommandHandler~~ **✅ خلصت مبكرًا في جولة الـ auth hardening** (commit 3b27fee):
+  - [x] نفس الـ رسالة (InvalidCredentials) في الحالتين
+  - [x] نفس الـ timing تقريبًا (dummy password check لو الإيميل مش موجود)
 - [ ] **4.6** Rate limiting على الـ auth endpoints (استخدم `Microsoft.AspNetCore.RateLimiting` المدمج في .NET 9) — خصوصًا login + forgot-password
 - [ ] **4.7** الـ README: غير تعليمة "حط secrets في appsettings" لـ User Secrets (dev) + Environment Variables (prod)
 - [ ] **4.8** راجع الـ JWT:
@@ -244,7 +244,7 @@
 - [ ] **5.2** زوّد الـ Domain tests للـ aggregates الضعيفة (ShiftTests فيه 2 tests بس):
   - [ ] Shift: cancel, complete, overlap rules, invalid transitions
   - [ ] Shipment: كامل الـ lifecycle + الـ 7 rules الموجودة
-  - [ ] User: lockout, 2FA rules, password reuse
+  - [ ] User: ~~lockout, 2FA rules, password reuse~~ **✅ مغطاة** (`Domain.Tests/Users/UserTests.cs` + `Application.Tests` فحص lockout و2FA وreuse على مستوى الـ handlers بعد جولة الـ auth)
   - [ ] Invoice + Payment + Claim: كل rule
 - [ ] **5.3** الـ Rule classes: test لكل rule (IsBroken true/false cases)
 - [ ] **5.4** **Integration tests** بـ `WebApplicationFactory` + Testcontainers (SQL Server):
