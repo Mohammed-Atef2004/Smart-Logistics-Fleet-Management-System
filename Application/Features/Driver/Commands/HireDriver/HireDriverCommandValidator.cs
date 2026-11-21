@@ -1,20 +1,31 @@
-﻿namespace Application.Features.Driver.Commands.HireDriver
+﻿using Domain.Drivers.ValueObjects;
+
+namespace Application.Features.Driver.Commands.HireDriver;
+
+public sealed class HireDriverCommandValidator : AbstractValidator<HireDriverCommand>
 {
-    public class HireDriverCommandValidator:AbstractValidator<HireDriverCommand>
+    public HireDriverCommandValidator()
     {
-        public HireDriverCommandValidator()
-        {
-            RuleFor(x => x.FullName)
-                .NotEmpty().WithMessage("Full name is required.")
-                .MaximumLength(100).WithMessage("Full name must not exceed 100 characters.");
-            RuleFor(x => x.LicenseNumber)
-                .NotEmpty().WithMessage("License number is required.")
-                .MaximumLength(20).WithMessage("License number must not exceed 20 characters.");
-            RuleFor(x => x.ExpiryDate)
-                .GreaterThan(DateTime.Now).WithMessage("Expiry date must be in the future.");
-            RuleFor(x => x.Category)
-                .NotEmpty().WithMessage("Category is required.")
-                .MaximumLength(10).WithMessage("Category must not exceed 10 characters.");
-        }
+        RuleFor(x => x.FullName)
+            .NotEmpty().WithMessage("Full name is required.")
+            .MaximumLength(Domain.Drivers.Driver.MaxNameLength)
+            .WithMessage($"Full name must not exceed {Domain.Drivers.Driver.MaxNameLength} characters.");
+
+        RuleFor(x => x.LicenseNumber)
+            .NotEmpty().WithMessage("License number is required.")
+            .MaximumLength(DriverLicense.MaxLicenseNumberLength)
+            .WithMessage($"License number must not exceed {DriverLicense.MaxLicenseNumberLength} characters.");
+
+        // Compare dates against UTC (the domain check is UTC-based); the
+        // old validator used DateTime.Now, which disagreed near midnight
+        // on non-UTC machines.
+        RuleFor(x => x.ExpiryDate)
+            .Must(date => date.Date >= DateTime.UtcNow.Date)
+            .WithMessage("Expiry date must not be in the past.");
+
+        RuleFor(x => x.Category)
+            .NotEmpty().WithMessage("Category is required.")
+            .MaximumLength(DriverLicense.MaxCategoryLength)
+            .WithMessage($"Category must not exceed {DriverLicense.MaxCategoryLength} characters.");
     }
 }

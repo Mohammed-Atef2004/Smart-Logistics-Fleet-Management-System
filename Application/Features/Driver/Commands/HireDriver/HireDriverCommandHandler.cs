@@ -1,29 +1,47 @@
 ﻿using Domain.Drivers;
 using Domain.Drivers.ValueObjects;
+using DriverAggregate = Domain.Drivers.Driver;
 
-namespace Application.Features.Driver.Commands.HireDriver
+namespace Application.Features.Driver.Commands.HireDriver;
+
+public sealed class HireDriverCommandHandler : IRequestHandler<HireDriverCommand, Result<Guid>>
 {
-    public sealed class HireDriverCommandHandler:IRequestHandler<HireDriverCommand, Guid>
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IDriverRepository _driverRepository;
+    private readonly IDriverUniquenessChecker _driverUniquenessChecker;
+    private readonly ILogger<HireDriverCommandHandler> _logger;
+
+    public HireDriverCommandHandler(
+        IUnitOfWork unitOfWork,
+        IDriverRepository driverRepository,
+        IDriverUniquenessChecker driverUniquenessChecker,
+        ILogger<HireDriverCommandHandler> logger)
     {
-      private readonly IUnitOfWork _unitOfWork;
-      private readonly IDriverRepository _driverRepository;
-        public HireDriverCommandHandler(IUnitOfWork unitOfWork, IDriverRepository driverRepository)
+        _unitOfWork = unitOfWork;
+        _driverRepository = driverRepository;
+        _driverUniquenessChecker = driverUniquenessChecker;
+        _logger = logger;
+    }
+
+    public async Task<Result<Guid>> Handle(HireDriverCommand request, CancellationToken cancellationToken)
+    {
+        // Check every value-object Result before touching .Value — the
+        // old handler threw a raw Exception and bypassed the Result contract.
+        var licenseResult = DriverLicense.Create(request.LicenseNumber, request.ExpiryDate, request.Category);
+        if (licenseResult.IsFailure)
+            return Result<Guid>.Failure(licenseResult.Error);
+
+        var driverResult = DriverAggregate.Hire(request.FullName, licenseResult.Value, _driverUniquenessChecker);
+        if (driverResult.IsFailure)
         {
-            _unitOfWork = unitOfWork;
-            _driverRepository = driverRepository;
+            _logger.LogWarning("Hiring failed for {FullName}: {Error}", request.FullName, driverResult.Error);
+            return Result<Guid>.Failure(driverResult.Error);
         }
-        public async Task<Guid> Handle(HireDriverCommand request, CancellationToken cancellationToken)
-        {
-            var licenseResult = DriverLicense.Create(request.LicenseNumber, request.ExpiryDate, request.Category);
-            if (licenseResult.IsFailure)
-                throw new Exception(licenseResult.Error.ToString());
-            var driverResult = Domain.Drivers.Driver.Hire(request.FullName, licenseResult.Value);
-            if (driverResult.IsFailure)
-                throw new Exception(driverResult.Error.ToString());
-            var driver = driverResult.Value;
-            await _driverRepository.AddAsync(driver);
-            await _unitOfWork.CompleteAsync(cancellationToken);
-            return driver.Id.Value;
-        }
+
+        await _driverRepository.AddAsync(driverResult.Value);
+        await _unitOfWork.CompleteAsync(cancellationToken);
+
+        _logger.LogInformation("Driver hired with id {DriverId}", driverResult.Value.Id.Value);
+        return Result<Guid>.Success(driverResult.Value.Id.Value);
     }
 }

@@ -1,18 +1,23 @@
 ﻿using Domain.Drivers.Events;
 
-namespace Application.Features.Driver.Commands.UpdateName
+namespace Application.Features.Driver.Commands.UpdateName;
+
+public sealed class NameUpdatedEventHandler : INotificationHandler<DriverNameUpdatedEvent>
 {
-    public sealed class NameUpdatedEventHandler: INotificationHandler<DriverNameUpdatedEvent>
+    private readonly ILogger<NameUpdatedEventHandler> _logger;
+
+    public NameUpdatedEventHandler(ILogger<NameUpdatedEventHandler> logger)
     {
-        private readonly ILogger<DriverNameUpdatedEvent> _logger;
-        public NameUpdatedEventHandler(ILogger<DriverNameUpdatedEvent> logger)
-        {
-            _logger = logger;
-        }
-        public Task Handle(DriverNameUpdatedEvent notification, CancellationToken cancellationToken)
-        {
-            _logger.LogInformation($"Driver with Id {notification.Id}");
-            return Task.CompletedTask;
-        }
+        _logger = logger;
+    }
+
+    public Task Handle(DriverNameUpdatedEvent notification, CancellationToken cancellationToken)
+    {
+        // The event existed with a handler but was never published; the
+        // handler logged only the id. It now carries both names.
+        _logger.LogInformation("Driver {DriverId} renamed from {OldName} to {NewName}",
+            notification.DriverId.Value, notification.OldName, notification.NewName);
+
+        return Task.CompletedTask;
     }
 }

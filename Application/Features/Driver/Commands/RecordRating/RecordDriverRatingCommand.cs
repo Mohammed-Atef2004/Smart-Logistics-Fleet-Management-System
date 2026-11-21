@@ -1,6 +1,3 @@
-﻿using Domain.Drivers.ValueObjects;
+﻿namespace Application.Features.Driver.Commands.RecordRating;
 
-namespace Application.Features.Driver.Commands.RecordRating
-{
-    public record RecordDriverRatingCommand(DriverId DriverId, double Rating) : IRequest<Unit>;
-}
+public record RecordDriverRatingCommand(Guid DriverId, double Rating) : IRequest<Result>;
