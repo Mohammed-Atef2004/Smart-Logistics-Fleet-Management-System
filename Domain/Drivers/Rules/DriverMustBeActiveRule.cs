@@ -1,21 +1,17 @@
 ﻿using Domain.Drivers.Enums;
 using Domain.Drivers.Errors;
 using Domain.SharedKernel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Domain.Drivers.Rules
+namespace Domain.Drivers.Rules;
+
+/// <summary>A driver must be Active to take on new work (e.g. a shift).</summary>
+public sealed class DriverMustBeActiveRule : IBusinessRule
 {
-    public class DriverMustBeActiveRule : IBusinessRule
-    {
-        private readonly DriverStatus _status;
-        public DriverMustBeActiveRule(DriverStatus status) => _status = status;
+    private readonly DriverStatus _status;
 
-        public bool IsBroken() => _status != DriverStatus.Active;
-        public Error Error => DriverErrors.DriverNotActive;
-    }
+    public DriverMustBeActiveRule(DriverStatus status) => _status = status;
 
+    public bool IsBroken() => _status != DriverStatus.Active;
+
+    public Error Error => DriverErrors.NotActive;
 }

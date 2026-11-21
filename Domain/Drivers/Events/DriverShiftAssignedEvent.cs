@@ -2,14 +2,17 @@
 using Domain.SharedKernel;
 using Domain.Shifts.ValueObjects;
 
+namespace Domain.Drivers.Events;
+
+/// <summary>Raised when a shift is assigned to a driver.</summary>
 public record DriverShiftAssignedEvent : DomainEvent
 {
-    public DriverId Id;
-    public ShiftId ShiftId;
+    public DriverId DriverId { get; init; }
+    public ShiftId ShiftId { get; init; }
 
-    public DriverShiftAssignedEvent(DriverId id, ShiftId shiftId)
+    public DriverShiftAssignedEvent(DriverId driverId, ShiftId shiftId)
     {
-        Id = id;
+        DriverId = driverId;
         ShiftId = shiftId;
     }
 }

@@ -1,12 +1,15 @@
 ﻿using Domain.Drivers.ValueObjects;
 using Domain.SharedKernel;
 
+namespace Domain.Drivers.Events;
+
+/// <summary>Raised when a suspended driver is reactivated.</summary>
 public record DriverReactivatedEvent : DomainEvent
 {
-    public DriverId Id;
+    public DriverId DriverId { get; init; }
 
-    public DriverReactivatedEvent(DriverId id)
+    public DriverReactivatedEvent(DriverId driverId)
     {
-        Id = id;
+        DriverId = driverId;
     }
 }

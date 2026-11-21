@@ -1,18 +1,17 @@
 ﻿using Domain.Drivers.Enums;
+using Domain.Drivers.Errors;
 using Domain.SharedKernel;
 
-internal class DriverMustNotBeSuspendedRule : IBusinessRule
+namespace Domain.Drivers.Rules;
+
+/// <summary>A driver who is already suspended cannot be suspended again.</summary>
+public sealed class DriverMustNotBeSuspendedRule : IBusinessRule
 {
     private readonly DriverStatus _status;
-    public DriverMustNotBeSuspendedRule(DriverStatus status)
-    {
-        _status = status;
-    }
 
-    public Error Error => new Error("Driver Status", "Driver must not be suspended.");
+    public DriverMustNotBeSuspendedRule(DriverStatus status) => _status = status;
 
-    public bool IsBroken()
-    {
-        return _status == DriverStatus.Suspended;
-    }
+    public bool IsBroken() => _status == DriverStatus.Suspended;
+
+    public Error Error => DriverErrors.AlreadySuspended;
 }
