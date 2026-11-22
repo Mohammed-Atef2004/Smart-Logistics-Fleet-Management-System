@@ -60,6 +60,7 @@ namespace Infrastructure.Persistence
             // IVehicleRepository already implements IVehicleUniquenessChecker,
             // but the domain service is injected on its own into Vehicle.Create flows.
             services.AddScoped<IVehicleUniquenessChecker, VehicleUniquenessChecker>();
+            services.AddScoped<IDriverUniquenessChecker, DriverUniquenessChecker>();
             services.AddScoped<IPaymentGateway, MockPaymentGateway>();
 
             // 7. Register Services

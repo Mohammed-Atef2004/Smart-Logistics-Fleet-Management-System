@@ -1,20 +1,18 @@
 ﻿using Domain.Drivers;
 using Domain.Drivers.Enums;
+using Domain.Drivers.Errors;
 using Domain.Drivers.ValueObjects;
+using Domain.SharedKernel;
 using Domain.Shifts;
-using Domain.Shifts.ValueObjects;
-using Microsoft.EntityFrameworkCore;
 using ShiftAggregate = Domain.Shifts.Shift;
 
 namespace Application.Features.Driver.DomainServices;
 
-/// <summary>
-/// Cross-aggregate coordination between Driver and Shift.
-/// Lives in the Application layer because it orchestrates two aggregates
-/// and depends on queryable repository access â€” it is not pure domain logic.
-/// </summary>
 public sealed class DriverShiftService : IDriverShiftService
 {
+    private static readonly Error ShiftOverlap =
+        new("Shift.Overlap", "Driver already has an overlapping shift.");
+
     private readonly IDriverRepository _drivers;
     private readonly IShiftRepository _shifts;
 
@@ -24,36 +22,41 @@ public sealed class DriverShiftService : IDriverShiftService
         _shifts = shifts;
     }
 
-    // âœ… Only cross-aggregate logic
-    public async Task<Result<ShiftAggregate>> AssignDriverToShift(DriverId driverId, DateTime start, DateTime end)
+    /// <summary>
+    /// Creates the shift and marks it as the driver's current shift.
+    /// The old implementation created the shift but never called
+    /// <c>driver.AssignShift</c>, so <c>CurrentShiftId</c> stayed null
+    /// (the driver still looked available) and the domain rules were
+    /// never enforced. <c>StartShift</c> was a duplicate of the Shift
+    /// module's own handler and was removed as dead code.
+    /// </summary>
+    public async Task<Result<ShiftAggregate>> AssignDriverToShift(
+        DriverId driverId, DateTime start, DateTime end)
     {
-        var driver = await _drivers.EntityQuery.SingleOrDefaultAsync(x => x.Id == driverId);
-        if (driver is null || driver.Status != DriverStatus.Active)
-            return Result<ShiftAggregate>.Failure(new("Driver.Invalid", "Driver not active"));
+        var driver = await _drivers.GetByIdAsync(driverId);
+        if (driver is null)
+            return Result<ShiftAggregate>.Failure(DriverErrors.NotFound(driverId.Value));
+
+        if (driver.Status != DriverStatus.Active)
+            return Result<ShiftAggregate>.Failure(DriverErrors.NotActive);
+
+        if (driver.CurrentShiftId is not null)
+            return Result<ShiftAggregate>.Failure(DriverErrors.AlreadyInShift);
 
         if (await _shifts.HasOverlappingShift(driverId, start, end))
-            return Result<ShiftAggregate>.Failure(new("Shift.Overlap", "Driver already has shift"));
+            return Result<ShiftAggregate>.Failure(ShiftOverlap);
 
         var shiftResult = ShiftAggregate.Create(driverId, start, end);
-        if (shiftResult.IsFailure) return shiftResult;
+        if (shiftResult.IsFailure)
+            return Result<ShiftAggregate>.Failure(shiftResult.Error);
 
+        var assignResult = driver.AssignShift(shiftResult.Value.Id);
+        if (assignResult.IsFailure)
+            return Result<ShiftAggregate>.Failure(assignResult.Error);
+
+        _drivers.Update(driver);
         await _shifts.AddAsync(shiftResult.Value);
+
         return Result<ShiftAggregate>.Success(shiftResult.Value);
-    }
-
-    public async Task<Result> StartShift(ShiftId shiftId)
-    {
-        var shift = await _shifts.EntityQuery.SingleOrDefaultAsync(x => x.Id == shiftId);
-        if (shift is null) return Result.Failure(new("Shift.NotFound", "Not found"));
-
-        var driver = await _drivers.EntityQuery.SingleOrDefaultAsync(x => x.Id == shift.DriverId);
-        if (driver is null || driver.Status != DriverStatus.Active)
-            return Result.Failure(new("Driver.Invalid", "Driver not active"));
-
-        var result = shift.Start();
-        if (result.IsFailure) return result;
-
-        _shifts.Update(shift);
-        return Result.Success();
     }
 }

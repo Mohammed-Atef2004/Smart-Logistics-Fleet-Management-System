@@ -1,22 +1,17 @@
 ﻿using Domain.Drivers.Enums;
+using Domain.Drivers.Errors;
 using Domain.SharedKernel;
 
-namespace Domain.Drivers.Rules
+namespace Domain.Drivers.Rules;
+
+/// <summary>Only a suspended driver can be reactivated.</summary>
+public sealed class DriverMustBeSuspendedRule : IBusinessRule
 {
-    internal class DriverMustBeSuspendedRule : IBusinessRule
-    {
-        private readonly DriverStatus Status;
+    private readonly DriverStatus _status;
 
-        public DriverMustBeSuspendedRule(DriverStatus status)
-        {
-            Status = status;
-        }
+    public DriverMustBeSuspendedRule(DriverStatus status) => _status = status;
 
-        public Error Error =>new Error("DriverSuspendedError","Driver Must Be Suspended");
+    public bool IsBroken() => _status != DriverStatus.Suspended;
 
-        public bool IsBroken()
-        {
-            return Status != DriverStatus.Suspended;    
-        }
-    }
+    public Error Error => DriverErrors.NotSuspended;
 }

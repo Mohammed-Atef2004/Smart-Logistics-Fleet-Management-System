@@ -1,7 +1,8 @@
-﻿using Domain.Drivers.ValueObjects;
+﻿namespace Application.Features.Driver.Commands.AssignShift;
 
-namespace Application.Features.Driver.Commands.AssignShift
-{
-    public record AssignDriverToShiftCommand(DriverId DriverId, DateTime Start, DateTime End) : IRequest<Unit>;
-
-}
+/// <summary>
+/// Creates a shift for a driver and marks it as the driver's current
+/// shift. Primitives only, so the request binds from JSON; the handler
+/// builds the domain ids.
+/// </summary>
+public record AssignDriverToShiftCommand(Guid DriverId, DateTime Start, DateTime End) : IRequest<Result>;

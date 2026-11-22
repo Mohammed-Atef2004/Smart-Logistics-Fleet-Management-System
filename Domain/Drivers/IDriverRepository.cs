@@ -1,4 +1,6 @@
-﻿namespace Domain.Drivers;
+﻿using Domain.Drivers.ValueObjects;
+
+namespace Domain.Drivers;
 
 /// <summary>
 /// Repository contract for the Driver aggregate.
@@ -9,5 +11,9 @@ public interface IDriverRepository
     /// <summary>Deferred query root for read-side composition.</summary>
     IQueryable<Driver> EntityQuery { get; }
 
+    Task<Driver?> GetByIdAsync(DriverId id, CancellationToken cancellationToken = default);
+
     Task AddAsync(Driver entity);
+
+    void Update(Driver entity);
 }

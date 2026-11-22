@@ -1,17 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Domain.Drivers.Enums;
 
-namespace Domain.Drivers.Enums
+/// <summary>
+/// Driver lifecycle states. Only the states the domain can actually
+/// reach are kept: Active (hired and working), Suspended (temporarily
+/// blocked) and Terminated (terminal — a driver who left the company).
+/// The numeric gaps are intentional: the values were kept from the old
+/// enum so any serialized payload keeps its meaning.
+/// </summary>
+public enum DriverStatus
 {
-    public enum DriverStatus
-    {
-        Pending = 0,    
-        Active = 1,     
-        Inactive = 2,   
-        Suspended = 3,  
-        Terminated = 4  
-    }
+    Active = 1,
+    Suspended = 3,
+    Terminated = 4,
 }

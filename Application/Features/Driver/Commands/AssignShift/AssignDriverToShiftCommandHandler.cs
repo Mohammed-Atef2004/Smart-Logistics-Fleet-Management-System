@@ -1,8 +1,9 @@
 ﻿using Application.Features.Driver.DomainServices;
+using Domain.Drivers.ValueObjects;
 
 namespace Application.Features.Driver.Commands.AssignShift;
 
-public sealed class AssignDriverToShiftCommandHandler : IRequestHandler<AssignDriverToShiftCommand, Unit>
+public sealed class AssignDriverToShiftCommandHandler : IRequestHandler<AssignDriverToShiftCommand, Result>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IDriverShiftService _driverShiftService;
@@ -13,11 +14,15 @@ public sealed class AssignDriverToShiftCommandHandler : IRequestHandler<AssignDr
         _driverShiftService = driverShiftService;
     }
 
-    public async Task<Unit> Handle(AssignDriverToShiftCommand request, CancellationToken cancellationToken)
+    public async Task<Result> Handle(AssignDriverToShiftCommand request, CancellationToken cancellationToken)
     {
-        var result = await _driverShiftService.AssignDriverToShift(request.DriverId, request.Start, request.End);
-        if (result.IsFailure) throw new Exception(result.Error.Message);
+        var result = await _driverShiftService.AssignDriverToShift(
+            new DriverId(request.DriverId), request.Start, request.End);
+
+        if (result.IsFailure)
+            return Result.Failure(result.Error);
+
         await _unitOfWork.CompleteAsync(cancellationToken);
-        return Unit.Value;
+        return Result.Success();
     }
 }

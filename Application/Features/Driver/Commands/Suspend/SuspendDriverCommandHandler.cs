@@ -1,25 +1,33 @@
 ﻿using Domain.Drivers;
-using Microsoft.EntityFrameworkCore;
+using Domain.Drivers.Errors;
+using Domain.Drivers.ValueObjects;
 
-namespace Application.Features.Driver.Commands.Susbend
+namespace Application.Features.Driver.Commands.Suspend;
+
+public sealed class SuspendDriverCommandHandler : IRequestHandler<SuspendDriverCommand, Result>
 {
-    public sealed class SuspendDriverCommandHandler : IRequestHandler<SuspendDriverCommand, Unit>
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IDriverRepository _driverRepository;
+
+    public SuspendDriverCommandHandler(IUnitOfWork unitOfWork, IDriverRepository driverRepository)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IDriverRepository _driverRepository;
-        public SuspendDriverCommandHandler(IUnitOfWork unitOfWork, IDriverRepository driverRepository)
-        {
-            _unitOfWork = unitOfWork;
-            _driverRepository = driverRepository;
-        }
-        public async Task<Unit> Handle(SuspendDriverCommand request, CancellationToken cancellationToken)
-        {
-            var driver = await _driverRepository.EntityQuery.SingleOrDefaultAsync(d => d.Id == request.Id);
-            if (driver is null)
-                throw new Exception("Driver Not Found");
-            driver.Suspend(request.Reason);
-            await _unitOfWork.CompleteAsync(cancellationToken);
-            return Unit.Value;
-        }
+        _unitOfWork = unitOfWork;
+        _driverRepository = driverRepository;
+    }
+
+    public async Task<Result> Handle(SuspendDriverCommand request, CancellationToken cancellationToken)
+    {
+        var driver = await _driverRepository.GetByIdAsync(new DriverId(request.DriverId), cancellationToken);
+        if (driver is null)
+            return Result.Failure(DriverErrors.NotFound(request.DriverId));
+
+        // The old handler ignored this Result, so suspending an already
+        // suspended or terminated driver reported success.
+        var result = driver.Suspend(request.Reason);
+        if (result.IsFailure)
+            return result;
+
+        await _unitOfWork.CompleteAsync(cancellationToken);
+        return Result.Success();
     }
 }
