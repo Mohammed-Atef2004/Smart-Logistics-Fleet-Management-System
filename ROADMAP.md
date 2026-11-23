@@ -371,13 +371,13 @@ Week 8:  المرحلة 6 (DevEx/Ops)  ←  ⏱️ أسبوع  →  CI + Docker 
 | 1 | **Vehicle** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `vehicle-enhance` + PR |
 | 2 | **Driver** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `driver-enhance` + PR |
 | 3 | **Shift** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `shift-enhance` + PR |
-| 4 | Shipment (+ Package) | ⏳ |
+| 4 | **Shipment (+ Package)** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `shipment-enhance` + PR |
 | 5 | User/Security (مراجعة ثانية بعد جولة الـ auth) | ⏳ |
 | 6 | Inventory / Warehouse | ⏳ |
 | 7 | Claim / Invoice / Payment | ⏳ |
 | 8 | Audit / Notifications | ⏳ |
 
-> ملاحظة: جولة الـ Vehicle عالجت جزء من W1 (CS0108 في أحداث Vehicle + الـ audit props المكررة في `Vehicle` + تحويل `Entity<TId>` setters لـ protected)، وجولة الـ Driver كمّلت نفس النمط (أحداث Driver بقت payload properties مش `Id` + state machine واضح + Terminate)، وجولة الـ Shift قفلت ملف أحداث Shift كمان (كل event بقى `{ get; init; }` وبـ payload كامل). باقي W1 (`ValueObject.Equals` CS8765 + User/Shipment shadows) هيُعالج في جولات الموديولات الخاصة بيها أو في W1 المباشر لو سبقناها.
+> ملاحظة: جولة الـ Vehicle عالجت جزء من W1 (CS0108 في أحداث Vehicle + الـ audit props المكررة في `Vehicle` + تحويل `Entity<TId>` setters لـ protected)، وجولة الـ Driver كمّلت نفس النمط (أحداث Driver بقت payload properties مش `Id` + state machine واضح + Terminate)، وجولة الـ Shift قفلت ملف أحداث Shift كمان (كل event بقى `{ get; init; }` وبـ payload كامل)، وجولة الـ Shipment شالت الـ audit props المكررة من الـ aggregate (بقى بيستخدم `Entity<TId>.CreatedAt/UpdatedAt`) وقفلت أحداث Shipment. باقي W1 (`ValueObject.Equals` CS8765) هيُعالج في جولة الـ User أو في W1 المباشر لو سبقناها.
 
 ### جولة Driver — ملخص اللي اتعمل
 - **Domain:** `DriverStatus` بقى فيه الحالات الموصولة بس (`Active/Suspended/Terminated`)، `Terminate()` نهائي وبيحرر الـ shift، `ClearShift()` بيرجع `Result`، قواعد `Suspend/Reactivate` بقت محترمة، `Hire/UpdateLicense` بيتحققوا من الـ license + التفرد عبر `IDriverUniquenessChecker`، والـ rating بيرفض `NaN/Infinity`، والـ events كلها PascalCase ومش باسم `Id` (حل CS0108).
@@ -393,7 +393,15 @@ Week 8:  المرحلة 6 (DevEx/Ops)  ←  ⏱️ أسبوع  →  CI + Docker 
 - **API:** `ShiftsController` على `api/shifts`، الـ id من الـ route بـ `Guid` (الـ model binder ماكانش يعرف يبني `ShiftId`)، endpoints جديدة `abort` و`PUT /{id}` للـ reschedule، و`GET /` بفلاتر `driverId` و`status`.
 - **Tests:** Domain (كل انتقالات الـ state machine + النوافذ + UTC + الـ events + `ShiftId`)، وApplication (handlers لكل use case + overlap + queries + mapping + event handler بيحرر السواق).
 
-## منهجية الفحص لكل موديول
+### جولة Shipment — ملخص اللي اتعمل
+- **Domain:** الـ `ShipmentId`/`PackageId` بقوا `readonly record struct` بـ `New()`/`IsEmpty` (زي باقي الـ aggregates)، و`DeliveryAddress.Create`/`TrackingInfo.Create`/`RoutePoint.Create` بقوا بيرجعوا `Result` بدل `throw` (طلب غلط بقى 400 مش 500)، و`RoutePoint` أخد `Guid Id` صريح (شال خطر تصادم الـ EF shadow key)، و`TrackingInfo.EstimatedDeliveryDate` بقى `DateTime?` بدل `string?`، والـ aggregate بطّل يخفي `Entity.CreatedAt`/`UpdatedAt` و`Touch()` بقى يحدّث الـ `UpdatedAt` الأساسي ويزوّد `Version`. الـ lifecycle اتفُرض: التعديل مسموح في `Created`/`ReadyForPickup` بس، و`MarkDelivered`/`MarkDeliveryFailed` لازم يكون الشحنة في `InTransit`/`AtCustoms`/`OutForDelivery`، و`Cancel` بيرفض الـ delivered/cancelled/returned. الأخطاء اتوحّدت في `ShipmentErrors`/`PackageErrors`، والـ rule classes الميتة اتشالت.
+- **Application:** كل الـ handlers بقت بتقرأ من `GetByIdAsync` tracked (الـ `EntityQuery` هو `AsNoTracking` فالتعديل كان بيضيع)، وبترجّع `Result` failures وبتنقل أخطاء الـ domain زي ما هي، والـ ids بقت `Guid` من الـ route. `AddPackage` اتصلح فيه باج إنشاء الباكدج مرتين (كان بيرجّع id لنسخة مترمية)، و`Create` بقى بيتحقق من تكرار الـ `TrackingNumber`، والـ DTOs/الـ `ShipmentProfile` بقوا mapping صريح (مفيش `ReverseMap`)، وvalidators لكل command.
+- **Infrastructure:** `ShipmentConfiguration` اتنقلت لـ `Configurations/Shipments` بأطوال أعمدة مطابقة + query filter للـ soft delete + `ValueGeneratedNever` + unique index على `TrackingNumber` + index على `Tracking.Status`، و`ShipmentRepository` اتنقل لـ `Repositories/Shipment` وبقى فيه `GetByIdAsync` tracked و`ListAsync` مفلترة بالـ status. الـ enums (`ShipmentStatus`/`RoutePointType`) فضلت **int** في الـ DB عمدًا لتجنّب تلف داتا موجودة.
+- **API:** `ShipmentsController` واحد على `api/shipments`، الـ id دايمًا من الـ route بـ `Guid` (الـ model binder ماكانش يعرف يبني `ShipmentId`)، 201 Created عند الإنشاء، وrequest DTOs مستقلة عن الـ domain VOs.
+- **Tests:** Domain (الـ lifecycle كامل + كل الـ invariants + الـ value objects بترجع `Result` + `ShipmentId`/`PackageId` + حماية أسماء الـ events) وApplication (كل use case + الـ not-found + الـ duplicate tracking + mapping + الاستعلامات) — الإجمالي **376 اختبار أخضر** (Domain 246، Application 121، Architecture 9).
+- **Migration:** `AlignShipmentSchema` — تحويل `Tracking_EstimatedDeliveryDate` من `nvarchar` لـ `datetime2` مع **SQL دفاعي** بيحوّل القيم الفاضية/غير القابلة للتحويل/`1900-01-01` لـ `NULL` قبل الـ `AlterColumn` (لأن `TRY_CONVERT('', datetime2)` بيرجّع `1900-01-01` مش `NULL`)، + أطوال الأعمدة + الـ indexes.
+
+
 
 1. **Domain:** الـ aggregate invariants، الـ Rules مستخدمة فعلًا، الـ Value Objects Result-pattern، الـ Events ليها publishers/handlers حقيقيين وpayload naming سليم.
 2. **Application:** الـ handlers بتفحص كل Result قبل `.Value`، أخطاء موحدة من الـ Errors classes، الـ use cases الناقصة مكتملة، الـ validators متوافقة مع الـ domain.

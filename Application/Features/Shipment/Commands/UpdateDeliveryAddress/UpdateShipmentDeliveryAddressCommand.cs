@@ -1,11 +1,15 @@
-﻿using Domain.Shipments.ValueObjects;
+﻿namespace Application.Features.Shipment.Commands.UpdateDeliveryAddress;
 
-namespace Application.Features.Shipment.Commands.UpdateDeliveryAddress
-{
-    public record UpdateShipmentDeliveryAddressCommand
-    (
-        ShipmentId Id,
-        DeliveryAddress newAddress
-    ): IRequest<Result>;
-
-}
+/// <summary>
+/// Replaces the delivery address while the shipment is still editable. The
+/// address is supplied as primitives because a domain value object cannot be
+/// bound from JSON.
+/// </summary>
+public sealed record UpdateShipmentDeliveryAddressCommand(
+    Guid ShipmentId,
+    string Street,
+    string City,
+    string State,
+    string ZipCode,
+    string Country,
+    string? ApartmentUnit = null) : IRequest<Result>;

@@ -1,40 +1,60 @@
 ﻿using Domain.Shipments;
+using Domain.Shipments.Errors;
 using Domain.Shipments.ValueObjects;
-using Microsoft.EntityFrameworkCore;
+using ShipmentAggregate = Domain.Shipments.Shipment;
 
-namespace Application.Features.Shipment.Commands.AddPackage
+namespace Application.Features.Shipment.Commands.AddPackage;
+
+public sealed class AddPackageCommandHandler : IRequestHandler<AddPackageCommand, Result<Guid>>
 {
-    public sealed class AddPackageCommandHandler : IRequestHandler<AddPackageCommand, Result<PackageId>>
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IShipmentRepository _shipmentRepository;
+
+    public AddPackageCommandHandler(
+        IUnitOfWork unitOfWork,
+        IShipmentRepository shipmentRepository)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IShipmentRepository _shipmentRepository;
-        public AddPackageCommandHandler(IUnitOfWork unitOfWork, IShipmentRepository shipmentRepository)
-        {
-            _unitOfWork = unitOfWork;
-            _shipmentRepository = shipmentRepository;
-        }
-        public async Task<Result<PackageId>> Handle(AddPackageCommand request, CancellationToken cancellationToken)
-        {
-            var shipmentResult = await _shipmentRepository.EntityQuery.FirstOrDefaultAsync(x => x.Id == request.ShipmentId);
-            if (shipmentResult is null)
-                return Result<PackageId>.Failure(new Error("Shipment.NotFound", "Shipment not found."));
-            var shipment = shipmentResult;
-            var packageResult = Domain.Shipments.Package.Create(
-                description: request.Description,
-                weight: Weight.Create(request.WeightValue, request.WeightUnit).Value,
-                dimensions: Dimensions.Create(request.Length, request.Width, request.Height, request.DimensionUnit).Value,
-                contentCategory: request.Category,
-                isFragile: request.IsFragile,
-                requiresRefrigeration: request.RequiresRefrigeration,
-                declaredValue: request.DeclaredValue,
-                currency: request.Currency
-            );
-            if (packageResult.IsFailure)
-                return Result<PackageId>.Failure(packageResult.Error);
-            var package = packageResult.Value;
-            shipment.AddPackage(request.Description, package.Weight, package.Dimensions, package.ContentCategory, package.IsFragile, package.RequiresRefrigeration, package.DeclaredValue, package.Currency);
-            await _unitOfWork.CompleteAsync(cancellationToken);
-            return Result<PackageId>.Success(package.Id);
-        }
+        _unitOfWork = unitOfWork;
+        _shipmentRepository = shipmentRepository;
+    }
+
+    public async Task<Result<Guid>> Handle(
+        AddPackageCommand request,
+        CancellationToken cancellationToken)
+    {
+        // Tracked lookup: the old code read through AsNoTracking and then
+        // mutated a detached aggregate, so the new package was never saved.
+        var shipment = await _shipmentRepository.GetByIdAsync(
+            new ShipmentId(request.ShipmentId), cancellationToken);
+
+        if (shipment is null)
+            return Result<Guid>.Failure(ShipmentErrors.NotFound(request.ShipmentId));
+
+        var weightResult = Weight.Create(request.WeightValue, request.WeightUnit);
+        if (weightResult.IsFailure)
+            return Result<Guid>.Failure(weightResult.Error);
+
+        var dimensionsResult = Dimensions.Create(
+            request.Length, request.Width, request.Height, request.DimensionUnit);
+        if (dimensionsResult.IsFailure)
+            return Result<Guid>.Failure(dimensionsResult.Error);
+
+        // The old handler created a package, then AddPackage created a second
+        // one, and the handler returned the id of the discarded instance.
+        var addResult = shipment.AddPackage(
+            request.Description,
+            weightResult.Value,
+            dimensionsResult.Value,
+            request.Category,
+            request.IsFragile,
+            request.RequiresRefrigeration,
+            request.DeclaredValue,
+            request.Currency);
+
+        if (addResult.IsFailure)
+            return Result<Guid>.Failure(addResult.Error);
+
+        await _unitOfWork.CompleteAsync(cancellationToken);
+        return Result<Guid>.Success(addResult.Value.Value);
     }
 }

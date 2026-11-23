@@ -297,7 +297,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("DeletedAtUtc")
                         .HasColumnType("datetime2");
@@ -306,7 +307,9 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
 
                     b.Property<string>("Priority")
                         .IsRequired()
@@ -334,7 +337,8 @@ namespace Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Version")
                         .IsConcurrencyToken()
@@ -1023,7 +1027,8 @@ namespace Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("ContentCategory")
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)");
 
                             b1.Property<DateTime>("CreatedAt")
                                 .HasColumnType("datetime2");
@@ -1069,7 +1074,8 @@ namespace Infrastructure.Migrations
                                         .HasColumnType("int");
 
                                     b2.Property<decimal>("Value")
-                                        .HasColumnType("decimal(18,2)");
+                                        .HasPrecision(18, 4)
+                                        .HasColumnType("decimal(18,4)");
 
                                     b2.HasKey("PackageId");
 
@@ -1085,16 +1091,19 @@ namespace Infrastructure.Migrations
                                         .HasColumnType("uniqueidentifier");
 
                                     b2.Property<decimal>("Height")
-                                        .HasColumnType("decimal(18,2)");
+                                        .HasPrecision(18, 4)
+                                        .HasColumnType("decimal(18,4)");
 
                                     b2.Property<decimal>("Length")
-                                        .HasColumnType("decimal(18,2)");
+                                        .HasPrecision(18, 4)
+                                        .HasColumnType("decimal(18,4)");
 
                                     b2.Property<int>("Unit")
                                         .HasColumnType("int");
 
                                     b2.Property<decimal>("Width")
-                                        .HasColumnType("decimal(18,2)");
+                                        .HasPrecision(18, 4)
+                                        .HasColumnType("decimal(18,4)");
 
                                     b2.HasKey("PackageId");
 
@@ -1117,27 +1126,33 @@ namespace Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("ApartmentUnit")
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)");
 
                             b1.Property<string>("City")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)");
 
                             b1.Property<string>("Country")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)");
 
                             b1.Property<string>("State")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)");
 
                             b1.Property<string>("Street")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)");
 
                             b1.Property<string>("ZipCode")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(20)
+                                .HasColumnType("nvarchar(20)");
 
                             b1.HasKey("ShipmentId");
 
@@ -1150,7 +1165,6 @@ namespace Infrastructure.Migrations
                     b.OwnsMany("Domain.Shipments.ValueObjects.RoutePoint", "Route", b1 =>
                         {
                             b1.Property<Guid>("Id")
-                                .ValueGeneratedOnAdd()
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<DateTime>("ArrivedAt")
@@ -1158,11 +1172,13 @@ namespace Infrastructure.Migrations
 
                             b1.Property<string>("Description")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)");
 
                             b1.Property<string>("Location")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)");
 
                             b1.Property<Guid>("ShipmentId")
                                 .HasColumnType("uniqueidentifier");
@@ -1186,26 +1202,34 @@ namespace Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<string>("CarrierName")
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(200)
+                                .HasColumnType("nvarchar(200)");
 
-                            b1.Property<string>("EstimatedDeliveryDate")
-                                .HasColumnType("nvarchar(max)");
+                            b1.Property<DateTime?>("EstimatedDeliveryDate")
+                                .HasColumnType("datetime2");
 
                             b1.Property<int>("Status")
                                 .HasColumnType("int");
 
                             b1.Property<string>("StatusDescription")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(500)
+                                .HasColumnType("nvarchar(500)");
 
                             b1.Property<string>("TrackingNumber")
                                 .IsRequired()
-                                .HasColumnType("nvarchar(max)");
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)");
 
                             b1.Property<DateTime>("UpdatedAt")
                                 .HasColumnType("datetime2");
 
                             b1.HasKey("ShipmentId");
+
+                            b1.HasIndex("Status");
+
+                            b1.HasIndex("TrackingNumber")
+                                .IsUnique();
 
                             b1.ToTable("Shipments");
 

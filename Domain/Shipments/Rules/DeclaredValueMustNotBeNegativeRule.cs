@@ -1,21 +1,16 @@
 ﻿using Domain.SharedKernel;
+using Domain.Shipments.Errors;
 
-namespace Domain.Shipments.Rules
+namespace Domain.Shipments.Rules;
+
+/// <summary>A declared value below zero is meaningless.</summary>
+public sealed class DeclaredValueMustNotBeNegativeRule : IBusinessRule
 {
-    internal class DeclaredValueMustNotBeNegativeRule: IBusinessRule
-    {
-        private decimal declaredValue;
+    private readonly decimal _declaredValue;
 
-        public DeclaredValueMustNotBeNegativeRule(decimal declaredValue)
-        {
-            this.declaredValue = declaredValue;
-        }
+    public DeclaredValueMustNotBeNegativeRule(decimal declaredValue) => _declaredValue = declaredValue;
 
-        public Error Error => new Error("DeclaredValueMustNotBeNegative", "Declared value cannot be negative.");
+    public Error Error => PackageErrors.InvalidDeclaredValue;
 
-        public bool IsBroken()
-        {
-            return declaredValue < 0;
-        }
-    }
+    public bool IsBroken() => _declaredValue < 0;
 }
