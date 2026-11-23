@@ -1,19 +1,19 @@
-﻿namespace Application.Features.Shipment.DTOs
+﻿namespace Application.Features.Shipment.DTOs;
+
+/// <summary>Compact read model used by the shipment list endpoint.</summary>
+public class ShipmentListDto
 {
-    public class ShipmentListDto
-    {
-        public Guid Id { get; set; }
+    public Guid Id { get; set; }
 
-        public string TrackingNumber { get; set; } = default!;
+    public string TrackingNumber { get; set; } = default!;
 
-        public string Status { get; set; } = default!;
+    public string Status { get; set; } = default!;
 
-        public string DestinationCity { get; set; } = default!;
+    public string DestinationCity { get; set; } = default!;
 
-        public string? CarrierName { get; set; }
+    public string? CarrierName { get; set; }
 
-        public int TotalPackages { get; set; }
+    public int TotalPackages { get; set; }
 
-        public DateTime CreatedAt { get; set; }
-    }
+    public DateTime CreatedAt { get; set; }
 }

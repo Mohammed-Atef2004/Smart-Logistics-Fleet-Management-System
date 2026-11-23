@@ -1,10 +1,10 @@
-﻿using Domain.Shipments.ValueObjects;
-using Domain.Shipments.Enums;
+﻿using Domain.Shipments.Enums;
 
-namespace Application.Features.Shipment.Commands.AddPackage
-{
-    public sealed record AddPackageCommand(
-    ShipmentId ShipmentId,
+namespace Application.Features.Shipment.Commands.AddPackage;
+
+/// <summary>Adds a package to an editable shipment. The shipment id comes from the route.</summary>
+public sealed record AddPackageCommand(
+    Guid ShipmentId,
     string Description,
     decimal WeightValue,
     WeightUnit WeightUnit,
@@ -12,10 +12,8 @@ namespace Application.Features.Shipment.Commands.AddPackage
     decimal Width,
     decimal Height,
     DimensionUnit DimensionUnit,
-    string? Category,
-    bool IsFragile,
-    bool RequiresRefrigeration,
-    decimal DeclaredValue,
-    string Currency
-) : IRequest<Result<PackageId>>;
-}
+    string? Category = null,
+    bool IsFragile = false,
+    bool RequiresRefrigeration = false,
+    decimal DeclaredValue = 0,
+    string Currency = "USD") : IRequest<Result<Guid>>;

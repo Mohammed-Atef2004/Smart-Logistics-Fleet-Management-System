@@ -1,10 +1,6 @@
-﻿using Domain.Shipments.ValueObjects;
+﻿namespace Application.Features.Shipment.Commands.MarkDeliveryFailed;
 
-namespace Application.Features.Shipment.Commands.MarkDeliveryFailed
-{
-    public record MarkShipmentDeliveryFailedCommand
-    (
-        ShipmentId Id,
-        string reason
-    ): IRequest<Result>;
-}
+/// <summary>Records a failed delivery attempt for a shipment in transit.</summary>
+public sealed record MarkShipmentDeliveryFailedCommand(
+    Guid ShipmentId,
+    string Reason) : IRequest<Result>;

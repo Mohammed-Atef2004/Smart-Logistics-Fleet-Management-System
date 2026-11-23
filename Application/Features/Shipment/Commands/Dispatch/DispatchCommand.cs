@@ -1,6 +1,4 @@
-﻿using Domain.Shipments.ValueObjects;
+﻿namespace Application.Features.Shipment.Commands.Dispatch;
 
-namespace Application.Features.Shipment.Commands.Dispatch
-{
-    public record DispatchCommand(ShipmentId Id):IRequest<Result>;
-}
+/// <summary>Dispatches a shipment that has at least one package and a carrier.</summary>
+public sealed record DispatchCommand(Guid ShipmentId) : IRequest<Result>;

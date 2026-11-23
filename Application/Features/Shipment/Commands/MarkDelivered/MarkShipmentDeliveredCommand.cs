@@ -1,11 +1,7 @@
-﻿using Domain.Shipments.ValueObjects;
+﻿namespace Application.Features.Shipment.Commands.MarkDelivered;
 
-namespace Application.Features.Shipment.Commands.MarkDelivered
-{
-    public record MarkShipmentDeliveredCommand
-    (
-        ShipmentId Id,
-        DateTime deliveredAt, 
-        string? receivedBy = null
-    ): IRequest<Result>;
-}
+/// <summary>Marks a shipment in transit as delivered.</summary>
+public sealed record MarkShipmentDeliveredCommand(
+    Guid ShipmentId,
+    DateTime DeliveredAt,
+    string? ReceivedBy = null) : IRequest<Result>;

@@ -1,9 +1,6 @@
-﻿using Domain.Shipments.ValueObjects;
+﻿namespace Application.Features.Shipment.Commands.RemovePackage;
 
-namespace Application.Features.Shipment.Commands.RemovePackage
-{
-    public sealed record RemovePackageCommand(
-    ShipmentId ShipmentId,
-    PackageId PackageId
-) : IRequest<Result>;
-}
+/// <summary>Removes a package from a shipment that is still being prepared.</summary>
+public sealed record RemovePackageCommand(
+    Guid ShipmentId,
+    Guid PackageId) : IRequest<Result>;
