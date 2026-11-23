@@ -1,6 +1,4 @@
-﻿using Domain.Shifts.ValueObjects;
+﻿namespace Application.Features.Shift.Commands.CancelShift;
 
-namespace Application.Features.Shift.Commands.CancelShift
-{
-    public record CancelShiftCommand(ShiftId ShiftId) : IRequest<Result>;
-}
+/// <summary>Cancels a shift that has not started yet.</summary>
+public record CancelShiftCommand(Guid ShiftId) : IRequest<Result>;

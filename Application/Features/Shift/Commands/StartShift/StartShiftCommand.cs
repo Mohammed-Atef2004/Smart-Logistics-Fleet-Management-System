@@ -1,6 +1,4 @@
-﻿using Domain.Shifts.ValueObjects;
+﻿namespace Application.Features.Shift.Commands.StartShift;
 
-namespace Application.Features.Shift.Commands.StartShift
-{
-    public record StartShiftCommand(ShiftId ShiftId) : IRequest<Result>;
-}
+/// <summary>Starts a planned shift. The id comes from the route.</summary>
+public record StartShiftCommand(Guid ShiftId) : IRequest<Result>;

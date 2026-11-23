@@ -1,23 +1,37 @@
-﻿using Domain.Shifts;
-using Domain.Shifts.ValueObjects;
-namespace Application.Features.Shift.Commands.Create
+﻿using Application.Features.Driver.DomainServices;
+using Domain.Drivers.ValueObjects;
+
+namespace Application.Features.Shift.Commands.Create;
+
+/// <summary>
+/// Single creation path. The old handler built a shift directly, so a shift
+/// could be created for a suspended or nonexistent driver, could overlap an
+/// existing shift, and never set the driver's <c>CurrentShiftId</c> (only the
+/// driver endpoint did that). Delegating to <see cref="IDriverShiftService"/>
+/// keeps both endpoints consistent.
+/// </summary>
+public sealed class CreateShiftCommandHandler : IRequestHandler<CreateShiftCommand, Result<Guid>>
 {
-    public sealed class CreateShiftCommandHandler :IRequestHandler<CreateShiftCommand, Result<ShiftId>>
+    private readonly IUnitOfWork _unitOfWork;
+    private readonly IDriverShiftService _driverShiftService;
+
+    public CreateShiftCommandHandler(
+        IUnitOfWork unitOfWork,
+        IDriverShiftService driverShiftService)
     {
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly IShiftRepository _shiftRepository;
-        public CreateShiftCommandHandler(IUnitOfWork unitOfWork, IShiftRepository shiftRepository)
-        {
-            _unitOfWork = unitOfWork;
-            _shiftRepository = shiftRepository;
-        }
-        public async Task<Result<ShiftId>> Handle(CreateShiftCommand request, CancellationToken cancellationToken)
-        {
-            var shift = Domain.Shifts.Shift.Create(request.driverId, request.Start, request.End);
-            if (shift.IsFailure) return Result<ShiftId>.Failure(shift.Error);
-            await _shiftRepository.AddAsync(shift.Value);
-            await _unitOfWork.CompleteAsync();
-            return shift.IsSuccess ? Result<ShiftId>.Success(shift.Value.Id) : Result<ShiftId>.Failure(shift.Error);
-        }
+        _unitOfWork = unitOfWork;
+        _driverShiftService = driverShiftService;
+    }
+
+    public async Task<Result<Guid>> Handle(CreateShiftCommand request, CancellationToken cancellationToken)
+    {
+        var result = await _driverShiftService.AssignDriverToShift(
+            new DriverId(request.DriverId), request.Start, request.End);
+
+        if (result.IsFailure)
+            return Result<Guid>.Failure(result.Error);
+
+        await _unitOfWork.CompleteAsync(cancellationToken);
+        return Result<Guid>.Success(result.Value.Id.Value);
     }
 }
