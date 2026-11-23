@@ -4,6 +4,7 @@ using Domain.Drivers.ValueObjects;
 using Domain.Shifts.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Infrastructure.Persistence.Configurations.Drivers;
 
@@ -45,10 +46,14 @@ public sealed class DriverConfiguration : IEntityTypeConfiguration<Driver>
         // -------------------------
         // Current shift (nullable VO, referenced by id only)
         // -------------------------
+        // ShiftId is a value type, so the converter is declared for the
+        // non-nullable type and EF Core passes nulls through untouched.
+        var shiftIdConverter = new ValueConverter<ShiftId, Guid>(
+            id => id.Value,
+            value => new ShiftId(value));
+
         builder.Property(d => d.CurrentShiftId)
-            .HasConversion(
-                id => id == null ? (Guid?)null : id.Value,
-                value => value == null ? null : new ShiftId(value.Value))
+            .HasConversion(shiftIdConverter)
             .IsRequired(false);
 
         // -------------------------

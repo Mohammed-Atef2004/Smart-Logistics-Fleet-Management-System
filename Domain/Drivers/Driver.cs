@@ -124,7 +124,7 @@ public sealed class Driver : AggregateRoot<DriverId>
         UpdatedAt = DateTime.UtcNow;
 
         if (previousShift is not null)
-            AddDomainEvent(new DriverShiftClearedEvent(Id, previousShift));
+            AddDomainEvent(new DriverShiftClearedEvent(Id, previousShift.Value));
 
         AddDomainEvent(new DriverTerminatedEvent(Id));
         return Result.Success();
@@ -137,7 +137,7 @@ public sealed class Driver : AggregateRoot<DriverId>
     /// </summary>
     public Result AssignShift(ShiftId shiftId)
     {
-        if (shiftId is null)
+        if (shiftId.IsEmpty)
             return Result.Failure(DriverErrors.InvalidShift);
 
         var active = CheckRule(new DriverMustBeActiveRule(Status));
@@ -171,8 +171,21 @@ public sealed class Driver : AggregateRoot<DriverId>
         CurrentShiftId = null;
         UpdatedAt = DateTime.UtcNow;
 
-        AddDomainEvent(new DriverShiftClearedEvent(Id, clearedShift));
+        AddDomainEvent(new DriverShiftClearedEvent(Id, clearedShift.Value));
         return Result.Success();
+    }
+
+    /// <summary>
+    /// Releases the given shift only when it is the driver's current one.
+    /// Idempotent by design: a stale event for another shift, or an event
+    /// arriving after the shift was already released, is not an error.
+    /// </summary>
+    public Result ReleaseShift(ShiftId shiftId)
+    {
+        if (CurrentShiftId is null || CurrentShiftId.Value != shiftId)
+            return Result.Success();
+
+        return ClearShift();
     }
 
     /// <summary>Records a trip rating and updates the running average.</summary>

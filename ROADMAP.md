@@ -370,14 +370,14 @@ Week 8:  المرحلة 6 (DevEx/Ops)  ←  ⏱️ أسبوع  →  CI + Docker 
 |---|---|---|
 | 1 | **Vehicle** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `vehicle-enhance` + PR |
 | 2 | **Driver** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `driver-enhance` + PR |
-| 3 | Shift | ⏳ |
+| 3 | **Shift** (Domain → Application → Infrastructure → API → Tests) | ✅ **خلصت** — branch `shift-enhance` + PR |
 | 4 | Shipment (+ Package) | ⏳ |
 | 5 | User/Security (مراجعة ثانية بعد جولة الـ auth) | ⏳ |
 | 6 | Inventory / Warehouse | ⏳ |
 | 7 | Claim / Invoice / Payment | ⏳ |
 | 8 | Audit / Notifications | ⏳ |
 
-> ملاحظة: جولة الـ Vehicle عالجت جزء من W1 (CS0108 في أحداث Vehicle + الـ audit props المكررة في `Vehicle` + تحويل `Entity<TId>` setters لـ protected)، وجولة الـ Driver كمّلت نفس النمط (أحداث Driver بقت payload properties مش `Id` + state machine واضح + Terminate). باقي W1 (أحداث Shift + `ValueObject.Equals` CS8765 + User/Shipment shadows) هيُعالج في جولات الموديولات الخاصة بيها أو في W1 المباشر لو سبقناها.
+> ملاحظة: جولة الـ Vehicle عالجت جزء من W1 (CS0108 في أحداث Vehicle + الـ audit props المكررة في `Vehicle` + تحويل `Entity<TId>` setters لـ protected)، وجولة الـ Driver كمّلت نفس النمط (أحداث Driver بقت payload properties مش `Id` + state machine واضح + Terminate)، وجولة الـ Shift قفلت ملف أحداث Shift كمان (كل event بقى `{ get; init; }` وبـ payload كامل). باقي W1 (`ValueObject.Equals` CS8765 + User/Shipment shadows) هيُعالج في جولات الموديولات الخاصة بيها أو في W1 المباشر لو سبقناها.
 
 ### جولة Driver — ملخص اللي اتعمل
 - **Domain:** `DriverStatus` بقى فيه الحالات الموصولة بس (`Active/Suspended/Terminated`)، `Terminate()` نهائي وبيحرر الـ shift، `ClearShift()` بيرجع `Result`، قواعد `Suspend/Reactivate` بقت محترمة، `Hire/UpdateLicense` بيتحققوا من الـ license + التفرد عبر `IDriverUniquenessChecker`، والـ rating بيرفض `NaN/Infinity`، والـ events كلها PascalCase ومش باسم `Id` (حل CS0108).
@@ -385,6 +385,13 @@ Week 8:  المرحلة 6 (DevEx/Ops)  ←  ⏱️ أسبوع  →  CI + Docker 
 - **Infrastructure:** `DriverConfiguration` بقى في namespace منظم بأطوال مطابقة للـ domain + query filter + index على `Status`، `DriverRepository.GetByIdAsync` tracked، و`DriverUniquenessChecker` جديد، وميجريشن `AlignDriverColumnLengths`.
 - **API:** `DriversController` واحد على `api/drivers`، الـ id من الـ route، 201 Created عند الـ hire، وvalidators/behaviors اتفعّلوا لأول مرة + `ValidationException` بترجع 400.
 - **Tests:** Domain (state machine + VO bounds + NaN + event naming guard) وApplication (handlers + mapping + cross-aggregate shift service).
+
+### جولة Shift — ملخص اللي اتعمل
+- **Domain:** اتشال الـ enum المكرر (`ShiftStatus` كان متعرّف مرتين، واحد جوه `Shift.cs` وواحد في `Enums/`)، الـ `ShiftId` بقى `readonly record struct` بـ `New()`/`IsEmpty`، والـ aggregate بقى state machine كامل (`Planned → Active → Completed` / `Planned → Cancelled` / `Active → Aborted`) مع `Reschedule` للشيفتات المخططة، ورفض النوافذ المقلوبة/الأطول من 24 ساعة، وتوحيد كل التواريخ على UTC، وتسجيل `StartedAtUtc`/`EndedAtUtc` الفعليين، وأحداث كاملة الـ payload (مش باسم `Id`).
+- **Application:** كل الـ handlers بترجع `Result` (بدل `throw new Exception`) وبتقرأ من `GetByIdAsync` tracked، و`CompleteShift` بقى بينادي `Complete()` فعلًا (كان بينادي `Cancel()`!) والملف اللي كان اسمه غلط اتصلح، وuse cases جديدة (`Abort`, `Reschedule`)، و`CreateShift` بقى بيمر على `IDriverShiftService` فبقى فيه مسار إنشاء واحد بيتحقق من الـ driver والـ overlap، والـ queries اتصلحت (كانت بتعمل `Map<Result<...>>` على `IQueryable` من غير `await`)، و`ShiftClosedEventHandler` جديد بيحرر `CurrentShiftId` بتاع السواق عند Complete/Cancel/Abort.
+- **Infrastructure:** `ShiftConfiguration` اتنقلت لـ `Configurations/Shift` بأطوال أعمدة مطابقة + query filter + `ValueGeneratedNever` + indexes على `(DriverId, Status)` و`(DriverId, ShiftStart)`، `ShiftRepository` اتنقل لـ `Repositories/Shift` وبقى فيه `GetByIdAsync` tracked و`ListAsync` مفلترة وoverlap بيستثني الـ Cancelled/Aborted والشيفت نفسه، وميجريشن `AlignShiftSchema` (أعمدة `StartedAtUtc`/`EndedAtUtc` + index جديد).
+- **API:** `ShiftsController` على `api/shifts`، الـ id من الـ route بـ `Guid` (الـ model binder ماكانش يعرف يبني `ShiftId`)، endpoints جديدة `abort` و`PUT /{id}` للـ reschedule، و`GET /` بفلاتر `driverId` و`status`.
+- **Tests:** Domain (كل انتقالات الـ state machine + النوافذ + UTC + الـ events + `ShiftId`)، وApplication (handlers لكل use case + overlap + queries + mapping + event handler بيحرر السواق).
 
 ## منهجية الفحص لكل موديول
 

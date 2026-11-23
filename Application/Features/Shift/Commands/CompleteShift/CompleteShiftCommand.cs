@@ -1,6 +1,4 @@
-﻿using Domain.Shifts.ValueObjects;
+﻿namespace Application.Features.Shift.Commands.CompleteShift;
 
-namespace Application.Features.Shift.Commands.CompleteShift
-{
-    public record CompleteShiftCommand(ShiftId ShiftId) : IRequest<Result>;
-}
+/// <summary>Completes an active shift. The id comes from the route.</summary>
+public record CompleteShiftCommand(Guid ShiftId) : IRequest<Result>;

@@ -19,6 +19,8 @@ public sealed class DriverProfile : Profile
             .ForCtorParam(nameof(DriverDto.LicenseExpiryDate), opt => opt.MapFrom(src => src.License.ExpiryDate))
             .ForCtorParam(nameof(DriverDto.LicenseCategory), opt => opt.MapFrom(src => src.License.Category))
             .ForCtorParam(nameof(DriverDto.CurrentShiftId),
-                opt => opt.MapFrom(src => src.CurrentShiftId != null ? src.CurrentShiftId.Value : (Guid?)null));
+                opt => opt.MapFrom(src => src.CurrentShiftId.HasValue
+                    ? src.CurrentShiftId.Value.Value
+                    : (Guid?)null));
     }
 }

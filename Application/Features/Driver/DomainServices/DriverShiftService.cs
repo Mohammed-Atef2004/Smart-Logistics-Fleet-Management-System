@@ -4,15 +4,13 @@ using Domain.Drivers.Errors;
 using Domain.Drivers.ValueObjects;
 using Domain.SharedKernel;
 using Domain.Shifts;
+using Domain.Shifts.Errors;
 using ShiftAggregate = Domain.Shifts.Shift;
 
 namespace Application.Features.Driver.DomainServices;
 
 public sealed class DriverShiftService : IDriverShiftService
 {
-    private static readonly Error ShiftOverlap =
-        new("Shift.Overlap", "Driver already has an overlapping shift.");
-
     private readonly IDriverRepository _drivers;
     private readonly IShiftRepository _shifts;
 
@@ -44,7 +42,7 @@ public sealed class DriverShiftService : IDriverShiftService
             return Result<ShiftAggregate>.Failure(DriverErrors.AlreadyInShift);
 
         if (await _shifts.HasOverlappingShift(driverId, start, end))
-            return Result<ShiftAggregate>.Failure(ShiftOverlap);
+            return Result<ShiftAggregate>.Failure(ShiftErrors.Overlap);
 
         var shiftResult = ShiftAggregate.Create(driverId, start, end);
         if (shiftResult.IsFailure)
