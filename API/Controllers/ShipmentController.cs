@@ -1,4 +1,4 @@
-﻿using Application.Features.Shipment.Commands.AddPackage;
+using Application.Features.Shipment.Commands.AddPackage;
 using Application.Features.Shipment.Commands.AddRoutePoint;
 using Application.Features.Shipment.Commands.AssignCarrier;
 using Application.Features.Shipment.Commands.Cancel;
@@ -12,130 +12,234 @@ using Application.Features.Shipment.Queries.GetAll;
 using Application.Features.Shipment.Queries.GetById;
 using Application.Features.Shipment.Queries.GetPackages;
 using Domain.Shipments.Enums;
-using Domain.Shipments.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers;
 
-[Route("api/[controller]")]
+/// <summary>
+/// Shipment endpoints. The shipment id always comes from the route and is
+/// injected into the command - the old actions bound <c>ShipmentId</c>
+/// straight from the route, which the model binder cannot construct, and
+/// ignored the route id for most commands.
+/// </summary>
 [ApiController]
-public class ShipmentsController : ApiController
+[Route("api/shipments")]
+public sealed class ShipmentsController : ApiController
 {
     public ShipmentsController(ISender sender) : base(sender)
     {
     }
 
-    // ─── Get all shipments ─────────────────────────────
     [HttpGet]
-    public async Task<IActionResult> GetShipments(CancellationToken ct)
+    public async Task<IActionResult> GetAll(
+        [FromQuery] ShipmentStatus? status,
+        CancellationToken ct)
     {
-        var query = new GetAllShipmentsQuery();
-        var result = await _sender.Send(query, ct);
-
+        var result = await _sender.Send(new GetAllShipmentsQuery(status), ct);
         return result.IsSuccess ? Ok(result.Value) : HandleFailure(result);
     }
 
-    // ─── Get shipment details ──────────────────────────
-    [HttpGet("{id:guid}")]
-    public async Task<IActionResult> GetShipmentDetails([FromRoute] ShipmentId id, CancellationToken ct)
+    [HttpGet("{shipmentId:guid}")]
+    public async Task<IActionResult> GetById(Guid shipmentId, CancellationToken ct)
     {
-        var query = new GetShipmentByIdQuery(id);
-        var result = await _sender.Send(query, ct);
-
+        var result = await _sender.Send(new GetShipmentByIdQuery(shipmentId), ct);
         return result.IsSuccess ? Ok(result.Value) : HandleFailure(result);
     }
 
-    // ─── Get Packages ──────────────────────────────────
-    [HttpGet("{id:guid}/packages")]
-    public async Task<IActionResult> GetShipmentPackages([FromRoute] ShipmentId id, CancellationToken ct)
+    [HttpGet("{shipmentId:guid}/packages")]
+    public async Task<IActionResult> GetPackages(Guid shipmentId, CancellationToken ct)
     {
-        var query = new GetShipmentPackagesQuery(id);
-        var result = await _sender.Send(query, ct);
-
+        var result = await _sender.Send(new GetShipmentPackagesQuery(shipmentId), ct);
         return result.IsSuccess ? Ok(result.Value) : HandleFailure(result);
     }
 
-    // ─── Create new shipment ───────────────────────────
     [HttpPost]
-    public async Task<IActionResult> CreateShipment([FromBody] CreateShipmentCommand command, CancellationToken ct)
+    public async Task<IActionResult> Create(
+        [FromBody] CreateShipmentCommand command,
+        CancellationToken ct)
     {
         var result = await _sender.Send(command, ct);
-        return result.IsSuccess ? Ok(result.Value) : HandleFailure(result);
+
+        if (result.IsFailure)
+            return HandleFailure(result);
+
+        return CreatedAtAction(nameof(GetById), new { shipmentId = result.Value }, result.Value);
     }
 
-    // ─── Add package ───────────────────────────────────
-    [HttpPost("{id:guid}/packages")]
-    public async Task<IActionResult> AddPackage([FromRoute] ShipmentId id, [FromBody] AddPackageCommand command, CancellationToken ct)
+    [HttpPost("{shipmentId:guid}/packages")]
+    public async Task<IActionResult> AddPackage(
+        Guid shipmentId,
+        [FromBody] AddPackageRequest request,
+        CancellationToken ct)
     {
-        // NOTE: if the command carries the Id, prefer setting it here before sending
+        var command = new AddPackageCommand(
+            shipmentId,
+            request.Description,
+            request.WeightValue,
+            request.WeightUnit,
+            request.Length,
+            request.Width,
+            request.Height,
+            request.DimensionUnit,
+            request.Category,
+            request.IsFragile,
+            request.RequiresRefrigeration,
+            request.DeclaredValue,
+            request.Currency);
+
         var result = await _sender.Send(command, ct);
-        return result.IsSuccess ? Ok(result.Value) : HandleFailure(result);
+
+        if (result.IsFailure)
+            return HandleFailure(result);
+
+        return CreatedAtAction(nameof(GetById), new { shipmentId }, result.Value);
     }
 
-    // ─── Assign carrier ────────────────────────────────
-    [HttpPost("{id:guid}/assign-carrier")]
-    public async Task<IActionResult> AssignCarrier([FromRoute] ShipmentId id, [FromBody] AssignCarrierCommand command, CancellationToken ct)
+    [HttpPost("{shipmentId:guid}/assign-carrier")]
+    public async Task<IActionResult> AssignCarrier(
+        Guid shipmentId,
+        [FromBody] AssignCarrierRequest request,
+        CancellationToken ct)
     {
+        var command = new AssignCarrierCommand(
+            shipmentId, request.CarrierName, request.EstimatedDeliveryDate);
+
         var result = await _sender.Send(command, ct);
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 
-    // ─── Dispatch shipment ─────────────────────────────
-    [HttpPost("{id:guid}/dispatch")]
-    public async Task<IActionResult> DispatchShipment([FromRoute] ShipmentId id, CancellationToken ct)
+    [HttpPost("{shipmentId:guid}/dispatch")]
+    public async Task<IActionResult> Dispatch(Guid shipmentId, CancellationToken ct)
     {
-        var command = new DispatchCommand(id);
+        var result = await _sender.Send(new DispatchCommand(shipmentId), ct);
+        return result.IsSuccess ? Ok() : HandleFailure(result);
+    }
+
+    [HttpPost("{shipmentId:guid}/deliver")]
+    public async Task<IActionResult> MarkDelivered(
+        Guid shipmentId,
+        [FromBody] MarkDeliveredRequest request,
+        CancellationToken ct)
+    {
+        var command = new MarkShipmentDeliveredCommand(
+            shipmentId, request.DeliveredAt, request.ReceivedBy);
+
         var result = await _sender.Send(command, ct);
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 
-    // ─── Mark as delivered ─────────────────────────────
-    [HttpPost("{id:guid}/deliver")]
-    public async Task<IActionResult> MarkDelivered([FromRoute] ShipmentId id, [FromBody] MarkShipmentDeliveredCommand command, CancellationToken ct)
+    [HttpPost("{shipmentId:guid}/delivery-failed")]
+    public async Task<IActionResult> MarkDeliveryFailed(
+        Guid shipmentId,
+        [FromBody] MarkDeliveryFailedRequest request,
+        CancellationToken ct)
     {
+        var command = new MarkShipmentDeliveryFailedCommand(shipmentId, request.Reason);
+
         var result = await _sender.Send(command, ct);
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 
-    // ─── Mark delivery failed ──────────────────────────
-    [HttpPost("{id:guid}/delivery-failed")]
-    public async Task<IActionResult> MarkDeliveryFailed([FromRoute] ShipmentId id, [FromBody] MarkShipmentDeliveryFailedCommand command, CancellationToken ct)
+    [HttpPost("{shipmentId:guid}/cancel")]
+    public async Task<IActionResult> Cancel(
+        Guid shipmentId,
+        [FromBody] CancelShipmentRequest request,
+        CancellationToken ct)
     {
+        var command = new CancelShipmentCommand(shipmentId, request.Reason, request.CancelledBy);
+
         var result = await _sender.Send(command, ct);
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 
-    // ─── Cancel shipment ───────────────────────────────
-    [HttpPost("{id:guid}/cancel")]
-    public async Task<IActionResult> CancelShipment([FromRoute] ShipmentId id, [FromBody] CancelShipmentCommand command, CancellationToken ct)
+    [HttpPatch("{shipmentId:guid}/address")]
+    public async Task<IActionResult> UpdateDeliveryAddress(
+        Guid shipmentId,
+        [FromBody] UpdateShipmentAddressRequest request,
+        CancellationToken ct)
     {
+        var command = new UpdateShipmentDeliveryAddressCommand(
+            shipmentId,
+            request.Street,
+            request.City,
+            request.State,
+            request.ZipCode,
+            request.Country,
+            request.ApartmentUnit);
+
         var result = await _sender.Send(command, ct);
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 
-    // ─── Update delivery address ───────────────────────
-    [HttpPatch("{id:guid}/update-address")]
-    public async Task<IActionResult> UpdateDeliveryAddress([FromRoute] ShipmentId id, [FromBody] UpdateShipmentDeliveryAddressCommand command, CancellationToken ct)
+    [HttpPost("{shipmentId:guid}/route-points")]
+    public async Task<IActionResult> AddRoutePoint(
+        Guid shipmentId,
+        [FromBody] AddRoutePointRequest request,
+        CancellationToken ct)
     {
+        var command = new AddRoutePointCommand(
+            shipmentId,
+            request.Location,
+            request.Description,
+            request.ArrivedAt,
+            request.Type);
+
         var result = await _sender.Send(command, ct);
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 
-    // ─── Add route point ───────────────────────────────
-    [HttpPost("{id:guid}/route-points")]
-    public async Task<IActionResult> AddRoutePoint([FromRoute] ShipmentId id, [FromBody] AddRoutePointCommand command, CancellationToken ct)
+    [HttpDelete("{shipmentId:guid}/packages/{packageId:guid}")]
+    public async Task<IActionResult> RemovePackage(
+        Guid shipmentId,
+        Guid packageId,
+        CancellationToken ct)
     {
-        var result = await _sender.Send(command, ct);
-        return result.IsSuccess ? Ok() : HandleFailure(result);
-    }
-
-    // ─── Remove package ────────────────────────────────
-    [HttpDelete("{id:guid}/packages/{packageId:guid}")]
-    public async Task<IActionResult> RemovePackage([FromRoute] ShipmentId id, [FromRoute] PackageId packageId, CancellationToken ct)
-    {
-        var command = new RemovePackageCommand(id, packageId);
-        var result = await _sender.Send(command, ct);
+        var result = await _sender.Send(new RemovePackageCommand(shipmentId, packageId), ct);
         return result.IsSuccess ? Ok() : HandleFailure(result);
     }
 }
+
+#region Request DTOs
+
+public sealed record AddPackageRequest(
+    string Description,
+    decimal WeightValue,
+    WeightUnit WeightUnit,
+    decimal Length,
+    decimal Width,
+    decimal Height,
+    DimensionUnit DimensionUnit,
+    string? Category = null,
+    bool IsFragile = false,
+    bool RequiresRefrigeration = false,
+    decimal DeclaredValue = 0,
+    string Currency = "USD");
+
+public sealed record AssignCarrierRequest(
+    string CarrierName,
+    DateTime? EstimatedDeliveryDate = null);
+
+public sealed record MarkDeliveredRequest(
+    DateTime DeliveredAt,
+    string? ReceivedBy = null);
+
+public sealed record MarkDeliveryFailedRequest(string Reason);
+
+public sealed record CancelShipmentRequest(string Reason, string CancelledBy);
+
+public sealed record UpdateShipmentAddressRequest(
+    string Street,
+    string City,
+    string State,
+    string ZipCode,
+    string Country,
+    string? ApartmentUnit = null);
+
+public sealed record AddRoutePointRequest(
+    string Location,
+    string Description,
+    DateTime ArrivedAt,
+    RoutePointType Type);
+
+#endregion
