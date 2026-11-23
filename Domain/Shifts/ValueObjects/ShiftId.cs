@@ -1,29 +1,17 @@
-﻿namespace Domain.Shifts.ValueObjects
+﻿namespace Domain.Shifts.ValueObjects;
+
+/// <summary>
+/// Strongly-typed identifier for the Shift aggregate.
+/// A record struct (like <c>DriverId</c> and <c>VehicleId</c>) is
+/// allocation-free, gives value equality for free, and never throws on
+/// materialization - an empty id is reported through <see cref="IsEmpty"/>
+/// and rejected by the aggregate that consumes it.
+/// </summary>
+public readonly record struct ShiftId(Guid Value)
 {
-    public sealed class ShiftId : IEquatable<ShiftId>
-    {
-        public Guid Value { get; }
+    public static ShiftId New() => new(Guid.NewGuid());
 
-        private ShiftId() { } // EF Core
+    public bool IsEmpty => Value == Guid.Empty;
 
-        public ShiftId(Guid value)
-        {
-            if (value == Guid.Empty)
-                throw new ArgumentException("ShiftId cannot be empty");
-
-            Value = value;
-        }
-
-        public static ShiftId New() => new(Guid.NewGuid());
-
-        public override bool Equals(object? obj)
-            => obj is ShiftId other && Value.Equals(other.Value);
-
-        public bool Equals(ShiftId? other)
-            => other is not null && Value.Equals(other.Value);
-
-        public override int GetHashCode() => Value.GetHashCode();
-
-        public override string ToString() => Value.ToString();
-    }
+    public override string ToString() => Value.ToString();
 }
