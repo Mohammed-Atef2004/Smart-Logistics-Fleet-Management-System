@@ -3,11 +3,10 @@ using Application.Tests.Fakes;
 using Domain.Drivers.Enums;
 using Domain.Drivers.Errors;
 using Domain.Drivers.ValueObjects;
-using Domain.Shifts;
-using Domain.Shifts.ValueObjects;
+using Domain.Shifts.Errors;
 using FluentAssertions;
-using ShiftAggregate = Domain.Shifts.Shift;
 using DriverAggregate = Domain.Drivers.Driver;
+using ShiftAggregate = Domain.Shifts.Shift;
 
 namespace Application.Tests.Features.Driver;
 
@@ -18,32 +17,6 @@ namespace Application.Tests.Features.Driver;
 /// </summary>
 public class DriverShiftServiceTests
 {
-    private sealed class FakeShiftRepository : IShiftRepository
-    {
-        private readonly List<ShiftAggregate> _shifts = [];
-        private readonly bool _hasOverlap;
-
-        public FakeShiftRepository(bool hasOverlap = false) => _hasOverlap = hasOverlap;
-
-        public List<ShiftAggregate> Added { get; } = [];
-
-        public IQueryable<ShiftAggregate> EntityQuery => _shifts.AsQueryable();
-
-        public Task AddAsync(ShiftAggregate entity)
-        {
-            _shifts.Add(entity);
-            Added.Add(entity);
-            return Task.CompletedTask;
-        }
-
-        public void Update(ShiftAggregate entity) { }
-
-        public Task<bool> HasActiveShift(DriverId driverId) => Task.FromResult(false);
-
-        public Task<bool> HasOverlappingShift(DriverId driverId, DateTime start, DateTime end)
-            => Task.FromResult(_hasOverlap);
-    }
-
     private static (DriverShiftService service, FakeDriverRepository repo, FakeShiftRepository shifts, DriverAggregate driver)
         Build(DriverStatus status = DriverStatus.Active, bool hasOverlap = false)
     {
@@ -57,7 +30,13 @@ public class DriverShiftServiceTests
 
         repo.AddAsync(driver).Wait();
 
-        var shifts = new FakeShiftRepository(hasOverlap);
+        var shifts = new FakeShiftRepository();
+        if (hasOverlap)
+        {
+            var start = DateTime.UtcNow.AddHours(1);
+            shifts.Seed(ShiftAggregate.Create(driver.Id, start, start.AddHours(2)).Value);
+        }
+
         return (new DriverShiftService(repo, shifts), repo, shifts, driver);
     }
 
@@ -111,7 +90,7 @@ public class DriverShiftServiceTests
             driver.Id, DateTime.UtcNow.AddHours(1), DateTime.UtcNow.AddHours(5));
 
         result.IsFailure.Should().BeTrue();
-        result.Error.Code.Should().Be("Shift.Overlap");
+        result.Error.Should().Be(ShiftErrors.Overlap);
         shifts.Added.Should().BeEmpty();
         driver.CurrentShiftId.Should().BeNull();
     }

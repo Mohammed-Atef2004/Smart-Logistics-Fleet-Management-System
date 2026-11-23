@@ -242,11 +242,11 @@ public class DriverTests
     }
 
     [Fact]
-    public void AssignShift_Should_Fail_When_ShiftId_Is_Null()
+    public void AssignShift_Should_Fail_When_ShiftId_Is_Empty()
     {
         var driver = HiredDriver();
 
-        var result = driver.AssignShift(null!);
+        var result = driver.AssignShift(default);
 
         result.IsFailure.Should().BeTrue();
         result.Error.Should().Be(DriverErrors.InvalidShift);
